@@ -1,0 +1,149 @@
+{
+  "fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ],
+  "invoices": [
+    {
+      "id": "01-northline",
+      "file": "fixtures/01-northline.pdf",
+      "supplier": "Northline Supply Co.",
+      "invoice_number": "NL-10442",
+      "invoice_date": "2026-02-03",
+      "due_date": "2026-03-05",
+      "subtotal": "1260.00",
+      "tax": "100.80",
+      "total": "1360.80",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "02-harbor-paper",
+      "file": "fixtures/02-harbor-paper.pdf",
+      "supplier": "Harbor Paper Ltd.",
+      "invoice_number": "HP-8831",
+      "invoice_date": "2026-01-15",
+      "due_date": "2026-02-14",
+      "subtotal": "502.00",
+      "tax": "40.16",
+      "total": "542.16",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "03-keel-electric",
+      "file": "fixtures/03-keel-electric.pdf",
+      "supplier": "Keel Electric",
+      "invoice_number": "KE-2207",
+      "invoice_date": "2026-04-02",
+      "due_date": "2026-04-17",
+      "subtotal": "234.00",
+      "tax": "0.00",
+      "total": "234.00",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "04-brightwater",
+      "file": "fixtures/04-brightwater.pdf",
+      "supplier": "Brightwater Janitorial",
+      "invoice_number": "BW-551",
+      "invoice_date": "2026-03-01",
+      "due_date": "2026-03-31",
+      "subtotal": "890.00",
+      "tax": "71.20",
+      "total": "961.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "05-cedar-rye",
+      "file": "fixtures/05-cedar-rye.pdf",
+      "supplier": "Cedar & Rye Packaging",
+      "invoice_number": "CR-77821",
+      "invoice_date": "2026-05-19",
+      "due_date": "2026-06-18",
+      "subtotal": "565.00",
+      "tax": "45.20",
+      "total": "610.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "06-motspur",
+      "file": "fixtures/06-motspur.pdf",
+      "supplier": "Motspur Tools",
+      "invoice_number": "MT-3190",
+      "invoice_date": "2026-06-08",
+      "due_date": "2026-07-08",
+      "subtotal": "309.00",
+      "tax": "24.72",
+      "total": "333.72",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "07-fieldstone",
+      "file": "fixtures/07-fieldstone.pdf",
+      "supplier": "Fieldstone Fuel",
+      "invoice_number": "FF-10094",
+      "invoice_date": "2026-02-27",
+      "due_date": "2026-03-13",
+      "subtotal": "1380.00",
+      "tax": "110.40",
+      "total": "1490.40",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "08-westwind",
+      "file": "fixtures/08-westwind.pdf",
+      "supplier": "Westwind Chemicals",
+      "invoice_number": "WW-642",
+      "invoice_date": "2026-07-09",
+      "due_date": null,
+      "subtotal": "450.00",
+      "tax": "36.00",
+      "total": "486.00",
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "09-oak-street",
+      "file": "fixtures/09-oak-street.pdf",
+      "supplier": "Oak Street Lumber",
+      "invoice_number": "OSL-2088",
+      "invoice_date": "2026-03-12",
+      "due_date": "2026-03-01",
+      "subtotal": "820.00",
+      "tax": "65.60",
+      "total": "885.60",
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "10-pinion",
+      "file": "fixtures/10-pinion.pdf",
+      "supplier": "Pinion Parts",
+      "invoice_number": "PP-4471",
+      "invoice_date": "2026-08-21",
+      "due_date": "2026-09-20",
+      "subtotal": "480.00",
+      "tax": "38.40",
+      "total": "500.00",
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ]
+    }
+  ]
+}

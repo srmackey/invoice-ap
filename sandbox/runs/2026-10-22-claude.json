@@ -1,0 +1,391 @@
+{
+  "runner": "claude",
+  "date": "2026-10-22",
+  "invoices": 10,
+  "field_accuracy": "70/70",
+  "straight_through": "7/10",
+  "time_per_invoice_seconds": 8.3,
+  "elapsed_seconds": 82.6,
+  "time_includes": "starting the CLI and the model call for each invoice, one at a time",
+  "models": [
+    "claude-sonnet-4-6"
+  ],
+  "results": [
+    {
+      "id": "01-northline",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.4,
+      "fields": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "read": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "02-harbor-paper",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.5,
+      "fields": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "502.00",
+        "tax": "40.16",
+        "total": "542.16"
+      },
+      "read": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "502.00",
+        "tax": "40.16",
+        "total": "542.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "03-keel-electric",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.5,
+      "fields": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": "234.00",
+        "tax": "0.00",
+        "total": "234.00"
+      },
+      "read": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": "234.00",
+        "tax": "0.00",
+        "total": "234.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "04-brightwater",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.9,
+      "fields": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": "890.00",
+        "tax": "71.20",
+        "total": "961.20"
+      },
+      "read": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": "890.00",
+        "tax": "71.20",
+        "total": "961.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "05-cedar-rye",
+      "model": "claude-sonnet-4-6",
+      "seconds": 8.7,
+      "fields": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "565.00",
+        "tax": "45.20",
+        "total": "610.20"
+      },
+      "read": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "565.00",
+        "tax": "45.20",
+        "total": "610.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "06-motspur",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.6,
+      "fields": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "2026-06-08",
+        "due_date": "2026-07-08",
+        "subtotal": "309.00",
+        "tax": "24.72",
+        "total": "333.72"
+      },
+      "read": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "2026-06-08",
+        "due_date": "2026-07-08",
+        "subtotal": "309.00",
+        "tax": "24.72",
+        "total": "333.72"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "07-fieldstone",
+      "model": "claude-sonnet-4-6",
+      "seconds": 8.4,
+      "fields": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "2026-02-27",
+        "due_date": "2026-03-13",
+        "subtotal": "1380.00",
+        "tax": "110.40",
+        "total": "1490.40"
+      },
+      "read": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "2026-02-27",
+        "due_date": "2026-03-13",
+        "subtotal": "1380.00",
+        "tax": "110.40",
+        "total": "1490.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "08-westwind",
+      "model": "claude-sonnet-4-6",
+      "seconds": 7.8,
+      "fields": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "2026-07-09",
+        "due_date": null,
+        "subtotal": "450.00",
+        "tax": "36.00",
+        "total": "486.00"
+      },
+      "read": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "2026-07-09",
+        "due_date": null,
+        "subtotal": "450.00",
+        "tax": "36.00",
+        "total": "486.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "09-oak-street",
+      "model": "claude-sonnet-4-6",
+      "seconds": 10.1,
+      "fields": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-03-01",
+        "subtotal": "820.00",
+        "tax": "65.60",
+        "total": "885.60"
+      },
+      "read": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-03-01",
+        "subtotal": "820.00",
+        "tax": "65.60",
+        "total": "885.60"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "10-pinion",
+      "model": "claude-sonnet-4-6",
+      "seconds": 9.7,
+      "fields": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "2026-08-21",
+        "due_date": "2026-09-20",
+        "subtotal": "480.00",
+        "tax": "38.40",
+        "total": "500.00"
+      },
+      "read": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "2026-08-21",
+        "due_date": "2026-09-20",
+        "subtotal": "480.00",
+        "tax": "38.40",
+        "total": "500.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "runner": "ollama",
+  "date": "2026-10-22",
+  "invoices": 10,
+  "field_accuracy": "30/70",
+  "straight_through": "3/10",
+  "time_per_invoice_seconds": 396.2,
+  "elapsed_seconds": 3962.5,
+  "time_includes": "rendering the page and the local Ollama call for each invoice, one at a time",
+  "models": [
+    "qwen3-vl:8b"
+  ],
+  "results": [
+    {
+      "id": "01-northline",
+      "model": "qwen3-vl:8b",
+      "seconds": 67.6,
+      "fields": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": ">$1,260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "read": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "02-harbor-paper",
+      "model": "qwen3-vl:8b",
+      "seconds": 255.4,
+      "fields": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "$502.00",
+        "tax": "$40.16",
+        "total": "$542.16"
+      },
+      "read": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "502.00",
+        "tax": "40.16",
+        "total": "542.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "03-keel-electric",
+      "model": "qwen3-vl:8b",
+      "seconds": 160.5,
+      "fields": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": "",
+        "tax": "",
+        "total": ""
+      },
+      "read": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "04-brightwater",
+      "model": "qwen3-vl:8b",
+      "seconds": 157.0,
+      "fields": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": "",
+        "tax": "",
+        "total": ""
+      },
+      "read": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "05-cedar-rye",
+      "model": "qwen3-vl:8b",
+      "seconds": 321.7,
+      "fields": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "$565.00",
+        "tax": "$45.20",
+        "total": "$610.20"
+      },
+      "read": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "565.00",
+        "tax": "45.20",
+        "total": "610.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "06-motspur",
+      "model": "qwen3-vl:8b",
+      "seconds": 600.1,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": false,
+      "error": "timed out after 600s"
+    },
+    {
+      "id": "07-fieldstone",
+      "model": "qwen3-vl:8b",
+      "seconds": 600.1,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": false,
+      "error": "timed out after 600s"
+    },
+    {
+      "id": "08-westwind",
+      "model": "qwen3-vl:8b",
+      "seconds": 600.1,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": true,
+      "error": "timed out after 600s"
+    },
+    {
+      "id": "09-oak-street",
+      "model": "qwen3-vl:8b",
+      "seconds": 600.1,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": true,
+      "error": "timed out after 600s"
+    },
+    {
+      "id": "10-pinion",
+      "model": "qwen3-vl:8b",
+      "seconds": 600.1,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "label_exception": true,
+      "error": "timed out after 600s"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Docling Serve for local invoice-ap development.
+# CPU image, pinned to the 2026-10-22 release. API and UI stay on this machine.
+#
+# Start: docker compose up -d
+# Stop:  docker compose down
+# API:   http://127.0.0.1:5001
+# Docs:  http://127.0.0.1:5001/docs
+# UI:    http://127.0.0.1:5001/ui
+
+services:
+  docling-serve:
+    image: quay.io/docling-project/docling-serve-cpu:v1.38.0
+    container_name: invoice-ap-docling
+    ports:
+      - "127.0.0.1:5001:5001"
+    environment:
+      DOCLING_SERVE_ENABLE_UI: "1"
+    restart: unless-stopped

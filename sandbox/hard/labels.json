@@ -1,0 +1,343 @@
+{
+  "fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ],
+  "invoices": [
+    {
+      "id": "scan-01-northline",
+      "file": "hard/scans/scan-01-northline.pdf",
+      "supplier": "Northline Supply Co.",
+      "invoice_number": "NL-10442",
+      "invoice_date": "2026-02-03",
+      "due_date": "2026-03-05",
+      "subtotal": "1260.00",
+      "tax": "100.80",
+      "total": "1360.80",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-01-northline",
+      "file": "hard/photos/photo-01-northline.pdf",
+      "supplier": "Northline Supply Co.",
+      "invoice_number": "NL-10442",
+      "invoice_date": "2026-02-03",
+      "due_date": "2026-03-05",
+      "subtotal": "1260.00",
+      "tax": "100.80",
+      "total": "1360.80",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-02-harbor-paper",
+      "file": "hard/scans/scan-02-harbor-paper.pdf",
+      "supplier": "Harbor Paper Ltd.",
+      "invoice_number": "HP-8831",
+      "invoice_date": "2026-01-15",
+      "due_date": "2026-02-14",
+      "subtotal": "502.00",
+      "tax": "40.16",
+      "total": "542.16",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-02-harbor-paper",
+      "file": "hard/photos/photo-02-harbor-paper.pdf",
+      "supplier": "Harbor Paper Ltd.",
+      "invoice_number": "HP-8831",
+      "invoice_date": "2026-01-15",
+      "due_date": "2026-02-14",
+      "subtotal": "502.00",
+      "tax": "40.16",
+      "total": "542.16",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-03-keel-electric",
+      "file": "hard/scans/scan-03-keel-electric.pdf",
+      "supplier": "Keel Electric",
+      "invoice_number": "KE-2207",
+      "invoice_date": "2026-04-02",
+      "due_date": "2026-04-17",
+      "subtotal": "234.00",
+      "tax": "0.00",
+      "total": "234.00",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-03-keel-electric",
+      "file": "hard/photos/photo-03-keel-electric.pdf",
+      "supplier": "Keel Electric",
+      "invoice_number": "KE-2207",
+      "invoice_date": "2026-04-02",
+      "due_date": "2026-04-17",
+      "subtotal": "234.00",
+      "tax": "0.00",
+      "total": "234.00",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-04-brightwater",
+      "file": "hard/scans/scan-04-brightwater.pdf",
+      "supplier": "Brightwater Janitorial",
+      "invoice_number": "BW-551",
+      "invoice_date": "2026-03-01",
+      "due_date": "2026-03-31",
+      "subtotal": "890.00",
+      "tax": "71.20",
+      "total": "961.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-04-brightwater",
+      "file": "hard/photos/photo-04-brightwater.pdf",
+      "supplier": "Brightwater Janitorial",
+      "invoice_number": "BW-551",
+      "invoice_date": "2026-03-01",
+      "due_date": "2026-03-31",
+      "subtotal": "890.00",
+      "tax": "71.20",
+      "total": "961.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-05-cedar-rye",
+      "file": "hard/scans/scan-05-cedar-rye.pdf",
+      "supplier": "Cedar & Rye Packaging",
+      "invoice_number": "CR-77821",
+      "invoice_date": "2026-05-19",
+      "due_date": "2026-06-18",
+      "subtotal": "565.00",
+      "tax": "45.20",
+      "total": "610.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-05-cedar-rye",
+      "file": "hard/photos/photo-05-cedar-rye.pdf",
+      "supplier": "Cedar & Rye Packaging",
+      "invoice_number": "CR-77821",
+      "invoice_date": "2026-05-19",
+      "due_date": "2026-06-18",
+      "subtotal": "565.00",
+      "tax": "45.20",
+      "total": "610.20",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-06-motspur",
+      "file": "hard/scans/scan-06-motspur.pdf",
+      "supplier": "Motspur Tools",
+      "invoice_number": "MT-3190",
+      "invoice_date": "2026-06-08",
+      "due_date": "2026-07-08",
+      "subtotal": "309.00",
+      "tax": "24.72",
+      "total": "333.72",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-06-motspur",
+      "file": "hard/photos/photo-06-motspur.pdf",
+      "supplier": "Motspur Tools",
+      "invoice_number": "MT-3190",
+      "invoice_date": "2026-06-08",
+      "due_date": "2026-07-08",
+      "subtotal": "309.00",
+      "tax": "24.72",
+      "total": "333.72",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-07-fieldstone",
+      "file": "hard/scans/scan-07-fieldstone.pdf",
+      "supplier": "Fieldstone Fuel",
+      "invoice_number": "FF-10094",
+      "invoice_date": "2026-02-27",
+      "due_date": "2026-03-13",
+      "subtotal": "1380.00",
+      "tax": "110.40",
+      "total": "1490.40",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "photo-07-fieldstone",
+      "file": "hard/photos/photo-07-fieldstone.pdf",
+      "supplier": "Fieldstone Fuel",
+      "invoice_number": "FF-10094",
+      "invoice_date": "2026-02-27",
+      "due_date": "2026-03-13",
+      "subtotal": "1380.00",
+      "tax": "110.40",
+      "total": "1490.40",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "scan-08-westwind",
+      "file": "hard/scans/scan-08-westwind.pdf",
+      "supplier": "Westwind Chemicals",
+      "invoice_number": "WW-642",
+      "invoice_date": "2026-07-09",
+      "due_date": null,
+      "subtotal": "450.00",
+      "tax": "36.00",
+      "total": "486.00",
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "photo-08-westwind",
+      "file": "hard/photos/photo-08-westwind.pdf",
+      "supplier": "Westwind Chemicals",
+      "invoice_number": "WW-642",
+      "invoice_date": "2026-07-09",
+      "due_date": null,
+      "subtotal": "450.00",
+      "tax": "36.00",
+      "total": "486.00",
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "scan-09-oak-street",
+      "file": "hard/scans/scan-09-oak-street.pdf",
+      "supplier": "Oak Street Lumber",
+      "invoice_number": "OSL-2088",
+      "invoice_date": "2026-03-12",
+      "due_date": "2026-03-01",
+      "subtotal": "820.00",
+      "tax": "65.60",
+      "total": "885.60",
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "photo-09-oak-street",
+      "file": "hard/photos/photo-09-oak-street.pdf",
+      "supplier": "Oak Street Lumber",
+      "invoice_number": "OSL-2088",
+      "invoice_date": "2026-03-12",
+      "due_date": "2026-03-01",
+      "subtotal": "820.00",
+      "tax": "65.60",
+      "total": "885.60",
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "scan-10-pinion",
+      "file": "hard/scans/scan-10-pinion.pdf",
+      "supplier": "Pinion Parts",
+      "invoice_number": "PP-4471",
+      "invoice_date": "2026-08-21",
+      "due_date": "2026-09-20",
+      "subtotal": "480.00",
+      "tax": "38.40",
+      "total": "500.00",
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "photo-10-pinion",
+      "file": "hard/photos/photo-10-pinion.pdf",
+      "supplier": "Pinion Parts",
+      "invoice_number": "PP-4471",
+      "invoice_date": "2026-08-21",
+      "due_date": "2026-09-20",
+      "subtotal": "480.00",
+      "tax": "38.40",
+      "total": "500.00",
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "odd-lumen",
+      "file": "hard/odd/odd-lumen.pdf",
+      "supplier": "Lumen Glassworks",
+      "invoice_number": "LG-1904",
+      "invoice_date": "2026-06-02",
+      "due_date": "2026-07-02",
+      "subtotal": "369.00",
+      "tax": "29.52",
+      "total": "398.52",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "odd-marrow",
+      "file": "hard/odd/odd-marrow.pdf",
+      "supplier": "Marrow Freight",
+      "invoice_number": "MF-6620",
+      "invoice_date": "2026-07-11",
+      "due_date": null,
+      "subtotal": "225.00",
+      "tax": "18.00",
+      "total": "243.00",
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "odd-sable",
+      "file": "hard/odd/odd-sable.pdf",
+      "supplier": "Sable Print Shop",
+      "invoice_number": "SP-44",
+      "invoice_date": "2026-08-20",
+      "due_date": "2026-08-01",
+      "subtotal": "640.00",
+      "tax": "0.00",
+      "total": "640.00",
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "odd-quarry",
+      "file": "hard/odd/odd-quarry.pdf",
+      "supplier": "Quarry Salt Co.",
+      "invoice_number": "QS-3188",
+      "invoice_date": "2026-09-04",
+      "due_date": "2026-10-04",
+      "subtotal": "420.00",
+      "tax": "33.60",
+      "total": "430.00",
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ]
+    }
+  ]
+}
