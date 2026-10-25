@@ -38,4 +38,4 @@ Open `http://127.0.0.1:8765`. The page lists those records, opens one, and shows
 
 ## Release
 
-No release is cut. The install above is how another computer runs the page and one PDF. A clean start, Docling down and back up, is still open.
+No release is cut. The install above is how another computer runs the page and one PDF. A clean start on this machine brought Docling down and back up, read one PDF, and the page showed that read.
