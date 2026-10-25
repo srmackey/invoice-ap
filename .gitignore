@@ -1,3 +1,4 @@
 # Local environments, caches, and the command's read log.
 sandbox/.venv/
 __pycache__/
+reads/
