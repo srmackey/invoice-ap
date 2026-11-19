@@ -13,6 +13,8 @@ Usage:
   python score.py --runner ollama
   python score.py --runner ollama --model qwen3-vl:8b --only 01-northline
   python score.py --runner docling --only 01-northline
+  python score.py --runner docling --gate
+  python score.py --runner docling --labels hard/labels.json --gate
 """
 
 from __future__ import annotations
@@ -367,6 +369,40 @@ def score_invoice(runner: str, row: dict, socket: Path, model: str | None = None
         shutil.rmtree(work, ignore_errors=True)
 
 
+def gate_misses(invoices: list[dict]) -> list[str]:
+    """Ids that would fail a build: a wrong field, or an exception that
+    does not match the label. An empty run fails too."""
+    if not invoices:
+        return ["no invoices"]
+    width = len(FIELDS)
+    misses = []
+    for row in invoices:
+        parts = []
+        if row["correct_fields"] != width:
+            parts.append(f"{row['correct_fields']}/{width}")
+        if bool(row["exception"]) != bool(row["label_exception"]):
+            parts.append(
+                f"exception={bool(row['exception'])} label={bool(row['label_exception'])}"
+            )
+        if parts:
+            misses.append(f"{row['id']} {', '.join(parts)}")
+    return misses
+
+
+def enforce_gate(report: dict) -> None:
+    misses = gate_misses(report["results"])
+    if not misses:
+        print(
+            f"GATE pass field_accuracy={report['field_accuracy']} "
+            f"straight_through={report['straight_through']}",
+            flush=True,
+        )
+        return
+    for line in misses:
+        print(f"GATE miss {line}", flush=True)
+    raise SystemExit(1)
+
+
 def summarize(runner: str, invoices: list[dict], elapsed: float) -> dict:
     correct = sum(row["correct_fields"] for row in invoices)
     total = len(FIELDS) * len(invoices)
@@ -400,6 +436,11 @@ def main() -> None:
         default=LABELS,
         help="Label file. The default set keeps its run name. Another file gets its own.",
     )
+    parser.add_argument(
+        "--gate",
+        action="store_true",
+        help="Exit 1 when a field is wrong or the exception does not match the label.",
+    )
     args = parser.parse_args()
     labels_path = args.labels if args.labels.is_absolute() else ROOT / args.labels
     rows = json.loads(labels_path.read_text(encoding="utf-8"))["invoices"]
@@ -431,6 +472,8 @@ def main() -> None:
         report["time_includes"] = "the local Docling conversion for each invoice, one at a time"
     if args.only:
         print(json.dumps(report, indent=2))
+        if args.gate:
+            enforce_gate(report)
         return
     RUNS.mkdir(exist_ok=True)
     if args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
@@ -450,6 +493,8 @@ def main() -> None:
         f"time_per_invoice_seconds={report['time_per_invoice_seconds']}",
         flush=True,
     )
+    if args.gate:
+        enforce_gate(report)
 
 
 if __name__ == "__main__":
