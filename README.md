@@ -1,6 +1,6 @@
 # invoice-ap
 
-A rapport-band demo on the SMB line. The offer, the fields, the exception rule, and the benchmark are in `AGENTS.md`.
+A synthetic invoice reader. The fields, the exception rule, and the benchmark are in `AGENTS.md`.
 
 The scores for the labeled sets are in `AGENTS.md`.
 
