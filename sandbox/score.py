@@ -15,6 +15,10 @@ Usage:
   python score.py --runner docling --only 01-northline
   python score.py --runner docling --gate
   python score.py --runner docling --labels hard/labels.json --gate
+  python score.py --runner textract --profile <profile> --labels hard/labels.json
+
+The textract runner needs boto3 (sandbox/.venv) and a signed-in AWS profile.
+It records pages and list-price cost per invoice in the run file.
 """
 
 from __future__ import annotations
@@ -57,6 +61,19 @@ CALL_TIMEOUT = 180
 OLLAMA_TIMEOUT = 600
 OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
 OLLAMA_MODEL = "qwen3-vl:8b"
+
+# AnalyzeExpense list price, first million pages a month, read from
+# https://aws.amazon.com/textract/pricing/ on 2026-11-20.
+TEXTRACT_PRICE_PER_PAGE = 0.01
+TEXTRACT_TYPES = {
+    "VENDOR_NAME": "supplier",
+    "INVOICE_RECEIPT_ID": "invoice_number",
+    "INVOICE_RECEIPT_DATE": "invoice_date",
+    "DUE_DATE": "due_date",
+    "SUBTOTAL": "subtotal",
+    "TAX": "tax",
+    "TOTAL": "total",
+}
 
 PROMPT = """The only file in this directory is invoice.pdf. Read that file and return the seven fields a bookkeeper would key from the page.
 
@@ -305,9 +322,50 @@ def ollama_read(pdf: Path, model: str) -> tuple[dict | None, str, str | None]:
         return None, used, str(exc)
 
 
-def score_invoice(runner: str, row: dict, socket: Path, model: str | None = None) -> dict:
+def textract_value(field: dict) -> str | None:
+    detection = field.get("ValueDetection") or {}
+    text = detection.get("Text")
+    return text if isinstance(text, str) else None
+
+
+def textract_fields(response: dict) -> dict:
+    """Map AnalyzeExpense summary fields to the seven. For each type, the
+    detection with the highest value confidence wins."""
+    best: dict[str, tuple[float, str]] = {}
+    for document in response.get("ExpenseDocuments", []):
+        for field in document.get("SummaryFields", []):
+            kind = (field.get("Type") or {}).get("Text")
+            name = TEXTRACT_TYPES.get(kind)
+            value = textract_value(field)
+            if name is None or value is None:
+                continue
+            confidence = float((field.get("ValueDetection") or {}).get("Confidence") or 0)
+            if name not in best or confidence > best[name][0]:
+                best[name] = (confidence, value)
+    return {name: best[name][1] if name in best else None for name in FIELDS}
+
+
+def textract_read(pdf: Path, client) -> tuple[dict | None, str, str | None, int]:
+    response = client.analyze_expense(Document={"Bytes": pdf.read_bytes()})
+    pages = int((response.get("DocumentMetadata") or {}).get("Pages") or 0)
+    return textract_fields(response), "textract-analyze-expense", None, pages
+
+
+def score_invoice(
+    runner: str, row: dict, socket: Path, model: str | None = None, client=None
+) -> dict:
     source = ROOT / row["file"]
     started = time.perf_counter()
+    if runner == "textract":
+        try:
+            got_raw, used, error, pages = textract_read(source, client)
+        except Exception as exc:
+            item = judged(row, None, "textract-analyze-expense", round(time.perf_counter() - started, 1), str(exc))
+            item["pages"] = 0
+            return item
+        item = judged(row, got_raw, used, round(time.perf_counter() - started, 1), error)
+        item["pages"] = pages
+        return item
     if runner == "docling":
         try:
             got_raw, used, error = docling_read(source)
@@ -423,7 +481,11 @@ def summarize(runner: str, invoices: list[dict], elapsed: float) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--runner", choices=("grok", "claude", "ollama", "docling"), required=True)
+    parser.add_argument(
+        "--runner", choices=("grok", "claude", "ollama", "docling", "textract"), required=True
+    )
+    parser.add_argument("--profile", help="AWS profile for the textract runner.")
+    parser.add_argument("--region", default="us-east-1", help="AWS region for the textract runner.")
     parser.add_argument(
         "--model",
         default=OLLAMA_MODEL,
@@ -449,11 +511,16 @@ def main() -> None:
         if not rows:
             raise SystemExit(f"no fixture {args.only}")
     socket = Path(tempfile.gettempdir()) / f"iap-{args.runner}-{os.getpid()}.sock"
+    client = None
+    if args.runner == "textract":
+        import boto3
+
+        client = boto3.Session(profile_name=args.profile, region_name=args.region).client("textract")
     started = time.perf_counter()
     results = []
     for row in rows:
         print(f"START {args.runner} {row['id']}", flush=True)
-        item = score_invoice(args.runner, row, socket, args.model)
+        item = score_invoice(args.runner, row, socket, args.model, client)
         results.append(item)
         print(
             f"DONE {args.runner} {row['id']} {item['correct_fields']}/7 "
@@ -470,17 +537,37 @@ def main() -> None:
     if args.runner == "docling":
         report["date"] = date.today().isoformat()
         report["time_includes"] = "the local Docling conversion for each invoice, one at a time"
+    if args.runner == "textract":
+        pages = sum(row.get("pages", 0) for row in results)
+        report["date"] = date.today().isoformat()
+        report["region"] = args.region
+        report["time_includes"] = (
+            "one synchronous AnalyzeExpense call from this machine for each invoice, one at a time"
+        )
+        report["pages"] = pages
+        report["price_per_page_usd"] = TEXTRACT_PRICE_PER_PAGE
+        report["cost_usd"] = round(pages * TEXTRACT_PRICE_PER_PAGE, 4)
+        report["cost_per_invoice_usd"] = round(pages * TEXTRACT_PRICE_PER_PAGE / len(results), 4)
     if args.only:
         print(json.dumps(report, indent=2))
         if args.gate:
             enforce_gate(report)
         return
     RUNS.mkdir(exist_ok=True)
+    if args.runner == "textract":
+        stem = "" if labels_path.resolve() == LABELS.resolve() else (
+            (labels_path.parent.name if labels_path.stem == "labels" else labels_path.stem) + "-"
+        )
+        candidate = RUNS / f"{date.today().isoformat()}-{stem}textract.json"
+        if all(row["error"] for row in results):
+            raise SystemExit(f"every call failed, no run written: {results[0]['error']}")
+        if candidate.exists():
+            raise SystemExit(f"{candidate.name} exists. A scored run is never overwritten.")
     if args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
         slug = args.model.replace(":", "-").replace("/", "-")
         dest = RUNS / f"{date.today().isoformat()}-{slug}.json"
-    elif args.runner == "docling" and labels_path.resolve() == LABELS.resolve():
-        dest = RUNS / f"{date.today().isoformat()}-docling.json"
+    elif args.runner in ("docling", "textract") and labels_path.resolve() == LABELS.resolve():
+        dest = RUNS / f"{date.today().isoformat()}-{args.runner}.json"
     elif labels_path.resolve() == LABELS.resolve():
         dest = RUNS / f"2026-10-22-{args.runner}.json"
     else:
