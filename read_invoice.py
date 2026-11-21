@@ -26,7 +26,7 @@ import time
 import urllib.error
 import urllib.request
 import uuid
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
@@ -66,7 +66,16 @@ TEXTRACT_TYPES = {
     "SUBTOTAL": "subtotal",
     "TAX": "tax",
     "TOTAL": "total",
+    "AMOUNT_DUE": "amount_due",
+    "PAYMENT_TERMS": "terms",
 }
+# Read alongside the seven, and used only to fill them: the printed amount due
+# stands in for a missing total, and printed terms set a missing due date.
+EXTRAS = ("amount_due", "terms")
+RAW_KEYS = FIELDS + EXTRAS
+TERMS_PREFIXES = (("terms", "payment terms"), ("terms", "terms"))
+AMOUNT_DUE_PREFIXES = ("amount due", "balance due", "total due")
+TERMS_LINE_MAX = 40
 
 
 def blank(value) -> bool:
@@ -104,6 +113,46 @@ def as_money(value):
         return "unparsed"
 
 
+UNCOMPUTABLE = "uncomputable"
+_EOM = re.compile(r"\beom\b|\be\.o\.m\b|end of (?:the )?month|\bprox(?:imo)?\b|\bmfi\b")
+_RECEIPT = re.compile(r"\b(?:up)?on receipt\b")
+_DISCOUNT_NET = re.compile(r"\d+(?:\.\d+)?\s*%?\s*/\s*\d{1,3}\s*,?\s*n(?:et)?\s*/?\s*(\d{1,3})\b(?![.,]\d)")
+_NET = re.compile(r"\bnet\s*/?\s*(\d{1,3})\b(?![.,]\d)")
+
+
+def terms_days(text) -> int | str | None:
+    """Days from the invoice date to the due date under printed terms.
+
+    "Net N" and "2/10 Net 30" give N; "Due on receipt" gives 0. End-of-month
+    terms give UNCOMPUTABLE, which leaves the due date for a person. Anything
+    else is not terms the rule knows, and gives None."""
+    if blank(text):
+        return None
+    lowered = squashed(text).lower()
+    if _EOM.search(lowered):
+        return UNCOMPUTABLE
+    if _RECEIPT.search(lowered):
+        return 0
+    match = _DISCOUNT_NET.search(lowered) or _NET.search(lowered)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def due_from_terms(invoice_date, due_raw, due_value, terms_raw):
+    """The due date after printed terms. A printed due date wins, even one that
+    does not parse. Terms printed where the due date goes ("Due Date: Upon
+    receipt") count as terms."""
+    if isinstance(due_value, date):
+        return due_value
+    days = terms_days(due_raw if due_value == "unparsed" else terms_raw)
+    if days is None:
+        return due_value
+    if days == UNCOMPUTABLE or not isinstance(invoice_date, date):
+        return None
+    return invoice_date + timedelta(days=days)
+
+
 def parsed(raw: dict) -> dict:
     out = {}
     for name in TEXT_FIELDS:
@@ -112,6 +161,9 @@ def parsed(raw: dict) -> dict:
         out[name] = as_date(raw.get(name))
     for name in MONEY_FIELDS:
         out[name] = as_money(raw.get(name))
+    if out["total"] is None:
+        out["total"] = as_money(raw.get("amount_due"))
+    out["due_date"] = due_from_terms(out["invoice_date"], raw.get("due_date"), out["due_date"], raw.get("terms"))
     return out
 
 
@@ -160,7 +212,13 @@ def money_amounts(text: str) -> list[str]:
     return re.findall(r"\$?\d[\d,]*\.\d{2}", text)
 
 
-BARE_LABELS = {prefix for _name, prefix in FIELD_PREFIXES} | set(MONEY_LABELS) | HEADER_SKIP
+BARE_LABELS = (
+    {prefix for _name, prefix in FIELD_PREFIXES}
+    | {prefix for _name, prefix in TERMS_PREFIXES}
+    | set(AMOUNT_DUE_PREFIXES)
+    | set(MONEY_LABELS)
+    | HEADER_SKIP
+)
 
 
 def bare_label(text: str) -> bool:
@@ -193,16 +251,55 @@ def take_money(fields: dict, text: str, following: str | None) -> None:
             fields[label] = amount
 
 
+def take_terms(fields: dict, text: str, following: str | None) -> None:
+    """Printed payment terms: after a "Terms" label, or a short line that is
+    terms on its own ("Due on receipt", "Net 30")."""
+    if fields["terms"] is not None:
+        return
+    lowered = text.lower()
+    for _name, prefix in TERMS_PREFIXES:
+        if lowered.strip(" :.-") == prefix:
+            candidate = following if following and not bare_label(following) else None
+        elif lowered.startswith(prefix):
+            candidate = text[len(prefix) :].strip(" :.-")
+        else:
+            continue
+        if candidate and terms_days(candidate) is not None:
+            fields["terms"] = candidate
+            return
+    if len(text) <= TERMS_LINE_MAX and terms_days(text) is not None:
+        fields["terms"] = text
+
+
+def take_amount_due(fields: dict, text: str, following: str | None) -> None:
+    if fields["amount_due"] is not None:
+        return
+    lowered = text.lower()
+    if not any(lowered.startswith(prefix) for prefix in AMOUNT_DUE_PREFIXES):
+        return
+    amounts = money_amounts(text)
+    if not amounts and following and not bare_label(following):
+        amounts = money_amounts(following)
+    if amounts:
+        fields["amount_due"] = amounts[0]
+
+
+def take_all(fields: dict, text: str, following: str | None) -> None:
+    take_labeled(fields, text, following)
+    take_money(fields, text, following)
+    take_terms(fields, text, following)
+    take_amount_due(fields, text, following)
+
+
 def take_row(fields: dict, cells: dict) -> None:
     ordered = sorted(cells.items())
     for index, (_col, text) in enumerate(ordered):
         following = ordered[index + 1][1] if index + 1 < len(ordered) else None
-        take_labeled(fields, text, following)
-        take_money(fields, text, following)
+        take_all(fields, text, following)
 
 
 def fields_from_docling(doc: dict) -> dict:
-    fields = {name: None for name in FIELDS}
+    fields = {name: None for name in RAW_KEYS}
     texts = []
     for item in doc.get("texts") or []:
         text = squashed(item.get("text") or "")
@@ -214,8 +311,7 @@ def fields_from_docling(doc: dict) -> dict:
                 fields["supplier"] = text
     for index, text in enumerate(texts):
         following = texts[index + 1] if index + 1 < len(texts) else None
-        take_labeled(fields, text, following)
-        take_money(fields, text, following)
+        take_all(fields, text, following)
     for table in doc.get("tables") or []:
         rows: dict[int, dict[int, str]] = {}
         for cell in (table.get("data") or {}).get("table_cells") or []:
@@ -275,20 +371,32 @@ def docling_read(pdf: Path) -> tuple[dict | None, str, str | None]:
 
 
 def textract_fields(response: dict) -> dict:
-    """Map AnalyzeExpense summary fields to the seven. For each type, the
-    detection with the highest value confidence wins."""
+    """Map AnalyzeExpense summary fields to the seven, plus the amount due and
+    the payment terms. For each, the detection with the highest value
+    confidence wins. Terms Textract leaves untyped (OTHER, printed under a
+    label with "terms" in it) count when no PAYMENT_TERMS came back."""
     best: dict[str, tuple[float, str]] = {}
+    loose_terms: tuple[float, str] | None = None
     for document in response.get("ExpenseDocuments") or []:
         for field in document.get("SummaryFields") or []:
-            name = TEXTRACT_TYPES.get((field.get("Type") or {}).get("Text"))
+            kind = (field.get("Type") or {}).get("Text")
+            name = TEXTRACT_TYPES.get(kind)
             detection = field.get("ValueDetection") or {}
             value = detection.get("Text")
-            if name is None or not isinstance(value, str):
+            if not isinstance(value, str):
                 continue
             confidence = float(detection.get("Confidence") or 0)
+            if name is None:
+                label = ((field.get("LabelDetection") or {}).get("Text") or "").lower()
+                if kind == "OTHER" and "terms" in label and terms_days(value) is not None:
+                    if loose_terms is None or confidence > loose_terms[0]:
+                        loose_terms = (confidence, value)
+                continue
             if name not in best or confidence > best[name][0]:
                 best[name] = (confidence, value)
-    return {name: best[name][1] if name in best else None for name in FIELDS}
+    if "terms" not in best and loose_terms is not None:
+        best["terms"] = loose_terms
+    return {name: best[name][1] if name in best else None for name in RAW_KEYS}
 
 
 _CLIENTS: dict[tuple, object] = {}

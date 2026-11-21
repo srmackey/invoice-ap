@@ -1,0 +1,158 @@
+{
+  "fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ],
+  "note": "Practice set for the terms rule and the amount-due fallback. Not a benchmark and not claimed.",
+  "invoices": [
+    {
+      "id": "p01-tidewater",
+      "file": "practice/p01-tidewater.pdf",
+      "supplier": "Tidewater Packaging",
+      "invoice_number": "TW-5012",
+      "invoice_date": "2026-03-02",
+      "due_date": "2026-04-01",
+      "subtotal": "300.00",
+      "tax": "21.00",
+      "total": "321.00",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p02-granite",
+      "file": "practice/p02-granite.pdf",
+      "supplier": "Granite Ridge Equipment",
+      "invoice_number": "GR-0091",
+      "invoice_date": "2026-01-20",
+      "due_date": "2026-02-19",
+      "subtotal": "240.00",
+      "tax": "0.00",
+      "total": "240.00",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p03-bluefern",
+      "file": "practice/p03-bluefern.pdf",
+      "supplier": "Bluefern Linens",
+      "invoice_number": "BF-7734",
+      "invoice_date": "2026-02-11",
+      "due_date": "2026-02-11",
+      "subtotal": "71.00",
+      "tax": "3.55",
+      "total": "74.55",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p04-hollis",
+      "file": "practice/p04-hollis.pdf",
+      "supplier": "Hollis Dairy Cooperative",
+      "invoice_number": "HDC-2290",
+      "invoice_date": "2026-03-09",
+      "due_date": "2026-03-09",
+      "subtotal": "224.80",
+      "tax": "0.00",
+      "total": "224.80",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p05-arden",
+      "file": "practice/p05-arden.pdf",
+      "supplier": "Arden Flour Mills",
+      "invoice_number": "AFM-3318",
+      "invoice_date": "2026-02-26",
+      "due_date": null,
+      "subtotal": "278.00",
+      "tax": "0.00",
+      "total": "278.00",
+      "due_from": null,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "p06-cobalt",
+      "file": "practice/p06-cobalt.pdf",
+      "supplier": "Cobalt Refrigeration",
+      "invoice_number": "CR-4471",
+      "invoice_date": "2026-01-05",
+      "due_date": "2026-01-31",
+      "subtotal": "615.00",
+      "tax": "36.90",
+      "total": "651.90",
+      "due_from": "printed",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p07-marlowe",
+      "file": "practice/p07-marlowe.pdf",
+      "supplier": "Marlowe Produce",
+      "invoice_number": "MP-1180",
+      "invoice_date": "2026-03-16",
+      "due_date": "2026-03-31",
+      "subtotal": "211.00",
+      "tax": "0.00",
+      "total": "211.00",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p08-kestrel",
+      "file": "practice/p08-kestrel.pdf",
+      "supplier": "Kestrel Print Shop",
+      "invoice_number": "KP-0412",
+      "invoice_date": "2026-02-02",
+      "due_date": "2026-02-16",
+      "subtotal": "269.00",
+      "tax": "21.52",
+      "total": "290.52",
+      "due_from": "printed",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p09-sunder",
+      "file": "practice/p09-sunder.pdf",
+      "supplier": "Sunder Pest Control",
+      "invoice_number": "SPC-9921",
+      "invoice_date": "2026-03-01",
+      "due_date": "2026-04-30",
+      "subtotal": "160.00",
+      "tax": "11.60",
+      "total": "171.60",
+      "due_from": "terms",
+      "exception": false,
+      "exception_reasons": []
+    },
+    {
+      "id": "p10-wexford",
+      "file": "practice/p10-wexford.pdf",
+      "supplier": "Wexford Ovens",
+      "invoice_number": "WO-2051",
+      "invoice_date": "2026-02-18",
+      "due_date": "2026-03-20",
+      "subtotal": "1800.00",
+      "tax": "0.00",
+      "total": "1300.00",
+      "due_from": "terms",
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ]
+    }
+  ]
+}
