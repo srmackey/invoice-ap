@@ -5,7 +5,7 @@ shows up here. The shape the spec asks for is checked from the labels:
 about a hundred invoices, at least ten layouts, about a quarter
 exceptions across all three kinds, and clean, scanned, and photographed
 pages in every layout. Labels are rechecked against the exception rule in
-../AGENTS.md with an independent copy of that rule. The one-page check
+../DESIGN.md with an independent copy of that rule. The one-page check
 needs pymupdf (sandbox/.venv) and skips without it.
 
 Run from the checkout:
@@ -91,7 +91,7 @@ class Holdout(unittest.TestCase):
                 self.assertGreater(int(row["due_date"][8:]), 12, row["id"])
 
     def test_due_dates_from_terms(self):
-        """../AGENTS.md: terms set an unprinted due date; ones the rule cannot compute leave it missing."""
+        """../DESIGN.md: terms set an unprinted due date; ones the rule cannot compute leave it missing."""
         from datetime import date, timedelta
 
         forms = set()

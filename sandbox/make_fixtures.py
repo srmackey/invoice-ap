@@ -1,6 +1,6 @@
 """Write the invoice-ap sandbox PDFs and labels.json.
 
-The field list and the exception rule live in ../AGENTS.md. This script
+The field list and the exception rule live in ../DESIGN.md. This script
 renders that rule. It does not score a run. Needs reportlab.
 """
 

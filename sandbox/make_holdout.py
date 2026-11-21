@@ -13,7 +13,7 @@ terms the rule cannot compute), a missing invoice number, a due date
 before the invoice date, or a printed total that does not equal subtotal
 plus tax.
 
-Ten invoices print payment terms and no due date. Per ../AGENTS.md the
+Ten invoices print payment terms and no due date. Per ../DESIGN.md the
 label is the invoice date plus the terms' days: "Net 45" adds 45, "Due on
 receipt" is the invoice date, "2/10 Net 30" is 30 days. "Net 30 EOM" is
 not computed, so its due date is missing. Each label says whether its due
@@ -153,7 +153,7 @@ def money(value: Decimal) -> Decimal:
 
 
 def rule(values: dict) -> list[str]:
-    """The exception rule in ../AGENTS.md, over label values."""
+    """The exception rule in ../DESIGN.md, over label values."""
     reasons = [f"missing_{name}" for name in FIELDS if values.get(name) in (None, "")]
     if values.get("invoice_date") and values.get("due_date"):
         if values["due_date"] < values["invoice_date"]:

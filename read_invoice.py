@@ -2,7 +2,7 @@
 
 Reads the PDF with Amazon Textract AnalyzeExpense (the default) or with a
 local Docling Serve (the backup), and returns the seven fields plus the
-exception rule from AGENTS.md. The page, sandbox/score.py, and the hosted
+exception rule from DESIGN.md. The page, sandbox/score.py, and the hosted
 function call this same code.
 
 Usage:
