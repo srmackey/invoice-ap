@@ -234,7 +234,7 @@ def judged(row: dict, got_raw, model, seconds: float, error) -> dict:
     else:
         values = parsed(got_raw)
     reasons = exception_reasons(values)
-    rights = {name: field_right(name, values[name], row[name]) for name in FIELDS}
+    rights = {name: field_right(name, values[name], row.get(name)) for name in labeled(row)}
     return {
         "id": row["id"],
         "model": model,
@@ -245,9 +245,21 @@ def judged(row: dict, got_raw, model, seconds: float, error) -> dict:
         "correct_fields": sum(rights.values()),
         "exception": bool(reasons),
         "exception_reasons": reasons,
-        "label_exception": row["exception"],
+        "label_exception": row.get("exception"),
         "error": error,
     }
+
+
+def labeled(row: dict) -> tuple[str, ...]:
+    """The fields this invoice is judged on: all seven, unless its label row
+    lists fewer. A field a set does not label is not judged, right or wrong."""
+    names = row.get("labeled")
+    if names is None:
+        return FIELDS
+    unknown = set(names) - set(FIELDS)
+    if unknown:
+        raise ValueError(f"{row['id']} labels unknown fields {sorted(unknown)}")
+    return tuple(name for name in FIELDS if name in names)
 
 
 def page_png(pdf: Path) -> bytes:
@@ -393,13 +405,13 @@ def gate_misses(invoices: list[dict]) -> list[str]:
     does not match the label. An empty run fails too."""
     if not invoices:
         return ["no invoices"]
-    width = len(FIELDS)
     misses = []
     for row in invoices:
         parts = []
+        width = scored_fields(row)
         if row["correct_fields"] != width:
             parts.append(f"{row['correct_fields']}/{width}")
-        if bool(row["exception"]) != bool(row["label_exception"]):
+        if row["label_exception"] is not None and bool(row["exception"]) != bool(row["label_exception"]):
             parts.append(
                 f"exception={bool(row['exception'])} label={bool(row['label_exception'])}"
             )
@@ -424,7 +436,8 @@ def enforce_gate(report: dict) -> None:
 
 def scored_fields(row: dict) -> int:
     """How many fields this invoice was scored on. Seven unless a set labels fewer."""
-    return len(row.get("right") or FIELDS)
+    right = row.get("right")
+    return len(FIELDS) if right is None else len(right)
 
 
 def invoice_scores(invoices: list[dict]) -> tuple[str, list[str]]:
@@ -489,7 +502,8 @@ def main() -> None:
     )
     args = parser.parse_args()
     labels_path = args.labels if args.labels.is_absolute() else ROOT / args.labels
-    rows = json.loads(labels_path.read_text(encoding="utf-8"))["invoices"]
+    label_set = json.loads(labels_path.read_text(encoding="utf-8"))
+    rows = label_set["invoices"]
     if args.only:
         rows = [row for row in rows if row["id"] == args.only]
         if not rows:
@@ -505,12 +519,19 @@ def main() -> None:
         item = score_invoice(args.runner, row, socket, args.model, client)
         results.append(item)
         print(
-            f"DONE {args.runner} {row['id']} {item['correct_fields']}/7 "
+            f"DONE {args.runner} {row['id']} {item['correct_fields']}/{scored_fields(item)} "
             f"exception={item['exception']} {item['seconds']}s",
             flush=True,
         )
     elapsed = time.perf_counter() - started
     report = summarize(args.runner, results, elapsed)
+    report["labeled_fields"] = label_set.get("fields", list(FIELDS))
+    if label_set.get("exception_labeled") is False:
+        report["exception_labeled"] = False
+        report["straight_through_note"] = (
+            "This set does not label supplier or subtotal, so the exception rule cannot be "
+            "judged against it. The straight-through rate is recorded, not compared."
+        )
     if args.runner == "ollama":
         report["date"] = date.today().isoformat()
         report["time_includes"] = (

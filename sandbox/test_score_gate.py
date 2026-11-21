@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import unittest
 
-from score import enforce_gate, gate_misses, invoice_scores, summarize
+from score import enforce_gate, gate_misses, invoice_scores, judged, summarize
 
 
 def row(invoice_id: str, correct: int = 7, exception: bool = False, label: bool = False) -> dict:
@@ -83,6 +83,63 @@ class InvoiceScoreTests(unittest.TestCase):
         self.assertEqual(report["field_accuracy"], "5/5")
         self.assertEqual(report["invoice_accuracy"], "1/1")
         self.assertEqual(report["silent_errors"], [])
+
+
+class DeclaredFieldTests(unittest.TestCase):
+    """A label row that lists its fields is judged on those fields only."""
+
+    READ = {
+        "supplier": "Somebody Else Inc",
+        "invoice_number": "2750",
+        "invoice_date": "2000-04-10",
+        "due_date": "2000-05-10",
+        "subtotal": "1.00",
+        "tax": None,
+        "total": "2000.00",
+    }
+
+    def partial(self, **extra) -> dict:
+        base = {
+            "id": "lkxd0060",
+            "invoice_number": "2750",
+            "invoice_date": "2000-04-10",
+            "total": "2000.00",
+            "labeled": ["invoice_number", "invoice_date", "total"],
+            "exception": None,
+        }
+        base.update(extra)
+        return base
+
+    def test_only_labeled_fields_are_judged(self):
+        item = judged(self.partial(), self.READ, "textract", 1.0, None)
+        self.assertEqual(sorted(item["right"]), ["invoice_date", "invoice_number", "total"])
+        self.assertEqual(item["correct_fields"], 3)
+        report = summarize("textract", [item], 1.0)
+        self.assertEqual(report["field_accuracy"], "3/3")
+        self.assertEqual(report["invoice_accuracy"], "1/1")
+
+    def test_a_wrong_labeled_field_still_counts(self):
+        item = judged(self.partial(total="1999.00"), self.READ, "textract", 1.0, None)
+        self.assertEqual(item["correct_fields"], 2)
+        self.assertEqual(summarize("textract", [item], 1.0)["field_accuracy"], "2/3")
+
+    def test_a_missing_read_of_a_labeled_field_is_wrong(self):
+        item = judged(self.partial(), None, "textract", 1.0, "no read")
+        self.assertEqual(item["correct_fields"], 0)
+        self.assertEqual(summarize("textract", [item], 1.0)["field_accuracy"], "0/3")
+
+    def test_a_row_without_labeled_is_judged_on_all_seven(self):
+        full = dict(self.READ, id="01-northline", exception=False)
+        item = judged(full, self.READ, "textract", 1.0, None)
+        self.assertEqual(len(item["right"]), 7)
+
+    def test_an_unknown_field_is_refused(self):
+        with self.assertRaises(ValueError):
+            judged(self.partial(labeled=["purchase_order"]), self.READ, "textract", 1.0, None)
+
+    def test_the_gate_skips_an_unlabeled_exception(self):
+        item = judged(self.partial(), self.READ, "textract", 1.0, None)
+        self.assertEqual(gate_misses([item]), [])
 
 
 if __name__ == "__main__":
