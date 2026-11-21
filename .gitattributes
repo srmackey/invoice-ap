@@ -1,0 +1,2 @@
+# PDFs are bytes. Line-ending conversion would break them and the holdout's sha256 pins.
+*.pdf binary
