@@ -2,3 +2,6 @@
 sandbox/.venv/
 __pycache__/
 reads/
+
+# Built Lambda packages and packaged templates. They carry the account id.
+build/

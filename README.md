@@ -54,6 +54,27 @@ python page.py --runner docling
 
 Open `http://127.0.0.1:8765`. The page lists those records, opens one, and shows the share that raised no exception and the time per invoice. It accepts a PDF and reads it with the same reader and runner as the command.
 
+## Host
+
+The hosted reader is one AWS Lambda function behind a function URL that requires IAM credentials. It runs `read_invoice.py` with Textract, so it returns what the command returns, plus `pages` and `seconds`. There is no open endpoint, and nothing runs between calls. The function's role may call `textract:AnalyzeExpense` and write its own logs, nothing else. Each read writes one log line with its timing, page count, exception reasons, and error, and no field values.
+
+Deploy with the AWS CLI and a profile that can create IAM roles, Lambda functions, and S3 buckets. From this folder:
+
+```
+aws cloudformation deploy --template-file infra/artifacts.yaml --stack-name invoice-ap-artifacts --profile <profile> --region us-east-1
+python host/build.py
+aws cloudformation package --template-file infra/reader.yaml --s3-bucket invoice-ap-artifacts-<account id> --s3-prefix reader --output-template-file build/reader.packaged.yaml --profile <profile> --region us-east-1
+aws cloudformation deploy --template-file build/reader.packaged.yaml --stack-name invoice-ap-reader --capabilities CAPABILITY_NAMED_IAM --profile <profile> --region us-east-1
+```
+
+The first stack is a private bucket for packaged code. The URL is the `ReaderUrl` output of the second stack. To send one invoice, with a profile that has `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` on the function:
+
+```
+python host/call.py <reader url> sandbox/fixtures/01-northline.pdf --profile <profile>
+```
+
+An exception is still a 200: it is the answer. A body that is not a PDF is a 400. A Textract failure is a 502 with the reason. Textract reads a PDF of one page in a single call, so a longer PDF is refused with `UnsupportedDocumentException`.
+
 ## Sandbox
 
 `sandbox/` holds the labeled fixture set and whatever runner the work needs. No runner is chosen. It is not a customer environment.

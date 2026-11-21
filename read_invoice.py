@@ -334,7 +334,7 @@ def read_fields(
 def read_invoice(
     pdf: Path, runner: str = DEFAULT_RUNNER, client=None, profile: str | None = None
 ) -> dict:
-    got_raw, used, error, _pages = read_fields(pdf, runner, client, profile)
+    got_raw, used, error, pages = read_fields(pdf, runner, client, profile)
     values = {name: None for name in FIELDS} if got_raw is None else parsed(got_raw)
     reasons = exception_reasons(values)
     out = {name: show(values[name]) for name in FIELDS}
@@ -342,6 +342,7 @@ def read_invoice(
     out["exception_reasons"] = reasons
     out["error"] = error
     out["runner"] = used
+    out["pages"] = pages
     return out
 
 

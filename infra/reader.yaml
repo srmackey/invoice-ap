@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: invoice-ap reader. One function reads a supplier invoice with Amazon Textract AnalyzeExpense behind a function URL that requires IAM credentials.
+
+Resources:
+  ReaderLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/invoice-ap-reader
+      RetentionInDays: 30
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+  ReaderRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: invoice-ap-reader-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: invoice-ap-reader
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              # AnalyzeExpense has no resource-level permissions, so the
+              # resource is "*". This is the only Textract action allowed.
+              - Effect: Allow
+                Action: textract:AnalyzeExpense
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !GetAtt ReaderLogGroup.Arn
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+  ReaderFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: invoice-ap-reader
+      Description: Reads one supplier invoice with Textract AnalyzeExpense and applies the invoice-ap exception rule.
+      Runtime: python3.14
+      Architectures:
+        - arm64
+      Handler: handler.handler
+      Role: !GetAtt ReaderRole.Arn
+      Timeout: 30
+      MemorySize: 256
+      LoggingConfig:
+        LogGroup: !Ref ReaderLogGroup
+      Code: ../build/reader
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+  ReaderUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      AuthType: AWS_IAM
+      TargetFunctionArn: !GetAtt ReaderFunction.Arn
+
+Outputs:
+  ReaderUrl:
+    Description: POST one PDF here, signed with SigV4 for service lambda.
+    Value: !GetAtt ReaderUrl.FunctionUrl
+  ReaderFunction:
+    Value: !Ref ReaderFunction
