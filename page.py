@@ -1,15 +1,18 @@
 """Show invoice reads on one local page.
 
 Reads reads/reads.jsonl from this checkout. The page accepts a PDF and
-calls the same reader as read_invoice.py. Standard library only.
+calls the same reader as read_invoice.py, with the same runners.
 
   python page.py
+  python page.py --profile <profile>
+  python page.py --runner docling
 
 Then open http://127.0.0.1:8765
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import tempfile
 import time
@@ -18,11 +21,20 @@ from html import escape
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from read_invoice import FIELDS, READS_PATH, append_record, make_record, read_invoice
+from read_invoice import (
+    DEFAULT_RUNNER,
+    FIELDS,
+    READS_PATH,
+    RUNNERS,
+    append_record,
+    make_record,
+    read_invoice,
+)
 
 HOST = "127.0.0.1"
 PORT = 8765
 MAX_PDF = 32 * 1024 * 1024
+READER = {"runner": DEFAULT_RUNNER, "profile": None}
 
 LABELS = {
     "supplier": "Supplier",
@@ -263,7 +275,7 @@ def accept_pdf(filename: str, data: bytes) -> dict:
         dest = Path(tmp) / name
         dest.write_bytes(data)
         started = time.perf_counter()
-        result = read_invoice(dest)
+        result = read_invoice(dest, READER["runner"], profile=READER["profile"])
         record = make_record(dest, result, time.perf_counter() - started)
     append_record(record)
     return record
@@ -334,8 +346,14 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Show invoice reads on one local page.")
+    parser.add_argument("--runner", choices=RUNNERS, default=DEFAULT_RUNNER)
+    parser.add_argument("--profile", help="AWS profile for the textract runner.")
+    args = parser.parse_args()
+    READER["runner"] = args.runner
+    READER["profile"] = args.profile
     server = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(f"http://{HOST}:{PORT}", flush=True)
+    print(f"http://{HOST}:{PORT} reading with {args.runner}", flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

@@ -1,10 +1,17 @@
 """Read one supplier invoice.
 
-Sends the PDF to Docling Serve and returns the seven fields plus the
-exception rule from AGENTS.md. sandbox/score.py calls this same code.
+Reads the PDF with Amazon Textract AnalyzeExpense (the default) or with a
+local Docling Serve (the backup), and returns the seven fields plus the
+exception rule from AGENTS.md. The page, sandbox/score.py, and the hosted
+function call this same code.
 
 Usage:
   python read_invoice.py path/to/invoice.pdf
+  python read_invoice.py path/to/invoice.pdf --profile <profile>
+  python read_invoice.py path/to/invoice.pdf --runner docling
+
+Textract needs boto3 and AWS credentials (a profile, or the environment).
+Docling needs the container in services/docling running.
 
 The command appends one record to reads/reads.jsonl in this checkout.
 """
@@ -13,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import time
 import urllib.error
@@ -46,6 +54,19 @@ FIELD_PREFIXES = (
     ("invoice_date", "invoice date"),
     ("due_date", "due date"),
 )
+RUNNERS = ("textract", "docling")
+DEFAULT_RUNNER = "textract"
+DEFAULT_REGION = "us-east-1"
+TEXTRACT_MODEL = "textract-analyze-expense"
+TEXTRACT_TYPES = {
+    "VENDOR_NAME": "supplier",
+    "INVOICE_RECEIPT_ID": "invoice_number",
+    "INVOICE_RECEIPT_DATE": "invoice_date",
+    "DUE_DATE": "due_date",
+    "SUBTOTAL": "subtotal",
+    "TAX": "tax",
+    "TOTAL": "total",
+}
 
 
 def blank(value) -> bool:
@@ -253,14 +274,74 @@ def docling_read(pdf: Path) -> tuple[dict | None, str, str | None]:
     return fields_from_docling(content), "docling", None
 
 
-def read_invoice(pdf: Path) -> dict:
-    got_raw, _used, error = docling_read(pdf)
+def textract_fields(response: dict) -> dict:
+    """Map AnalyzeExpense summary fields to the seven. For each type, the
+    detection with the highest value confidence wins."""
+    best: dict[str, tuple[float, str]] = {}
+    for document in response.get("ExpenseDocuments") or []:
+        for field in document.get("SummaryFields") or []:
+            name = TEXTRACT_TYPES.get((field.get("Type") or {}).get("Text"))
+            detection = field.get("ValueDetection") or {}
+            value = detection.get("Text")
+            if name is None or not isinstance(value, str):
+                continue
+            confidence = float(detection.get("Confidence") or 0)
+            if name not in best or confidence > best[name][0]:
+                best[name] = (confidence, value)
+    return {name: best[name][1] if name in best else None for name in FIELDS}
+
+
+_CLIENTS: dict[tuple, object] = {}
+
+
+def textract_client(profile: str | None = None, region: str | None = None):
+    """One client per profile and region for the life of the process.
+    Region falls back to AWS_REGION (set inside Lambda), then us-east-1."""
+    region = region or os.environ.get("AWS_REGION") or DEFAULT_REGION
+    key = (profile, region)
+    if key not in _CLIENTS:
+        import boto3
+
+        _CLIENTS[key] = boto3.Session(profile_name=profile, region_name=region).client("textract")
+    return _CLIENTS[key]
+
+
+def textract_read(pdf: Path, client=None, profile: str | None = None) -> tuple[dict | None, str, str | None, int]:
+    """Returns (fields, runner, error, pages). A failure is the error, not a raise."""
+    try:
+        client = client or textract_client(profile)
+        response = client.analyze_expense(Document={"Bytes": pdf.read_bytes()})
+    except ImportError:
+        return None, TEXTRACT_MODEL, "textract needs boto3: pip install boto3", 0
+    except Exception as exc:
+        return None, TEXTRACT_MODEL, f"textract request failed: {exc}", 0
+    pages = int((response.get("DocumentMetadata") or {}).get("Pages") or 0)
+    return textract_fields(response), TEXTRACT_MODEL, None, pages
+
+
+def read_fields(
+    pdf: Path, runner: str = DEFAULT_RUNNER, client=None, profile: str | None = None
+) -> tuple[dict | None, str, str | None, int]:
+    """The raw seven from one runner: (fields, runner, error, pages)."""
+    if runner == "textract":
+        return textract_read(pdf, client, profile)
+    if runner == "docling":
+        got_raw, used, error = docling_read(pdf)
+        return got_raw, used, error, 0
+    raise ValueError(f"unknown runner {runner}")
+
+
+def read_invoice(
+    pdf: Path, runner: str = DEFAULT_RUNNER, client=None, profile: str | None = None
+) -> dict:
+    got_raw, used, error, _pages = read_fields(pdf, runner, client, profile)
     values = {name: None for name in FIELDS} if got_raw is None else parsed(got_raw)
     reasons = exception_reasons(values)
     out = {name: show(values[name]) for name in FIELDS}
     out["exception"] = bool(reasons)
     out["exception_reasons"] = reasons
     out["error"] = error
+    out["runner"] = used
     return out
 
 
@@ -270,6 +351,7 @@ def make_record(pdf: Path, result: dict, seconds: float) -> dict:
         "id": uuid.uuid4().hex,
         "read_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "seconds": round(seconds, 1),
+        "runner": result.get("runner"),
     }
     for name in FIELDS:
         record[name] = result[name]
@@ -288,12 +370,14 @@ def append_record(record: dict) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Read one supplier invoice.")
     parser.add_argument("pdf", type=Path)
+    parser.add_argument("--runner", choices=RUNNERS, default=DEFAULT_RUNNER)
+    parser.add_argument("--profile", help="AWS profile for the textract runner.")
     args = parser.parse_args()
     pdf = args.pdf
     if not pdf.is_file():
         raise SystemExit(f"no file {pdf}")
     started = time.perf_counter()
-    result = read_invoice(pdf)
+    result = read_invoice(pdf, args.runner, profile=args.profile)
     record = make_record(pdf, result, time.perf_counter() - started)
     append_record(record)
     print(json.dumps(result, indent=2))

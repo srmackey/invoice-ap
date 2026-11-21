@@ -6,31 +6,53 @@ The scores for the labeled sets are in `AGENTS.md`.
 
 ## Install
 
-Docker, and Python 3.10 or newer. No other packages. Reading an invoice and serving the page use the Python standard library. The sandbox tools that draw fixtures are separate, and they are not this install.
+Python 3.10 or newer. The reader has two runners. Amazon Textract AnalyzeExpense is the default. A local Docling container is the backup, for reading without AWS. The sandbox tools that draw fixtures are separate, and they are not this install.
 
-From this folder, start Docling:
+### Textract (default)
+
+Install boto3 and sign in to an AWS profile that may call `textract:AnalyzeExpense`:
+
+```
+pip install boto3 "botocore[crt]"
+aws login --profile <profile>
+```
+
+`botocore[crt]` is needed for profiles signed in with `aws login`. Each read is one call to Textract, billed per page (one cent a page at list price in us-east-1). The region is `AWS_REGION` when it is set, and us-east-1 otherwise.
+
+One PDF through the command:
+
+```
+python read_invoice.py sandbox/fixtures/01-northline.pdf --profile <profile>
+```
+
+Without `--profile`, boto3 uses its usual credential chain.
+
+### Docling (backup)
+
+Docker, and nothing beyond the Python standard library. From this folder, start Docling:
 
 ```
 docker compose -f services/docling/compose.yaml up -d
 ```
 
-The first start pulls the image. Docling listens at `127.0.0.1:5001`. The command and the page need it answering there.
-
-One PDF through the command:
+The first start pulls the image. Docling listens at `127.0.0.1:5001`. Then:
 
 ```
-python read_invoice.py sandbox/fixtures/01-northline.pdf
+python read_invoice.py sandbox/fixtures/01-northline.pdf --runner docling
 ```
 
-The command prints the seven fields and the exception, and appends one record to `reads/reads.jsonl`. `sandbox/score.py` uses that same reader.
+### The command and the page
+
+The command prints the seven fields and the exception, and appends one record to `reads/reads.jsonl`. The record names the runner that read it. `sandbox/score.py` uses that same reader.
 
 The page:
 
 ```
-python page.py
+python page.py --profile <profile>
+python page.py --runner docling
 ```
 
-Open `http://127.0.0.1:8765`. The page lists those records, opens one, and shows the share that raised no exception and the time per invoice. It accepts a PDF and reads it with the same reader as the command.
+Open `http://127.0.0.1:8765`. The page lists those records, opens one, and shows the share that raised no exception and the time per invoice. It accepts a PDF and reads it with the same reader and runner as the command.
 
 ## Sandbox
 

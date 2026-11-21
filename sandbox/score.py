@@ -3,7 +3,8 @@
 The runner returns the seven fields. This script applies the exception rule
 and the three scores in ../AGENTS.md. Each call sees only that invoice, so
 the runner cannot open labels.json. Ollama receives a rendered page, not a
-directory. Docling reading and the exception rule live in ../read_invoice.py.
+directory. Textract and Docling reading, and the exception rule, live in
+../read_invoice.py, the same code the command, the page, and the host use.
 
 Usage:
   python score.py --runner grok
@@ -52,7 +53,9 @@ from read_invoice import (
     docling_read,
     exception_reasons,
     parsed,
+    read_fields,
     show,
+    textract_client,
 )
 
 LABELS = ROOT / "labels.json"
@@ -65,15 +68,6 @@ OLLAMA_MODEL = "qwen3-vl:8b"
 # AnalyzeExpense list price, first million pages a month, read from
 # https://aws.amazon.com/textract/pricing/ on 2026-11-20.
 TEXTRACT_PRICE_PER_PAGE = 0.01
-TEXTRACT_TYPES = {
-    "VENDOR_NAME": "supplier",
-    "INVOICE_RECEIPT_ID": "invoice_number",
-    "INVOICE_RECEIPT_DATE": "invoice_date",
-    "DUE_DATE": "due_date",
-    "SUBTOTAL": "subtotal",
-    "TAX": "tax",
-    "TOTAL": "total",
-}
 
 PROMPT = """The only file in this directory is invoice.pdf. Read that file and return the seven fields a bookkeeper would key from the page.
 
@@ -322,47 +316,13 @@ def ollama_read(pdf: Path, model: str) -> tuple[dict | None, str, str | None]:
         return None, used, str(exc)
 
 
-def textract_value(field: dict) -> str | None:
-    detection = field.get("ValueDetection") or {}
-    text = detection.get("Text")
-    return text if isinstance(text, str) else None
-
-
-def textract_fields(response: dict) -> dict:
-    """Map AnalyzeExpense summary fields to the seven. For each type, the
-    detection with the highest value confidence wins."""
-    best: dict[str, tuple[float, str]] = {}
-    for document in response.get("ExpenseDocuments", []):
-        for field in document.get("SummaryFields", []):
-            kind = (field.get("Type") or {}).get("Text")
-            name = TEXTRACT_TYPES.get(kind)
-            value = textract_value(field)
-            if name is None or value is None:
-                continue
-            confidence = float((field.get("ValueDetection") or {}).get("Confidence") or 0)
-            if name not in best or confidence > best[name][0]:
-                best[name] = (confidence, value)
-    return {name: best[name][1] if name in best else None for name in FIELDS}
-
-
-def textract_read(pdf: Path, client) -> tuple[dict | None, str, str | None, int]:
-    response = client.analyze_expense(Document={"Bytes": pdf.read_bytes()})
-    pages = int((response.get("DocumentMetadata") or {}).get("Pages") or 0)
-    return textract_fields(response), "textract-analyze-expense", None, pages
-
-
 def score_invoice(
     runner: str, row: dict, socket: Path, model: str | None = None, client=None
 ) -> dict:
     source = ROOT / row["file"]
     started = time.perf_counter()
     if runner == "textract":
-        try:
-            got_raw, used, error, pages = textract_read(source, client)
-        except Exception as exc:
-            item = judged(row, None, "textract-analyze-expense", round(time.perf_counter() - started, 1), str(exc))
-            item["pages"] = 0
-            return item
+        got_raw, used, error, pages = read_fields(source, "textract", client)
         item = judged(row, got_raw, used, round(time.perf_counter() - started, 1), error)
         item["pages"] = pages
         return item
@@ -513,9 +473,7 @@ def main() -> None:
     socket = Path(tempfile.gettempdir()) / f"iap-{args.runner}-{os.getpid()}.sock"
     client = None
     if args.runner == "textract":
-        import boto3
-
-        client = boto3.Session(profile_name=args.profile, region_name=args.region).client("textract")
+        client = textract_client(args.profile, args.region)
     started = time.perf_counter()
     results = []
     for row in rows:
