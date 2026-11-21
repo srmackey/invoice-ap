@@ -1,4 +1,5 @@
-"""Score the sandbox invoices with Grok, Claude, Ollama, or local Docling.
+"""Score the sandbox invoices with Grok, Claude, Ollama, local Docling,
+Textract from this machine, or the hosted reader.
 
 The runner returns the seven fields. This script applies the exception rule
 and the four scores in ../AGENTS.md. Each run file also lists
@@ -18,9 +19,15 @@ Usage:
   python score.py --runner docling --gate
   python score.py --runner docling --labels hard/labels.json --gate
   python score.py --runner textract --profile <profile> --labels hard/labels.json
+  python score.py --runner hosted --url <reader url> --profile <profile> --labels holdout/labels.json
 
 The textract runner needs boto3 (sandbox/.venv) and a signed-in AWS profile.
 It records pages and list-price cost per invoice in the run file.
+
+The hosted runner sends each PDF to the deployed function URL, signed with
+host/call.py, so what is scored is the function that is running. The URL can
+also come from INVOICE_AP_READER_URL. The profile needs lambda:InvokeFunctionUrl
+and lambda:InvokeFunction on the function.
 """
 
 from __future__ import annotations
@@ -41,8 +48,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 CHECKOUT = ROOT.parent
-if str(CHECKOUT) not in sys.path:
-    sys.path.insert(0, str(CHECKOUT))
+for path in (CHECKOUT, CHECKOUT / "host"):
+    if str(path) not in sys.path:
+        sys.path.insert(0, str(path))
+
+import call as host_call  # noqa: E402
 
 from read_invoice import (
     DATE_FIELDS,
@@ -69,6 +79,16 @@ OLLAMA_MODEL = "qwen3-vl:8b"
 # AnalyzeExpense list price, first million pages a month, read from
 # https://aws.amazon.com/textract/pricing/ on 2026-11-20.
 TEXTRACT_PRICE_PER_PAGE = 0.01
+
+# Lambda, read from https://aws.amazon.com/lambda/pricing/ on 2026-11-21.
+# The page text gave $0.20 per million requests and $0.0000166667 per GB-second
+# in its examples, which is the x86 rate. The function runs on Arm, which is
+# cheaper, and that rate did not come through as text, so the compute figure
+# is an upper bound. Billed duration is not returned to the caller; the
+# function's own read time stands in for it.
+LAMBDA_PRICE_PER_REQUEST = 0.20 / 1_000_000
+LAMBDA_PRICE_PER_GB_SECOND_CEILING = 0.0000166667
+LAMBDA_MEMORY_GB = 256 / 1024
 
 PROMPT = """The only file in this directory is invoice.pdf. Read that file and return the seven fields a bookkeeper would key from the page.
 
@@ -329,11 +349,42 @@ def ollama_read(pdf: Path, model: str) -> tuple[dict | None, str, str | None]:
         return None, used, str(exc)
 
 
+def hosted_read(source: Path, url: str, credentials) -> tuple[dict | None, str, str | None, dict]:
+    """One signed call to the function URL: (fields, runner, error, host facts).
+
+    The function returns the seven already read. Scoring parses them again,
+    which leaves an ISO date or a two-place amount unchanged, so the exception
+    is recomputed from what the host returned and checked against the host's.
+    """
+    try:
+        status, body = host_call.call_reader(url, source, credentials=credentials)
+    except Exception as exc:
+        return None, "hosted", f"call failed: {exc}", {"status": None, "pages": 0}
+    facts = {
+        "status": status,
+        "pages": body.get("pages") or 0,
+        "host_seconds": body.get("seconds"),
+        "host_exception_reasons": body.get("exception_reasons"),
+    }
+    used = body.get("runner") or "hosted"
+    if status != 200:
+        return None, used, body.get("error") or f"HTTP {status}", facts
+    return {name: body.get(name) for name in FIELDS}, used, body.get("error"), facts
+
+
 def score_invoice(
-    runner: str, row: dict, socket: Path, model: str | None = None, client=None
+    runner: str, row: dict, socket: Path, model: str | None = None, client=None, host=None
 ) -> dict:
     source = ROOT / row["file"]
     started = time.perf_counter()
+    if runner == "hosted":
+        url, credentials = host
+        got_raw, used, error, facts = hosted_read(source, url, credentials)
+        item = judged(row, got_raw, used, round(time.perf_counter() - started, 1), error)
+        item.update(facts)
+        if got_raw is not None and facts["host_exception_reasons"] != item["exception_reasons"]:
+            item["host_disagrees"] = True
+        return item
     if runner == "textract":
         got_raw, used, error, pages = read_fields(source, "textract", client)
         item = judged(row, got_raw, used, round(time.perf_counter() - started, 1), error)
@@ -476,12 +527,51 @@ def summarize(runner: str, invoices: list[dict], elapsed: float) -> dict:
     }
 
 
+def add_hosted_facts(report: dict, results: list[dict], url: str) -> None:
+    """What a hosted run adds to the four scores: where it ran, what it cost,
+    and whether the host's exception matched the one scoring recomputed."""
+    pages = sum(row.get("pages", 0) for row in results)
+    host_seconds = sum(row.get("host_seconds") or 0 for row in results)
+    calls = len(results)
+    textract = pages * TEXTRACT_PRICE_PER_PAGE
+    lambda_ceiling = calls * LAMBDA_PRICE_PER_REQUEST + (
+        host_seconds * LAMBDA_MEMORY_GB * LAMBDA_PRICE_PER_GB_SECOND_CEILING
+    )
+    report["date"] = date.today().isoformat()
+    report["url_region"] = host_call.region_of(url)
+    report["time_includes"] = (
+        "a signed HTTPS call from this machine to the function URL for each invoice, one at a "
+        "time: upload, the function's read through Textract, and the reply"
+    )
+    report["host_seconds_per_invoice"] = round(host_seconds / calls, 2)
+    report["pages"] = pages
+    report["price_per_page_usd"] = TEXTRACT_PRICE_PER_PAGE
+    report["lambda_cost_ceiling_usd"] = round(lambda_ceiling, 6)
+    report["cost_usd"] = round(textract + lambda_ceiling, 4)
+    report["cost_per_invoice_usd"] = round((textract + lambda_ceiling) / calls, 4)
+    report["cost_note"] = (
+        "Textract at list price per page, plus Lambda requests and compute at the x86 rate, an "
+        "upper bound for this Arm function, using the function's read time for duration."
+    )
+    report["host_disagrees"] = [row["id"] for row in results if row.get("host_disagrees")]
+    report["http_errors"] = [
+        f"{row['id']} {row.get('status')}" for row in results if row.get("status") != 200
+    ]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--runner", choices=("grok", "claude", "ollama", "docling", "textract"), required=True
+        "--runner",
+        choices=("grok", "claude", "ollama", "docling", "textract", "hosted"),
+        required=True,
     )
-    parser.add_argument("--profile", help="AWS profile for the textract runner.")
+    parser.add_argument("--profile", help="AWS profile for the textract and hosted runners.")
+    parser.add_argument(
+        "--url",
+        default=os.environ.get("INVOICE_AP_READER_URL"),
+        help="Function URL for the hosted runner. Defaults to INVOICE_AP_READER_URL.",
+    )
     parser.add_argument("--region", default="us-east-1", help="AWS region for the textract runner.")
     parser.add_argument(
         "--model",
@@ -510,13 +600,18 @@ def main() -> None:
             raise SystemExit(f"no fixture {args.only}")
     socket = Path(tempfile.gettempdir()) / f"iap-{args.runner}-{os.getpid()}.sock"
     client = None
+    host = None
     if args.runner == "textract":
         client = textract_client(args.profile, args.region)
+    if args.runner == "hosted":
+        if not args.url:
+            raise SystemExit("the hosted runner needs --url or INVOICE_AP_READER_URL")
+        host = (args.url, host_call.session_credentials(args.url, args.profile))
     started = time.perf_counter()
     results = []
     for row in rows:
         print(f"START {args.runner} {row['id']}", flush=True)
-        item = score_invoice(args.runner, row, socket, args.model, client)
+        item = score_invoice(args.runner, row, socket, args.model, client, host)
         results.append(item)
         print(
             f"DONE {args.runner} {row['id']} {item['correct_fields']}/{scored_fields(item)} "
@@ -551,17 +646,19 @@ def main() -> None:
         report["price_per_page_usd"] = TEXTRACT_PRICE_PER_PAGE
         report["cost_usd"] = round(pages * TEXTRACT_PRICE_PER_PAGE, 4)
         report["cost_per_invoice_usd"] = round(pages * TEXTRACT_PRICE_PER_PAGE / len(results), 4)
+    if args.runner == "hosted":
+        add_hosted_facts(report, results, args.url)
     if args.only:
         print(json.dumps(report, indent=2))
         if args.gate:
             enforce_gate(report)
         return
     RUNS.mkdir(exist_ok=True)
-    if args.runner == "textract":
+    if args.runner in ("textract", "hosted"):
         stem = "" if labels_path.resolve() == LABELS.resolve() else (
             (labels_path.parent.name if labels_path.stem == "labels" else labels_path.stem) + "-"
         )
-        candidate = RUNS / f"{date.today().isoformat()}-{stem}textract.json"
+        candidate = RUNS / f"{date.today().isoformat()}-{stem}{args.runner}.json"
         if all(row["error"] for row in results):
             raise SystemExit(f"every call failed, no run written: {results[0]['error']}")
         if candidate.exists():
@@ -569,7 +666,7 @@ def main() -> None:
     if args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
         slug = args.model.replace(":", "-").replace("/", "-")
         dest = RUNS / f"{date.today().isoformat()}-{slug}.json"
-    elif args.runner in ("docling", "textract") and labels_path.resolve() == LABELS.resolve():
+    elif args.runner in ("docling", "textract", "hosted") and labels_path.resolve() == LABELS.resolve():
         dest = RUNS / f"{date.today().isoformat()}-{args.runner}.json"
     elif labels_path.resolve() == LABELS.resolve():
         dest = RUNS / f"2026-10-22-{args.runner}.json"

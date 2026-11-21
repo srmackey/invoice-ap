@@ -100,6 +100,8 @@ python sandbox/test_live_auth.py
 
 The caller role gets the seven fields. The other two get a 403 saying both permissions are required, and an unsigned request gets a plain 403. The function has no resource policy, so this shows IAM is enforced and nothing else opened the URL. Cross-account access is not tested.
 
+To score the function that is deployed, run `sandbox/score.py --runner hosted --url <reader url> --profile <profile> --labels <set>`. How that run is recorded is in `sandbox/README.md`.
+
 An exception is still a 200: it is the answer. A body that is not a PDF is a 400. A Textract failure is a 502 with the reason. Textract reads a PDF of one page in a single call, so a longer PDF is refused with `UnsupportedDocumentException`. One page is a known limit, and the scored sets are one-page invoices.
 
 ## Sandbox

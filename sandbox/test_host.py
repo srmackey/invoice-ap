@@ -15,7 +15,7 @@ from types import SimpleNamespace
 from unittest import mock
 
 CHECKOUT = Path(__file__).resolve().parent.parent
-for path in (CHECKOUT, CHECKOUT / "host"):
+for path in (CHECKOUT, CHECKOUT / "host", CHECKOUT / "sandbox"):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
@@ -123,6 +123,61 @@ class Caller(unittest.TestCase):
         self.assertIn("/us-east-1/lambda/aws4_request", auth)
         self.assertEqual(req.data, PDF)
         self.assertEqual(req.get_method(), "POST")
+
+
+class ScoreHosted(unittest.TestCase):
+    """score.py's hosted runner, with the signed call stood in."""
+
+    ROW = {
+        "id": "01-northline",
+        "file": "fixtures/01-northline.pdf",
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80",
+        "exception": False,
+    }
+    HOST = ("https://abc123.lambda-url.us-east-1.on.aws/", object())
+
+    def score(self, status, body):
+        import score
+
+        with mock.patch.object(score.host_call, "call_reader", return_value=(status, body)) as fake:
+            item = score.score_invoice("hosted", self.ROW, Path("unused"), host=self.HOST)
+        self.assertIs(fake.call_args.kwargs["credentials"], self.HOST[1])
+        return item
+
+    def test_the_host_read_is_scored(self):
+        item = self.score(200, {**READ, "seconds": 2.9})
+        self.assertEqual(item["correct_fields"], 7)
+        self.assertIs(item["exception"], False)
+        self.assertEqual(item["pages"], 1)
+        self.assertEqual(item["host_seconds"], 2.9)
+        self.assertNotIn("host_disagrees", item)
+
+    def test_a_502_is_an_error_with_no_fields(self):
+        item = self.score(502, {"error": "UnsupportedDocumentException", "pages": 0})
+        self.assertEqual(item["error"], "UnsupportedDocumentException")
+        self.assertEqual(item["correct_fields"], 0)
+        self.assertEqual(item["status"], 502)
+
+    def test_a_host_exception_that_scoring_does_not_reproduce_is_flagged(self):
+        item = self.score(200, {**READ, "exception": True, "exception_reasons": ["total_mismatch"]})
+        self.assertIs(item["host_disagrees"], True)
+
+    def test_the_run_carries_cost_and_errors(self):
+        import score
+
+        results = [self.score(200, {**READ, "seconds": 3.0}), self.score(403, {"error": "Forbidden"})]
+        report = score.summarize("hosted", results, 8.0)
+        score.add_hosted_facts(report, results, self.HOST[0])
+        self.assertEqual(report["pages"], 1)
+        self.assertEqual(report["http_errors"], ["01-northline 403"])
+        self.assertAlmostEqual(report["cost_per_invoice_usd"], 0.005, places=3)
+        self.assertEqual(report["url_region"], "us-east-1")
 
 
 if __name__ == "__main__":

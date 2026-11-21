@@ -35,13 +35,23 @@ def signed_request(url: str, data: bytes, credentials, region: str) -> urllib.re
     return urllib.request.Request(url, data=data, headers=dict(aws.headers.items()), method="POST")
 
 
-def call_reader(url: str, pdf: Path, profile: str | None = None, timeout: int = 60) -> tuple[int, dict]:
+def session_credentials(url: str, profile: str | None = None):
+    """Credentials for signing calls to this URL. Refreshable ones refresh on
+    each get_frozen_credentials(), so a long scoring run can reuse them."""
     import boto3
 
-    region = region_of(url)
-    credentials = boto3.Session(profile_name=profile, region_name=region).get_credentials()
+    credentials = boto3.Session(profile_name=profile, region_name=region_of(url)).get_credentials()
     if credentials is None:
         raise RuntimeError("no AWS credentials found")
+    return credentials
+
+
+def call_reader(
+    url: str, pdf: Path, profile: str | None = None, timeout: int = 60, credentials=None
+) -> tuple[int, dict]:
+    region = region_of(url)
+    if credentials is None:
+        credentials = session_credentials(url, profile)
     request = signed_request(url, pdf.read_bytes(), credentials.get_frozen_credentials(), region)
     try:
         with urllib.request.urlopen(request, timeout=timeout) as resp:
