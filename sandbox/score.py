@@ -74,7 +74,7 @@ PROMPT = """The only file in this directory is invoice.pdf. Read that file and r
 
 supplier is the letterhead name.
 invoice_number is the invoice number.
-invoice_date and due_date are calendar dates as YYYY-MM-DD. If the page has no due date, due_date is null.
+invoice_date and due_date are calendar dates as YYYY-MM-DD. If the page prints payment terms but no due date, due_date is the invoice date plus the terms' days: "Due on receipt" is the invoice date and "2/10 Net 30" is 30 days. If the page has neither, or the terms cannot be computed (such as "Net 30 EOM"), due_date is null.
 subtotal, tax, and total are the printed amounts in decimal dollars with two places. Copy the printed total. Do not fix arithmetic.
 Use null when a field is not on the page.
 
@@ -85,7 +85,7 @@ OLLAMA_PROMPT = """This image is one supplier invoice. Return the seven fields a
 
 supplier is the letterhead name.
 invoice_number is the invoice number.
-invoice_date and due_date are calendar dates as YYYY-MM-DD. If the page has no due date, due_date is null.
+invoice_date and due_date are calendar dates as YYYY-MM-DD. If the page prints payment terms but no due date, due_date is the invoice date plus the terms' days: "Due on receipt" is the invoice date and "2/10 Net 30" is 30 days. If the page has neither, or the terms cannot be computed (such as "Net 30 EOM"), due_date is null.
 subtotal, tax, and total are the printed amounts in decimal dollars with two places. Copy the printed total. Do not fix arithmetic.
 Use null when a field is not on the page.
 """

@@ -86,9 +86,32 @@ class Holdout(unittest.TestCase):
         for row in self.rows:
             if row["layout"] != "day-first":
                 continue
-            for name in ("invoice_date", "due_date"):
-                if row[name]:
-                    self.assertGreater(int(row[name][8:]), 12, (row["id"], name))
+            self.assertGreater(int(row["invoice_date"][8:]), 12, row["id"])
+            if row["due_source"] == "printed":
+                self.assertGreater(int(row["due_date"][8:]), 12, row["id"])
+
+    def test_due_dates_from_terms(self):
+        """../AGENTS.md: terms set an unprinted due date; ones the rule cannot compute leave it missing."""
+        from datetime import date, timedelta
+
+        forms = set()
+        for row in self.rows:
+            if row["due_source"] != "terms" and not (row["terms"] and row["due_date"] is None):
+                continue
+            terms = row["terms"]
+            forms.add(terms.split()[0] if terms.startswith("Net") and "EOM" not in terms else terms)
+            issued = date.fromisoformat(row["invoice_date"])
+            if terms == "Due on receipt":
+                want = issued
+            elif terms == "2/10 Net 30":
+                want = issued + timedelta(days=30)
+            elif terms.endswith("EOM"):
+                want = None
+            else:
+                want = issued + timedelta(days=int(terms.split()[1]))
+            got = date.fromisoformat(row["due_date"]) if row["due_date"] else None
+            self.assertEqual(got, want, row["id"])
+        self.assertEqual(forms, {"Net", "Due on receipt", "2/10 Net 30", "Net 30 EOM"})
 
     def test_one_page_each(self):
         try:

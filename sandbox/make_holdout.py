@@ -8,13 +8,16 @@ dates where the page makes them unambiguous (a written month, or a numeric
 day above 12). Half are clean PDFs; a quarter are scans and a quarter are
 phone photos, rendered the way make_hard.py renders them.
 
-About a quarter need an exception: a missing due date (with or without
-printed terms), a missing invoice number, a due date before the invoice
-date, or a printed total that does not equal subtotal plus tax.
+About a quarter need an exception: a missing due date (none printed, or
+terms the rule cannot compute), a missing invoice number, a due date
+before the invoice date, or a printed total that does not equal subtotal
+plus tax.
 
-A due date implied by terms ("Net 30") but not printed is missing on the
-page, so its label is null and the rule raises missing_due_date. That is
-the reading of the null rule in ../AGENTS.md.
+Ten invoices print payment terms and no due date. Per ../AGENTS.md the
+label is the invoice date plus the terms' days: "Net 45" adds 45, "Due on
+receipt" is the invoice date, "2/10 Net 30" is 30 days. "Net 30 EOM" is
+not computed, so its due date is missing. Each label says whether its due
+date was printed or comes from terms.
 
 The set is a holdout: frozen before any runner reads it, scored once per
 runner, never used to change a mapper. This script was written without
@@ -56,17 +59,29 @@ CENT = Decimal("0.01")
 FOLDERS = {"clean": "clean", "scan": "scans", "photo": "photos"}
 
 KINDS = (
-    ["clean"] * 75
-    + ["no_due_terms"] * 4
-    + ["no_due"] * 2
+    ["clean"] * 67
+    + ["terms_net"] * 4
+    + ["terms_receipt"] * 2
+    + ["terms_discount"] * 2
+    + ["terms_eom"] * 2
+    + ["no_due"] * 4
     + ["no_number"] * 3
     + ["due_before"] * 8
     + ["mismatch"] * 8
 )
 RENDERS = ["clean"] * 50 + ["scan"] * 25 + ["photo"] * 25
+# Terms printed with no due date: (printed text, days the label adds, or None).
+TERMS_ONLY = {
+    "terms_receipt": ("Due on receipt", 0),
+    "terms_discount": ("2/10 Net 30", 30),
+    "terms_eom": ("Net 30 EOM", None),
+}
 EXPECT = {
     "clean": [],
-    "no_due_terms": ["missing_due_date"],
+    "terms_net": [],
+    "terms_receipt": [],
+    "terms_discount": [],
+    "terms_eom": ["missing_due_date"],
     "no_due": ["missing_due_date"],
     "no_number": ["missing_invoice_number"],
     "due_before": ["due_before_invoice"],
@@ -211,10 +226,19 @@ def build_invoice(rng: random.Random, index: int, supplier: str, kind: str, layo
     issued = pick_day(rng, numeric)
     terms = rng.choice(TERMS)
     show_terms = rng.random() < 0.45
+    terms_text = f"Net {terms}"
     due: date | None
-    if kind in ("no_due", "no_due_terms"):
+    due_label: date | None = None
+    if kind == "no_due":
         due = None
-        show_terms = kind == "no_due_terms"
+        show_terms = False
+    elif kind == "terms_net":
+        due, show_terms = None, True
+        due_label = issued + timedelta(days=terms)
+    elif kind in TERMS_ONLY:
+        due, show_terms = None, True
+        terms_text, days = TERMS_ONLY[kind]
+        due_label = None if days is None else issued + timedelta(days=days)
     elif kind == "due_before":
         due = offset(rng, issued, -24, -3, numeric)
         show_terms = False
@@ -248,7 +272,9 @@ def build_invoice(rng: random.Random, index: int, supplier: str, kind: str, layo
         "invoice_number": number,
         "invoice_date": issued,
         "due_date": due,
-        "terms": terms if show_terms else None,
+        "due_label": due if due else due_label,
+        "due_source": "printed" if due else ("terms" if due_label else None),
+        "terms": terms_text if show_terms else None,
         "po": f"PO {rng.randint(10000, 89999)}",
         "order_date": offset(rng, issued, -12, -2, numeric),
         "customer_id": f"C-{rng.randint(1000, 9999)}",
@@ -351,7 +377,7 @@ def meta_rows(inv: dict, labels: dict, fmt, distractors=()) -> list[tuple[str, s
         elif name == "customer":
             rows.append((labels.get("customer", "Customer ID"), inv["customer_id"]))
     if inv["terms"]:
-        rows.append((labels.get("terms", "Terms"), f"Net {inv['terms']}"))
+        rows.append((labels.get("terms", "Terms"), inv["terms"]))
     if inv["due_date"]:
         rows.append((labels["due"], fmt(inv["due_date"])))
     return rows
@@ -440,7 +466,7 @@ def layout_boxed_totals(inv):
     cells.append(("Invoice Date", long_us(inv["invoice_date"])))
     cells.append(("PO Number", inv["po"]))
     if inv["terms"]:
-        cells.append(("Terms", f"Net {inv['terms']}"))
+        cells.append(("Terms", inv["terms"]))
     if inv["due_date"]:
         cells.append(("Due Date", long_us(inv["due_date"])))
     strip = Table([[[p(esc(a.upper()), gray), p(esc(b), style("Helvetica-Bold", 10.5, 13))] for a, b in cells]],
@@ -637,7 +663,7 @@ def layout_inline_totals(inv):
     if inv["due_date"]:
         cells.append(f"<b>Due</b> {short_us(inv['due_date'])}")
     if inv["terms"]:
-        cells.append(f"<b>Terms</b> Net {inv['terms']}")
+        cells.append(f"<b>Terms</b> {esc(inv['terms'])}")
     strip = Table([[p(cell, base) for cell in cells]], colWidths=[7.1 * inch / len(cells)] * len(cells))
     strip.setStyle(TableStyle([("BOX", (0, 0), (-1, -1), 0.6, colors.black),
                                ("INNERGRID", (0, 0), (-1, -1), 0.6, colors.black),
@@ -686,7 +712,7 @@ def layout_letter(inv):
     if inv["due_date"]:
         story.append(p(f"Please pay the amount due by {long_us(inv['due_date'])}.", body))
     elif inv["terms"]:
-        story.append(p(f"Payment terms are net {inv['terms']} days.", body))
+        story.append(p(f"Payment terms: {esc(inv['terms'])}.", body))
     story += [Spacer(1, 22), p("Sincerely,", body), Spacer(1, 18), p(esc(inv["supplier"]), body)]
     return story, letter
 
@@ -727,7 +753,7 @@ def layout_summary_first(inv):
     if inv["due_date"]:
         box += [Spacer(1, 4), p(f"Due Date: {long_us(inv['due_date'])}", style("Helvetica", 10, 13, TA_RIGHT))]
     elif inv["terms"]:
-        box += [Spacer(1, 4), p(f"Terms: Net {inv['terms']}", style("Helvetica", 10, 13, TA_RIGHT))]
+        box += [Spacer(1, 4), p(f"Terms: {esc(inv['terms'])}", style("Helvetica", 10, 13, TA_RIGHT))]
     summary = Table([[box]], colWidths=[2.6 * inch])
     summary.setStyle(TableStyle([("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#1d4e89")),
                                  ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#eaf1fa")),
@@ -796,12 +822,14 @@ def label_row(inv: dict, file: str, digest: str) -> dict:
         "supplier": inv["supplier"],
         "invoice_number": inv["invoice_number"],
         "invoice_date": iso(inv["invoice_date"]),
-        "due_date": iso(inv["due_date"]) if inv["due_date"] else None,
+        "due_date": iso(inv["due_label"]) if inv["due_label"] else None,
         "subtotal": f"{inv['subtotal']:.2f}",
         "tax": f"{inv['tax']:.2f}",
         "total": f"{inv['total']:.2f}",
         "exception": bool(EXPECT[inv["kind"]]),
         "exception_reasons": list(EXPECT[inv["kind"]]),
+        "terms": inv["terms"],
+        "due_source": inv["due_source"],
         "layout": inv["layout"],
         "render": inv["render"],
         "sha256": digest,
