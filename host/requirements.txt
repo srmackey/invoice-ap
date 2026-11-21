@@ -1,0 +1,5 @@
+# What host/call.py needs to sign and send one invoice. Nothing else.
+# botocore[crt] is needed for profiles signed in with `aws login`,
+# and for roles assumed from one.
+boto3
+botocore[crt]

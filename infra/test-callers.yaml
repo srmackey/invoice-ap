@@ -1,0 +1,94 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: invoice-ap test callers. Three roles that test who may call the reader's function URL. They hold no keys; a principal in this account assumes one for a short session.
+
+Parameters:
+  FunctionName:
+    Type: String
+    Default: invoice-ap-reader
+    Description: The reader function these roles test.
+
+Resources:
+  # Allowed: the two permissions a same-account caller needs, scoped to this
+  # function and to calls that come through its function URL.
+  CallerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: invoice-ap-test-caller
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: invoke-reader-url
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunctionUrl
+                Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${FunctionName}
+                Condition:
+                  StringEquals:
+                    lambda:FunctionUrlAuthType: AWS_IAM
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${FunctionName}
+                Condition:
+                  Bool:
+                    lambda:InvokedViaFunctionUrl: "true"
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+  # Refused: InvokeFunctionUrl alone, without InvokeFunction.
+  UrlOnlyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: invoice-ap-test-url-only
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: invoke-reader-url-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunctionUrl
+                Resource: !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${FunctionName}
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+  # Refused: no Lambda permissions at all.
+  NoAccessRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: invoice-ap-test-no-access
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub arn:aws:iam::${AWS::AccountId}:root
+            Action: sts:AssumeRole
+      Tags:
+        - Key: Project
+          Value: invoice-ap
+
+Outputs:
+  CallerRoleArn:
+    Value: !GetAtt CallerRole.Arn
+  UrlOnlyRoleArn:
+    Value: !GetAtt UrlOnlyRole.Arn
+  NoAccessRoleArn:
+    Value: !GetAtt NoAccessRole.Arn

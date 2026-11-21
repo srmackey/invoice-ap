@@ -67,11 +67,33 @@ aws cloudformation package --template-file infra/reader.yaml --s3-bucket invoice
 aws cloudformation deploy --template-file build/reader.packaged.yaml --stack-name invoice-ap-reader --capabilities CAPABILITY_NAMED_IAM --profile <profile> --region us-east-1
 ```
 
-The first stack is a private bucket for packaged code. The URL is the `ReaderUrl` output of the second stack. To send one invoice, with a profile that has `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` on the function:
+The first stack is a private bucket for packaged code. The URL is the `ReaderUrl` output of the second stack.
+
+To send one invoice, install what `host/requirements.txt` lists (boto3, and `botocore[crt]` for profiles signed in with `aws login` or roles assumed from one), and use a profile that has `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` on the function:
 
 ```
+pip install -r host/requirements.txt
 python host/call.py <reader url> sandbox/fixtures/01-northline.pdf --profile <profile>
 ```
+
+`call.py` runs on its own, without the rest of this checkout. `sandbox/check_clean_install.py <reader url>` proves that: it installs `host/requirements.txt` into a throwaway venv, sends one invoice with `call.py` alone, and deletes the venv.
+
+### Who may call it
+
+`infra/test-callers.yaml` is three roles for testing access. They hold no keys; a principal in the account assumes one for a short session. `invoice-ap-test-caller` has the two invoke permissions on this function, `invoice-ap-test-url-only` has `InvokeFunctionUrl` alone, and `invoice-ap-test-no-access` has none.
+
+```
+aws cloudformation deploy --template-file infra/test-callers.yaml --stack-name invoice-ap-test-callers --capabilities CAPABILITY_NAMED_IAM --profile <profile> --region us-east-1
+```
+
+Give each role a profile in `~/.aws/config` named `invoice-ap-caller`, `invoice-ap-url-only`, and `invoice-ap-no-access`, with `role_arn` set to the role and `source_profile` set to your own profile. Then, after every deploy of the reader:
+
+```
+set INVOICE_AP_READER_URL=<reader url>
+python sandbox/test_live_auth.py
+```
+
+The caller role gets the seven fields. The other two get a 403 saying both permissions are required, and an unsigned request gets a plain 403. The function has no resource policy, so this shows IAM is enforced and nothing else opened the URL. Cross-account access is not tested.
 
 An exception is still a 200: it is the answer. A body that is not a PDF is a 400. A Textract failure is a 502 with the reason. Textract reads a PDF of one page in a single call, so a longer PDF is refused with `UnsupportedDocumentException`.
 
