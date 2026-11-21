@@ -5,3 +5,6 @@ reads/
 
 # Built Lambda packages and packaged templates. They carry the account id.
 build/
+
+# INV-CDIP documents and annotations. Fetched by sandbox/get_inv_cdip.py, never committed.
+sandbox/inv-cdip/

@@ -55,7 +55,8 @@ The sandbox (`sandbox/`) runs the reader against labeled invoice sets and writes
 | `sandbox/fixtures/` | Ten generated invoices in one layout. |
 | `sandbox/hard/` | Those ten as scans and phone photos, and four in a second layout. |
 | `sandbox/holdout/` | A frozen holdout: 100 one-page invoices in twelve further layouts, clean, scanned, and photographed, 25 of them exceptions and ten with due dates set by terms. |
+| `sandbox/inv-cdip.json` | A frozen real-document set: 276 one-page invoices from INV-CDIP (Salesforce Research, CC BY-NC 4.0), mostly scans. Labels cover invoice number, invoice date, due date, tax, and total; the documents are fetched by `get_inv_cdip.py` and not committed. |
 
-Each set is written by its own script in `sandbox/` and labeled by that script. Labels use ISO dates and decimal dollars.
+Each set is written by its own script in `sandbox/` and labeled by that script. Labels use ISO dates and decimal dollars. A set that labels fewer than the seven fields lists them, and each invoice is judged only on the fields its label row lists. On INV-CDIP the total is the annotated total amount, or the amount due where no total is annotated.
 
 **Matching.** Dates match as calendar dates. Money matches to the cent. Supplier and invoice number match the printed text.
