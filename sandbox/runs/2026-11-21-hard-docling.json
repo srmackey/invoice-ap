@@ -1,0 +1,932 @@
+{
+  "runner": "docling",
+  "date": "2026-11-21",
+  "invoices": 24,
+  "field_accuracy": "168/168",
+  "straight_through": "15/24",
+  "invoice_accuracy": "24/24",
+  "silent_errors": [],
+  "time_per_invoice_seconds": 7.9,
+  "elapsed_seconds": 188.6,
+  "time_includes": "the local Docling conversion for each invoice, one at a time",
+  "models": [
+    "docling"
+  ],
+  "results": [
+    {
+      "id": "scan-01-northline",
+      "model": "docling",
+      "seconds": 6.1,
+      "fields": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "February 3, 2026",
+        "due_date": "March 5, 2026",
+        "subtotal": "$1,260.00",
+        "tax": "$100.80",
+        "total": "$1,360.80"
+      },
+      "read": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-01-northline",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "February 3, 2026",
+        "due_date": "March 5, 2026",
+        "subtotal": "$1,260.00",
+        "tax": "$100.80",
+        "total": "$1,360.80"
+      },
+      "read": {
+        "supplier": "Northline Supply Co.",
+        "invoice_number": "NL-10442",
+        "invoice_date": "2026-02-03",
+        "due_date": "2026-03-05",
+        "subtotal": "1260.00",
+        "tax": "100.80",
+        "total": "1360.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-02-harbor-paper",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "January 15, 2026",
+        "due_date": "February 14, 2026",
+        "subtotal": "$502.00",
+        "tax": "$40.16",
+        "total": "$542.16"
+      },
+      "read": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "502.00",
+        "tax": "40.16",
+        "total": "542.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-02-harbor-paper",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "January 15, 2026",
+        "due_date": "February 14, 2026",
+        "subtotal": "$502.00",
+        "tax": "$40.16",
+        "total": "$542.16"
+      },
+      "read": {
+        "supplier": "Harbor Paper Ltd.",
+        "invoice_number": "HP-8831",
+        "invoice_date": "2026-01-15",
+        "due_date": "2026-02-14",
+        "subtotal": "502.00",
+        "tax": "40.16",
+        "total": "542.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-03-keel-electric",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "April 2, 2026",
+        "due_date": "April 17, 2026",
+        "subtotal": "$234.00",
+        "tax": "$0.00",
+        "total": "$234.00"
+      },
+      "read": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": "234.00",
+        "tax": "0.00",
+        "total": "234.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-03-keel-electric",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "April 2, 2026",
+        "due_date": "April 17, 2026",
+        "subtotal": "$234.00",
+        "tax": "$0.00",
+        "total": "$234.00"
+      },
+      "read": {
+        "supplier": "Keel Electric",
+        "invoice_number": "KE-2207",
+        "invoice_date": "2026-04-02",
+        "due_date": "2026-04-17",
+        "subtotal": "234.00",
+        "tax": "0.00",
+        "total": "234.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-04-brightwater",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "March 1, 2026",
+        "due_date": "March 31, 2026",
+        "subtotal": "$890.00",
+        "tax": "$71.20",
+        "total": "$961.20"
+      },
+      "read": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": "890.00",
+        "tax": "71.20",
+        "total": "961.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-04-brightwater",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "March 1, 2026",
+        "due_date": "March 31, 2026",
+        "subtotal": "$890.00",
+        "tax": "$71.20",
+        "total": "$961.20"
+      },
+      "read": {
+        "supplier": "Brightwater Janitorial",
+        "invoice_number": "BW-551",
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-03-31",
+        "subtotal": "890.00",
+        "tax": "71.20",
+        "total": "961.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-05-cedar-rye",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "May 19, 2026",
+        "due_date": "June 18, 2026",
+        "subtotal": "$565.00",
+        "tax": "$45.20",
+        "total": "$610.20"
+      },
+      "read": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "565.00",
+        "tax": "45.20",
+        "total": "610.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-05-cedar-rye",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "May 19, 2026",
+        "due_date": "June 18, 2026",
+        "subtotal": "$565.00",
+        "tax": "$45.20",
+        "total": "$610.20"
+      },
+      "read": {
+        "supplier": "Cedar & Rye Packaging",
+        "invoice_number": "CR-77821",
+        "invoice_date": "2026-05-19",
+        "due_date": "2026-06-18",
+        "subtotal": "565.00",
+        "tax": "45.20",
+        "total": "610.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-06-motspur",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "June 8, 2026",
+        "due_date": "July 8, 2026",
+        "subtotal": "$309.00",
+        "tax": "$24.72",
+        "total": "$333.72"
+      },
+      "read": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "2026-06-08",
+        "due_date": "2026-07-08",
+        "subtotal": "309.00",
+        "tax": "24.72",
+        "total": "333.72"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-06-motspur",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "June 8, 2026",
+        "due_date": "July 8, 2026",
+        "subtotal": "$309.00",
+        "tax": "$24.72",
+        "total": "$333.72"
+      },
+      "read": {
+        "supplier": "Motspur Tools",
+        "invoice_number": "MT-3190",
+        "invoice_date": "2026-06-08",
+        "due_date": "2026-07-08",
+        "subtotal": "309.00",
+        "tax": "24.72",
+        "total": "333.72"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-07-fieldstone",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "February 27, 2026",
+        "due_date": "March 13, 2026",
+        "subtotal": "$1,380.00",
+        "tax": "$110.40",
+        "total": "$1,490.40"
+      },
+      "read": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "2026-02-27",
+        "due_date": "2026-03-13",
+        "subtotal": "1380.00",
+        "tax": "110.40",
+        "total": "1490.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "photo-07-fieldstone",
+      "model": "docling",
+      "seconds": 52.0,
+      "fields": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "February 27, 2026",
+        "due_date": "March 13, 2026",
+        "subtotal": "$1,380.00",
+        "tax": "$110.40",
+        "total": "$1,490.40"
+      },
+      "read": {
+        "supplier": "Fieldstone Fuel",
+        "invoice_number": "FF-10094",
+        "invoice_date": "2026-02-27",
+        "due_date": "2026-03-13",
+        "subtotal": "1380.00",
+        "tax": "110.40",
+        "total": "1490.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "scan-08-westwind",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "July 9, 2026",
+        "due_date": null,
+        "subtotal": "$450.00",
+        "tax": "$36.00",
+        "total": "$486.00"
+      },
+      "read": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "2026-07-09",
+        "due_date": null,
+        "subtotal": "450.00",
+        "tax": "36.00",
+        "total": "486.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "photo-08-westwind",
+      "model": "docling",
+      "seconds": 52.0,
+      "fields": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "July 9, 2026",
+        "due_date": null,
+        "subtotal": "$450.00",
+        "tax": "$36.00",
+        "total": "$486.00"
+      },
+      "read": {
+        "supplier": "Westwind Chemicals",
+        "invoice_number": "WW-642",
+        "invoice_date": "2026-07-09",
+        "due_date": null,
+        "subtotal": "450.00",
+        "tax": "36.00",
+        "total": "486.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "scan-09-oak-street",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "March 12, 2026",
+        "due_date": "March 1, 2026",
+        "subtotal": "$820.00",
+        "tax": "$65.60",
+        "total": "$885.60"
+      },
+      "read": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-03-01",
+        "subtotal": "820.00",
+        "tax": "65.60",
+        "total": "885.60"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "photo-09-oak-street",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "March 12, 2026",
+        "due_date": "March 1, 2026",
+        "subtotal": "$820.00",
+        "tax": "$65.60",
+        "total": "$885.60"
+      },
+      "read": {
+        "supplier": "Oak Street Lumber",
+        "invoice_number": "OSL-2088",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-03-01",
+        "subtotal": "820.00",
+        "tax": "65.60",
+        "total": "885.60"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "scan-10-pinion",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "August 21, 2026",
+        "due_date": "September 20, 2026",
+        "subtotal": "$480.00",
+        "tax": "$38.40",
+        "total": "$500.00"
+      },
+      "read": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "2026-08-21",
+        "due_date": "2026-09-20",
+        "subtotal": "480.00",
+        "tax": "38.40",
+        "total": "500.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "photo-10-pinion",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "August 21, 2026",
+        "due_date": "September 20, 2026",
+        "subtotal": "$480.00",
+        "tax": "$38.40",
+        "total": "$500.00"
+      },
+      "read": {
+        "supplier": "Pinion Parts",
+        "invoice_number": "PP-4471",
+        "invoice_date": "2026-08-21",
+        "due_date": "2026-09-20",
+        "subtotal": "480.00",
+        "tax": "38.40",
+        "total": "500.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "odd-lumen",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Lumen Glassworks",
+        "invoice_number": "LG-1904",
+        "invoice_date": "06/02/2026",
+        "due_date": "07/02/2026",
+        "subtotal": "$369.00",
+        "tax": "$29.52",
+        "total": "$398.52"
+      },
+      "read": {
+        "supplier": "Lumen Glassworks",
+        "invoice_number": "LG-1904",
+        "invoice_date": "2026-06-02",
+        "due_date": "2026-07-02",
+        "subtotal": "369.00",
+        "tax": "29.52",
+        "total": "398.52"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "odd-marrow",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Marrow Freight",
+        "invoice_number": "MF-6620",
+        "invoice_date": "07/11/2026",
+        "due_date": null,
+        "subtotal": "$225.00",
+        "tax": "$18.00",
+        "total": "$243.00"
+      },
+      "read": {
+        "supplier": "Marrow Freight",
+        "invoice_number": "MF-6620",
+        "invoice_date": "2026-07-11",
+        "due_date": null,
+        "subtotal": "225.00",
+        "tax": "18.00",
+        "total": "243.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "odd-sable",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Sable Print Shop",
+        "invoice_number": "SP-44",
+        "invoice_date": "08/20/2026",
+        "due_date": "08/01/2026",
+        "subtotal": "$640.00",
+        "tax": "$0.00",
+        "total": "$640.00"
+      },
+      "read": {
+        "supplier": "Sable Print Shop",
+        "invoice_number": "SP-44",
+        "invoice_date": "2026-08-20",
+        "due_date": "2026-08-01",
+        "subtotal": "640.00",
+        "tax": "0.00",
+        "total": "640.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "odd-quarry",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Quarry Salt Co.",
+        "invoice_number": "QS-3188",
+        "invoice_date": "09/04/2026",
+        "due_date": "10/04/2026",
+        "subtotal": "$420.00",
+        "tax": "$33.60",
+        "total": "$430.00"
+      },
+      "read": {
+        "supplier": "Quarry Salt Co.",
+        "invoice_number": "QS-3188",
+        "invoice_date": "2026-09-04",
+        "due_date": "2026-10-04",
+        "subtotal": "420.00",
+        "tax": "33.60",
+        "total": "430.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ]
+}

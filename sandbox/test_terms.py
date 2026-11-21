@@ -147,6 +147,22 @@ class TextractTerms(Base):
         out = read(self.pdf, client=textract_with(other_field("Terms:", "Net 15"), expense_field("TOTAL", "$540.00")))
         self.assertEqual(out["due_date"], "2026-03-29")
 
+    def test_terms_line_on_its_own(self):
+        response = expense_response(HEADER + [expense_field("TOTAL", "$540.00")])
+        response["ExpenseDocuments"][0]["Blocks"] = [
+            {"BlockType": "LINE", "Text": "Thank you for your business."},
+            {"BlockType": "LINE", "Text": "Due on receipt"},
+        ]
+        out = read(self.pdf, client=FakeTextract(response))
+        self.assertEqual(out["due_date"], "2026-03-14")
+
+    def test_long_line_mentioning_net_is_not_terms(self):
+        response = expense_response(HEADER + [expense_field("TOTAL", "$540.00")])
+        response["ExpenseDocuments"][0]["Blocks"] = [
+            {"BlockType": "LINE", "Text": "Accounts past Net 30 are subject to a monthly service charge"},
+        ]
+        self.assertIsNone(read(self.pdf, client=FakeTextract(response))["due_date"])
+
     def test_untyped_field_without_a_terms_label_is_ignored(self):
         out = read(self.pdf, client=textract_with(other_field("Ship via", "Net 15"), expense_field("TOTAL", "$540.00")))
         self.assertIsNone(out["due_date"])

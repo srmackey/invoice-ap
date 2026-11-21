@@ -1,0 +1,421 @@
+{
+  "runner": "docling",
+  "date": "2026-11-21",
+  "invoices": 10,
+  "field_accuracy": "57/70",
+  "straight_through": "0/10",
+  "invoice_accuracy": "0/10",
+  "silent_errors": [],
+  "time_per_invoice_seconds": 4.0,
+  "elapsed_seconds": 40.2,
+  "time_includes": "the local Docling conversion for each invoice, one at a time",
+  "models": [
+    "docling"
+  ],
+  "results": [
+    {
+      "id": "p01-tidewater",
+      "model": "docling",
+      "seconds": 4.1,
+      "fields": {
+        "supplier": "Tidewater Packaging",
+        "invoice_number": null,
+        "invoice_date": "03/02/2026",
+        "due_date": null,
+        "subtotal": "$300.00",
+        "tax": "$21.00",
+        "total": "$321.00"
+      },
+      "read": {
+        "supplier": "Tidewater Packaging",
+        "invoice_number": null,
+        "invoice_date": "2026-03-02",
+        "due_date": "2026-04-01",
+        "subtotal": "300.00",
+        "tax": "21.00",
+        "total": "321.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p02-granite",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Granite Ridge Equipment",
+        "invoice_number": null,
+        "invoice_date": "01/20/2026",
+        "due_date": null,
+        "subtotal": "$240.00",
+        "tax": "$0.00",
+        "total": "$240.00"
+      },
+      "read": {
+        "supplier": "Granite Ridge Equipment",
+        "invoice_number": null,
+        "invoice_date": "2026-01-20",
+        "due_date": "2026-02-19",
+        "subtotal": "240.00",
+        "tax": "0.00",
+        "total": "240.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p03-bluefern",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Bluefern Linens",
+        "invoice_number": null,
+        "invoice_date": "02/11/2026",
+        "due_date": null,
+        "subtotal": "$71.00",
+        "tax": "$3.55",
+        "total": "$74.55"
+      },
+      "read": {
+        "supplier": "Bluefern Linens",
+        "invoice_number": null,
+        "invoice_date": "2026-02-11",
+        "due_date": "2026-02-11",
+        "subtotal": "71.00",
+        "tax": "3.55",
+        "total": "74.55"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p04-hollis",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Hollis Dairy Cooperative",
+        "invoice_number": null,
+        "invoice_date": "03/09/2026",
+        "due_date": "Upon receipt",
+        "subtotal": "$224.80",
+        "tax": "$0.00",
+        "total": "$224.80"
+      },
+      "read": {
+        "supplier": "Hollis Dairy Cooperative",
+        "invoice_number": null,
+        "invoice_date": "2026-03-09",
+        "due_date": "2026-03-09",
+        "subtotal": "224.80",
+        "tax": "0.00",
+        "total": "224.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p05-arden",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Arden Flour Mills",
+        "invoice_number": null,
+        "invoice_date": "02/26/2026",
+        "due_date": null,
+        "subtotal": "$27.80",
+        "tax": "$0.00",
+        "total": "$278.00"
+      },
+      "read": {
+        "supplier": "Arden Flour Mills",
+        "invoice_number": null,
+        "invoice_date": "2026-02-26",
+        "due_date": null,
+        "subtotal": "27.80",
+        "tax": "0.00",
+        "total": "278.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_due_date",
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "p06-cobalt",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Cobalt Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "01/05/2026",
+        "due_date": "01/31/2026",
+        "subtotal": "$615.00",
+        "tax": "$36.90",
+        "total": "$651.90"
+      },
+      "read": {
+        "supplier": "Cobalt Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "2026-01-05",
+        "due_date": "2026-01-31",
+        "subtotal": "615.00",
+        "tax": "36.90",
+        "total": "651.90"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p07-marlowe",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Marlowe Produce",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$211.00",
+        "tax": "$0.00",
+        "total": null
+      },
+      "read": {
+        "supplier": "Marlowe Produce",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "211.00",
+        "tax": "0.00",
+        "total": "211.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p08-kestrel",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Kestrel Print Shop",
+        "invoice_number": null,
+        "invoice_date": "02/02/2026",
+        "due_date": "02/16/2026",
+        "subtotal": "$269.00",
+        "tax": "$21.52",
+        "total": null
+      },
+      "read": {
+        "supplier": "Kestrel Print Shop",
+        "invoice_number": null,
+        "invoice_date": "2026-02-02",
+        "due_date": "2026-02-16",
+        "subtotal": "269.00",
+        "tax": "21.52",
+        "total": "290.52"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p09-sunder",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Sunder Pest Control",
+        "invoice_number": null,
+        "invoice_date": "03/01/2026",
+        "due_date": null,
+        "subtotal": "$160.00",
+        "tax": "$11.60",
+        "total": "$171.60"
+      },
+      "read": {
+        "supplier": "Sunder Pest Control",
+        "invoice_number": null,
+        "invoice_date": "2026-03-01",
+        "due_date": "2026-04-30",
+        "subtotal": "160.00",
+        "tax": "11.60",
+        "total": "171.60"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "p10-wexford",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Wexford Ovens",
+        "invoice_number": null,
+        "invoice_date": "02/18/2026",
+        "due_date": null,
+        "subtotal": "$1,800.00",
+        "tax": "$0.00",
+        "total": null
+      },
+      "read": {
+        "supplier": "Wexford Ovens",
+        "invoice_number": null,
+        "invoice_date": "2026-02-18",
+        "due_date": "2026-03-20",
+        "subtotal": "1800.00",
+        "tax": "0.00",
+        "total": "1300.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "total_mismatch"
+      ],
+      "label_exception": true,
+      "error": null
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ]
+}

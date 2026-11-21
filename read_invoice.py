@@ -373,11 +373,18 @@ def docling_read(pdf: Path) -> tuple[dict | None, str, str | None]:
 def textract_fields(response: dict) -> dict:
     """Map AnalyzeExpense summary fields to the seven, plus the amount due and
     the payment terms. For each, the detection with the highest value
-    confidence wins. Terms Textract leaves untyped (OTHER, printed under a
-    label with "terms" in it) count when no PAYMENT_TERMS came back."""
+    confidence wins. When no PAYMENT_TERMS came back, terms Textract leaves
+    untyped count: an OTHER field under a label with "terms" in it, then a
+    short line of page text that is terms on its own ("Due on receipt")."""
     best: dict[str, tuple[float, str]] = {}
     loose_terms: tuple[float, str] | None = None
+    terms_line: str | None = None
     for document in response.get("ExpenseDocuments") or []:
+        for block in document.get("Blocks") or []:
+            text = block.get("Text")
+            if terms_line is None and block.get("BlockType") == "LINE" and isinstance(text, str):
+                if len(text) <= TERMS_LINE_MAX and terms_days(text) is not None:
+                    terms_line = text
         for field in document.get("SummaryFields") or []:
             kind = (field.get("Type") or {}).get("Text")
             name = TEXTRACT_TYPES.get(kind)
@@ -396,6 +403,8 @@ def textract_fields(response: dict) -> dict:
                 best[name] = (confidence, value)
     if "terms" not in best and loose_terms is not None:
         best["terms"] = loose_terms
+    if "terms" not in best and terms_line is not None:
+        best["terms"] = (0.0, terms_line)
     return {name: best[name][1] if name in best else None for name in RAW_KEYS}
 
 

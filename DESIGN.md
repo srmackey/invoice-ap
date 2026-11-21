@@ -22,7 +22,7 @@ A field that is not on the page is null.
 
 **Amount due.** When the page prints an amount due ("Amount Due", "Balance Due", "Total Due") and no total, the total is the amount due. This holds for every supplier. When a deposit or credit has been taken off, the amount due will not equal subtotal plus tax, and the exception rule sends the invoice to a person. Which number a particular supplier's total should be is per-supplier memory, not this rule.
 
-**Where the reader finds them.** Textract types them itself: `PAYMENT_TERMS` and `AMOUNT_DUE`, plus an untyped field printed under a label with "terms" in it. Docling's mapper takes terms after a "Terms" or "Payment Terms" label, in the same cell, the next cell, or the next line, or a short line that is terms on its own, and the amount due after one of the three labels above.
+**Where the reader finds them.** Textract types them itself: `PAYMENT_TERMS` and `AMOUNT_DUE`. When it returns no `PAYMENT_TERMS`, an untyped field under a label with "terms" in it counts, then a short line of page text that is terms on its own, since Textract does not type an unlabeled "Due on receipt". Docling's mapper takes terms after a "Terms" or "Payment Terms" label, in the same cell, the next cell, or the next line, or a short line that is terms on its own, and the amount due after one of the three labels above.
 
 **The exception.** The reader raises an exception, with reasons, when any of the seven is missing, when the due date is before the invoice date, or when subtotal plus tax differs from the total by more than one cent. An exception is an answer, not a failure: the invoice goes to a person instead of straight through.
 
