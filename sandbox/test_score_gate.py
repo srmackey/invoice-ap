@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import unittest
 
-from score import enforce_gate, gate_misses
+from score import enforce_gate, gate_misses, invoice_scores, summarize
 
 
 def row(invoice_id: str, correct: int = 7, exception: bool = False, label: bool = False) -> dict:
@@ -66,6 +66,23 @@ class EnforceGateTests(unittest.TestCase):
                 }
             )
         self.assertEqual(caught.exception.code, 1)
+
+
+class InvoiceScoreTests(unittest.TestCase):
+    def test_an_invoice_counts_only_when_every_field_is_right(self):
+        rows = [row("01-northline"), row("02-harbor", correct=6, exception=True), row("03-keel")]
+        self.assertEqual(invoice_scores(rows), ("2/3", []))
+
+    def test_a_wrong_field_with_no_exception_is_a_silent_error(self):
+        rows = [row("01-northline", correct=6), row("08-westwind", correct=5, exception=True)]
+        self.assertEqual(invoice_scores(rows), ("0/2", ["01-northline"]))
+
+    def test_a_set_that_labels_fewer_fields_scores_over_those(self):
+        partial = dict(row("cdip-1", correct=5), right={name: True for name in "abcde"})
+        report = summarize("textract", [partial], 1.0)
+        self.assertEqual(report["field_accuracy"], "5/5")
+        self.assertEqual(report["invoice_accuracy"], "1/1")
+        self.assertEqual(report["silent_errors"], [])
 
 
 if __name__ == "__main__":

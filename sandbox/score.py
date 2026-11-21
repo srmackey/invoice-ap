@@ -1,7 +1,8 @@
 """Score the sandbox invoices with Grok, Claude, Ollama, or local Docling.
 
 The runner returns the seven fields. This script applies the exception rule
-and the three scores in ../AGENTS.md. Each call sees only that invoice, so
+and the four scores in ../AGENTS.md. Each run file also lists
+silent errors: invoices that raised no exception but read a field wrong. Each call sees only that invoice, so
 the runner cannot open labels.json. Ollama receives a rendered page, not a
 directory. Textract and Docling reading, and the exception rule, live in
 ../read_invoice.py, the same code the command, the page, and the host use.
@@ -421,16 +422,39 @@ def enforce_gate(report: dict) -> None:
     raise SystemExit(1)
 
 
+def scored_fields(row: dict) -> int:
+    """How many fields this invoice was scored on. Seven unless a set labels fewer."""
+    return len(row.get("right") or FIELDS)
+
+
+def invoice_scores(invoices: list[dict]) -> tuple[str, list[str]]:
+    """Invoice accuracy (every scored field right) and the silent errors.
+
+    A silent error raised no exception and still read a field wrong, so it
+    would have gone through without anyone looking at it.
+    """
+    whole = sum(1 for row in invoices if row["correct_fields"] == scored_fields(row))
+    silent = [
+        row["id"]
+        for row in invoices
+        if not row["exception"] and row["correct_fields"] < scored_fields(row)
+    ]
+    return f"{whole}/{len(invoices)}", silent
+
+
 def summarize(runner: str, invoices: list[dict], elapsed: float) -> dict:
     correct = sum(row["correct_fields"] for row in invoices)
-    total = len(FIELDS) * len(invoices)
+    total = sum(scored_fields(row) for row in invoices)
     clear = sum(1 for row in invoices if not row["exception"])
+    invoice_accuracy, silent = invoice_scores(invoices)
     return {
         "runner": runner,
         "date": "2026-10-22",
         "invoices": len(invoices),
         "field_accuracy": f"{correct}/{total}",
         "straight_through": f"{clear}/{len(invoices)}",
+        "invoice_accuracy": invoice_accuracy,
+        "silent_errors": silent,
         "time_per_invoice_seconds": round(elapsed / len(invoices), 1),
         "elapsed_seconds": round(elapsed, 1),
         "time_includes": "starting the CLI and the model call for each invoice, one at a time",
@@ -535,6 +559,8 @@ def main() -> None:
     print(
         f"SCORE {args.runner} field_accuracy={report['field_accuracy']} "
         f"straight_through={report['straight_through']} "
+        f"invoice_accuracy={report['invoice_accuracy']} "
+        f"silent_errors={len(report['silent_errors'])} "
         f"time_per_invoice_seconds={report['time_per_invoice_seconds']}",
         flush=True,
     )
