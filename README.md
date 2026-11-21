@@ -4,10 +4,12 @@ A synthetic invoice reader. How it works is `DESIGN.md`. How a score is measured
 
 ## Scores
 
-The invoices are synthetic. Each score is the sandbox run named with it.
+The generated sets are synthetic. INV-CDIP is real invoices from a public archive, not a customer's books. Each score is the sandbox run named with it. The hosted runs read each invoice through the deployed function, which calls Textract.
 
 - Generated set (`sandbox/fixtures/`, ten invoices in one layout): the Claude run in `sandbox/runs/2026-10-22-claude.json`. Field accuracy 70/70, straight-through 7/10, invoice accuracy 10/10, 8.3 seconds per invoice. The Grok run is a second pass and is not this score.
-- Harder set (`sandbox/hard/`, ten scans, ten phone photos, and four invoices in a second layout): the Docling run in `sandbox/runs/2026-10-23-hard-docling.json`. Field accuracy 168/168, straight-through 15/24, invoice accuracy 24/24, 9.7 seconds per invoice.
+- Harder set (`sandbox/hard/`, ten scans, ten phone photos, and four invoices in a second layout): the hosted run in `sandbox/runs/2026-11-21-hard-hosted.json`. Field accuracy 168/168, straight-through 15/24, invoice accuracy 24/24, no silent errors, 2.9 seconds and about one cent per invoice.
+- Generated holdout (`sandbox/holdout/`, 100 one-page invoices in twelve layouts, clean, scanned, and photographed, frozen before any runner read it): the hosted run in `sandbox/runs/2026-11-21-holdout-hosted.json`. Field accuracy 627/700, straight-through 62/100, invoice accuracy 60/100, 2.8 seconds per invoice. 18 invoices are silent errors: a date printed in a format the reader does not parse raised no exception. Local Docling read 256/700 on the same set (`2026-11-21-holdout-docling.json`).
+- INV-CDIP (`sandbox/inv-cdip.json`, 276 real one-page invoices, mostly scans, labeled for invoice number, invoice date, due date, tax, and total): the hosted run in `sandbox/runs/2026-11-21-inv-cdip-hosted.json`. Field accuracy 761/896, invoice accuracy 178/276, 3 silent errors, 3.0 seconds per invoice. The set does not label supplier or subtotal, so its straight-through rate (15/276) is recorded and not compared. Local Docling read 136/896 (`2026-11-21-inv-cdip-docling.json`).
 
 ## Install
 
