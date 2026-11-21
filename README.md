@@ -1,8 +1,13 @@
 # invoice-ap
 
-A synthetic invoice reader. The fields, the exception rule, and the benchmark are in `AGENTS.md`.
+A synthetic invoice reader. How it works is `DESIGN.md`. How a score is measured is `AGENTS.md`.
 
-The scores for the labeled sets are in `AGENTS.md`.
+## Scores
+
+The invoices are synthetic. Each score is the sandbox run named with it.
+
+- Generated set (`sandbox/fixtures/`, ten invoices in one layout): the Claude run in `sandbox/runs/2026-10-22-claude.json`. Field accuracy 70/70, straight-through 7/10, invoice accuracy 10/10, 8.3 seconds per invoice. The Grok run is a second pass and is not this score.
+- Harder set (`sandbox/hard/`, ten scans, ten phone photos, and four invoices in a second layout): the Docling run in `sandbox/runs/2026-10-23-hard-docling.json`. Field accuracy 168/168, straight-through 15/24, invoice accuracy 24/24, 9.7 seconds per invoice.
 
 ## Install
 
