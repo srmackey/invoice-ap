@@ -58,6 +58,7 @@ The sandbox (`sandbox/`) runs the reader against labeled invoice sets and writes
 | `sandbox/fixtures/` | Ten generated invoices in one layout. |
 | `sandbox/hard/` | Those ten as scans and phone photos, and four in a second layout. |
 | `sandbox/holdout/` | A frozen holdout: 100 one-page invoices in twelve further layouts, clean, scanned, and photographed, 25 of them exceptions and ten with due dates set by terms. |
+| `sandbox/holdout-2/` | A second frozen holdout, built by an outside agent that never saw this project: 100 one-page invoices from 33 suppliers in 13 layouts, clean, scanned, and photographed, 26 of them exceptions and 46 with due dates set by terms. |
 | `sandbox/practice/` | Ten generated invoices for developing the terms rule and the amount-due fallback. Practice, not a benchmark: not claimed, and it may be regenerated. |
 | `sandbox/inv-cdip.json` | A frozen real-document set: 276 one-page invoices from INV-CDIP (Salesforce Research, CC BY-NC 4.0), mostly scans. Labels cover invoice number, invoice date, due date, tax, and total; the documents are fetched by `get_inv_cdip.py` and not committed. |
 
