@@ -24,7 +24,7 @@ A field that is not on the page is null.
 
 **Where the reader finds them.** Textract types them itself: `PAYMENT_TERMS` and `AMOUNT_DUE`. When it returns no `PAYMENT_TERMS`, an untyped field under a label with "terms" in it counts, then a short line of page text that is terms on its own, since Textract does not type an unlabeled "Due on receipt". Docling's mapper takes terms after a "Terms" or "Payment Terms" label, in the same cell, the next cell, or the next line, or a short line that is terms on its own, and the amount due after one of the three labels above.
 
-**The exception.** The reader raises an exception, with reasons, when any of the seven is missing, when the due date is before the invoice date, or when subtotal plus tax differs from the total by more than one cent. An exception is an answer, not a failure: the invoice goes to a person instead of straight through.
+**The exception.** The reader raises an exception, with reasons, when any of the seven is missing (`missing_<field>`), when a date or amount is printed but does not parse (`unparsed_<field>`), when the due date is before the invoice date (`due_before_invoice`), or when subtotal plus tax differs from the total by more than one cent (`total_mismatch`). Missing and unparsed are kept apart because a clerk handles them differently: a missing field is not on the page, while an unparsed one is there and needs reading. An unparsed invoice date also leaves terms unable to set a due date, so that invoice carries both `unparsed_invoice_date` and `missing_due_date`. An exception is an answer, not a failure: the invoice goes to a person instead of straight through.
 
 ## How it is built
 

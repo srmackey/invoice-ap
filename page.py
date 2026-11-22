@@ -46,6 +46,7 @@ LABELS = {
     "total": "Total",
 }
 REASONS = {f"missing_{name}": f"{LABELS[name]} is missing" for name in FIELDS}
+REASONS.update({f"unparsed_{name}": f"{LABELS[name]} is printed but could not be read" for name in FIELDS})
 REASONS["due_before_invoice"] = "Due date is before the invoice date"
 REASONS["total_mismatch"] = "Subtotal plus tax does not match the total"
 

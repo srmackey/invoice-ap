@@ -172,6 +172,9 @@ def exception_reasons(values: dict) -> list[str]:
     for name in FIELDS:
         if values[name] is None:
             reasons.append(f"missing_{name}")
+    for name in DATE_FIELDS + MONEY_FIELDS:
+        if values[name] == "unparsed":
+            reasons.append(f"unparsed_{name}")
     invoice_date = values["invoice_date"]
     due_date = values["due_date"]
     if isinstance(invoice_date, date) and isinstance(due_date, date) and due_date < invoice_date:
