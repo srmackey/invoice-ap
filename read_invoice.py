@@ -129,7 +129,7 @@ TEXTRACT_TYPES = {
 }
 # Read alongside the seven, and used only to fill them: the printed amount due
 # stands in for a missing total, and printed terms set a missing due date.
-EXTRAS = ("amount_due", "terms")
+EXTRAS = ("amount_due", "terms", "currency")
 RAW_KEYS = FIELDS + EXTRAS
 TERMS_PREFIXES = (
     ("terms", "payment terms"), ("terms", "terms"), ("terms", "zahlungsbedingungen"), ("terms", "zahlungsziel"),
@@ -215,14 +215,74 @@ def as_date(value, day_first: bool = False):
     return "unparsed"
 
 
-def as_money(value):
+_CURRENCY_TOKENS = re.compile(r"(?i)\b(?:eur|usd|gbp|cad|cdn)\b|us\$|ca\$|c\$|[€£$]")
+_CURRENCY_SIGNS = (
+    ("EUR", re.compile(r"€|\bEUR\b", re.IGNORECASE)),
+    ("GBP", re.compile(r"£|\bGBP\b", re.IGNORECASE)),
+    ("CAD", re.compile(r"\bCAD\b|\bCDN\b|\bC\$|\bCA\$", re.IGNORECASE)),
+    ("USD", re.compile(r"\bUSD\b|\bUS\$", re.IGNORECASE)),
+)
+CURRENCIES = ("USD", "CAD", "GBP", "EUR")
+# Currencies whose suppliers usually write a decimal comma. Used only for an
+# amount that does not show its decimal mark itself, such as "1.234".
+COMMA_DECIMAL_CURRENCIES = ("EUR",)
+
+
+def currency_in(text) -> str | None:
+    """The currency a piece of text names by sign or code. A bare "$" names none."""
+    if blank(text):
+        return None
+    found = [code for code, sign in _CURRENCY_SIGNS if sign.search(str(text))]
+    return found[0] if len(found) == 1 else None
+
+
+def as_money(value, comma_decimal: bool = False):
+    """Decimal from a printed amount, "unparsed" when it does not read as one.
+
+    The amount shows its own decimal mark when it can: with both marks, the
+    later one is the decimal ("1.234,56", "1,234.56"); a lone comma or dot
+    followed by one or two digits is the decimal ("3872,40", "12.5"); followed
+    by three it is grouping ("1,234"). Only a lone dot before three digits
+    ("1.234") cannot say, and comma_decimal (a EUR page) reads it as grouping.
+    Currency signs and codes, spaces, and apostrophes are dropped."""
     if blank(value):
         return None
-    text = str(value).strip().lstrip(">").replace("$", "").replace(",", "").strip()
+    text = _CURRENCY_TOKENS.sub("", str(value).strip().lstrip(">"))
+    text = re.sub(r"[\s\u00a0\u202f']", "", text)
+    if not re.fullmatch(r"-?\d[\d.,]*", text):
+        return "unparsed"
+    dot, comma = text.rfind("."), text.rfind(",")
+    if dot >= 0 and comma >= 0:
+        decimal = "." if dot > comma else ","
+    elif comma >= 0:
+        decimal = "," if len(text) - comma - 1 in (1, 2) and text.count(",") == 1 else None
+    elif dot >= 0:
+        tail = len(text) - dot - 1
+        decimal = None if tail == 3 and (comma_decimal or text.count(".") > 1) else "."
+    else:
+        decimal = None
+    if decimal == ",":
+        text = text.replace(".", "").replace(",", ".")
+    elif decimal == ".":
+        text = text.replace(",", "")
+    else:
+        text = text.replace(",", "").replace(".", "")
     try:
         return Decimal(text).quantize(CENT)
     except (InvalidOperation, ValueError):
         return "unparsed"
+
+
+def page_currency(raw: dict) -> str | None:
+    """The invoice's currency: what the runner read, else a sign or code on the
+    amounts. None when nothing names one, which reads as US dollars."""
+    if raw.get("currency") in CURRENCIES:
+        return raw["currency"]
+    found = {currency_in(raw.get(name)) for name in MONEY_FIELDS + ("amount_due",)} - {None}
+    if len(found) == 1:
+        return found.pop()
+    foreign = sorted(found - {"USD"})
+    return foreign[0] if foreign else None
 
 
 UNCOMPUTABLE = "uncomputable"
@@ -337,21 +397,30 @@ def parsed(raw: dict) -> dict:
     out = {}
     for name in TEXT_FIELDS:
         out[name] = as_text(raw.get(name))
-    # A supplier uses one convention on a page: when either date can only be
-    # day-first, an ambiguous one beside it is read day-first too.
-    day_first = any(numeric_order(as_text(raw.get(name))) == "day" for name in DATE_FIELDS)
+    out["currency"] = page_currency(raw)
+    comma_decimal = out["currency"] in COMMA_DECIMAL_CURRENCIES
+    # A supplier uses one convention on a page. A date that can only be one
+    # order decides an ambiguous one beside it; failing that, a currency other
+    # than the US dollar reads it day-first.
+    orders = {numeric_order(as_text(raw.get(name))) for name in DATE_FIELDS}
+    if "day" in orders:
+        day_first = True
+    elif "month" in orders:
+        day_first = False
+    else:
+        day_first = out["currency"] not in (None, "USD")
     for name in DATE_FIELDS:
         out[name] = as_date(raw.get(name), day_first)
     for name in MONEY_FIELDS:
-        out[name] = as_money(raw.get(name))
+        out[name] = as_money(raw.get(name), comma_decimal)
     if out["total"] is None:
-        out["total"] = as_money(raw.get("amount_due"))
+        out["total"] = as_money(raw.get("amount_due"), comma_decimal)
     out["due_date"] = due_from_terms(out["invoice_date"], raw.get("due_date"), out["due_date"], raw.get("terms"))
     return out
 
 
 def exception_reasons(values: dict) -> list[str]:
-    reasons = []
+    reasons = [] if values.get("currency") in (None, "USD") else ["foreign_currency"]
     for name in FIELDS:
         if values[name] is None:
             reasons.append(f"missing_{name}")
@@ -412,7 +481,10 @@ def money_label_words(text: str) -> list[str] | None:
 
 
 def money_amounts(text: str) -> list[str]:
-    return re.findall(r"\$?\d[\d,]*\.\d{2}", text)
+    """Amounts in a line, with any currency sign kept: "$1,234.56", "1.234,56 €", "£980.00"."""
+    return re.findall(
+        r"(?:(?:US|CA|C)?\$|€|£)?\s?\d[\d.,\u00a0\u202f ]*?[.,]\d{2}(?!\d)(?:\s?(?:€|£|EUR|GBP|CAD|USD))?", text
+    )
 
 
 BARE_LABELS = (
@@ -583,6 +655,8 @@ def textract_fields(response: dict) -> dict:
     loose_terms: tuple[float, str] | None = None
     terms_line: str | None = None
     lines: list[tuple[str, dict]] = []
+    currency: tuple[float, str] | None = None
+    currency_field: str | None = None
     for document in response.get("ExpenseDocuments") or []:
         for block in document.get("Blocks") or []:
             text = block.get("Text")
@@ -600,6 +674,13 @@ def textract_fields(response: dict) -> dict:
                 continue
             confidence = float(detection.get("Confidence") or 0)
             label_text = (field.get("LabelDetection") or {}).get("Text") or ""
+            code = (field.get("Currency") or {}).get("Code")
+            if kind in ("SUBTOTAL", "TAX", "TOTAL", "AMOUNT_DUE") and code in CURRENCIES:
+                score = float((field.get("Currency") or {}).get("Confidence") or 0)
+                if currency is None or score > currency[0]:
+                    currency = (score, code)
+            if kind == "OTHER" and plain_lower(label_text).strip(" :.-") in ("currency", "wahrung", "devise", "valuta", "moneda"):
+                currency_field = value.strip().upper() if value.strip().upper() in CURRENCIES else currency_in(value)
             if is_due_label(label_text) and kind in ("INVOICE_RECEIPT_DATE", "OTHER", "DUE_DATE"):
                 name = "due_date"
             elif kind == "OTHER":
@@ -618,6 +699,10 @@ def textract_fields(response: dict) -> dict:
         best["terms"] = loose_terms
     if "terms" not in best and terms_line is not None:
         best["terms"] = (0.0, terms_line)
+    if currency is not None:
+        best["currency"] = currency
+    elif currency_field is not None:
+        best["currency"] = (0.0, currency_field)
     for name, labels in LABELS_FOR.items():
         if name not in best:
             beside = value_beside_label(lines, labels)
@@ -702,6 +787,7 @@ def read_invoice(
     out = {name: show(values[name]) for name in FIELDS}
     out["exception"] = bool(reasons)
     out["exception_reasons"] = reasons
+    out["currency"] = values.get("currency")
     out["printed"] = printed_text(got_raw, values)
     out["error"] = error
     out["runner"] = used

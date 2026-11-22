@@ -112,7 +112,7 @@ class Base(unittest.TestCase):
 class TextractMapping(unittest.TestCase):
     def test_seven_fields(self):
         got = textract_fields(NORTHLINE_EXPENSE)
-        self.assertEqual(set(got), set(FIELDS) | {"amount_due", "terms"})
+        self.assertEqual(set(got), set(FIELDS) | {"amount_due", "terms", "currency"})
         self.assertEqual(got["supplier"], "Northline Supply Co.")
         self.assertEqual(got["total"], "$1,360.80")
 

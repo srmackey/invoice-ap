@@ -4,8 +4,9 @@ Runs on AWS Lambda behind a function URL with AWS_IAM auth. The request body
 is one PDF. The function reads it with read_invoice.py, the same reader the
 command, the page, and the scorer use, through Textract AnalyzeExpense.
 
-Response (JSON): the seven fields, exception, exception_reasons, printed
-(the printed text of any date or amount that did not parse), error, runner,
+Response (JSON): the seven fields, exception, exception_reasons, currency
+(the ISO code the invoice names, or null when it names none), printed (the
+printed text of any date or amount that did not parse), error, runner,
 pages, and seconds. The printed text is a field value, so it stays out of the
 log line like the rest.
 

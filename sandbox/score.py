@@ -268,6 +268,7 @@ def judged(row: dict, got_raw, model, seconds: float, error) -> dict:
         "correct_fields": sum(rights.values()),
         "exception": bool(reasons),
         "exception_reasons": reasons,
+        "currency": values.get("currency"),
         "printed": printed_text(got_raw, values),
         "label_exception": row.get("exception"),
         "error": error,
@@ -374,7 +375,9 @@ def hosted_read(source: Path, url: str, credentials) -> tuple[dict | None, str, 
     used = body.get("runner") or "hosted"
     if status != 200:
         return None, used, body.get("error") or f"HTTP {status}", facts
-    return {name: body.get(name) for name in FIELDS}, used, body.get("error"), facts
+    raw = {name: body.get(name) for name in FIELDS}
+    raw["currency"] = body.get("currency")
+    return raw, used, body.get("error"), facts
 
 
 def score_invoice(
