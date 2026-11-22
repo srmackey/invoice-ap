@@ -20,11 +20,11 @@ Python 3.10 or newer. The reader has two runners. Amazon Textract AnalyzeExpense
 Install boto3 and sign in to an AWS profile that may call `textract:AnalyzeExpense`:
 
 ```
-pip install boto3 "botocore[crt]"
+pip install boto3 "botocore[crt]" python-dateutil
 aws login --profile <profile>
 ```
 
-`botocore[crt]` is needed for profiles signed in with `aws login`. Each read is one call to Textract, billed per page (one cent a page at list price in us-east-1). The region is `AWS_REGION` when it is set, and us-east-1 otherwise.
+`botocore[crt]` is needed for profiles signed in with `aws login`. `python-dateutil` reads printed dates; it comes with boto3 already, and is named because the reader uses it directly, whichever runner reads. Each read is one call to Textract, billed per page (one cent a page at list price in us-east-1). The region is `AWS_REGION` when it is set, and us-east-1 otherwise.
 
 One PDF through the command:
 

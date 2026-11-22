@@ -260,7 +260,8 @@ def judged(row: dict, got_raw, model, seconds: float, error) -> dict:
         "id": row["id"],
         "model": model,
         "seconds": seconds,
-        "fields": {name: None if got_raw is None else got_raw.get(name) for name in FIELDS},
+        # Everything the runner read, terms and amount due included, so a run can be re-judged offline.
+        "fields": None if got_raw is None else dict(got_raw),
         "read": {name: show(values[name]) for name in FIELDS},
         "right": rights,
         "correct_fields": sum(rights.values()),

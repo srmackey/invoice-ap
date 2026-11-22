@@ -30,6 +30,8 @@ from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
+from dateutil import parser as date_parser
+
 FIELDS = (
     "supplier",
     "invoice_number",
@@ -43,7 +45,34 @@ TEXT_FIELDS = ("supplier", "invoice_number")
 DATE_FIELDS = ("invoice_date", "due_date")
 MONEY_FIELDS = ("subtotal", "tax", "total")
 CENT = Decimal("0.01")
-DATE_FORMATS = ("%Y-%m-%d", "%m/%d/%Y", "%m/%d/%y", "%B %d, %Y", "%b %d, %Y")
+# Month words in French, German, Dutch, Italian, and Spanish, wide and
+# abbreviated, from CLDR (Babel 2.17.0, read 2026-11-22). English names are
+# left out because dateutil reads them already.
+MONTH_WORDS = {
+    "ene": 1, "enero": 1, "gen": 1, "gennaio": 1, "januar": 1, "januari": 1, "janv": 1, "janvier": 1,
+    "febbraio": 2, "febrero": 2, "februar": 2, "februari": 2, "fevr": 2, "fevrier": 2, "févr": 2, "février": 2,
+    "maart": 3, "mars": 3, "marz": 3, "marzo": 3, "mrt": 3, "mär": 3, "märz": 3,
+    "abr": 4, "abril": 4, "aprile": 4, "avr": 4, "avril": 4,
+    "mag": 5, "maggio": 5, "mai": 5, "mayo": 5, "mei": 5,
+    "giu": 6, "giugno": 6, "juin": 6, "juni": 6, "junio": 6,
+    "juil": 7, "juillet": 7, "juli": 7, "julio": 7, "lug": 7, "luglio": 7,
+    "ago": 8, "agosto": 8, "aout": 8, "août": 8, "augustus": 8,
+    "septembre": 9, "septiembre": 9, "set": 9, "settembre": 9,
+    "octobre": 10, "octubre": 10, "okt": 10, "oktober": 10, "ott": 10, "ottobre": 10,
+    "novembre": 11, "noviembre": 11,
+    "decembre": 12, "dez": 12, "dezember": 12, "dic": 12, "dicembre": 12, "diciembre": 12, "déc": 12, "décembre": 12,
+}
+ENGLISH_MONTHS = ("January", "February", "March", "April", "May", "June", "July", "August", "September",
+                  "October", "November", "December")
+_MONTH_WORD = re.compile(
+    r"\b(" + "|".join(sorted(map(re.escape, MONTH_WORDS), key=len, reverse=True)) + r")\.?(?![^\W\d_])",
+    re.IGNORECASE,
+)
+_NUMERIC_DATE = re.compile(r"^\s*(\d{1,4})\s*([./-])\s*(\d{1,2})\s*\2\s*(\d{2,4})\s*$")
+# Two different fill-in dates: a date that reads the same against both has a
+# day, a month, and a year of its own. One that differs was missing a part.
+_DATE_DEFAULTS = (datetime(2001, 1, 1), datetime(2002, 2, 2))
+EARLIEST_YEAR = 1900
 DOCLING_URL = "http://127.0.0.1:5001/v1/convert/file"
 DOCLING_TIMEOUT = 120
 READS_PATH = Path(__file__).resolve().parent / "reads" / "reads.jsonl"
@@ -91,15 +120,62 @@ def as_text(value):
     return " ".join(str(value).split())
 
 
-def as_date(value):
+def numeric_order(text: str | None) -> str | None:
+    """How an all-numeric date orders its parts: "year" (2026-03-14), "day"
+    (14/03/2026, only day-first reads it), "month" (03/14/2026), "dotted"
+    (04.03.2026, read day-first), or "either" (03/04/2026). None for any
+    date that is not all numbers."""
+    found = _NUMERIC_DATE.match(text or "")
+    if not found:
+        return None
+    first, sep, second = found[1], found[2], int(found[3])
+    if len(first) == 4:
+        return "year"
+    first = int(first)
+    if first > 12 and second <= 12:
+        return "day"
+    if second > 12 and first <= 12:
+        return "month"
+    return "dotted" if sep == "." else "either"
+
+
+def english_months(text: str) -> str:
+    """Month words in the five other languages, swapped for English, so dateutil reads them."""
+    text = re.sub(r"\b1er\b", "1", text, flags=re.IGNORECASE)
+    return _MONTH_WORD.sub(lambda m: ENGLISH_MONTHS[MONTH_WORDS[m[1].lower()] - 1], text)
+
+
+def as_date(value, day_first: bool = False):
+    """A calendar date from printed text, "unparsed" when the text is there but
+    does not read as one, None when nothing is printed.
+
+    A numeric date that can only be one order is read that way. A dotted one
+    is read day-first. An ambiguous one is read month-first unless day_first
+    says the page proved otherwise. Text with a day, a month, and a year is
+    read strictly first, then fuzzily (a date inside a sentence). Anything
+    missing a part, or outside 1900 through next year, is unparsed."""
     text = as_text(value)
     if text is None:
         return None
-    for fmt in DATE_FORMATS:
+    order = numeric_order(text)
+    if order == "year":
+        options = {"yearfirst": True, "dayfirst": False}
+    elif order in ("day", "dotted"):
+        options = {"dayfirst": True}
+    elif order == "month":
+        options = {"dayfirst": False}
+    else:
+        options = {"dayfirst": day_first}
+    text = english_months(text)
+    for fuzzy in (False, True):
         try:
-            return datetime.strptime(text, fmt).date()
-        except ValueError:
+            first = date_parser.parse(text, default=_DATE_DEFAULTS[0], fuzzy=fuzzy, **options)
+            second = date_parser.parse(text, default=_DATE_DEFAULTS[1], fuzzy=fuzzy, **options)
+        except (ValueError, OverflowError):
             continue
+        if first != second or not EARLIEST_YEAR <= first.year <= date.today().year + 1:
+            return "unparsed"
+        return first.date()
     return "unparsed"
 
 
@@ -157,8 +233,11 @@ def parsed(raw: dict) -> dict:
     out = {}
     for name in TEXT_FIELDS:
         out[name] = as_text(raw.get(name))
+    # A supplier uses one convention on a page: when either date can only be
+    # day-first, an ambiguous one beside it is read day-first too.
+    day_first = any(numeric_order(as_text(raw.get(name))) == "day" for name in DATE_FIELDS)
     for name in DATE_FIELDS:
-        out[name] = as_date(raw.get(name))
+        out[name] = as_date(raw.get(name), day_first)
     for name in MONEY_FIELDS:
         out[name] = as_money(raw.get(name))
     if out["total"] is None:
