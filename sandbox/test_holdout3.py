@@ -2,8 +2,9 @@
 
 holdout-3/ is a cross-border challenge set: invoices a US small business gets
 from Canada, the UK, Ireland, and continental Europe, plus US invoices for
-comparison. It was built by an agent with no access to this checkout, from
-holdout-3/BRIEF.md. Every file matches the sha256 in its label. Labels are
+comparison. It was built in two parts by agents with no access to this
+checkout, from holdout-3/BRIEF.md: the main 60 (make_set.py) and a
+supplement of 60 more with new suppliers and layouts (supplement/). Every file matches the sha256 in its label. Labels are
 rechecked against the exception rule, including foreign_currency, and each
 due date set by terms is checked against a day count printed in the terms.
 The one-page check needs pymupdf (sandbox/.venv) and skips without it.
@@ -49,7 +50,7 @@ class Holdout3(unittest.TestCase):
         cls.rows = cls.payload["invoices"]
 
     def test_frozen(self):
-        self.assertEqual(self.payload["frozen"], "2026-11-21")
+        self.assertEqual(self.payload["frozen"], "2026-11-22")
         self.assertEqual(self.payload["fields"], list(FIELDS))
 
     def test_files_are_unchanged(self):
@@ -64,12 +65,18 @@ class Holdout3(unittest.TestCase):
         self.assertEqual(on_disk, listed)
 
     def test_size_and_renders(self):
-        self.assertEqual(len(self.rows), 60)
-        self.assertEqual(len({row["id"] for row in self.rows}), 60)
+        self.assertEqual(len(self.rows), 120)
+        self.assertEqual(len({row["id"] for row in self.rows}), 120)
+        self.assertEqual(collections.Counter(row["part"] for row in self.rows), {"main": 60, "supplement": 60})
         self.assertEqual({row["layout"] for row in self.rows}, set(self.payload["layouts"]))
         folders = {"clean": "/clean/", "scan": "/scans/", "photo": "/photos/"}
         for row in self.rows:
             self.assertIn(folders[row["render"]], row["file"], row["id"])
+
+    def test_supplement_is_as_delivered(self):
+        delivered = json.loads((SET / "supplement" / "labels.json").read_text(encoding="utf-8"))["invoices"]
+        merged = [{k: v for k, v in row.items() if k != "part"} for row in self.rows if row["part"] == "supplement"]
+        self.assertEqual(merged, delivered)
 
     def test_render_does_not_follow_country(self):
         seen = collections.defaultdict(set)

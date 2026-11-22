@@ -8,19 +8,39 @@
     "tax",
     "total"
   ],
-  "frozen": "2026-11-21",
-  "generator": "make_set.py",
-  "seed": 0,
+  "frozen": "2026-11-22",
+  "generator": {
+    "main": "make_set.py",
+    "supplement": "supplement/make_set.py"
+  },
+  "seed": {
+    "main": 0,
+    "supplement": 42
+  },
+  "parts": {
+    "main": "first frozen 2026-11-21 (2bdaf70)",
+    "supplement": "added 2026-11-22; labels as delivered in supplement/labels.json"
+  },
   "layouts": [
     "bilingual_ca",
+    "boxed",
+    "ca_bilingual",
     "classic_centered",
+    "classic_us",
     "es_iva_standard",
+    "eu_table",
     "eu_vat_iban",
+    "fr_ttc",
     "fr_tva_left",
+    "german_formal",
     "it_iva_elegant",
+    "italian_style",
+    "minimal",
     "modern_left_header",
     "nl_btw_modern",
+    "spanish_style",
     "standard_right_totals",
+    "uk_vat",
     "uk_vat_bottom"
   ],
   "invoices": [
@@ -46,7 +66,8 @@
       "render": "photo",
       "id": "001-lone-star-materials-co",
       "file": "holdout-3/photos/001-lone-star-materials-co.pdf",
-      "sha256": "216c60bc7b35d17eb8c1bf7cd4dd311e837bf86fe9576d9e8766c57b0883eb47"
+      "sha256": "216c60bc7b35d17eb8c1bf7cd4dd311e837bf86fe9576d9e8766c57b0883eb47",
+      "part": "main"
     },
     {
       "supplier": "Highland Fabrication",
@@ -70,7 +91,8 @@
       "render": "clean",
       "id": "002-highland-fabrication",
       "file": "holdout-3/clean/002-highland-fabrication.pdf",
-      "sha256": "df141bdd046b6804c38c08ccd5bbcb8021a9b13d9d5f5a49900efe1cc3c48209"
+      "sha256": "df141bdd046b6804c38c08ccd5bbcb8021a9b13d9d5f5a49900efe1cc3c48209",
+      "part": "main"
     },
     {
       "supplier": "Delta Logistics BV",
@@ -92,7 +114,8 @@
       "render": "clean",
       "id": "003-delta-logistics-bv",
       "file": "holdout-3/clean/003-delta-logistics-bv.pdf",
-      "sha256": "02b194572435c682b4b75a35b442f3504b1456afd8995392813e06f9ffd93b3c"
+      "sha256": "02b194572435c682b4b75a35b442f3504b1456afd8995392813e06f9ffd93b3c",
+      "part": "main"
     },
     {
       "supplier": "Rhein Precision Parts",
@@ -117,7 +140,8 @@
       "render": "photo",
       "id": "004-rhein-precision-parts",
       "file": "holdout-3/photos/004-rhein-precision-parts.pdf",
-      "sha256": "c0e66c03fb47ea03b5cb7b805eb3b44bba592b573d1bb94fe7724295c00456cf"
+      "sha256": "c0e66c03fb47ea03b5cb7b805eb3b44bba592b573d1bb94fe7724295c00456cf",
+      "part": "main"
     },
     {
       "supplier": "Rhein Precision Parts",
@@ -142,7 +166,8 @@
       "render": "clean",
       "id": "005-rhein-precision-parts",
       "file": "holdout-3/clean/005-rhein-precision-parts.pdf",
-      "sha256": "00d21a3c604408f3455e5981f4dd58ccbc2e1aaff90f8e19cca977657ae8a8a0"
+      "sha256": "00d21a3c604408f3455e5981f4dd58ccbc2e1aaff90f8e19cca977657ae8a8a0",
+      "part": "main"
     },
     {
       "supplier": "Highland Fabrication",
@@ -166,7 +191,8 @@
       "render": "clean",
       "id": "006-highland-fabrication",
       "file": "holdout-3/clean/006-highland-fabrication.pdf",
-      "sha256": "5d401949157e82932098001b30f81182df8f90e73eaec9e2f66bb812a66106db"
+      "sha256": "5d401949157e82932098001b30f81182df8f90e73eaec9e2f66bb812a66106db",
+      "part": "main"
     },
     {
       "supplier": "Iberia Materiales SL",
@@ -190,7 +216,8 @@
       "render": "scan",
       "id": "007-iberia-materiales-sl",
       "file": "holdout-3/scans/007-iberia-materiales-sl.pdf",
-      "sha256": "d1a7b86e70288ac2c4420299f7f2a280306e077035b6b44166fd0f044eb3f5ea"
+      "sha256": "d1a7b86e70288ac2c4420299f7f2a280306e077035b6b44166fd0f044eb3f5ea",
+      "part": "main"
     },
     {
       "supplier": "Emerald Data Services",
@@ -215,7 +242,8 @@
       "render": "clean",
       "id": "008-emerald-data-services",
       "file": "holdout-3/clean/008-emerald-data-services.pdf",
-      "sha256": "43156de5e4455110d0f26477dafc7cb4d69267b269eaadf91f91a171f75cf1ab"
+      "sha256": "43156de5e4455110d0f26477dafc7cb4d69267b269eaadf91f91a171f75cf1ab",
+      "part": "main"
     },
     {
       "supplier": "Rhein Precision Parts",
@@ -239,7 +267,8 @@
       "render": "scan",
       "id": "009-rhein-precision-parts",
       "file": "holdout-3/scans/009-rhein-precision-parts.pdf",
-      "sha256": "09e64a74cd41e02fee7ffc43bce80e004a34cb827b730c62edfaa3fa8bc91d86"
+      "sha256": "09e64a74cd41e02fee7ffc43bce80e004a34cb827b730c62edfaa3fa8bc91d86",
+      "part": "main"
     },
     {
       "supplier": "Celtic Components Ltd",
@@ -263,7 +292,8 @@
       "render": "photo",
       "id": "010-celtic-components-ltd",
       "file": "holdout-3/photos/010-celtic-components-ltd.pdf",
-      "sha256": "7b4f6cf4ab296b092b2eff240b6edd56da6dbd00ce07d944a5c78364b4dc2078"
+      "sha256": "7b4f6cf4ab296b092b2eff240b6edd56da6dbd00ce07d944a5c78364b4dc2078",
+      "part": "main"
     },
     {
       "supplier": "Celtic Components Ltd",
@@ -285,7 +315,8 @@
       "render": "photo",
       "id": "011-celtic-components-ltd",
       "file": "holdout-3/photos/011-celtic-components-ltd.pdf",
-      "sha256": "2c682f8fcd0a4ac484be2e2de4f8b754c3a37d7a7602299d8ee10f6cd796747c"
+      "sha256": "2c682f8fcd0a4ac484be2e2de4f8b754c3a37d7a7602299d8ee10f6cd796747c",
+      "part": "main"
     },
     {
       "supplier": "Celtic Components Ltd",
@@ -310,7 +341,8 @@
       "render": "scan",
       "id": "012-celtic-components-ltd",
       "file": "holdout-3/scans/012-celtic-components-ltd.pdf",
-      "sha256": "05070e406f0a8c3dcad720e1e73f9b668c5ac6701880122be5389342c2caf5b9"
+      "sha256": "05070e406f0a8c3dcad720e1e73f9b668c5ac6701880122be5389342c2caf5b9",
+      "part": "main"
     },
     {
       "supplier": "Maple Precision Engineering",
@@ -334,7 +366,8 @@
       "render": "scan",
       "id": "013-maple-precision-engineering",
       "file": "holdout-3/scans/013-maple-precision-engineering.pdf",
-      "sha256": "2ba21bc48ce83df59fabe7bf6c4f009d822ffe308a7f3352d66c6d5bb336ca3c"
+      "sha256": "2ba21bc48ce83df59fabe7bf6c4f009d822ffe308a7f3352d66c6d5bb336ca3c",
+      "part": "main"
     },
     {
       "supplier": "Emerald Data Services",
@@ -359,7 +392,8 @@
       "render": "clean",
       "id": "014-emerald-data-services",
       "file": "holdout-3/clean/014-emerald-data-services.pdf",
-      "sha256": "a08252d0b7891cf2d7b1886303c39db29df5d8f60a501253dd4e21000ec65007"
+      "sha256": "a08252d0b7891cf2d7b1886303c39db29df5d8f60a501253dd4e21000ec65007",
+      "part": "main"
     },
     {
       "supplier": "Delta Logistics BV",
@@ -383,7 +417,8 @@
       "render": "scan",
       "id": "015-delta-logistics-bv",
       "file": "holdout-3/scans/015-delta-logistics-bv.pdf",
-      "sha256": "897020b1ec3d4891e5109c0d2663d35d65211dcaf004fb4943bcedb1c16bafdb"
+      "sha256": "897020b1ec3d4891e5109c0d2663d35d65211dcaf004fb4943bcedb1c16bafdb",
+      "part": "main"
     },
     {
       "supplier": "Iberia Materiales SL",
@@ -409,7 +444,8 @@
       "render": "clean",
       "id": "016-iberia-materiales-sl",
       "file": "holdout-3/clean/016-iberia-materiales-sl.pdf",
-      "sha256": "3078a468e2a01c86b252d16a9d308dcca066e0f6e9ff9578198cc52dc42ef6a4"
+      "sha256": "3078a468e2a01c86b252d16a9d308dcca066e0f6e9ff9578198cc52dc42ef6a4",
+      "part": "main"
     },
     {
       "supplier": "Thames Valley Systems Ltd",
@@ -431,7 +467,8 @@
       "render": "scan",
       "id": "017-thames-valley-systems-ltd",
       "file": "holdout-3/scans/017-thames-valley-systems-ltd.pdf",
-      "sha256": "97dfdc38e442beeff090c9cb0c9ddd5d9f999dbea43d011dfeb8d9431794035e"
+      "sha256": "97dfdc38e442beeff090c9cb0c9ddd5d9f999dbea43d011dfeb8d9431794035e",
+      "part": "main"
     },
     {
       "supplier": "Alpen Maschinenbau GmbH",
@@ -455,7 +492,8 @@
       "render": "clean",
       "id": "018-alpen-maschinenbau-gmbh",
       "file": "holdout-3/clean/018-alpen-maschinenbau-gmbh.pdf",
-      "sha256": "8e936910b49387df500e38ab7c6f567c46fb40b39c222d076098d546241af307"
+      "sha256": "8e936910b49387df500e38ab7c6f567c46fb40b39c222d076098d546241af307",
+      "part": "main"
     },
     {
       "supplier": "Rhein Precision Parts",
@@ -479,7 +517,8 @@
       "render": "clean",
       "id": "019-rhein-precision-parts",
       "file": "holdout-3/clean/019-rhein-precision-parts.pdf",
-      "sha256": "79315329aeab7e0f100bde2a6923f8809a428df4274618fe838093582f9ed6fd"
+      "sha256": "79315329aeab7e0f100bde2a6923f8809a428df4274618fe838093582f9ed6fd",
+      "part": "main"
     },
     {
       "supplier": "Summit Components Inc",
@@ -501,7 +540,8 @@
       "render": "clean",
       "id": "020-summit-components-inc",
       "file": "holdout-3/clean/020-summit-components-inc.pdf",
-      "sha256": "05b710bc7c7f01aaa0881ad5e31def5cf1c69f160bd69a934fb5cff5c6f4c14c"
+      "sha256": "05b710bc7c7f01aaa0881ad5e31def5cf1c69f160bd69a934fb5cff5c6f4c14c",
+      "part": "main"
     },
     {
       "supplier": "Summit Components Inc",
@@ -523,7 +563,8 @@
       "render": "clean",
       "id": "021-summit-components-inc",
       "file": "holdout-3/clean/021-summit-components-inc.pdf",
-      "sha256": "6824b26941611621e7b6454fdd6c8998d4d3d89a60a0e51c429bf2ed722b3564"
+      "sha256": "6824b26941611621e7b6454fdd6c8998d4d3d89a60a0e51c429bf2ed722b3564",
+      "part": "main"
     },
     {
       "supplier": "Highland Fabrication",
@@ -548,7 +589,8 @@
       "render": "clean",
       "id": "022-highland-fabrication",
       "file": "holdout-3/clean/022-highland-fabrication.pdf",
-      "sha256": "9b24895333793febd727644e6157159c5c7e5059852eb4998621b599c7700e18"
+      "sha256": "9b24895333793febd727644e6157159c5c7e5059852eb4998621b599c7700e18",
+      "part": "main"
     },
     {
       "supplier": "Maple Precision Engineering",
@@ -572,7 +614,8 @@
       "render": "clean",
       "id": "023-maple-precision-engineering",
       "file": "holdout-3/clean/023-maple-precision-engineering.pdf",
-      "sha256": "88de997f15aa85d3fbacb4d5b3a30a2cd482e99a62ebfd4721f539f19f992931"
+      "sha256": "88de997f15aa85d3fbacb4d5b3a30a2cd482e99a62ebfd4721f539f19f992931",
+      "part": "main"
     },
     {
       "supplier": "Northwood Supply Ltd",
@@ -594,7 +637,8 @@
       "render": "clean",
       "id": "024-northwood-supply-ltd",
       "file": "holdout-3/clean/024-northwood-supply-ltd.pdf",
-      "sha256": "fd5ec6d376dac3ff84880e96949e90fe3e95a23624dcaa63d774deac8c7a8116"
+      "sha256": "fd5ec6d376dac3ff84880e96949e90fe3e95a23624dcaa63d774deac8c7a8116",
+      "part": "main"
     },
     {
       "supplier": "Pacific Digital Solutions LLC",
@@ -616,7 +660,8 @@
       "render": "clean",
       "id": "025-pacific-digital-solutions-llc",
       "file": "holdout-3/clean/025-pacific-digital-solutions-llc.pdf",
-      "sha256": "31f881454180ccddc771effd4aa30cf5b7c556dff059361546b1fb9a666ddc48"
+      "sha256": "31f881454180ccddc771effd4aa30cf5b7c556dff059361546b1fb9a666ddc48",
+      "part": "main"
     },
     {
       "supplier": "Thames Valley Systems Ltd",
@@ -640,7 +685,8 @@
       "render": "photo",
       "id": "026-thames-valley-systems-ltd",
       "file": "holdout-3/photos/026-thames-valley-systems-ltd.pdf",
-      "sha256": "53094f3162d1e6cade06fe464ae7bb766542e19b0f48ee05e7d91e1ccdde2778"
+      "sha256": "53094f3162d1e6cade06fe464ae7bb766542e19b0f48ee05e7d91e1ccdde2778",
+      "part": "main"
     },
     {
       "supplier": "Iberia Materiales SL",
@@ -655,7 +701,7 @@
       "exception_reasons": [
         "foreign_currency"
       ],
-      "terms": "30 d\u00edas neto",
+      "terms": "30 días neto",
       "due_source": "terms",
       "country": "ES",
       "date_convention": "day-first",
@@ -664,7 +710,8 @@
       "render": "photo",
       "id": "027-iberia-materiales-sl",
       "file": "holdout-3/photos/027-iberia-materiales-sl.pdf",
-      "sha256": "5ec1592eb7d4c6ee317d9d17b22856b8f492ce4fbcfe599d35f5f1cd4d5e3134"
+      "sha256": "5ec1592eb7d4c6ee317d9d17b22856b8f492ce4fbcfe599d35f5f1cd4d5e3134",
+      "part": "main"
     },
     {
       "supplier": "Provence Agro SARL",
@@ -677,7 +724,7 @@
       "currency": "USD",
       "exception": false,
       "exception_reasons": [],
-      "terms": "\u00e0 30 jours",
+      "terms": "à 30 jours",
       "due_source": "printed",
       "country": "FR",
       "date_convention": "day-first",
@@ -686,7 +733,8 @@
       "render": "clean",
       "id": "028-provence-agro-sarl",
       "file": "holdout-3/clean/028-provence-agro-sarl.pdf",
-      "sha256": "147145ee2aedae69377be8392491c38354194e75985121462a73558a7649a031"
+      "sha256": "147145ee2aedae69377be8392491c38354194e75985121462a73558a7649a031",
+      "part": "main"
     },
     {
       "supplier": "Atelier Lumiere SAS",
@@ -701,7 +749,7 @@
       "exception_reasons": [
         "foreign_currency"
       ],
-      "terms": "\u00e0 30 jours",
+      "terms": "à 30 jours",
       "due_source": "terms",
       "country": "FR",
       "date_convention": "day-first",
@@ -710,7 +758,8 @@
       "render": "clean",
       "id": "029-atelier-lumiere-sas",
       "file": "holdout-3/clean/029-atelier-lumiere-sas.pdf",
-      "sha256": "2cf4212cb5fcaccf28cc904344769a85bc9d6defa466c3535f10d26cad8e19f1"
+      "sha256": "2cf4212cb5fcaccf28cc904344769a85bc9d6defa466c3535f10d26cad8e19f1",
+      "part": "main"
     },
     {
       "supplier": "Heartland Logistics Corp",
@@ -732,7 +781,8 @@
       "render": "clean",
       "id": "030-heartland-logistics-corp",
       "file": "holdout-3/clean/030-heartland-logistics-corp.pdf",
-      "sha256": "d9392ba40ea29961526d95b28bd4ced80fb02bc072d8bba3f10087606fdf881d"
+      "sha256": "d9392ba40ea29961526d95b28bd4ced80fb02bc072d8bba3f10087606fdf881d",
+      "part": "main"
     },
     {
       "supplier": "Aurora Consulting Group",
@@ -757,7 +807,8 @@
       "render": "photo",
       "id": "031-aurora-consulting-group",
       "file": "holdout-3/photos/031-aurora-consulting-group.pdf",
-      "sha256": "f6b5202144fa4f439107c09a9558499f0d01cbf803d4e602776c52b1befecdca"
+      "sha256": "f6b5202144fa4f439107c09a9558499f0d01cbf803d4e602776c52b1befecdca",
+      "part": "main"
     },
     {
       "supplier": "Atelier Lumiere SAS",
@@ -772,7 +823,7 @@
       "exception_reasons": [
         "foreign_currency"
       ],
-      "terms": "\u00e0 r\u00e9ception",
+      "terms": "à réception",
       "due_source": "printed",
       "country": "FR",
       "date_convention": "day-first",
@@ -781,7 +832,8 @@
       "render": "clean",
       "id": "032-atelier-lumiere-sas",
       "file": "holdout-3/clean/032-atelier-lumiere-sas.pdf",
-      "sha256": "a567bad2535b52f8f5d6ecde8c7fa39ee8da1c8bb8a7c2e99a82beafaca24cb0"
+      "sha256": "a567bad2535b52f8f5d6ecde8c7fa39ee8da1c8bb8a7c2e99a82beafaca24cb0",
+      "part": "main"
     },
     {
       "supplier": "Summit Components Inc",
@@ -806,7 +858,8 @@
       "render": "scan",
       "id": "033-summit-components-inc",
       "file": "holdout-3/scans/033-summit-components-inc.pdf",
-      "sha256": "0796152f4bcc1a1c8502eb3c1f48a4d53601ce2c4cb8a46c49970e586e3b3ed8"
+      "sha256": "0796152f4bcc1a1c8502eb3c1f48a4d53601ce2c4cb8a46c49970e586e3b3ed8",
+      "part": "main"
     },
     {
       "supplier": "Milano Design SRL",
@@ -830,7 +883,8 @@
       "render": "photo",
       "id": "034-milano-design-srl",
       "file": "holdout-3/photos/034-milano-design-srl.pdf",
-      "sha256": "7670ab41de0a5e91e1444a8ae225412477e8fb22a6b4783dc39be475151b116f"
+      "sha256": "7670ab41de0a5e91e1444a8ae225412477e8fb22a6b4783dc39be475151b116f",
+      "part": "main"
     },
     {
       "supplier": "Delta Logistics BV",
@@ -854,7 +908,8 @@
       "render": "clean",
       "id": "035-delta-logistics-bv",
       "file": "holdout-3/clean/035-delta-logistics-bv.pdf",
-      "sha256": "9b432cefdd276f7de8a4038fea591f1a5361f61bb6f43788696745527b862452"
+      "sha256": "9b432cefdd276f7de8a4038fea591f1a5361f61bb6f43788696745527b862452",
+      "part": "main"
     },
     {
       "supplier": "Barcelona Textiles SA",
@@ -867,7 +922,7 @@
       "currency": "USD",
       "exception": false,
       "exception_reasons": [],
-      "terms": "a 30 d\u00edas",
+      "terms": "a 30 días",
       "due_source": "printed",
       "country": "ES",
       "date_convention": "day-first",
@@ -876,7 +931,8 @@
       "render": "clean",
       "id": "036-barcelona-textiles-sa",
       "file": "holdout-3/clean/036-barcelona-textiles-sa.pdf",
-      "sha256": "95e23e72aaf438c226922d7dd1168e33a3b78923096832436d51f15e71d68e9f"
+      "sha256": "95e23e72aaf438c226922d7dd1168e33a3b78923096832436d51f15e71d68e9f",
+      "part": "main"
     },
     {
       "supplier": "Barcelona Textiles SA",
@@ -891,7 +947,7 @@
       "exception_reasons": [
         "foreign_currency"
       ],
-      "terms": "a 30 d\u00edas",
+      "terms": "a 30 días",
       "due_source": "printed",
       "country": "ES",
       "date_convention": "day-first",
@@ -900,7 +956,8 @@
       "render": "photo",
       "id": "037-barcelona-textiles-sa",
       "file": "holdout-3/photos/037-barcelona-textiles-sa.pdf",
-      "sha256": "d072f7515458dc572b4067247376621183e9c327cb07a5e08bf48e5ae77c535c"
+      "sha256": "d072f7515458dc572b4067247376621183e9c327cb07a5e08bf48e5ae77c535c",
+      "part": "main"
     },
     {
       "supplier": "Thames Valley Systems Ltd",
@@ -922,7 +979,8 @@
       "render": "photo",
       "id": "038-thames-valley-systems-ltd",
       "file": "holdout-3/photos/038-thames-valley-systems-ltd.pdf",
-      "sha256": "2909248e519a7f40027cf843fb2be2e687bca44f768eaa0c194c7b59bda52d6c"
+      "sha256": "2909248e519a7f40027cf843fb2be2e687bca44f768eaa0c194c7b59bda52d6c",
+      "part": "main"
     },
     {
       "supplier": "Pacific Digital Solutions LLC",
@@ -944,7 +1002,8 @@
       "render": "clean",
       "id": "039-pacific-digital-solutions-llc",
       "file": "holdout-3/clean/039-pacific-digital-solutions-llc.pdf",
-      "sha256": "95db90517d3e36e33bb813d9dca33f12aa9393d36d16e0d890be078dfccfc546"
+      "sha256": "95db90517d3e36e33bb813d9dca33f12aa9393d36d16e0d890be078dfccfc546",
+      "part": "main"
     },
     {
       "supplier": "Emerald Data Services",
@@ -968,7 +1027,8 @@
       "render": "clean",
       "id": "040-emerald-data-services",
       "file": "holdout-3/clean/040-emerald-data-services.pdf",
-      "sha256": "45c0020dbfa9c49acbcf5d7948cdfb8d3a499c55eefcb1c7b6546f827402f511"
+      "sha256": "45c0020dbfa9c49acbcf5d7948cdfb8d3a499c55eefcb1c7b6546f827402f511",
+      "part": "main"
     },
     {
       "supplier": "Holland Tech BV",
@@ -992,7 +1052,8 @@
       "render": "photo",
       "id": "041-holland-tech-bv",
       "file": "holdout-3/photos/041-holland-tech-bv.pdf",
-      "sha256": "3c31c8bb488507705880761ba933e4cd11f5b0f21e1e6fbb437b25eff6359950"
+      "sha256": "3c31c8bb488507705880761ba933e4cd11f5b0f21e1e6fbb437b25eff6359950",
+      "part": "main"
     },
     {
       "supplier": "Milano Design SRL",
@@ -1014,7 +1075,8 @@
       "render": "scan",
       "id": "042-milano-design-srl",
       "file": "holdout-3/scans/042-milano-design-srl.pdf",
-      "sha256": "fa005469910578820ed0adbcd60b8348aaf2e722169ff631867ab97261d5fe52"
+      "sha256": "fa005469910578820ed0adbcd60b8348aaf2e722169ff631867ab97261d5fe52",
+      "part": "main"
     },
     {
       "supplier": "Roma Componenti SpA",
@@ -1038,7 +1100,8 @@
       "render": "clean",
       "id": "043-roma-componenti-spa",
       "file": "holdout-3/clean/043-roma-componenti-spa.pdf",
-      "sha256": "b2216b7e5034085a7a78ce32aa4b8438a358079949ff46067dffe83086a8af04"
+      "sha256": "b2216b7e5034085a7a78ce32aa4b8438a358079949ff46067dffe83086a8af04",
+      "part": "main"
     },
     {
       "supplier": "Aurora Consulting Group",
@@ -1062,7 +1125,8 @@
       "render": "clean",
       "id": "044-aurora-consulting-group",
       "file": "holdout-3/clean/044-aurora-consulting-group.pdf",
-      "sha256": "d01580671029452e689d9ce543e44c3b0f64af58cecf9726df77cc6d07db2740"
+      "sha256": "d01580671029452e689d9ce543e44c3b0f64af58cecf9726df77cc6d07db2740",
+      "part": "main"
     },
     {
       "supplier": "Milano Design SRL",
@@ -1087,7 +1151,8 @@
       "render": "clean",
       "id": "045-milano-design-srl",
       "file": "holdout-3/clean/045-milano-design-srl.pdf",
-      "sha256": "c351121fc0d088ecd7712ff76e9e2b82db78b78e3310250a1ee6f2c2272fa8a0"
+      "sha256": "c351121fc0d088ecd7712ff76e9e2b82db78b78e3310250a1ee6f2c2272fa8a0",
+      "part": "main"
     },
     {
       "supplier": "Summit Components Inc",
@@ -1111,7 +1176,8 @@
       "render": "scan",
       "id": "046-summit-components-inc",
       "file": "holdout-3/scans/046-summit-components-inc.pdf",
-      "sha256": "b689d5b2dcc04b2ff785b9e0fe63ce609dcfd07549704d7855b8637f0c6ba1f9"
+      "sha256": "b689d5b2dcc04b2ff785b9e0fe63ce609dcfd07549704d7855b8637f0c6ba1f9",
+      "part": "main"
     },
     {
       "supplier": "Heartland Logistics Corp",
@@ -1135,7 +1201,8 @@
       "render": "photo",
       "id": "047-heartland-logistics-corp",
       "file": "holdout-3/photos/047-heartland-logistics-corp.pdf",
-      "sha256": "25069adc38de9d678fb94c3fdc2b2451e1719e50923a8a0af0dcfc63a04c86a7"
+      "sha256": "25069adc38de9d678fb94c3fdc2b2451e1719e50923a8a0af0dcfc63a04c86a7",
+      "part": "main"
     },
     {
       "supplier": "Heartland Logistics Corp",
@@ -1160,7 +1227,8 @@
       "render": "photo",
       "id": "048-heartland-logistics-corp",
       "file": "holdout-3/photos/048-heartland-logistics-corp.pdf",
-      "sha256": "7c7b3b6a647f0b13e9f99d986331fc852f6654fd6a3b4e19737c75c3c38a88f3"
+      "sha256": "7c7b3b6a647f0b13e9f99d986331fc852f6654fd6a3b4e19737c75c3c38a88f3",
+      "part": "main"
     },
     {
       "supplier": "Delta Logistics BV",
@@ -1184,7 +1252,8 @@
       "render": "clean",
       "id": "049-delta-logistics-bv",
       "file": "holdout-3/clean/049-delta-logistics-bv.pdf",
-      "sha256": "8c7d7a06d4610c5c8294acadad8be954db94ead4ede8d693cbb240223300cde2"
+      "sha256": "8c7d7a06d4610c5c8294acadad8be954db94ead4ede8d693cbb240223300cde2",
+      "part": "main"
     },
     {
       "supplier": "Atelier Lumiere SAS",
@@ -1208,7 +1277,8 @@
       "render": "scan",
       "id": "050-atelier-lumiere-sas",
       "file": "holdout-3/scans/050-atelier-lumiere-sas.pdf",
-      "sha256": "d76ffc6172d5f00fcf0dab1ba75b363175913c4ef0df11e5581357a4bdc24dc0"
+      "sha256": "d76ffc6172d5f00fcf0dab1ba75b363175913c4ef0df11e5581357a4bdc24dc0",
+      "part": "main"
     },
     {
       "supplier": "Alpen Maschinenbau GmbH",
@@ -1232,7 +1302,8 @@
       "render": "photo",
       "id": "051-alpen-maschinenbau-gmbh",
       "file": "holdout-3/photos/051-alpen-maschinenbau-gmbh.pdf",
-      "sha256": "8ce99762c36b291cca4085dca07585e9a48360aaea7d2d4a7845bfab5769b48d"
+      "sha256": "8ce99762c36b291cca4085dca07585e9a48360aaea7d2d4a7845bfab5769b48d",
+      "part": "main"
     },
     {
       "supplier": "Provence Agro SARL",
@@ -1245,7 +1316,7 @@
       "currency": "USD",
       "exception": false,
       "exception_reasons": [],
-      "terms": "escompte 2 % \u00e0 10 jours, net \u00e0 30 jours",
+      "terms": "escompte 2 % à 10 jours, net à 30 jours",
       "due_source": "terms",
       "country": "FR",
       "date_convention": "day-first",
@@ -1254,7 +1325,8 @@
       "render": "photo",
       "id": "052-provence-agro-sarl",
       "file": "holdout-3/photos/052-provence-agro-sarl.pdf",
-      "sha256": "f0e352406298900724f686d28683402879858c1fe7902095d3fcba585f904009"
+      "sha256": "f0e352406298900724f686d28683402879858c1fe7902095d3fcba585f904009",
+      "part": "main"
     },
     {
       "supplier": "Atelier Lumiere SAS",
@@ -1269,7 +1341,7 @@
       "exception_reasons": [
         "foreign_currency"
       ],
-      "terms": "\u00e0 r\u00e9ception",
+      "terms": "à réception",
       "due_source": "terms",
       "country": "FR",
       "date_convention": "day-first",
@@ -1278,7 +1350,8 @@
       "render": "photo",
       "id": "053-atelier-lumiere-sas",
       "file": "holdout-3/photos/053-atelier-lumiere-sas.pdf",
-      "sha256": "32f46672ac7e367329724de5019a528c8c8bdbab9ad936cbb34865fd530cd217"
+      "sha256": "32f46672ac7e367329724de5019a528c8c8bdbab9ad936cbb34865fd530cd217",
+      "part": "main"
     },
     {
       "supplier": "Milano Design SRL",
@@ -1302,7 +1375,8 @@
       "render": "photo",
       "id": "054-milano-design-srl",
       "file": "holdout-3/photos/054-milano-design-srl.pdf",
-      "sha256": "20c35cce11dd563c0d106fc20ea9b7cb82548bfb92f7dbc6fc515a539a7540a8"
+      "sha256": "20c35cce11dd563c0d106fc20ea9b7cb82548bfb92f7dbc6fc515a539a7540a8",
+      "part": "main"
     },
     {
       "supplier": "Pacific Digital Solutions LLC",
@@ -1324,7 +1398,8 @@
       "render": "scan",
       "id": "055-pacific-digital-solutions-llc",
       "file": "holdout-3/scans/055-pacific-digital-solutions-llc.pdf",
-      "sha256": "4429c495aa29897eecf28589ce1374b59995124d9ac42c9450ed842740780b88"
+      "sha256": "4429c495aa29897eecf28589ce1374b59995124d9ac42c9450ed842740780b88",
+      "part": "main"
     },
     {
       "supplier": "Maple Precision Engineering",
@@ -1348,7 +1423,8 @@
       "render": "photo",
       "id": "056-maple-precision-engineering",
       "file": "holdout-3/photos/056-maple-precision-engineering.pdf",
-      "sha256": "b89ddeebd588a849f381a8b8a57e2e6bfe05055c83b06afcb46aea5f64dbc01b"
+      "sha256": "b89ddeebd588a849f381a8b8a57e2e6bfe05055c83b06afcb46aea5f64dbc01b",
+      "part": "main"
     },
     {
       "supplier": "Holland Tech BV",
@@ -1373,7 +1449,8 @@
       "render": "photo",
       "id": "057-holland-tech-bv",
       "file": "holdout-3/photos/057-holland-tech-bv.pdf",
-      "sha256": "be0622a3e2f3c6747989001c9cb44d21f54b826199e18f545b230fd6a1d36d14"
+      "sha256": "be0622a3e2f3c6747989001c9cb44d21f54b826199e18f545b230fd6a1d36d14",
+      "part": "main"
     },
     {
       "supplier": "Barcelona Textiles SA",
@@ -1388,7 +1465,7 @@
       "exception_reasons": [
         "missing_invoice_number"
       ],
-      "terms": "30 d\u00edas neto",
+      "terms": "30 días neto",
       "due_source": "printed",
       "country": "ES",
       "date_convention": "day-first",
@@ -1397,7 +1474,8 @@
       "render": "clean",
       "id": "058-barcelona-textiles-sa",
       "file": "holdout-3/clean/058-barcelona-textiles-sa.pdf",
-      "sha256": "3e3c57fff3c619e62f20b327123cec1ae7586d21ce060d818d54e2dfbac27c72"
+      "sha256": "3e3c57fff3c619e62f20b327123cec1ae7586d21ce060d818d54e2dfbac27c72",
+      "part": "main"
     },
     {
       "supplier": "Heartland Logistics Corp",
@@ -1421,7 +1499,8 @@
       "render": "clean",
       "id": "059-heartland-logistics-corp",
       "file": "holdout-3/clean/059-heartland-logistics-corp.pdf",
-      "sha256": "6b6c179984ee99c4201075441d3d96e86c301c7e30bdbfe6dc22825655b46f6c"
+      "sha256": "6b6c179984ee99c4201075441d3d96e86c301c7e30bdbfe6dc22825655b46f6c",
+      "part": "main"
     },
     {
       "supplier": "Roma Componenti SpA",
@@ -1446,7 +1525,1467 @@
       "render": "clean",
       "id": "060-roma-componenti-spa",
       "file": "holdout-3/clean/060-roma-componenti-spa.pdf",
-      "sha256": "4c19456408ff5f52b4e6752f23bf85cfc9cada3a9acd93cb39867237575035e4"
+      "sha256": "4c19456408ff5f52b4e6752f23bf85cfc9cada3a9acd93cb39867237575035e4",
+      "part": "main"
+    },
+    {
+      "id": "001-münchen-präzisionste",
+      "file": "holdout-3/scans/001-münchen-präzisionste.pdf",
+      "supplier": "München Präzisionsteile",
+      "invoice_number": "RE-2026-5889",
+      "invoice_date": "2026-07-29",
+      "due_date": "2026-08-28",
+      "subtotal": "4404.09",
+      "tax": "836.78",
+      "total": "5240.87",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "30 Tage netto",
+      "due_source": "terms",
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "boxed",
+      "render": "scan",
+      "sha256": "f7c96919ce18b2bbe102ad726a889cb1e67ebdab6e5547c9dcd8da41d3e24dfa",
+      "part": "supplement"
+    },
+    {
+      "id": "002-manchester-industria",
+      "file": "holdout-3/clean/002-manchester-industria.pdf",
+      "supplier": "Manchester Industrial Parts",
+      "invoice_number": "UK44741",
+      "invoice_date": "2026-09-06",
+      "due_date": "2026-10-21",
+      "subtotal": "816.28",
+      "tax": "163.26",
+      "total": "979.54",
+      "currency": "GBP",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Payment due within 45 days",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "c414c5020112f7a64b24171ffa94268877736fc87c950db1761172195d9022dc",
+      "part": "supplement"
+    },
+    {
+      "id": "003-barcelona-herramient",
+      "file": "holdout-3/clean/003-barcelona-herramient.pdf",
+      "supplier": "Barcelona Herramientas SL",
+      "invoice_number": "F46500",
+      "invoice_date": "2026-06-10",
+      "due_date": "2026-07-10",
+      "subtotal": "4546.02",
+      "tax": "954.66",
+      "total": "5500.71",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "total_mismatch"
+      ],
+      "terms": "neto 30 días",
+      "due_source": "printed",
+      "country": "ES",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "spanish_style",
+      "render": "clean",
+      "sha256": "6ab4bec0b70e4ad36ad3934c642aa596871cce7741c581cecc8c38876e2dc26e",
+      "part": "supplement"
+    },
+    {
+      "id": "004-denver-tech-parts-ll",
+      "file": "holdout-3/clean/004-denver-tech-parts-ll.pdf",
+      "supplier": "Denver Tech Parts LLC",
+      "invoice_number": "INV-42591",
+      "invoice_date": "2026-08-26",
+      "due_date": "2026-08-26",
+      "subtotal": "672.41",
+      "tax": "0.00",
+      "total": "672.41",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "clean",
+      "sha256": "070b836b268e2f09b7e0322c25d7a8aa2697c346b36fd44ce57870158d2a070d",
+      "part": "supplement"
+    },
+    {
+      "id": "005-vancouver-coastal-su",
+      "file": "holdout-3/clean/005-vancouver-coastal-su.pdf",
+      "supplier": "Vancouver Coastal Supplies",
+      "invoice_number": "C40982",
+      "invoice_date": "2026-06-07",
+      "due_date": "2026-06-07",
+      "subtotal": "4212.93",
+      "tax": "537.23",
+      "total": "4750.16",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "clean",
+      "sha256": "d9fdaccc94c682292e500cd5a96c584adde25ca41e4ac70feb9c2e483b06c45f",
+      "part": "supplement"
+    },
+    {
+      "id": "006-thames-valley-engine",
+      "file": "holdout-3/clean/006-thames-valley-engine.pdf",
+      "supplier": "Thames Valley Engineering Ltd",
+      "invoice_number": "UK73788",
+      "invoice_date": "2026-07-07",
+      "due_date": "2026-08-06",
+      "subtotal": "3706.43",
+      "tax": "741.29",
+      "total": "4447.72",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "2/10 Net 30",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "clean",
+      "sha256": "5f87d9090aa239ecb9e01eb1a86bf25b02afbf54e10c9e61cd4a9e0a20ad6388",
+      "part": "supplement"
+    },
+    {
+      "id": "007-madrid-suministros-i",
+      "file": "holdout-3/clean/007-madrid-suministros-i.pdf",
+      "supplier": "Madrid Suministros Industriales",
+      "invoice_number": "F98501",
+      "invoice_date": "2026-06-21",
+      "due_date": "2026-07-21",
+      "subtotal": "584.54",
+      "tax": "122.75",
+      "total": "707.29",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "neto 30 días",
+      "due_source": "terms",
+      "country": "ES",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "467f3e01f52dfb042f93bf0cea71cf783a3e6d008cb4dd6d90ddbcefc175e9a4",
+      "part": "supplement"
+    },
+    {
+      "id": "008-quebec-forest-produc",
+      "file": "holdout-3/scans/008-quebec-forest-produc.pdf",
+      "supplier": "Quebec Forest Products",
+      "invoice_number": "C98039",
+      "invoice_date": "2026-09-28",
+      "due_date": "2026-09-28",
+      "subtotal": "3637.72",
+      "tax": "251.35",
+      "total": "3889.07",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Due on receipt",
+      "due_source": "printed",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "ca_bilingual",
+      "render": "scan",
+      "sha256": "8205b127f2aa9d1b19e2977671ea8594f40b69a140e2e7330d28b56377137138",
+      "part": "supplement"
+    },
+    {
+      "id": "009-galway-tech-solution",
+      "file": "holdout-3/clean/009-galway-tech-solution.pdf",
+      "supplier": "Galway Tech Solutions",
+      "invoice_number": "IE96951",
+      "invoice_date": "2026-09-15",
+      "due_date": "2026-10-15",
+      "subtotal": "4938.72",
+      "tax": "1135.91",
+      "total": "6075.63",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "total_mismatch"
+      ],
+      "terms": "Net 30",
+      "due_source": "terms",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "clean",
+      "sha256": "c8ffd0a917300753c69c3bed647e640ebaa8583d445df172f4f195a1fe2384f7",
+      "part": "supplement"
+    },
+    {
+      "id": "010-calgary-energy-servi",
+      "file": "holdout-3/clean/010-calgary-energy-servi.pdf",
+      "supplier": "Calgary Energy Services Corp.",
+      "invoice_number": "C74032",
+      "invoice_date": "2026-08-17",
+      "due_date": "2026-09-01",
+      "subtotal": "1177.27",
+      "tax": "118.60",
+      "total": "1295.87",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 15",
+      "due_source": "terms",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "c9cab2204a5d541291e191052c47a4863bd4d8f9994943d60642fd683aaed72e",
+      "part": "supplement"
+    },
+    {
+      "id": "011-rocky-mountain-logis",
+      "file": "holdout-3/clean/011-rocky-mountain-logis.pdf",
+      "supplier": "Rocky Mountain Logistics",
+      "invoice_number": "INV-86350",
+      "invoice_date": "2026-06-02",
+      "due_date": "2026-07-02",
+      "subtotal": "4438.91",
+      "tax": "0.00",
+      "total": "4438.91",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 30",
+      "due_source": "printed",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "clean",
+      "sha256": "9b968623788217ff033866a782dc723b72df70b6e565a54c081773ec6251670f",
+      "part": "supplement"
+    },
+    {
+      "id": "012-berlin-software-ag",
+      "file": "holdout-3/clean/012-berlin-software-ag.pdf",
+      "supplier": "Berlin Software AG",
+      "invoice_number": "RE-2026-1634",
+      "invoice_date": "2026-09-09",
+      "due_date": "2026-10-09",
+      "subtotal": "4347.51",
+      "tax": "826.03",
+      "total": "5173.54",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "2 % Skonto innerhalb 14 Tagen, 30 Tage netto",
+      "due_source": "terms",
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "477a5ddea8f7699c16ca528331f13e52c11ebfed62a6d37a30a215a13f7dd0b5",
+      "part": "supplement"
+    },
+    {
+      "id": "013-cork-manufacturing-s",
+      "file": "holdout-3/scans/013-cork-manufacturing-s.pdf",
+      "supplier": "Cork Manufacturing Services",
+      "invoice_number": "IE44795",
+      "invoice_date": "2026-09-29",
+      "due_date": "2026-10-29",
+      "subtotal": "4857.92",
+      "tax": "1117.32",
+      "total": "5975.24",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 30",
+      "due_source": "printed",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "eu_table",
+      "render": "scan",
+      "sha256": "2d838a8b2235ecea14ac6e9676a25d7822e7ed445f48362e512a966f3aadb02d",
+      "part": "supplement"
+    },
+    {
+      "id": "014-amsterdam-precision-",
+      "file": "holdout-3/clean/014-amsterdam-precision-.pdf",
+      "supplier": "Amsterdam Precision BV",
+      "invoice_number": "F97900",
+      "invoice_date": "2026-07-03",
+      "due_date": "2026-08-02",
+      "subtotal": "208.12",
+      "tax": "43.71",
+      "total": "251.83",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "netto 30 dagen",
+      "due_source": "terms",
+      "country": "NL",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "92174b10688b5d2cbebe9eb50053bc4339856e6b3bf2f4cf29e1c6805b49f18c",
+      "part": "supplement"
+    },
+    {
+      "id": "015-cork-manufacturing-s",
+      "file": "holdout-3/photos/015-cork-manufacturing-s.pdf",
+      "supplier": "Cork Manufacturing Services",
+      "invoice_number": "IE32810",
+      "invoice_date": "2026-07-08",
+      "due_date": "2026-08-07",
+      "subtotal": "3391.66",
+      "tax": "780.08",
+      "total": "4171.74",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 30",
+      "due_source": "printed",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "eu_table",
+      "render": "photo",
+      "sha256": "e707bcdde8c39ec44a5c134884b84531c8a4eef8c370fcc6fedbdabec66918aa",
+      "part": "supplement"
+    },
+    {
+      "id": "016-marseille-logistique",
+      "file": "holdout-3/clean/016-marseille-logistique.pdf",
+      "supplier": "Marseille Logistique SA",
+      "invoice_number": "FAC-36100",
+      "invoice_date": "2026-07-13",
+      "due_date": "2026-08-12",
+      "subtotal": "3805.46",
+      "tax": "761.09",
+      "total": "4566.55",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "30 jours net",
+      "due_source": "terms",
+      "country": "FR",
+      "date_convention": "day-first",
+      "number_style": "1 234,56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "2725735ba049c5ce8c60ddbc76e0b95a47b4b12f475e25e970736aa4596a07ae",
+      "part": "supplement"
+    },
+    {
+      "id": "017-pacific-rim-componen",
+      "file": "holdout-3/scans/017-pacific-rim-componen.pdf",
+      "supplier": "Pacific Rim Components Inc.",
+      "invoice_number": "INV-23970",
+      "invoice_date": "2026-08-03",
+      "due_date": "2026-09-02",
+      "subtotal": "3349.08",
+      "tax": "234.56",
+      "total": "3583.64",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "2/10 Net 30",
+      "due_source": "printed",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "scan",
+      "sha256": "d7a88f40c33aa79e9cdfca85f551005e448e6812c1323f3f8e10f07797c354fd",
+      "part": "supplement"
+    },
+    {
+      "id": "018-thames-valley-engine",
+      "file": "holdout-3/scans/018-thames-valley-engine.pdf",
+      "supplier": "Thames Valley Engineering Ltd",
+      "invoice_number": "UK93579",
+      "invoice_date": "2026-09-23",
+      "due_date": "2026-10-08",
+      "subtotal": "2478.44",
+      "tax": "495.69",
+      "total": "2974.13",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 15",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "scan",
+      "sha256": "3b82add3df1cc196890c5b0a661a8dc8c3d2a5af793a8cb1c379afa7e4b58518",
+      "part": "supplement"
+    },
+    {
+      "id": "019-milano-componenti-sr",
+      "file": "holdout-3/clean/019-milano-componenti-sr.pdf",
+      "supplier": "Milano Componenti Srl",
+      "invoice_number": "FT64496",
+      "invoice_date": "2026-08-28",
+      "due_date": null,
+      "subtotal": "508.30",
+      "tax": "111.83",
+      "total": "620.13",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "a 30 giorni",
+      "due_source": null,
+      "country": "IT",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "italian_style",
+      "render": "clean",
+      "sha256": "3d2d99034d2bd6dfee11f5dd5b549ec23d8381f09f00161a1938ce0e22593045",
+      "part": "supplement"
+    },
+    {
+      "id": "020-summit-software-solu",
+      "file": "holdout-3/clean/020-summit-software-solu.pdf",
+      "supplier": "Summit Software Solutions",
+      "invoice_number": "INV-81582",
+      "invoice_date": "2026-06-01",
+      "due_date": "2026-06-01",
+      "subtotal": "2071.94",
+      "tax": "0.00",
+      "total": "2071.94",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Due on receipt",
+      "due_source": "printed",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "clean",
+      "sha256": "ae209eee7c441a9ba7348b65faf1c6484c26eea4ff289893815fed212e36a819",
+      "part": "supplement"
+    },
+    {
+      "id": "021-dublin-precision-com",
+      "file": "holdout-3/clean/021-dublin-precision-com.pdf",
+      "supplier": "Dublin Precision Components",
+      "invoice_number": "IE59692",
+      "invoice_date": "2026-06-24",
+      "due_date": "2026-07-24",
+      "subtotal": "1771.29",
+      "tax": "407.40",
+      "total": "2178.69",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 30",
+      "due_source": "printed",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "clean",
+      "sha256": "0b4fd0cfe38e04ac89a63489d6a8971b925e9d856c0897ddc061220109af6dca",
+      "part": "supplement"
+    },
+    {
+      "id": "022-denver-tech-parts-ll",
+      "file": "holdout-3/clean/022-denver-tech-parts-ll.pdf",
+      "supplier": "Denver Tech Parts LLC",
+      "invoice_number": "INV-38569",
+      "invoice_date": "2026-07-02",
+      "due_date": "2026-07-17",
+      "subtotal": "3182.41",
+      "tax": "187.58",
+      "total": "3369.99",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 15",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "clean",
+      "sha256": "66fbdcc09fd59f92653dfcd2729911511bbe1eaa8d80c62421c93b9d2fc84d35",
+      "part": "supplement"
+    },
+    {
+      "id": "023-lyon-industries-sarl",
+      "file": "holdout-3/scans/023-lyon-industries-sarl.pdf",
+      "supplier": "Lyon Industries SARL",
+      "invoice_number": "FAC-25866",
+      "invoice_date": "2026-09-15",
+      "due_date": null,
+      "subtotal": "3907.91",
+      "tax": "781.58",
+      "total": "4689.49",
+      "currency": "USD",
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "terms": "à 30 jours",
+      "due_source": null,
+      "country": "FR",
+      "date_convention": "day-first",
+      "number_style": "1 234,56",
+      "layout": "fr_ttc",
+      "render": "scan",
+      "sha256": "137a0bcdfca6f2d014c03449cb71dc53bd0f5eda9b6a4b662a50ab91f4d8870e",
+      "part": "supplement"
+    },
+    {
+      "id": "024-manchester-industria",
+      "file": "holdout-3/scans/024-manchester-industria.pdf",
+      "supplier": "Manchester Industrial Parts",
+      "invoice_number": "UK21359",
+      "invoice_date": "2026-07-30",
+      "due_date": "2026-08-29",
+      "subtotal": "3043.88",
+      "tax": "608.78",
+      "total": "3652.66",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "2/10 Net 30",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "scan",
+      "sha256": "504311e0eafcb1642b4395af8a9311ad385b76edde30cd96ce3ef82abb0b0612",
+      "part": "supplement"
+    },
+    {
+      "id": "025-paris-composants-éle",
+      "file": "holdout-3/photos/025-paris-composants-éle.pdf",
+      "supplier": "Paris Composants Électroniques",
+      "invoice_number": "FAC-63271",
+      "invoice_date": "2026-08-29",
+      "due_date": "2026-08-29",
+      "subtotal": "2679.81",
+      "tax": "535.96",
+      "total": "3215.77",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "à réception",
+      "due_source": "terms",
+      "country": "FR",
+      "date_convention": "day-first",
+      "number_style": "1 234,56",
+      "layout": "eu_table",
+      "render": "photo",
+      "sha256": "33509affbc432970ebaf0725a8e6472d1f489405fad1bb04a1d2712cc7e7702b",
+      "part": "supplement"
+    },
+    {
+      "id": "026-edinburgh-software-l",
+      "file": "holdout-3/photos/026-edinburgh-software-l.pdf",
+      "supplier": "Edinburgh Software Ltd",
+      "invoice_number": "UK51359",
+      "invoice_date": "2026-07-16",
+      "due_date": "2026-07-16",
+      "subtotal": "1671.79",
+      "tax": "334.36",
+      "total": "2006.15",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "photo",
+      "sha256": "3b6e8c11c2705ef1fb45aa7dabaff69fab4f5ae7b54b0918763b1e264322547d",
+      "part": "supplement"
+    },
+    {
+      "id": "027-maplewood-hardware-s",
+      "file": "holdout-3/clean/027-maplewood-hardware-s.pdf",
+      "supplier": "Maplewood Hardware Supply",
+      "invoice_number": "INV-26591",
+      "invoice_date": "2026-07-07",
+      "due_date": "2026-08-06",
+      "subtotal": "1621.98",
+      "tax": "84.49",
+      "total": "1706.47",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 30",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "91a7ef6f86de0cffad9053906ceec179514fdb2ac0f3317b5fee809ab2edd743",
+      "part": "supplement"
+    },
+    {
+      "id": "028-marseille-logistique",
+      "file": "holdout-3/clean/028-marseille-logistique.pdf",
+      "supplier": "Marseille Logistique SA",
+      "invoice_number": "FAC-99974",
+      "invoice_date": "2026-07-03",
+      "due_date": null,
+      "subtotal": "513.65",
+      "tax": "102.73",
+      "total": "616.38",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "escompte 2 % à 10 jours, net à 30 jours",
+      "due_source": null,
+      "country": "FR",
+      "date_convention": "day-first",
+      "number_style": "1 234,56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "d5ceed6a4c2bf010ec7f40aa7874a05b81ed9d685744788624ca3b3188fb28db",
+      "part": "supplement"
+    },
+    {
+      "id": "029-edinburgh-software-l",
+      "file": "holdout-3/photos/029-edinburgh-software-l.pdf",
+      "supplier": "Edinburgh Software Ltd",
+      "invoice_number": "UK66207",
+      "invoice_date": "2026-09-08",
+      "due_date": "2026-10-23",
+      "subtotal": "4560.82",
+      "tax": "912.16",
+      "total": "5472.98",
+      "currency": "GBP",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Payment due within 45 days",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "photo",
+      "sha256": "26edf58d2608b6b1d2a6ab0ce6b10816ecd5d4d4818ab9d01102e03a6b1d8dd5",
+      "part": "supplement"
+    },
+    {
+      "id": "030-roma-ingegneria-spa",
+      "file": "holdout-3/photos/030-roma-ingegneria-spa.pdf",
+      "supplier": "Roma Ingegneria SpA",
+      "invoice_number": "FT69510",
+      "invoice_date": "2026-08-28",
+      "due_date": null,
+      "subtotal": "1311.09",
+      "tax": "288.44",
+      "total": "1599.53",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "fine mese",
+      "due_source": null,
+      "country": "IT",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "photo",
+      "sha256": "4b8598ff4a409706bdcee2e0d074e38d4900d4eb97fb50772e4b30a418b9aab3",
+      "part": "supplement"
+    },
+    {
+      "id": "031-calgary-energy-servi",
+      "file": "holdout-3/clean/031-calgary-energy-servi.pdf",
+      "supplier": "Calgary Energy Services Corp.",
+      "invoice_number": "C84607",
+      "invoice_date": "2026-09-14",
+      "due_date": "2026-09-29",
+      "subtotal": "996.43",
+      "tax": "74.34",
+      "total": "1070.77",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 15",
+      "due_source": "printed",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "e687607bbe9ae2ad79eacb5f730e596d7e7e965b86084e29c96c57dfb692ce05",
+      "part": "supplement"
+    },
+    {
+      "id": "032-dublin-precision-com",
+      "file": "holdout-3/scans/032-dublin-precision-com.pdf",
+      "supplier": "Dublin Precision Components",
+      "invoice_number": "IE12719",
+      "invoice_date": "2026-06-04",
+      "due_date": "2026-07-04",
+      "subtotal": "3436.63",
+      "tax": "790.42",
+      "total": "4227.05",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 30",
+      "due_source": "printed",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "scan",
+      "sha256": "d82685a8257c1b8fd1213484219e1f1f1de4a768bdee56faff20fc86873e435a",
+      "part": "supplement"
+    },
+    {
+      "id": "033-glasgow-engineering-",
+      "file": "holdout-3/clean/033-glasgow-engineering-.pdf",
+      "supplier": "Glasgow Engineering Works",
+      "invoice_number": "UK82102",
+      "invoice_date": "2026-09-18",
+      "due_date": "2026-10-03",
+      "subtotal": "3529.63",
+      "tax": "705.93",
+      "total": "4235.56",
+      "currency": "GBP",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 15",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "clean",
+      "sha256": "f2c855042e011a5c6045fae300cfa0dbdf7a00c68bed88c3a22fb16a08aa35ca",
+      "part": "supplement"
+    },
+    {
+      "id": "034-bristol-logistics-gr",
+      "file": "holdout-3/clean/034-bristol-logistics-gr.pdf",
+      "supplier": "Bristol Logistics Group",
+      "invoice_number": "UK75338",
+      "invoice_date": "2026-08-24",
+      "due_date": "2026-10-08",
+      "subtotal": "460.18",
+      "tax": "92.04",
+      "total": "552.22",
+      "currency": "GBP",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Payment due within 45 days",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "clean",
+      "sha256": "93cad92556e654e084ae90c16ab6ea3f4035908e717ca4e6db9ef0dac4e547ce",
+      "part": "supplement"
+    },
+    {
+      "id": "035-rotterdam-haven-supp",
+      "file": "holdout-3/scans/035-rotterdam-haven-supp.pdf",
+      "supplier": "Rotterdam Haven Supplies",
+      "invoice_number": "F48254",
+      "invoice_date": "2026-06-29",
+      "due_date": "2026-07-29",
+      "subtotal": "763.84",
+      "tax": "160.41",
+      "total": "924.25",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "netto 30 dagen",
+      "due_source": "terms",
+      "country": "NL",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "boxed",
+      "render": "scan",
+      "sha256": "2431e8ffedbcb5e6c8d382915c01d56885096ac5a2b64136f110d8d713629e5d",
+      "part": "supplement"
+    },
+    {
+      "id": "036-northern-lights-manu",
+      "file": "holdout-3/clean/036-northern-lights-manu.pdf",
+      "supplier": "Northern Lights Manufacturing Ltd.",
+      "invoice_number": "C82340",
+      "invoice_date": "2026-08-14",
+      "due_date": "2026-08-14",
+      "subtotal": "913.26",
+      "tax": "85.01",
+      "total": "998.27",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "ca_bilingual",
+      "render": "clean",
+      "sha256": "2d6df6b48d5e672892bff8223ec01b2566f3f0e4f7ae450e2e8cb941a888881e",
+      "part": "supplement"
+    },
+    {
+      "id": "037-rheinland-maschinenb",
+      "file": "holdout-3/scans/037-rheinland-maschinenb.pdf",
+      "supplier": "Rheinland Maschinenbau GmbH",
+      "invoice_number": "RE-2026-8692",
+      "invoice_date": "2026-06-13",
+      "due_date": null,
+      "subtotal": "273.67",
+      "tax": "52.00",
+      "total": "325.67",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "30 Tage zum Monatsende",
+      "due_source": null,
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "german_formal",
+      "render": "scan",
+      "sha256": "fc465c9b81792498622a8563d0547edbc1cf95d5180e12e25109bdd8855f6f68",
+      "part": "supplement"
+    },
+    {
+      "id": "038-utrecht-software-sol",
+      "file": "holdout-3/photos/038-utrecht-software-sol.pdf",
+      "supplier": "Utrecht Software Solutions",
+      "invoice_number": "F68153",
+      "invoice_date": "2026-09-04",
+      "due_date": "2026-10-04",
+      "subtotal": "672.53",
+      "tax": "141.23",
+      "total": "813.76",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "netto 30 dagen",
+      "due_source": "terms",
+      "country": "NL",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "minimal",
+      "render": "photo",
+      "sha256": "a1b573243d22ec01b05e08b5e7fa7a1226d2ef662d9dc852ee6b8befe55bed03",
+      "part": "supplement"
+    },
+    {
+      "id": "039-münchen-präzisionste",
+      "file": "holdout-3/photos/039-münchen-präzisionste.pdf",
+      "supplier": "München Präzisionsteile",
+      "invoice_number": "RE-2026-3344",
+      "invoice_date": "2026-09-10",
+      "due_date": "2026-09-24",
+      "subtotal": "579.05",
+      "tax": "110.02",
+      "total": "689.07",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "zahlbar innerhalb 14 Tagen",
+      "due_source": "printed",
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "boxed",
+      "render": "photo",
+      "sha256": "3384e5536c412ae71c031c6009c5537f785635d3f29d5ec08272e067083a5c54",
+      "part": "supplement"
+    },
+    {
+      "id": "040-galway-tech-solution",
+      "file": "holdout-3/clean/040-galway-tech-solution.pdf",
+      "supplier": "Galway Tech Solutions",
+      "invoice_number": "IE73335",
+      "invoice_date": "2026-08-21",
+      "due_date": "2026-09-20",
+      "subtotal": "2392.81",
+      "tax": "550.35",
+      "total": "2943.16",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Net 30",
+      "due_source": "terms",
+      "country": "IE",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "clean",
+      "sha256": "60ca4c34bc94628014f89dc0a1f9a9084e7bcc7411af07c57ae977952bd47701",
+      "part": "supplement"
+    },
+    {
+      "id": "041-barcelona-herramient",
+      "file": "holdout-3/photos/041-barcelona-herramient.pdf",
+      "supplier": "Barcelona Herramientas SL",
+      "invoice_number": "F89482",
+      "invoice_date": "2026-07-21",
+      "due_date": "2026-07-21",
+      "subtotal": "4352.32",
+      "tax": "913.99",
+      "total": "5266.31",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "a la recepción",
+      "due_source": "printed",
+      "country": "ES",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "spanish_style",
+      "render": "photo",
+      "sha256": "261df2e84dfcacfaea9a02d76e81623e886e93f5189d757b497aa4504f26b069",
+      "part": "supplement"
+    },
+    {
+      "id": "042-northern-lights-manu",
+      "file": "holdout-3/photos/042-northern-lights-manu.pdf",
+      "supplier": "Northern Lights Manufacturing Ltd.",
+      "invoice_number": "C57953",
+      "invoice_date": "2026-09-25",
+      "due_date": "2026-09-25",
+      "subtotal": "2194.41",
+      "tax": "144.97",
+      "total": "2339.38",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Due on receipt",
+      "due_source": "terms",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "ca_bilingual",
+      "render": "photo",
+      "sha256": "96183c915becab11ee70186794e5d174a7abe12d74a2686aa1f3334f3031648c",
+      "part": "supplement"
+    },
+    {
+      "id": "043-utrecht-software-sol",
+      "file": "holdout-3/photos/043-utrecht-software-sol.pdf",
+      "supplier": "Utrecht Software Solutions",
+      "invoice_number": "F58689",
+      "invoice_date": "2026-07-29",
+      "due_date": "2026-07-29",
+      "subtotal": "3427.24",
+      "tax": "719.72",
+      "total": "4146.96",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "bij ontvangst",
+      "due_source": "terms",
+      "country": "NL",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "minimal",
+      "render": "photo",
+      "sha256": "30e1da87e83dc6bb052f889f8fee6c7e4db48994ae3a6f52b9663ebda9a37415",
+      "part": "supplement"
+    },
+    {
+      "id": "044-austin-industrial-su",
+      "file": "holdout-3/clean/044-austin-industrial-su.pdf",
+      "supplier": "Austin Industrial Supply",
+      "invoice_number": "INV-49893",
+      "invoice_date": "2026-09-14",
+      "due_date": "2026-10-14",
+      "subtotal": "1650.51",
+      "tax": null,
+      "total": "1650.51",
+      "currency": "USD",
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "terms": "2/10 Net 30",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "a444b33a5b678dbfbe5e6ae50b820356447d0b851d305f4f93ee39199375fa54",
+      "part": "supplement"
+    },
+    {
+      "id": "045-pacific-rim-componen",
+      "file": "holdout-3/photos/045-pacific-rim-componen.pdf",
+      "supplier": "Pacific Rim Components Inc.",
+      "invoice_number": "INV-58147",
+      "invoice_date": "2026-08-28",
+      "due_date": "2026-08-28",
+      "subtotal": "2334.54",
+      "tax": "127.25",
+      "total": "2461.79",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Due on receipt",
+      "due_source": "printed",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "minimal",
+      "render": "photo",
+      "sha256": "20c6be882893f57e7a369b0558102d52e5a877cabca2d5f76a00d4e3b6bebc80",
+      "part": "supplement"
+    },
+    {
+      "id": "046-bristol-logistics-gr",
+      "file": "holdout-3/clean/046-bristol-logistics-gr.pdf",
+      "supplier": "Bristol Logistics Group",
+      "invoice_number": "UK27038",
+      "invoice_date": "2026-09-13",
+      "due_date": "2026-09-28",
+      "subtotal": "908.26",
+      "tax": "181.65",
+      "total": "1089.94",
+      "currency": "GBP",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "total_mismatch"
+      ],
+      "terms": "Net 15",
+      "due_source": "terms",
+      "country": "GB",
+      "date_convention": "day-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "clean",
+      "sha256": "de9ff77706b34efe6bdb5ca00d459c5a3a10828aecb65e641ad1251eead259a9",
+      "part": "supplement"
+    },
+    {
+      "id": "047-berlin-software-ag",
+      "file": "holdout-3/clean/047-berlin-software-ag.pdf",
+      "supplier": "Berlin Software AG",
+      "invoice_number": "RE-2026-8504",
+      "invoice_date": "2026-08-15",
+      "due_date": "2026-09-14",
+      "subtotal": "1263.44",
+      "tax": "240.05",
+      "total": "1503.49",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "30 Tage netto",
+      "due_source": "terms",
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "clean",
+      "sha256": "c2ecedc922907c86a2bd62a2260c2fe6db73bafce50445c45388d7a9302713a1",
+      "part": "supplement"
+    },
+    {
+      "id": "048-summit-software-solu",
+      "file": "holdout-3/photos/048-summit-software-solu.pdf",
+      "supplier": "Summit Software Solutions",
+      "invoice_number": "INV-52622",
+      "invoice_date": "2026-09-24",
+      "due_date": "2026-10-24",
+      "subtotal": "912.00",
+      "tax": "59.26",
+      "total": "971.26",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 30",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "photo",
+      "sha256": "829231630855e9f7952611ba4c7a30d7a6586b2913b06f3c93eb54d48d5f3e81",
+      "part": "supplement"
+    },
+    {
+      "id": "049-rheinland-maschinenb",
+      "file": "holdout-3/clean/049-rheinland-maschinenb.pdf",
+      "supplier": "Rheinland Maschinenbau GmbH",
+      "invoice_number": "RE-2026-2494",
+      "invoice_date": "2026-06-13",
+      "due_date": "2026-06-13",
+      "subtotal": "3392.52",
+      "tax": "644.58",
+      "total": "4037.10",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "sofort zahlbar",
+      "due_source": "terms",
+      "country": "DE",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "german_formal",
+      "render": "clean",
+      "sha256": "899124bfc662d949c0ca417922684abcca24fe454691cc84d87cc34d77b89824",
+      "part": "supplement"
+    },
+    {
+      "id": "050-milano-componenti-sr",
+      "file": "holdout-3/scans/050-milano-componenti-sr.pdf",
+      "supplier": "Milano Componenti Srl",
+      "invoice_number": "FT16743",
+      "invoice_date": "2026-08-25",
+      "due_date": "2026-09-24",
+      "subtotal": "4393.32",
+      "tax": "966.53",
+      "total": "5359.85",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "30 giorni netto",
+      "due_source": "terms",
+      "country": "IT",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "italian_style",
+      "render": "scan",
+      "sha256": "40c53323335d18fdb1d9801e5e6656ded1581ac714d3b1c8b1fbcf0a00dd0550",
+      "part": "supplement"
+    },
+    {
+      "id": "051-paris-composants-éle",
+      "file": "holdout-3/scans/051-paris-composants-éle.pdf",
+      "supplier": "Paris Composants Électroniques",
+      "invoice_number": "FAC-13441",
+      "invoice_date": "2026-09-17",
+      "due_date": null,
+      "subtotal": "4128.45",
+      "tax": "825.69",
+      "total": "4954.14",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "30 jours fin de mois",
+      "due_source": null,
+      "country": "FR",
+      "date_convention": "day-first",
+      "number_style": "1 234,56",
+      "layout": "eu_table",
+      "render": "scan",
+      "sha256": "3a87532b08d2480178caf3458f0523ae8922fc2efdb373bab2a6e4b185e7d1d1",
+      "part": "supplement"
+    },
+    {
+      "id": "052-boulder-office-suppl",
+      "file": "holdout-3/clean/052-boulder-office-suppl.pdf",
+      "supplier": "Boulder Office Supplies Co.",
+      "invoice_number": "INV-90981",
+      "invoice_date": "2026-07-10",
+      "due_date": "2026-07-10",
+      "subtotal": "4718.76",
+      "tax": "0.00",
+      "total": "4718.76",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "a8edf2022d4b1cbb155e0a7bc13c452aaa5f818a1f1e44a80312bb339d850c5c",
+      "part": "supplement"
+    },
+    {
+      "id": "053-madrid-suministros-i",
+      "file": "holdout-3/scans/053-madrid-suministros-i.pdf",
+      "supplier": "Madrid Suministros Industriales",
+      "invoice_number": "F79066",
+      "invoice_date": "2026-09-05",
+      "due_date": "2026-10-05",
+      "subtotal": "732.27",
+      "tax": "153.78",
+      "total": "886.05",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "neto 30 días",
+      "due_source": "terms",
+      "country": "ES",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "scan",
+      "sha256": "af51196ae65d43215f9ed401715732500b97b50c515b47b290c8f506a838ed81",
+      "part": "supplement"
+    },
+    {
+      "id": "054-rocky-mountain-logis",
+      "file": "holdout-3/scans/054-rocky-mountain-logis.pdf",
+      "supplier": "Rocky Mountain Logistics",
+      "invoice_number": "INV-62044",
+      "invoice_date": "2026-06-17",
+      "due_date": "2026-07-17",
+      "subtotal": "1304.53",
+      "tax": "0.00",
+      "total": "1304.53",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "2/10 Net 30",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "uk_vat",
+      "render": "scan",
+      "sha256": "505e7a6b57c91d0354b52b6abe92f0cda5c5368bf6927c6d55b79197b932c9d5",
+      "part": "supplement"
+    },
+    {
+      "id": "055-toronto-precision-to",
+      "file": "holdout-3/clean/055-toronto-precision-to.pdf",
+      "supplier": "Toronto Precision Tools Inc.",
+      "invoice_number": "C57428",
+      "invoice_date": "2026-06-15",
+      "due_date": "2026-07-15",
+      "subtotal": "1758.89",
+      "tax": "200.70",
+      "total": "1959.59",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "2/10 Net 30",
+      "due_source": "printed",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "clean",
+      "sha256": "348346d6d0764b698b383128002e8bc7f3d24da32aaec9a12900f7274d2db1fa",
+      "part": "supplement"
+    },
+    {
+      "id": "056-toronto-precision-to",
+      "file": "holdout-3/photos/056-toronto-precision-to.pdf",
+      "supplier": "Toronto Precision Tools Inc.",
+      "invoice_number": "C79547",
+      "invoice_date": "2026-09-04",
+      "due_date": "2026-09-04",
+      "subtotal": "3939.77",
+      "tax": "221.06",
+      "total": "4160.83",
+      "currency": "CAD",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency"
+      ],
+      "terms": "Due on receipt",
+      "due_source": "printed",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "photo",
+      "sha256": "c5df126d8486044a82762f19eec2dca211d873ef8fa84beb3a58f1d236d43fad",
+      "part": "supplement"
+    },
+    {
+      "id": "057-vancouver-coastal-su",
+      "file": "holdout-3/photos/057-vancouver-coastal-su.pdf",
+      "supplier": "Vancouver Coastal Supplies",
+      "invoice_number": "C46002",
+      "invoice_date": "2026-07-12",
+      "due_date": "2026-07-12",
+      "subtotal": "2310.86",
+      "tax": "202.23",
+      "total": "2513.09",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Upon receipt",
+      "due_source": "terms",
+      "country": "CA",
+      "date_convention": "year-first",
+      "number_style": "1,234.56",
+      "layout": "boxed",
+      "render": "photo",
+      "sha256": "2649aafb53faf8f2d3f1236ac3016178e3bcfe1f0786c58bf4f07b5dbd4839a6",
+      "part": "supplement"
+    },
+    {
+      "id": "058-amsterdam-precision-",
+      "file": "holdout-3/photos/058-amsterdam-precision-.pdf",
+      "supplier": "Amsterdam Precision BV",
+      "invoice_number": "F55015",
+      "invoice_date": "2026-07-12",
+      "due_date": null,
+      "subtotal": "4797.07",
+      "tax": "1007.38",
+      "total": "5804.45",
+      "currency": "EUR",
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date"
+      ],
+      "terms": "30 dagen einde maand",
+      "due_source": null,
+      "country": "NL",
+      "date_convention": "day-first",
+      "number_style": "1.234,56",
+      "layout": "eu_table",
+      "render": "photo",
+      "sha256": "b5bf16216abdbc59e41cf8672379250e54426daea2d8bff74b5fba54d207d010",
+      "part": "supplement"
+    },
+    {
+      "id": "059-maplewood-hardware-s",
+      "file": "holdout-3/photos/059-maplewood-hardware-s.pdf",
+      "supplier": "Maplewood Hardware Supply",
+      "invoice_number": "INV-53863",
+      "invoice_date": "2026-07-18",
+      "due_date": "2026-07-18",
+      "subtotal": "3917.43",
+      "tax": null,
+      "total": "3917.43",
+      "currency": "USD",
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "terms": "Due on receipt",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "photo",
+      "sha256": "e11abfed5f16900fc0be66897b82f49c34bd5977bcc97d4f25df10028614e7fa",
+      "part": "supplement"
+    },
+    {
+      "id": "060-boulder-office-suppl",
+      "file": "holdout-3/scans/060-boulder-office-suppl.pdf",
+      "supplier": "Boulder Office Supplies Co.",
+      "invoice_number": "INV-61374",
+      "invoice_date": "2026-07-13",
+      "due_date": "2026-08-12",
+      "subtotal": "878.86",
+      "tax": "69.17",
+      "total": "948.03",
+      "currency": "USD",
+      "exception": false,
+      "exception_reasons": [],
+      "terms": "Net 30",
+      "due_source": "terms",
+      "country": "US",
+      "date_convention": "month-first",
+      "number_style": "1,234.56",
+      "layout": "classic_us",
+      "render": "scan",
+      "sha256": "5bb5625b9c895db1b07cde144680a2785044ea36320b75aaaae97bd9519bc019",
+      "part": "supplement"
     }
   ]
 }
