@@ -91,6 +91,25 @@ class Textract(unittest.TestCase):
         self.assertIsNone(value_beside_label(
             [("Fällig am", {"Left": 0.28, "Top": 0.19}), ("17.09.2026", {"Left": 0.47, "Top": 0.30})], DUE_LABELS))
 
+    def test_an_unlabeled_invoice_date_that_is_the_due_date_is_dropped(self):
+        due_looking = labeled("INVOICE_RECEIPT_DATE", "", "14 september 2026")
+        invoice = labeled("INVOICE_RECEIPT_DATE", "", "15 augustus 2026")
+        invoice["ValueDetection"]["Confidence"] = 51.0
+        got = self.fields([due_looking, invoice],
+                          [line("Vervaldatum", 0.28, 0.194), line("14 september 2026", 0.47, 0.194)])
+        self.assertEqual(got["due_date"], "14 september 2026")
+        self.assertEqual(got["invoice_date"], "15 augustus 2026")
+
+    def test_two_candidates_without_a_labeled_due_date_keep_the_highest(self):
+        first = labeled("INVOICE_RECEIPT_DATE", "", "14 september 2026")
+        second = labeled("INVOICE_RECEIPT_DATE", "", "15 augustus 2026")
+        second["ValueDetection"]["Confidence"] = 50.0
+        self.assertEqual(self.fields([first, second])["invoice_date"], "14 september 2026")
+
+    def test_a_single_candidate_is_never_dropped(self):
+        got = self.fields([labeled("INVOICE_RECEIPT_DATE", "Date", "03/14/2026"), labeled("DUE_DATE", "Due date", "03/14/2026")])
+        self.assertEqual(got["invoice_date"], "03/14/2026")
+
     def test_an_empty_typed_value_does_not_block_the_page(self):
         got = self.fields([labeled("INVOICE_RECEIPT_ID", "Rechnungsnr.", "")],
                           [line("Rechnungsnr.", 0.28, 0.15), line("KEK-3518", 0.47, 0.15)])

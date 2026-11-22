@@ -672,6 +672,8 @@ def textract_fields(response: dict) -> dict:
     lines: list[tuple[str, dict]] = []
     currency: tuple[float, str] | None = None
     currency_field: str | None = None
+    invoice_dates: list[tuple[float, str]] = []
+    due_labeled = False
     for document in response.get("ExpenseDocuments") or []:
         for block in document.get("Blocks") or []:
             text = block.get("Text")
@@ -698,6 +700,7 @@ def textract_fields(response: dict) -> dict:
                 currency_field = value.strip().upper() if value.strip().upper() in CURRENCIES else currency_in(value)
             if is_due_label(label_text) and kind in ("INVOICE_RECEIPT_DATE", "OTHER", "DUE_DATE"):
                 name = "due_date"
+                due_labeled = True
             elif kind == "OTHER":
                 folded_label = plain_lower(label_text).strip(" :.-")
                 name = next((field for field, labels in LABELS_FOR.items()
@@ -708,6 +711,8 @@ def textract_fields(response: dict) -> dict:
                     if loose_terms is None or confidence > loose_terms[0]:
                         loose_terms = (confidence, value)
                 continue
+            if name == "invoice_date":
+                invoice_dates.append((confidence, value))
             if name not in best or confidence > best[name][0]:
                 best[name] = (confidence, value)
     if "terms" not in best and loose_terms is not None:
@@ -723,6 +728,15 @@ def textract_fields(response: dict) -> dict:
             beside = value_beside_label(lines, labels)
             if beside is not None:
                 best[name] = (0.0, beside)
+                due_labeled = due_labeled or name == "due_date"
+    # Textract sometimes offers the due date as a second, unlabeled invoice
+    # date, with the higher confidence. When the due date was read under a
+    # due-date label, a candidate with the same text is that due date.
+    if due_labeled and len(invoice_dates) >= 2 and "due_date" in best:
+        due_text = squashed(best["due_date"][1]).lower()
+        others = [c for c in invoice_dates if squashed(c[1]).lower() != due_text]
+        if others and len(others) < len(invoice_dates):
+            best["invoice_date"] = max(others)
     return {name: best[name][1] if name in best else None for name in RAW_KEYS}
 
 
