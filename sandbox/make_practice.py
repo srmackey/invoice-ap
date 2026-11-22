@@ -247,7 +247,7 @@ def write_pdf(inv: dict, path: Path) -> None:
         grid.append([w["due"], inv["due_text"]])
     if inv.get("terms"):
         grid.append([w["terms"], inv["terms"]])
-    header = Table(grid, colWidths=[1.6 * inch, 2.2 * inch])
+    header = Table(grid, colWidths=[2.3 * inch, 2.6 * inch])
     header.setStyle(TableStyle([("FONTNAME", (0, 0), (-1, -1), BODY), ("FONTNAME", (0, 0), (0, -1), BOLD),
                                 ("GRID", (0, 0), (-1, -1), 0.5, colors.grey)]))
     story += [header, Spacer(1, 0.25 * inch)]

@@ -78,10 +78,39 @@ DOCLING_TIMEOUT = 120
 READS_PATH = Path(__file__).resolve().parent / "reads" / "reads.jsonl"
 MONEY_LABELS = ("subtotal", "tax", "total")
 HEADER_SKIP = {"invoice", "bill to"}
+# Due-date labels in English, German, French, Dutch, Italian, and Spanish,
+# lowercased and without accents. Textract types English ones itself, but
+# leaves foreign ones untyped or types them as the invoice date.
+DUE_LABELS = (
+    "due date", "date due", "payment due date", "due by",
+    "fallig am", "fallig", "falligkeit", "falligkeitsdatum", "zahlbar bis",
+    "echeance", "date d'echeance", "date echeance", "date limite de paiement",
+    "vervaldatum", "vervaldag", "uiterste betaaldatum",
+    "scadenza", "data scadenza", "data di scadenza",
+    "vencimiento", "fecha de vencimiento", "fecha vencimiento",
+)
+# Invoice-date labels in the same languages. Used only for a field Textract
+# leaves untyped; one it typed keeps its type unless it is a due-date label.
+INVOICE_DATE_LABELS = (
+    "invoice date", "date of invoice", "rechnungsdatum", "date de facture", "date de la facture",
+    "factuurdatum", "data fattura", "data della fattura", "fecha de factura", "fecha factura",
+)
+# Invoice-number labels in the same languages, for untyped fields only.
+INVOICE_NUMBER_LABELS = (
+    "invoice number", "invoice no", "invoice no.", "invoice #", "rechnungsnr", "rechnungsnr.", "rechnungsnummer",
+    "rechnung nr", "rechnung nr.", "n de facture", "n° de facture", "no de facture", "numero de facture",
+    "factuurnummer", "factuur nr", "factuurnr", "fattura n", "fattura n.", "numero fattura", "n. fattura",
+    "n.o de factura", "n.º de factura", "no de factura", "numero de factura", "factura n", "factura no",
+)
+# Label words per field, for a field Textract leaves untyped and for the
+# value printed beside a label on the page.
+LABELS_FOR = {"due_date": DUE_LABELS, "invoice_date": INVOICE_DATE_LABELS, "invoice_number": INVOICE_NUMBER_LABELS}
 FIELD_PREFIXES = (
     ("invoice_number", "invoice number"),
     ("invoice_date", "invoice date"),
-    ("due_date", "due date"),
+    *[("due_date", label) for label in DUE_LABELS],
+    ("due_date", "fällig am"), ("due_date", "fälligkeit"), ("due_date", "fälligkeitsdatum"),
+    ("due_date", "échéance"), ("due_date", "date d'échéance"),
 )
 RUNNERS = ("textract", "docling")
 DEFAULT_RUNNER = "textract"
@@ -233,7 +262,8 @@ _PAYMENT_WORD = re.compile(
 def plain_lower(text: str) -> str:
     import unicodedata
 
-    folded = unicodedata.normalize("NFKD", squashed(text).lower())
+    # OCR reads the ordinal in "N.º" as a degree sign; both fold to "o".
+    folded = unicodedata.normalize("NFKD", squashed(text).lower().replace("\u00b0", "o"))
     return "".join(c for c in folded if not unicodedata.combining(c))
 
 
@@ -399,7 +429,7 @@ def bare_label(text: str) -> bool:
 
 
 def take_labeled(fields: dict, text: str, following: str | None) -> None:
-    lowered = text.lower()
+    lowered = text.lower().rstrip()
     for name, prefix in FIELD_PREFIXES:
         if fields[name] is not None:
             continue
@@ -552,9 +582,12 @@ def textract_fields(response: dict) -> dict:
     best: dict[str, tuple[float, str]] = {}
     loose_terms: tuple[float, str] | None = None
     terms_line: str | None = None
+    lines: list[tuple[str, dict]] = []
     for document in response.get("ExpenseDocuments") or []:
         for block in document.get("Blocks") or []:
             text = block.get("Text")
+            if block.get("BlockType") == "LINE" and isinstance(text, str):
+                lines.append((text, (block.get("Geometry") or {}).get("BoundingBox") or {}))
             if terms_line is None and block.get("BlockType") == "LINE" and isinstance(text, str):
                 if len(text) <= TERMS_LINE_MAX and terms_days(text, alone=True) is not None:
                     terms_line = text
@@ -563,9 +596,16 @@ def textract_fields(response: dict) -> dict:
             name = TEXTRACT_TYPES.get(kind)
             detection = field.get("ValueDetection") or {}
             value = detection.get("Text")
-            if not isinstance(value, str):
+            if not isinstance(value, str) or blank(value):
                 continue
             confidence = float(detection.get("Confidence") or 0)
+            label_text = (field.get("LabelDetection") or {}).get("Text") or ""
+            if is_due_label(label_text) and kind in ("INVOICE_RECEIPT_DATE", "OTHER", "DUE_DATE"):
+                name = "due_date"
+            elif kind == "OTHER":
+                folded_label = plain_lower(label_text).strip(" :.-")
+                name = next((field for field, labels in LABELS_FOR.items()
+                             if field != "due_date" and folded_label in labels), None)
             if name is None:
                 label = ((field.get("LabelDetection") or {}).get("Text") or "").lower()
                 if kind == "OTHER" and any(word in plain_lower(label) for word in TERMS_LABEL_WORDS) and terms_days(value) is not None:
@@ -578,7 +618,39 @@ def textract_fields(response: dict) -> dict:
         best["terms"] = loose_terms
     if "terms" not in best and terms_line is not None:
         best["terms"] = (0.0, terms_line)
+    for name, labels in LABELS_FOR.items():
+        if name not in best:
+            beside = value_beside_label(lines, labels)
+            if beside is not None:
+                best[name] = (0.0, beside)
     return {name: best[name][1] if name in best else None for name in RAW_KEYS}
+
+
+def is_due_label(label: str) -> bool:
+    return plain_lower(label).strip(" :.-") in DUE_LABELS
+
+
+def value_beside_label(lines: list[tuple[str, dict]], labels: tuple[str, ...]) -> str | None:
+    """The value printed with one of these labels on the page: after it on the
+    same line, or the nearest line to its right on the same row."""
+    folded_labels = sorted({plain_lower(label).strip(" :.-") for label in labels}, key=len, reverse=True)
+    for text, box in lines:
+        folded = plain_lower(text)
+        label = next((l for l in folded_labels
+                      if folded.rstrip(" :.-") == l or folded.startswith(l + " ") or folded.startswith(l + ":")), None)
+        if label is None:
+            continue
+        rest = folded[len(label):].strip(" :.-")
+        if rest:
+            return squashed(text)[len(label):].strip(" :.-")
+        top, left = box.get("Top"), box.get("Left")
+        if top is None or left is None:
+            continue
+        row = [(b.get("Left", 0), t) for t, b in lines
+               if b.get("Top") is not None and abs(b["Top"] - top) < 0.01 and b.get("Left", 0) > left]
+        if row:
+            return min(row)[1]
+    return None
 
 
 _CLIENTS: dict[tuple, object] = {}

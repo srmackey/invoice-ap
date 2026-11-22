@@ -701,9 +701,17 @@ def main() -> None:
         candidate = RUNS / f"{date.today().isoformat()}-{stem}{args.runner}.json"
         if all(row["error"] for row in results):
             raise SystemExit(f"every call failed, no run written: {results[0]['error']}")
+        if candidate.exists() and getattr(args, "cache", False):
+            # A cached development read can run again the same day; it gets the next number.
+            n = 2
+            while (RUNS / f"{candidate.stem}-{n}.json").exists():
+                n += 1
+            candidate = RUNS / f"{candidate.stem}-{n}.json"
         if candidate.exists():
             raise SystemExit(f"{candidate.name} exists. A scored run is never overwritten.")
-    if args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
+    if args.runner in ("textract", "hosted"):
+        dest = candidate
+    elif args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
         slug = args.model.replace(":", "-").replace("/", "-")
         dest = RUNS / f"{date.today().isoformat()}-{slug}.json"
     elif args.runner in ("docling", "textract", "hosted") and labels_path.resolve() == LABELS.resolve():
