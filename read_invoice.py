@@ -187,6 +187,23 @@ def exception_reasons(values: dict) -> list[str]:
     return reasons
 
 
+def printed_text(raw: dict | None, values: dict) -> dict:
+    """The printed text of each date or amount that did not parse, so a person,
+    and the next scoring run, can see what was on the page. A total that came
+    from the amount due shows the amount due's text. Empty when nothing failed."""
+    if not raw:
+        return {}
+    out = {}
+    for name in DATE_FIELDS + MONEY_FIELDS:
+        if values[name] != "unparsed":
+            continue
+        source = raw.get(name)
+        if name == "total" and blank(source):
+            source = raw.get("amount_due")
+        out[name] = as_text(source)
+    return out
+
+
 def show(value) -> str | None:
     if value is None or value == "unparsed":
         return None if value is None else "unparsed"
@@ -460,6 +477,7 @@ def read_invoice(
     out = {name: show(values[name]) for name in FIELDS}
     out["exception"] = bool(reasons)
     out["exception_reasons"] = reasons
+    out["printed"] = printed_text(got_raw, values)
     out["error"] = error
     out["runner"] = used
     out["pages"] = pages
@@ -478,6 +496,7 @@ def make_record(pdf: Path, result: dict, seconds: float) -> dict:
         record[name] = result[name]
     record["exception"] = result["exception"]
     record["exception_reasons"] = list(result["exception_reasons"])
+    record["printed"] = dict(result.get("printed") or {})
     record["error"] = result["error"]
     return record
 

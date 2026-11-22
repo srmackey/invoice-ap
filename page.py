@@ -186,8 +186,12 @@ def render_list(reads: list[dict], skipped: int) -> str:
 
 def render_one(row: dict, reads: list[dict]) -> str:
     fields = []
+    printed = row.get("printed") if isinstance(row.get("printed"), dict) else {}
     for name in FIELDS:
-        fields.append(f"<dt>{escape(LABELS[name])}</dt><dd>{show_value(row.get(name))}</dd>")
+        value = show_value(row.get(name))
+        if row.get(name) == "unparsed" and printed.get(name):
+            value = f"Could not read: {escape(str(printed[name]))}"
+        fields.append(f"<dt>{escape(LABELS[name])}</dt><dd>{value}</dd>")
     reasons = row.get("exception_reasons") if isinstance(row.get("exception_reasons"), list) else []
     raised = row.get("exception") is True or bool(reasons)
     fields.append(f"<dt>Exception</dt><dd>{'Yes' if raised else 'No'}</dd>")

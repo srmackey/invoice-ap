@@ -16,7 +16,7 @@ Seven fields:
 | tax | Decimal dollars, two places. |
 | total | The printed total, not a corrected one. When no total is printed, the printed amount due. |
 
-A field that is not on the page is null.
+A field that is not on the page is null. A date or amount that is printed but does not parse reads as `unparsed`, and the result's `printed` holds the text that was on the page for each such field, so the clerk sees what to read and a scoring run shows which forms failed. `printed` is empty when everything parsed.
 
 **Payment terms.** When the page prints no due date but prints payment terms, the due date is the invoice date plus the terms' days. "Net N" is due in N days. "Due on receipt" (or "upon receipt") is the invoice date. "2/10 Net 30" is due in 30 days; the discount date is not the due date. Terms the rule cannot compute, such as "Net 30 EOM" or "10th prox", leave the due date null. Any other wording, such as "payment due in 30 days", is not terms the rule knows and also leaves it null. A printed due date always wins, even one the reader cannot parse. Terms printed where the due date goes ("Due Date: Upon receipt") count as terms.
 
@@ -39,7 +39,7 @@ So the system that was scored is the system that runs.
 
 **Runners.** Amazon Textract AnalyzeExpense is the default. A local Docling container is the backup, chosen explicitly, for reading without AWS. Both go through the same exception rule.
 
-**Host.** One AWS Lambda function behind a function URL that requires IAM credentials. It takes one PDF as the request body and returns the seven fields, the exception and its reasons, the page count, and the seconds taken. A non-PDF body is a 400 and a Textract failure is a 502 with the reason. The function's role may call AnalyzeExpense and write its own logs, nothing else. Each read logs one line with timing, pages, and reasons, never field values. Nothing runs between calls. The stacks are CloudFormation in `infra/`.
+**Host.** One AWS Lambda function behind a function URL that requires IAM credentials. It takes one PDF as the request body and returns the seven fields, the exception and its reasons, the printed text of any field that did not parse, the page count, and the seconds taken. A non-PDF body is a 400 and a Textract failure is a 502 with the reason. The function's role may call AnalyzeExpense and write its own logs, nothing else. Each read logs one line with timing, pages, and reasons, never field values. Nothing runs between calls. The stacks are CloudFormation in `infra/`.
 
 **Caller.** `host/call.py` signs a request for the function URL and needs only `host/requirements.txt`, so a caller does not need this checkout.
 

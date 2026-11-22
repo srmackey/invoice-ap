@@ -63,6 +63,7 @@ from read_invoice import (
     as_text,
     docling_read,
     exception_reasons,
+    printed_text,
     parsed,
     read_fields,
     show,
@@ -265,6 +266,7 @@ def judged(row: dict, got_raw, model, seconds: float, error) -> dict:
         "correct_fields": sum(rights.values()),
         "exception": bool(reasons),
         "exception_reasons": reasons,
+        "printed": printed_text(got_raw, values),
         "label_exception": row.get("exception"),
         "error": error,
     }
@@ -365,6 +367,7 @@ def hosted_read(source: Path, url: str, credentials) -> tuple[dict | None, str, 
         "pages": body.get("pages") or 0,
         "host_seconds": body.get("seconds"),
         "host_exception_reasons": body.get("exception_reasons"),
+        "printed": body.get("printed") or {},
     }
     used = body.get("runner") or "hosted"
     if status != 200:
