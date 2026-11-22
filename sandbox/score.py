@@ -72,6 +72,7 @@ from read_invoice import (
 
 LABELS = ROOT / "labels.json"
 RUNS = ROOT / "runs"
+CACHE = ROOT / "textract-cache"
 CALL_TIMEOUT = 180
 OLLAMA_TIMEOUT = 600
 OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
@@ -531,6 +532,29 @@ def summarize(runner: str, invoices: list[dict], elapsed: float) -> dict:
     }
 
 
+class CachedTextract:
+    """A Textract client that keeps each raw AnalyzeExpense response, keyed by the
+    PDF's sha256, and reuses it. For development sets only: one paid read, then
+    any change to how responses are mapped is re-checked offline."""
+
+    def __init__(self, client, folder: Path):
+        self.client = client
+        self.folder = folder
+
+    def analyze_expense(self, Document: dict) -> dict:
+        import hashlib
+
+        data = Document["Bytes"]
+        path = self.folder / f"{hashlib.sha256(data).hexdigest()}.json"
+        if path.is_file():
+            return json.loads(path.read_text(encoding="utf-8"))
+        response = self.client.analyze_expense(Document=Document)
+        response = {k: v for k, v in response.items() if k != "ResponseMetadata"}
+        self.folder.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(response), encoding="utf-8")
+        return response
+
+
 def add_hosted_facts(report: dict, results: list[dict], url: str) -> None:
     """What a hosted run adds to the four scores: where it ran, what it cost,
     and whether the host's exception matched the one scoring recomputed."""
@@ -594,6 +618,12 @@ def main() -> None:
         action="store_true",
         help="Exit 1 when a field is wrong or the exception does not match the label.",
     )
+    parser.add_argument(
+        "--cache",
+        action="store_true",
+        help="Textract only, development sets only: keep each raw Textract response under textract-cache/ "
+        "and reuse it, so a mapping change can be re-checked without another paid read. Refused on a holdout.",
+    )
     args = parser.parse_args()
     labels_path = args.labels if args.labels.is_absolute() else ROOT / args.labels
     label_set = json.loads(labels_path.read_text(encoding="utf-8"))
@@ -607,6 +637,12 @@ def main() -> None:
     host = None
     if args.runner == "textract":
         client = textract_client(args.profile, args.region)
+        if args.cache:
+            if "holdout" in labels_path.as_posix() or label_set.get("frozen"):
+                raise SystemExit("--cache is for development sets; a holdout is read once and never cached")
+            client = CachedTextract(client, CACHE)
+    elif args.cache:
+        raise SystemExit("--cache works with the textract runner only")
     if args.runner == "hosted":
         if not args.url:
             raise SystemExit("the hosted runner needs --url or INVOICE_AP_READER_URL")

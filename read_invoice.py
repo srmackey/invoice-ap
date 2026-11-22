@@ -102,7 +102,14 @@ TEXTRACT_TYPES = {
 # stands in for a missing total, and printed terms set a missing due date.
 EXTRAS = ("amount_due", "terms")
 RAW_KEYS = FIELDS + EXTRAS
-TERMS_PREFIXES = (("terms", "payment terms"), ("terms", "terms"))
+TERMS_PREFIXES = (
+    ("terms", "payment terms"), ("terms", "terms"), ("terms", "zahlungsbedingungen"), ("terms", "zahlungsziel"),
+    ("terms", "conditions de paiement"), ("terms", "modalites de paiement"), ("terms", "betalingsvoorwaarden"),
+    ("terms", "termini di pagamento"), ("terms", "condizioni di pagamento"), ("terms", "condiciones de pago"),
+    ("terms", "forma de pago"),
+)
+# A label Textract leaves untyped counts as a terms label when it holds one of these words.
+TERMS_LABEL_WORDS = ("terms", "zahlung", "paiement", "betaling", "pagamento", "pago")
 AMOUNT_DUE_PREFIXES = ("amount due", "balance due", "total due")
 TERMS_LINE_MAX = 40
 
@@ -190,29 +197,96 @@ def as_money(value):
 
 
 UNCOMPUTABLE = "uncomputable"
-_EOM = re.compile(r"\beom\b|\be\.o\.m\b|end of (?:the )?month|\bprox(?:imo)?\b|\bmfi\b")
-_RECEIPT = re.compile(r"\b(?:up)?on receipt\b")
+TERMS_MAX_DAYS = 180
+# Terms text is matched lowercased and without accents ("à réception" is "a reception").
+_EOM = re.compile(
+    r"\beom\b|\be\.o\.m\b|end of (?:the )?month|\bfollowing month\b|\bprox(?:imo)?\b|\bmfi\b"
+    r"|monatsende|ende des monats|folgemonat|\bfin (?:de|du) mois\b|\bmois suivant\b"
+    r"|\beinde (?:van de )?maand\b|\bfine mese\b|\bmese successivo\b|\bfin (?:de|del) mes\b|\bmes siguiente\b"
+)
+_ANCHOR_ELSEWHERE = re.compile(
+    r"\b(?:from|after)\s+(?:the\s+)?(?:date\s+of\s+)?(?:delivery|shipment|dispatch|receipt of goods|goods|statement)"
+    r"|\b(?:nach|ab)\s+(?:lieferung|erhalt der ware|warenerhalt|lieferdatum)"
+    r"|\b(?:a compter de|apres|des)\s+(?:la\s+)?livraison|\bdate de livraison"
+    r"|\bna\s+(?:levering|ontvangst van de goederen)"
+    r"|\bdalla\s+(?:consegna|data di consegna)"
+    r"|\bdesde\s+(?:la\s+)?(?:entrega|recepcion de la mercancia)|\bfecha de entrega"
+)
+_RECEIPT = re.compile(
+    r"\b(?:up)?on receipt\b|\bdue immediately\b|\bpayable immediately\b|\bsofort\b"
+    r"|\b(?:a|des) reception\b|\bbij ontvangst\b|\bal ricevimento\b|\ba la recepcion\b"
+)
 _DISCOUNT_NET = re.compile(r"\d+(?:\.\d+)?\s*%?\s*/\s*\d{1,3}\s*,?\s*n(?:et)?\s*/?\s*(\d{1,3})\b(?![.,]\d)")
-_NET = re.compile(r"\bnet\s*/?\s*(\d{1,3})\b(?![.,]\d)")
+_DAY = r"(?:days?|tagen?|jours?|dagen|giorni|gg\.?|dias?)"
+_NET_WORD = r"(?:net|netto|neto|netti)"
+_NET_FIRST = re.compile(r"\b" + _NET_WORD + r"\s*(?:a\s+)?/?\s*(\d{1,3})\b(?![.,]\d)")
+_DAYS_FIRST = re.compile(r"\b(\d{1,3})\s*" + _DAY + r"\b(\s+" + _NET_WORD + r"\b)?")
+_DISCOUNT = re.compile(r"%|skonto|escompte|korting|sconto|descuento|discount")
+# Two periods offered together ("30 or 60 days", "30-60 Tage") name no single one.
+_RANGE = re.compile(r"\b\d{1,3}\s*(?:or|oder|ou|of|o|y|to|bis|-|/)\s*\d{1,3}\s*" + _DAY + r"\b")
+_PAYMENT_WORD = re.compile(
+    r"\b(?:" + _NET_WORD + r"|pay|payment|payable|due|terms|zahlbar|zahlung|zahlungsziel|paiement|echeance|reglement"
+    r"|betaling|betaalbaar|pagamento|pagabile|scadenza|pago|vencimiento|plazo)\b"
+)
 
 
-def terms_days(text) -> int | str | None:
+def plain_lower(text: str) -> str:
+    import unicodedata
+
+    folded = unicodedata.normalize("NFKD", squashed(text).lower())
+    return "".join(c for c in folded if not unicodedata.combining(c))
+
+
+def terms_days(text, alone: bool = False) -> int | str | None:
     """Days from the invoice date to the due date under printed terms.
 
-    "Net N" and "2/10 Net 30" give N; "Due on receipt" gives 0. End-of-month
-    terms give UNCOMPUTABLE, which leaves the due date for a person. Anything
-    else is not terms the rule knows, and gives None."""
+    One payment period in days, 1 to 180, in English, French, German, Dutch,
+    Italian, or Spanish ("Net 30", "30 days net", "zahlbar innerhalb 14 Tagen",
+    "à 45 jours", "netto 30 dagen", "a 30 giorni", "neto 60 días") gives that
+    many days. Payment on receipt gives 0. Discount terms give the net period.
+    Terms the rule will not compute give UNCOMPUTABLE, which leaves the due
+    date for a person: end-of-month or following-month terms, a period counted
+    from anything but the invoice date, a discount period alone, two periods
+    with nothing marking the net one, or more than 180 days. Anything else is
+    not terms, and gives None.
+
+    alone is for a line of page text with no label: it counts only when it also
+    carries a payment word, so "Warranty: 90 days" is not terms."""
     if blank(text):
         return None
-    lowered = squashed(text).lower()
-    if _EOM.search(lowered):
+    lowered = plain_lower(text)
+    if alone and not (_PAYMENT_WORD.search(lowered) or _RECEIPT.search(lowered) or _EOM.search(lowered)):
+        return None
+    if _EOM.search(lowered) or _ANCHOR_ELSEWHERE.search(lowered):
         return UNCOMPUTABLE
     if _RECEIPT.search(lowered):
         return 0
-    match = _DISCOUNT_NET.search(lowered) or _NET.search(lowered)
-    if match:
-        return int(match.group(1))
-    return None
+    if _RANGE.search(lowered):
+        return UNCOMPUTABLE
+    slashed = _DISCOUNT_NET.search(lowered)
+    if slashed:
+        return _within(int(slashed.group(1)))
+    periods = {}
+    for segment in re.split(r";|,(?!\d)", lowered):
+        discount = bool(_DISCOUNT.search(segment))
+        for found in _NET_FIRST.finditer(segment):
+            periods[(segment, found.start(1))] = (int(found.group(1)), True, discount)
+        for found in _DAYS_FIRST.finditer(segment):
+            key = (segment, found.start(1))
+            net = bool(found.group(2)) or periods.get(key, (0, False, False))[1]
+            periods[key] = (int(found.group(1)), net, discount)
+    if not periods:
+        return None
+    marked = {days for days, net, _ in periods.values() if net}
+    plain = {days for days, net, discount in periods.values() if not net and not discount}
+    choice = marked or plain
+    if len(choice) != 1:
+        return UNCOMPUTABLE
+    return _within(choice.pop())
+
+
+def _within(days: int) -> int | str:
+    return days if 1 <= days <= TERMS_MAX_DAYS else UNCOMPUTABLE
 
 
 def due_from_terms(invoice_date, due_raw, due_value, terms_raw):
@@ -355,7 +429,7 @@ def take_terms(fields: dict, text: str, following: str | None) -> None:
     terms on its own ("Due on receipt", "Net 30")."""
     if fields["terms"] is not None:
         return
-    lowered = text.lower()
+    lowered = plain_lower(text)
     for _name, prefix in TERMS_PREFIXES:
         if lowered.strip(" :.-") == prefix:
             candidate = following if following and not bare_label(following) else None
@@ -366,7 +440,7 @@ def take_terms(fields: dict, text: str, following: str | None) -> None:
         if candidate and terms_days(candidate) is not None:
             fields["terms"] = candidate
             return
-    if len(text) <= TERMS_LINE_MAX and terms_days(text) is not None:
+    if len(text) <= TERMS_LINE_MAX and terms_days(text, alone=True) is not None:
         fields["terms"] = text
 
 
@@ -482,7 +556,7 @@ def textract_fields(response: dict) -> dict:
         for block in document.get("Blocks") or []:
             text = block.get("Text")
             if terms_line is None and block.get("BlockType") == "LINE" and isinstance(text, str):
-                if len(text) <= TERMS_LINE_MAX and terms_days(text) is not None:
+                if len(text) <= TERMS_LINE_MAX and terms_days(text, alone=True) is not None:
                     terms_line = text
         for field in document.get("SummaryFields") or []:
             kind = (field.get("Type") or {}).get("Text")
@@ -494,7 +568,7 @@ def textract_fields(response: dict) -> dict:
             confidence = float(detection.get("Confidence") or 0)
             if name is None:
                 label = ((field.get("LabelDetection") or {}).get("Text") or "").lower()
-                if kind == "OTHER" and "terms" in label and terms_days(value) is not None:
+                if kind == "OTHER" and any(word in plain_lower(label) for word in TERMS_LABEL_WORDS) and terms_days(value) is not None:
                     if loose_terms is None or confidence > loose_terms[0]:
                         loose_terms = (confidence, value)
                 continue

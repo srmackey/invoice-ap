@@ -1,0 +1,1977 @@
+{
+  "runner": "textract",
+  "date": "2026-11-22",
+  "invoices": 40,
+  "field_accuracy": "145/280",
+  "straight_through": "3/40",
+  "invoice_accuracy": "6/40",
+  "silent_errors": [],
+  "time_per_invoice_seconds": 2.3,
+  "elapsed_seconds": 93.9,
+  "time_includes": "one synchronous AnalyzeExpense call from this machine for each invoice, one at a time",
+  "models": [
+    "textract-analyze-expense"
+  ],
+  "results": [
+    {
+      "id": "p01-ccs",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6131",
+        "invoice_date": "7/22/26",
+        "due_date": "9/20/26",
+        "subtotal": "$10,028.74",
+        "tax": "$0.00",
+        "total": "$10,028.74",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6131",
+        "invoice_date": "2026-07-22",
+        "due_date": "2026-09-20",
+        "subtotal": "10028.74",
+        "tax": "0.00",
+        "total": "10028.74"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p02-ccs",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6159",
+        "invoice_date": "6/5/26",
+        "due_date": null,
+        "subtotal": "$7,534.68",
+        "tax": "$621.61",
+        "total": "$8,156.29",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6159",
+        "invoice_date": "2026-06-05",
+        "due_date": null,
+        "subtotal": "7534.68",
+        "tax": "621.61",
+        "total": "8156.29"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p03-ccs",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6169",
+        "invoice_date": "10/13/26",
+        "due_date": null,
+        "subtotal": "$4,031.36",
+        "tax": "$332.59",
+        "total": "$4,373.95",
+        "amount_due": null,
+        "terms": "30 days net"
+      },
+      "read": {
+        "supplier": "Copper Creek Supply",
+        "invoice_number": "CCS-6169",
+        "invoice_date": "2026-10-13",
+        "due_date": null,
+        "subtotal": "4031.36",
+        "tax": "332.59",
+        "total": "4373.95"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "total_mismatch"
+      ],
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p04-htd",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Halvorsen Tool & Die",
+        "invoice_number": "HTD-7226",
+        "invoice_date": "Jul 9, 2026",
+        "due_date": null,
+        "subtotal": "$2,274.88",
+        "tax": "$187.68",
+        "total": "$2,462.56",
+        "amount_due": null,
+        "terms": "Payment due within 14 days"
+      },
+      "read": {
+        "supplier": "Halvorsen Tool & Die",
+        "invoice_number": "HTD-7226",
+        "invoice_date": "2026-07-09",
+        "due_date": null,
+        "subtotal": "2274.88",
+        "tax": "187.68",
+        "total": "2462.56"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p05-htd",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Halvorsen Tool & Die",
+        "invoice_number": "HTD-7265",
+        "invoice_date": "Aug 20, 2026",
+        "due_date": "Sep 3, 2026",
+        "subtotal": "$4,023.93",
+        "tax": "$241.44",
+        "total": "$4,265.37",
+        "amount_due": null,
+        "terms": "Payment due within 14 days"
+      },
+      "read": {
+        "supplier": "Halvorsen Tool & Die",
+        "invoice_number": "HTD-7265",
+        "invoice_date": "2026-08-20",
+        "due_date": "2026-09-03",
+        "subtotal": "4023.93",
+        "tax": "241.44",
+        "total": "4265.37"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p06-bhp",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Bright Harbor Printing",
+        "invoice_number": "BHP-3322",
+        "invoice_date": "April 28, 2026",
+        "due_date": null,
+        "subtotal": "$3,555.30",
+        "tax": "$293.31",
+        "total": "$3,848.61",
+        "amount_due": "$3,848.61",
+        "terms": "2% 10 days, net 30"
+      },
+      "read": {
+        "supplier": "Bright Harbor Printing",
+        "invoice_number": "BHP-3322",
+        "invoice_date": "2026-04-28",
+        "due_date": "2026-05-28",
+        "subtotal": "3555.30",
+        "tax": "293.31",
+        "total": "3848.61"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p07-bhp",
+      "model": "textract-analyze-expense",
+      "seconds": 2.1,
+      "fields": {
+        "supplier": "Bright Harbor Printing",
+        "invoice_number": "BHP-3352",
+        "invoice_date": "February 22, 2026",
+        "due_date": null,
+        "subtotal": "$322.30",
+        "tax": "$19.34",
+        "total": "$341.64",
+        "amount_due": null,
+        "terms": "Net 30 EOM"
+      },
+      "read": {
+        "supplier": "Bright Harbor Printing",
+        "invoice_number": "BHP-3352",
+        "invoice_date": "2026-02-22",
+        "due_date": null,
+        "subtotal": "322.30",
+        "tax": "19.34",
+        "total": "341.64"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p08-los",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Larkspur Office Systems",
+        "invoice_number": "LOS-2777",
+        "invoice_date": "June 21, 2026",
+        "due_date": null,
+        "subtotal": "$7,179.47",
+        "tax": "$592.31",
+        "total": "$7,771.78",
+        "amount_due": null,
+        "terms": "Net 30 EOM"
+      },
+      "read": {
+        "supplier": "Larkspur Office Systems",
+        "invoice_number": "LOS-2777",
+        "invoice_date": "2026-06-21",
+        "due_date": null,
+        "subtotal": "7179.47",
+        "tax": "592.31",
+        "total": "7771.78"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p09-ngf",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4713",
+        "invoice_date": "2026-09-18",
+        "due_date": null,
+        "subtotal": "$7,970.20 CAD",
+        "tax": "$398.51 CAD",
+        "total": "$8,368.71 CAD",
+        "amount_due": null,
+        "terms": "30 days from delivery"
+      },
+      "read": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4713",
+        "invoice_date": "2026-09-18",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "$7,970.20 CAD",
+        "tax": "$398.51 CAD",
+        "total": "$8,368.71 CAD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p10-ngf",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4719",
+        "invoice_date": "2026-07-04",
+        "due_date": "2026-06-29",
+        "subtotal": "USD 6,617.66",
+        "tax": "USD 330.88",
+        "total": "USD 6,948.54",
+        "amount_due": null,
+        "terms": "Due on receipt"
+      },
+      "read": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4719",
+        "invoice_date": "2026-07-04",
+        "due_date": "2026-06-29",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total",
+        "due_before_invoice"
+      ],
+      "printed": {
+        "subtotal": "USD 6,617.66",
+        "tax": "USD 330.88",
+        "total": "USD 6,948.54"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p11-ngf",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4777",
+        "invoice_date": "2026-01-25",
+        "due_date": "TBC",
+        "subtotal": "$3,504.83 CAD",
+        "tax": "$455.63 CAD",
+        "total": "$3,960.46 CAD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Northgate Fasteners Ltd.",
+        "invoice_number": "NGF-4777",
+        "invoice_date": "2026-01-25",
+        "due_date": "unparsed",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "due_date": "TBC",
+        "subtotal": "$3,504.83 CAD",
+        "tax": "$455.63 CAD",
+        "total": "$3,960.46 CAD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p12-mtw",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Muskoka Timber Works",
+        "invoice_number": "MTW-5981",
+        "invoice_date": "August 11, 2026",
+        "due_date": "September 25, 2026",
+        "subtotal": "$5,095.32 CAD",
+        "tax": "$254.77 CAD",
+        "total": "$5,350.09 CAD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Muskoka Timber Works",
+        "invoice_number": "MTW-5981",
+        "invoice_date": "2026-08-11",
+        "due_date": "2026-09-25",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "$5,095.32 CAD",
+        "tax": "$254.77 CAD",
+        "total": "$5,350.09 CAD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p13-mtw",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Muskoka Timber Works",
+        "invoice_number": "MTW-6004",
+        "invoice_date": "May 22, 2026",
+        "due_date": "June 5, 2026",
+        "subtotal": "$2,395.19 CAD",
+        "tax": "$311.37 CAD",
+        "total": "$2,706.56 CAD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Muskoka Timber Works",
+        "invoice_number": "MTW-6004",
+        "invoice_date": "2026-05-22",
+        "due_date": "2026-06-05",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "$2,395.19 CAD",
+        "tax": "$311.37 CAD",
+        "total": "$2,706.56 CAD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p14-pil",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5861",
+        "invoice_date": "27/07/2026",
+        "due_date": null,
+        "subtotal": "\u00a317,220.36",
+        "tax": "\u00a33,444.07",
+        "total": "\u00a320,664.43",
+        "amount_due": null,
+        "terms": "Net 30 EOM"
+      },
+      "read": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5861",
+        "invoice_date": "2026-07-27",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u00a317,220.36",
+        "tax": "\u00a33,444.07",
+        "total": "\u00a320,664.43"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p15-pil",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5884",
+        "invoice_date": "07/04/2026",
+        "due_date": "06/06/2026",
+        "subtotal": "\u00a32,704.69",
+        "tax": "\u00a3540.94",
+        "total": "\u00a33,245.63",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5884",
+        "invoice_date": "2026-07-04",
+        "due_date": "2026-06-06",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total",
+        "due_before_invoice"
+      ],
+      "printed": {
+        "subtotal": "\u00a32,704.69",
+        "tax": "\u00a3540.94",
+        "total": "\u00a33,245.63"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p16-pil",
+      "model": "textract-analyze-expense",
+      "seconds": 2.1,
+      "fields": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5919",
+        "invoice_date": "01/04/2026",
+        "due_date": "TBC",
+        "subtotal": "\u00a38,215.31",
+        "tax": "\u00a31,643.06",
+        "total": "\u00a39,858.37",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Pennine Instruments Ltd",
+        "invoice_number": "PIL-5919",
+        "invoice_date": "2026-01-04",
+        "due_date": "unparsed",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "due_date": "TBC",
+        "subtotal": "\u00a38,215.31",
+        "tax": "\u00a31,643.06",
+        "total": "\u00a39,858.37"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p17-smf",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Solent Marine Fittings",
+        "invoice_number": "SMF-4203",
+        "invoice_date": "16 Jan 2026",
+        "due_date": "17 Mar 2026",
+        "subtotal": "\u00a36,818.90",
+        "tax": "\u00a31,363.78",
+        "total": "\u00a38,182.68",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Solent Marine Fittings",
+        "invoice_number": "SMF-4203",
+        "invoice_date": "2026-01-16",
+        "due_date": "2026-03-17",
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u00a36,818.90",
+        "tax": "\u00a31,363.78",
+        "total": "\u00a38,182.68"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p18-smf",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Solent Marine Fittings",
+        "invoice_number": "SMF-4206",
+        "invoice_date": "11 Sept 2026",
+        "due_date": null,
+        "subtotal": "\u00a34,633.83",
+        "tax": "\u00a3926.77",
+        "total": "\u00a35,570.60",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Solent Marine Fittings",
+        "invoice_number": "SMF-4206",
+        "invoice_date": "2026-09-11",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u00a34,633.83",
+        "tax": "\u00a3926.77",
+        "total": "\u00a35,570.60"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p19-wat",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": "WAT-3106",
+        "invoice_date": "18. August 2026",
+        "due_date": null,
+        "subtotal": "4.615,92 \u20ac",
+        "tax": "877,02\u20ac",
+        "total": "5.492,94 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": "WAT-3106",
+        "invoice_date": "2026-08-18",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "4.615,92 \u20ac",
+        "tax": "877,02\u20ac",
+        "total": "5.492,94 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p20-wat",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "5.298,17 \u20ac",
+        "tax": "1.006,65 \u20ac",
+        "total": "6.304,82 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5.298,17 \u20ac",
+        "tax": "1.006,65 \u20ac",
+        "total": "6.304,82 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p21-wat",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": "WAT-3166",
+        "invoice_date": "22. Juni 2026",
+        "due_date": null,
+        "subtotal": "3.524,78 \u20ac",
+        "tax": "669,71 \u20ac",
+        "total": "4.194,49 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Weserland Antriebstechnik GmbH",
+        "invoice_number": "WAT-3166",
+        "invoice_date": "2026-06-22",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "3.524,78 \u20ac",
+        "tax": "669,71 \u20ac",
+        "total": "4.194,49 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p22-kek",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Kranich Elektro KG",
+        "invoice_number": "KEK-3518",
+        "invoice_date": "9. September 2026",
+        "due_date": null,
+        "subtotal": "3.681,82 USD",
+        "tax": null,
+        "total": "4.381,37 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Kranich Elektro KG",
+        "invoice_number": "KEK-3518",
+        "invoice_date": "2026-09-09",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": null,
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "missing_tax",
+        "unparsed_subtotal",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "3.681,82 USD",
+        "total": "4.381,37 USD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p23-kek",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Kranich Elektro KG",
+        "invoice_number": "KEK-3523",
+        "invoice_date": "22. Februar 2026",
+        "due_date": null,
+        "subtotal": "5.359,92 \u20ac",
+        "tax": "1.018,38 \u20ac",
+        "total": "6.378,30 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Kranich Elektro KG",
+        "invoice_number": "KEK-3523",
+        "invoice_date": "2026-02-22",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5.359,92 \u20ac",
+        "tax": "1.018,38 \u20ac",
+        "total": "6.378,30 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p24-av",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4854",
+        "invoice_date": "08/09/2026",
+        "due_date": null,
+        "subtotal": "3872,40\u20ac",
+        "tax": "774,48 \u20ac",
+        "total": "4646,88\u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4854",
+        "invoice_date": "2026-08-09",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "3872,40\u20ac",
+        "tax": "774,48 \u20ac",
+        "total": "4646,88\u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p25-av",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4876",
+        "invoice_date": "01/02/2026",
+        "due_date": null,
+        "subtotal": "6 689,29 \u20ac",
+        "tax": "1337,86\u20ac",
+        "total": "8 027,15\u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4876",
+        "invoice_date": "2026-01-02",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "6 689,29 \u20ac",
+        "tax": "1337,86\u20ac",
+        "total": "8 027,15\u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p26-av",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4892",
+        "invoice_date": "06/07/2026",
+        "due_date": null,
+        "subtotal": "5 436,34 USD",
+        "tax": "1087,27 USD",
+        "total": "6 523,61 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Ateliers Vauclair SARL",
+        "invoice_number": "AV-4892",
+        "invoice_date": "2026-06-07",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5 436,34 USD",
+        "tax": "1087,27 USD",
+        "total": "6 523,61 USD"
+      },
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p27-le",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Lumi\u00e8re Emballages SAS",
+        "invoice_number": "LE-2168",
+        "invoice_date": "15 mai 2026",
+        "due_date": null,
+        "subtotal": "5220,40\u20ac",
+        "tax": "1044,08\u20ac",
+        "total": "6 264,48 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Lumi\u00e8re Emballages SAS",
+        "invoice_number": "LE-2168",
+        "invoice_date": "2026-05-15",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5220,40\u20ac",
+        "tax": "1044,08\u20ac",
+        "total": "6 264,48 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p28-le",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Lumi\u00e8re Emballages SAS",
+        "invoice_number": "LE-2191",
+        "invoice_date": "12 juin 2026",
+        "due_date": null,
+        "subtotal": "1584,88\u20ac",
+        "tax": "316,98 \u20ac",
+        "total": "1901,86\u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Lumi\u00e8re Emballages SAS",
+        "invoice_number": "LE-2191",
+        "invoice_date": "2026-06-12",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "1584,88\u20ac",
+        "tax": "316,98 \u20ac",
+        "total": "1901,86\u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p29-vlk",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Van Leeuwen Kunststoffen B.V.\n.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "\u20ac 11.576,53",
+        "tax": "\u20ac 2.431,07",
+        "total": "\u20ac 13.807,60",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Van Leeuwen Kunststoffen B.V. .",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u20ac 11.576,53",
+        "tax": "\u20ac 2.431,07",
+        "total": "\u20ac 13.807,60"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p30-vlk",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Van Leeuwen Kunststoffen B.V.",
+        "invoice_number": null,
+        "invoice_date": "28 juni 2026",
+        "due_date": null,
+        "subtotal": "1.984,47 USD",
+        "tax": "416,74 USD",
+        "total": "2.401,21 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Van Leeuwen Kunststoffen B.V.",
+        "invoice_number": null,
+        "invoice_date": "2026-06-28",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "1.984,47 USD",
+        "tax": "416,74 USD",
+        "total": "2.401,21 USD"
+      },
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p31-bl",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Brandsma Logistiek",
+        "invoice_number": null,
+        "invoice_date": "15 maart 2026",
+        "due_date": null,
+        "subtotal": "\u20ac 8.648,24",
+        "tax": "\u20ac 1.816,13",
+        "total": "\u20ac 10.464,37",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Brandsma Logistiek",
+        "invoice_number": null,
+        "invoice_date": "2026-03-15",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u20ac 8.648,24",
+        "tax": "\u20ac 1.816,13",
+        "total": "\u20ac 10.464,37"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p32-bl",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Brandsma Logistiek",
+        "invoice_number": null,
+        "invoice_date": "14 september 2026",
+        "due_date": null,
+        "subtotal": "\u20ac 4.525,67",
+        "tax": "\u20ac 950,39",
+        "total": "\u20ac 5.476,06",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Brandsma Logistiek",
+        "invoice_number": null,
+        "invoice_date": "2026-09-14",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "\u20ac 4.525,67",
+        "tax": "\u20ac 950,39",
+        "total": "\u20ac 5.476,06"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p33-fr",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Ferramenta Rovigo S.r.l.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "5.248,37 \u20ac",
+        "tax": "1.154,64 \u20ac",
+        "total": "6.403,01 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Ferramenta Rovigo S.r.l.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5.248,37 \u20ac",
+        "tax": "1.154,64 \u20ac",
+        "total": "6.403,01 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p34-fr",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Ferramenta Rovigo S.r.l.",
+        "invoice_number": "FR-2999",
+        "invoice_date": "2 febbraio 2026",
+        "due_date": null,
+        "subtotal": "3.547,46 USD",
+        "tax": "780,44 USD",
+        "total": "4.327,90 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Ferramenta Rovigo S.r.l.",
+        "invoice_number": "FR-2999",
+        "invoice_date": "2026-02-02",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "3.547,46 USD",
+        "tax": "780,44 USD",
+        "total": "4.327,90 USD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p35-tl",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Tessiture Lariane S.p.A.",
+        "invoice_number": "TL-6497",
+        "invoice_date": "09/06/26",
+        "due_date": null,
+        "subtotal": "4.770,14 \u20ac",
+        "tax": "1.049,43 \u20ac",
+        "total": "5.819,57 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Tessiture Lariane S.p.A.",
+        "invoice_number": "TL-6497",
+        "invoice_date": "2026-09-06",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "4.770,14 \u20ac",
+        "tax": "1.049,43 \u20ac",
+        "total": "5.819,57 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p36-tl",
+      "model": "textract-analyze-expense",
+      "seconds": 2.2,
+      "fields": {
+        "supplier": "Tessiture Lariane S.p.A.",
+        "invoice_number": "TL-6530",
+        "invoice_date": "12/01/26",
+        "due_date": null,
+        "subtotal": "4.292,19 USD",
+        "tax": "944,28 USD",
+        "total": "5.236,47 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Tessiture Lariane S.p.A.",
+        "invoice_number": "TL-6530",
+        "invoice_date": "2026-12-01",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "4.292,19 USD",
+        "tax": "944,28 USD",
+        "total": "5.236,47 USD"
+      },
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p37-ha",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Herrajes Albacete S.L.",
+        "invoice_number": "HA-7916",
+        "invoice_date": "4/5/26",
+        "due_date": null,
+        "subtotal": "8.879,82 USD",
+        "tax": "1.864,76 USD",
+        "total": "10.744,58 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Herrajes Albacete S.L.",
+        "invoice_number": "HA-7916",
+        "invoice_date": "2026-04-05",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "8.879,82 USD",
+        "tax": "1.864,76 USD",
+        "total": "10.744,58 USD"
+      },
+      "label_exception": false,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p38-ha",
+      "model": "textract-analyze-expense",
+      "seconds": 2.1,
+      "fields": {
+        "supplier": "Herrajes Albacete S.L.",
+        "invoice_number": "HA-7932",
+        "invoice_date": "11/2/26",
+        "due_date": null,
+        "subtotal": "2.130,12 \u20ac",
+        "tax": "447,33 \u20ac",
+        "total": "2.577,45 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Herrajes Albacete S.L.",
+        "invoice_number": "HA-7932",
+        "invoice_date": "2026-11-02",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "2.130,12 \u20ac",
+        "tax": "447,33 \u20ac",
+        "total": "2.577,45 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p39-td",
+      "model": "textract-analyze-expense",
+      "seconds": 2.3,
+      "fields": {
+        "supplier": "Talleres Duero S.A.",
+        "invoice_number": "TD-4920",
+        "invoice_date": "5 oct 2026",
+        "due_date": null,
+        "subtotal": "8.950,86 \u20ac",
+        "tax": "1.879,68 \u20ac",
+        "total": "10.830,54 \u20ac",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Talleres Duero S.A.",
+        "invoice_number": "TD-4920",
+        "invoice_date": "2026-10-05",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "8.950,86 \u20ac",
+        "tax": "1.879,68 \u20ac",
+        "total": "10.830,54 \u20ac"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    },
+    {
+      "id": "p40-td",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Talleres Duero S.A.",
+        "invoice_number": "TD-4932",
+        "invoice_date": "26 abr 2026",
+        "due_date": null,
+        "subtotal": "5.219,11 USD",
+        "tax": "1.096,01 USD",
+        "total": "6.315,12 USD",
+        "amount_due": null,
+        "terms": null
+      },
+      "read": {
+        "supplier": "Talleres Duero S.A.",
+        "invoice_number": "TD-4932",
+        "invoice_date": "2026-04-26",
+        "due_date": null,
+        "subtotal": "unparsed",
+        "tax": "unparsed",
+        "total": "unparsed"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "unparsed_subtotal",
+        "unparsed_tax",
+        "unparsed_total"
+      ],
+      "printed": {
+        "subtotal": "5.219,11 USD",
+        "tax": "1.096,01 USD",
+        "total": "6.315,12 USD"
+      },
+      "label_exception": true,
+      "error": null,
+      "pages": 1
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ],
+  "region": "us-east-1",
+  "pages": 40,
+  "price_per_page_usd": 0.01,
+  "cost_usd": 0.4,
+  "cost_per_invoice_usd": 0.01
+}

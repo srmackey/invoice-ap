@@ -8,3 +8,6 @@ build/
 
 # INV-CDIP documents and annotations. Fetched by sandbox/get_inv_cdip.py, never committed.
 sandbox/inv-cdip/
+
+# Raw Textract responses for development sets, kept by score.py --cache. Local only.
+sandbox/textract-cache/

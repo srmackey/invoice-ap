@@ -1,8 +1,10 @@
 """Due dates from printed terms, and the amount due standing in for a missing total.
 
-The rule is DESIGN.md's: "Net N" and "2/10 Net 30" are due N days after the
-invoice date, "Due on receipt" on the invoice date, and end-of-month terms
-leave the due date for a person. A printed due date always wins. When no
+The rule is DESIGN.md's: one stated payment period in English, French,
+German, Dutch, Italian, or Spanish ("Net 30", "30 Tage netto", "à 45 jours")
+is due that many days after the invoice date, payment on receipt on the
+invoice date, discount terms at the net period, and end-of-month terms, other
+start points, and unclear periods leave the due date for a person. A printed due date always wins. When no
 total is printed, the total is the printed amount due.
 
 No network call. Textract gets a stand-in client, Docling a stand-in reply,
@@ -89,8 +91,50 @@ class TermsForms(unittest.TestCase):
             self.assertEqual(terms_days(text), UNCOMPUTABLE, text)
 
     def test_anything_else_is_not_terms(self):
-        for text in ("Payment due in 30 days", "COD", "Thank you", "Net amount 30.00", "Net 1,200.00", "", None):
+        for text in ("COD", "Thank you", "Net amount 30.00", "Net 1,200.00", "Payment by bank transfer", "", None):
             self.assertIsNone(terms_days(text), text)
+
+
+class WiderTerms(unittest.TestCase):
+    """DESIGN.md's wider rule: one stated payment period in six languages."""
+
+    def test_english_wordings(self):
+        cases = {"30 days net": 30, "Payment due within 14 days": 14, "Payable within 30 days": 30,
+                 "Payment terms: 45 days": 45, "Payment due in 30 days": 30, "30 days": 30}
+        for text, days in cases.items():
+            self.assertEqual(terms_days(text), days, text)
+
+    def test_other_languages(self):
+        cases = {
+            "30 Tage netto": 30, "zahlbar innerhalb 14 Tagen": 14, "30 jours net": 30, "à 45 jours": 45,
+            "netto 30 dagen": 30, "binnen 14 dagen": 14, "a 30 giorni": 30, "60 giorni netto": 60,
+            "a 30 días": 30, "neto 60 días": 60,
+        }
+        for text, days in cases.items():
+            self.assertEqual(terms_days(text), days, text)
+
+    def test_receipt_in_every_language(self):
+        for text in ("Due immediately", "sofort zahlbar", "à réception", "bij ontvangst", "al ricevimento",
+                     "a la recepción"):
+            self.assertEqual(terms_days(text), 0, text)
+
+    def test_discount_terms_take_the_net_period(self):
+        for text in ("2% 10 days, net 30", "2 % Skonto innerhalb 10 Tagen, 30 Tage netto",
+                     "escompte 2 % à 10 jours, net à 30 jours"):
+            self.assertEqual(terms_days(text), 30, text)
+
+    def test_left_for_a_person(self):
+        for text in ("30 Tage zum Monatsende", "30 jours fin de mois", "30 dagen einde maand", "30 giorni fine mese",
+                     "30 días fin de mes", "30 days from delivery", "14 Tage nach Lieferung", "2% 10 days",
+                     "30 or 60 days", "30-60 Tage", "Net 200"):
+            self.assertEqual(terms_days(text), UNCOMPUTABLE, text)
+
+    def test_a_loose_line_needs_a_payment_word(self):
+        self.assertIsNone(terms_days("Warranty: 90 days", alone=True))
+        self.assertIsNone(terms_days("Delivery in 5 days", alone=True))
+        self.assertEqual(terms_days("Net 30", alone=True), 30)
+        self.assertEqual(terms_days("zahlbar innerhalb 14 Tagen", alone=True), 14)
+        self.assertEqual(terms_days("à réception", alone=True), 0)
 
 
 class ParsedRule(unittest.TestCase):
@@ -163,6 +207,15 @@ class TextractTerms(Base):
         ]
         self.assertIsNone(read(self.pdf, client=FakeTextract(response))["due_date"])
 
+    def test_untyped_field_under_a_foreign_terms_label(self):
+        out = read(self.pdf, client=textract_with(other_field("Zahlungsbedingungen", "30 Tage netto"), expense_field("TOTAL", "$540.00")))
+        self.assertEqual(out["due_date"], "2026-04-13")
+
+    def test_a_loose_warranty_line_is_not_terms(self):
+        response = expense_response(HEADER + [expense_field("TOTAL", "$540.00")])
+        response["ExpenseDocuments"][0]["Blocks"] = [{"BlockType": "LINE", "Text": "Warranty: 90 days"}]
+        self.assertIsNone(read(self.pdf, client=FakeTextract(response))["due_date"])
+
     def test_untyped_field_without_a_terms_label_is_ignored(self):
         out = read(self.pdf, client=textract_with(other_field("Ship via", "Net 15"), expense_field("TOTAL", "$540.00")))
         self.assertIsNone(out["due_date"])
@@ -224,6 +277,10 @@ class DoclingTerms(Base):
         out = self.read_docling(docling_doc("Terms: Net 30 EOM", "Total $540.00"))
         self.assertIsNone(out["due_date"])
         self.assertEqual(out["exception_reasons"], ["missing_due_date"])
+
+    def test_terms_after_a_foreign_label(self):
+        out = self.read_docling(docling_doc("Conditions de paiement : 30 jours net", "Total $540.00"))
+        self.assertEqual(out["due_date"], "2026-04-13")
 
     def test_printed_due_date_wins(self):
         out = self.read_docling(docling_doc("Due Date: 03/20/2026", "Terms: Net 30", "Total $540.00"))
