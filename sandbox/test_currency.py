@@ -5,8 +5,9 @@ raises foreign_currency, and the result carries the code; nothing is
 converted. The currency is Textract's code on the amounts, else an untyped
 "Currency" field, else a sign or code printed on an amount. An amount shows its
 own decimal mark when it can; a EUR page settles one that cannot ("1.234").
-A non-US currency reads an ambiguous date day-first, below a date on the page
-that only one order can read.
+A non-US currency, or an amount written with a decimal comma, reads an
+ambiguous date day-first, below a date on the page that only one order can
+read.
 
 No network call. Nothing here reads a holdout.
 
@@ -104,6 +105,16 @@ class DateEvidence(unittest.TestCase):
     def test_us_dollars_leave_it_month_first(self):
         self.assertEqual(parsed({**self.AMBIGUOUS, "currency": "USD"})["invoice_date"], date(2026, 3, 4))
         self.assertEqual(parsed(self.AMBIGUOUS)["invoice_date"], date(2026, 3, 4))
+
+    def test_a_decimal_comma_reads_it_day_first_even_in_dollars(self):
+        got = parsed({**self.AMBIGUOUS, "currency": "USD", "subtotal": "7.996,92", "tax": "0,00", "total": "7.996,92"})
+        self.assertEqual(got["invoice_date"], date(2026, 4, 3))
+        got = parsed({**self.AMBIGUOUS, "subtotal": "5 784,33", "tax": "0.00", "total": "5 784,33"})
+        self.assertEqual(got["invoice_date"], date(2026, 4, 3))
+
+    def test_us_amounts_are_not_evidence(self):
+        got = parsed({**self.AMBIGUOUS, "subtotal": "1,234.00", "tax": "0.00", "total": "1,234.00"})
+        self.assertEqual(got["invoice_date"], date(2026, 3, 4))
 
     def test_a_month_first_date_on_the_page_beats_the_currency(self):
         got = parsed({**BASE, "currency": "EUR", "invoice_date": "03/04/2026", "due_date": "04/15/2026"})

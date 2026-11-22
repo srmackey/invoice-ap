@@ -273,6 +273,18 @@ def as_money(value, comma_decimal: bool = False):
         return "unparsed"
 
 
+def decimal_comma_shown(value) -> bool:
+    """True when a printed amount shows a decimal comma itself: "7.996,92",
+    "5 784,33", "383,74". A US supplier never writes one."""
+    if blank(value):
+        return False
+    text = re.sub(r"[\s\u00a0\u202f']", "", _CURRENCY_TOKENS.sub("", str(value)))
+    if not re.fullmatch(r"-?\d[\d.,]*", text):
+        return False
+    comma = text.rfind(",")
+    return comma > text.rfind(".") and len(text) - comma - 1 in (1, 2) and text.count(",") == 1
+
+
 def page_currency(raw: dict) -> str | None:
     """The invoice's currency: what the runner read, else a sign or code on the
     amounts. None when nothing names one, which reads as US dollars."""
@@ -401,14 +413,17 @@ def parsed(raw: dict) -> dict:
     comma_decimal = out["currency"] in COMMA_DECIMAL_CURRENCIES
     # A supplier uses one convention on a page. A date that can only be one
     # order decides an ambiguous one beside it; failing that, a currency other
-    # than the US dollar reads it day-first.
+    # than the US dollar, or an amount written with a decimal comma, reads it
+    # day-first.
     orders = {numeric_order(as_text(raw.get(name))) for name in DATE_FIELDS}
     if "day" in orders:
         day_first = True
     elif "month" in orders:
         day_first = False
     else:
-        day_first = out["currency"] not in (None, "USD")
+        day_first = out["currency"] not in (None, "USD") or any(
+            decimal_comma_shown(raw.get(name)) for name in MONEY_FIELDS + ("amount_due",)
+        )
     for name in DATE_FIELDS:
         out[name] = as_date(raw.get(name), day_first)
     for name in MONEY_FIELDS:
