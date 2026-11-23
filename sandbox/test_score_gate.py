@@ -142,5 +142,49 @@ class DeclaredFieldTests(unittest.TestCase):
         self.assertEqual(gate_misses([item]), [])
 
 
+class PaidRunName(unittest.TestCase):
+    """A paid run's file name is settled before any read."""
+
+    def setUp(self):
+        import tempfile
+        from datetime import date
+        from pathlib import Path
+        from unittest import mock
+
+        import score
+
+        self.score = score
+        self.today = date.today().isoformat()
+        self.dir = tempfile.TemporaryDirectory()
+        self.runs = Path(self.dir.name)
+        patch = mock.patch.object(score, "RUNS", self.runs)
+        patch.start()
+        self.addCleanup(patch.stop)
+        self.addCleanup(self.dir.cleanup)
+        self.hard = score.ROOT / "hard" / "labels.json"
+        self.holdout = score.ROOT / "holdout-3" / "labels.json"
+
+    def test_a_first_run_takes_the_plain_name(self):
+        name = self.score.paid_run_name("hosted", self.hard, {})
+        self.assertEqual(name.name, f"{self.today}-hard-hosted.json")
+
+    def test_a_second_run_on_a_regression_set_is_numbered(self):
+        (self.runs / f"{self.today}-hard-hosted.json").write_text("{}")
+        (self.runs / f"{self.today}-hard-hosted-2.json").write_text("{}")
+        name = self.score.paid_run_name("hosted", self.hard, {})
+        self.assertEqual(name.name, f"{self.today}-hard-hosted-3.json")
+
+    def test_a_second_run_on_a_holdout_is_refused_before_reading(self):
+        (self.runs / f"{self.today}-holdout-3-hosted.json").write_text("{}")
+        with self.assertRaises(SystemExit) as refused:
+            self.score.paid_run_name("hosted", self.holdout, {"frozen": "2026-11-22"})
+        self.assertIn("nothing was read", str(refused.exception))
+
+    def test_a_frozen_set_outside_a_holdout_folder_is_refused_too(self):
+        (self.runs / f"{self.today}-inv-cdip-textract.json").write_text("{}")
+        with self.assertRaises(SystemExit):
+            self.score.paid_run_name("textract", self.score.ROOT / "inv-cdip.json", {"frozen": "2026-11-21"})
+
+
 if __name__ == "__main__":
     unittest.main()

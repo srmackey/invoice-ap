@@ -590,6 +590,31 @@ def add_hosted_facts(report: dict, results: list[dict], url: str) -> None:
     ]
 
 
+def is_holdout(labels_path: Path, label_set: dict) -> bool:
+    return "holdout" in labels_path.as_posix() or bool(label_set.get("frozen"))
+
+
+def paid_run_name(runner: str, labels_path: Path, label_set: dict) -> Path:
+    """Where a textract or hosted run will be written, settled before any paid
+    read. A run is never overwritten. A second run the same day on a set that
+    is not frozen gets the next number; on a frozen set it is refused, since a
+    holdout is scored once per runner."""
+    stem = "" if labels_path.resolve() == LABELS.resolve() else (
+        (labels_path.parent.name if labels_path.stem == "labels" else labels_path.stem) + "-"
+    )
+    candidate = RUNS / f"{date.today().isoformat()}-{stem}{runner}.json"
+    if not candidate.exists():
+        return candidate
+    if is_holdout(labels_path, label_set):
+        raise SystemExit(
+            f"{candidate.name} exists. A frozen set is scored once per runner and a run is never overwritten; nothing was read."
+        )
+    n = 2
+    while (RUNS / f"{candidate.stem}-{n}.json").exists():
+        n += 1
+    return RUNS / f"{candidate.stem}-{n}.json"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -641,7 +666,7 @@ def main() -> None:
     if args.runner == "textract":
         client = textract_client(args.profile, args.region)
         if args.cache:
-            if "holdout" in labels_path.as_posix() or label_set.get("frozen"):
+            if is_holdout(labels_path, label_set):
                 raise SystemExit("--cache is for development sets; a holdout is read once and never cached")
             client = CachedTextract(client, CACHE)
     elif args.cache:
@@ -650,6 +675,9 @@ def main() -> None:
         if not args.url:
             raise SystemExit("the hosted runner needs --url or INVOICE_AP_READER_URL")
         host = (args.url, host_call.session_credentials(args.url, args.profile))
+    candidate = None
+    if args.runner in ("textract", "hosted") and not args.only:
+        candidate = paid_run_name(args.runner, labels_path, label_set)
     started = time.perf_counter()
     results = []
     for row in rows:
@@ -698,21 +726,8 @@ def main() -> None:
         return
     RUNS.mkdir(exist_ok=True)
     if args.runner in ("textract", "hosted"):
-        stem = "" if labels_path.resolve() == LABELS.resolve() else (
-            (labels_path.parent.name if labels_path.stem == "labels" else labels_path.stem) + "-"
-        )
-        candidate = RUNS / f"{date.today().isoformat()}-{stem}{args.runner}.json"
         if all(row["error"] for row in results):
             raise SystemExit(f"every call failed, no run written: {results[0]['error']}")
-        if candidate.exists() and getattr(args, "cache", False):
-            # A cached development read can run again the same day; it gets the next number.
-            n = 2
-            while (RUNS / f"{candidate.stem}-{n}.json").exists():
-                n += 1
-            candidate = RUNS / f"{candidate.stem}-{n}.json"
-        if candidate.exists():
-            raise SystemExit(f"{candidate.name} exists. A scored run is never overwritten.")
-    if args.runner in ("textract", "hosted"):
         dest = candidate
     elif args.runner == "ollama" and labels_path.resolve() == LABELS.resolve():
         slug = args.model.replace(":", "-").replace("/", "-")
