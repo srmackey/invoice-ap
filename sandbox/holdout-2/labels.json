@@ -9,6 +9,8 @@
     "total"
   ],
   "frozen": "2026-11-21",
+  "relabeled": "2026-11-22",
+  "terms_rule": "wider (reader-misses spec, locked 2026-11-21)",
   "generator": "make_set.py",
   "seed": 0,
   "layouts": [
@@ -1310,16 +1312,14 @@
       "supplier": "Thimbleworth Screen Printing",
       "invoice_number": "T1209",
       "invoice_date": "2026-05-01",
-      "due_date": null,
+      "due_date": "2026-05-31",
       "subtotal": "829.44",
       "tax": "63.45",
       "total": "892.89",
-      "exception": true,
-      "exception_reasons": [
-        "missing_due_date"
-      ],
+      "exception": false,
+      "exception_reasons": [],
       "terms": "Payment due in 30 days",
-      "due_source": null,
+      "due_source": "terms",
       "layout": "sidebar",
       "render": "clean",
       "sha256": "4cd6826a0b9a9441c4e99df6510e233053407a66b3ed7d71745e0f0a5297ea04"
