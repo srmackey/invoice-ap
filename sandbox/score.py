@@ -2,7 +2,7 @@
 Textract from this machine, or the hosted reader.
 
 The runner returns the seven fields. This script applies the exception rule
-and the four scores in ../AGENTS.md. Each run file also lists
+and the four scores in ../README.md. Each run file also lists
 silent errors: invoices that raised no exception but read a field wrong. Each call sees only that invoice, so
 the runner cannot open labels.json. Ollama receives a rendered page, not a
 directory. Textract and Docling reading, and the exception rule, live in

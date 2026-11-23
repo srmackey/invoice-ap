@@ -1,6 +1,6 @@
 # invoice-ap design
 
-invoice-ap reads one supplier invoice and returns the fields an accounts-payable clerk would key, plus an exception when something on the page needs a person. The invoices it has been measured on are synthetic. Install and operation are in `README.md`.
+invoice-ap reads one supplier invoice and returns the fields an accounts-payable clerk would key, plus an exception when something on the page needs a person. It has been measured on generated invoices and on real invoices from a public archive (INV-CDIP), none of them a customer's books. Install and operation are in `README.md`.
 
 ## What it returns
 
@@ -59,7 +59,7 @@ So the system that was scored is the system that runs.
 
 ## Evaluation
 
-The sandbox (`sandbox/`) runs the reader against labeled invoice sets and writes a run file per scoring run. How a score is measured is in `AGENTS.md`; the current scores are in `README.md`.
+The sandbox (`sandbox/`) runs the reader against labeled invoice sets and writes a run file per scoring run. How a score is measured, and the current scores, are in `README.md`.
 
 | Set | What it is |
 |---|---|

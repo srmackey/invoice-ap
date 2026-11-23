@@ -1,10 +1,25 @@
 # invoice-ap
 
-A synthetic invoice reader. How it works is `DESIGN.md`. How a score is measured is `AGENTS.md`.
+Reads one supplier invoice and returns the seven fields an accounts-payable clerk would key, with an exception when the page needs a person. How it works is `DESIGN.md`.
+
+The generated invoices are synthetic, and INV-CDIP is real invoices from a public archive. None of it is a customer's books, and nothing here runs a business.
+
+## Benchmark
+
+On a labeled set:
+
+- Field accuracy. Each field the set labels is right or wrong, and a missing field counts as wrong. The score is correct fields divided by labeled fields.
+- Straight-through rate. The share of invoices the run finished without raising an exception.
+- Invoice accuracy. The share of invoices with every labeled field right. A clerk works one invoice at a time, so this is how many would need no correction. Each run file also lists silent errors: invoices that raised no exception and still read a field wrong.
+- Time per invoice. The scoring run's elapsed time divided by the number of invoices.
+
+How a field is matched is in `DESIGN.md`.
+
+Each set is written and labeled by its own script in `sandbox/`, and the PDFs and labels are never edited by hand. A change to a labeling rule regenerates the affected sets and re-scores them before a score cites them. A holdout is frozen before any runner reads it, scored once per runner, and never used to change the reader. A miss on a holdout is reported, not fixed against it, and a later fix is scored on a new holdout.
 
 ## Scores
 
-The generated sets are synthetic. INV-CDIP is real invoices from a public archive, not a customer's books. Each score is the sandbox run named with it. The hosted runs read each invoice through the deployed function, which calls Textract. The generated holdout and INV-CDIP runs are the reader as it was on 2026-11-21; the two later holdouts were scored after the reader learned more date forms, payment terms in six languages, and foreign currency.
+Each score is the sandbox run named with it. The hosted runs read each invoice through the deployed function, which calls Textract. The generated holdout and INV-CDIP runs are the reader as it was on 2026-11-21; the two later holdouts were scored after the reader learned more date forms, payment terms in six languages, and foreign currency.
 
 - Generated set (`sandbox/fixtures/`, ten invoices in one layout): the Claude run in `sandbox/runs/2026-10-22-claude.json`. Field accuracy 70/70, straight-through 7/10, invoice accuracy 10/10, 8.3 seconds per invoice. The Grok run is a second pass and is not this score.
 - Harder set (`sandbox/hard/`, ten scans, ten phone photos, and four invoices in a second layout): the hosted run in `sandbox/runs/2026-11-21-hard-hosted.json`. Field accuracy 168/168, straight-through 15/24, invoice accuracy 24/24, no silent errors, 2.9 seconds and about one cent per invoice.
@@ -65,7 +80,7 @@ Open `http://127.0.0.1:8765`. The page lists those records, opens one, and shows
 
 ## Host
 
-The hosted reader is one AWS Lambda function behind a function URL that requires IAM credentials. It runs `read_invoice.py` with Textract, so it returns what the command returns, plus `pages` and `seconds`. There is no open endpoint, and nothing runs between calls. The function's role may call `textract:AnalyzeExpense` and write its own logs, nothing else. Each read writes one log line with its timing, page count, exception reasons, and error, and no field values.
+The hosted reader is one AWS Lambda function behind a function URL that requires IAM credentials. It runs `read_invoice.py` with Textract, so it returns what the command returns, plus `pages` and `seconds`. There is no open endpoint, and nothing runs between calls. The function's role may call `textract:AnalyzeExpense`, write its own logs, and send traces to X-Ray, nothing else. Each read writes one log line with its timing, page count, exception reasons, and error, and no field values.
 
 Deploy with the AWS CLI and a profile that can create IAM roles, Lambda functions, and S3 buckets. From this folder:
 
@@ -112,8 +127,14 @@ An exception is still a 200: it is the answer. A body that is not a PDF is a 400
 
 ## Sandbox
 
-`sandbox/` holds the labeled fixture set and whatever runner the work needs. No runner is chosen. It is not a customer environment.
+`sandbox/` holds the labeled sets, the scripts that wrote them, the scorer, and every run file. It is not a customer environment. How a run is recorded is `sandbox/README.md`.
 
 ## Release
 
 No release is cut. The install above is how another computer runs the page and one PDF. A clean start on this machine brought Docling down and back up, read one PDF, and the page showed that read.
+
+## License
+
+Copyright 2026 Scott Mackey. The code and the generated sets are under the [MIT License](LICENSE).
+
+The INV-CDIP labels are adapted from INV-CDIP (Salesforce Research) and stay under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), not MIT. They are in `sandbox/inv-cdip.json` and `sandbox/inv-cdip-dev.json`, which carry the attribution, and in the three INV-CDIP run files in `sandbox/runs/`. The INV-CDIP documents are not in this repository. `sandbox/get_inv_cdip.py` fetches them for local scoring.

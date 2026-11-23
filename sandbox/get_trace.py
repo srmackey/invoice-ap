@@ -5,8 +5,8 @@ This account sends traces to CloudWatch Logs (X-Ray Transaction Search), so
 the spans are records in the log group aws/spans, and X-Ray's BatchGetTraces
 returns only the small share of traces it indexes. This script reads the
 spans from that log group, keeps the finished copy of each span, replaces the
-account id with <account> and any access key id with <redacted>, and writes
-them in start order.
+account id with <account>, the function URL's id with <url-id>, and any access
+key id with <redacted>, and writes them in start order.
 
 Run from the checkout with sandbox/.venv:
 
@@ -21,11 +21,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 SANDBOX = Path(__file__).resolve().parent
 LOG_GROUP = "aws/spans"
+URL_ID = re.compile(r"[a-z0-9]{32}(?=\.lambda-url\.)")
 
 
 def otel_id(trace_id: str) -> str:
@@ -106,6 +108,11 @@ def fetch(trace_id: str, profile: str | None, region: str) -> tuple[list[dict], 
     return records, account
 
 
+def scrubbed(text: str, account: str) -> str:
+    """The stored text with the account id and the function URL's id replaced."""
+    return URL_ID.sub("<url-id>", text.replace(account, "<account>"))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("trace_id", help='the "trace" value from the reader\'s log line')
@@ -122,11 +129,11 @@ def main() -> None:
         "trace": args.trace_id,
         "fetched": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "source": f"CloudWatch Logs group {LOG_GROUP} (X-Ray Transaction Search), region {args.region}",
-        "account": "replaced with <account>; access key ids replaced with <redacted>",
+        "account": "replaced with <account>; the function URL's id with <url-id>; access key ids with <redacted>",
         "outline": outline(spans),
         "spans": spans,
     }
-    text = json.dumps(stored, indent=2, ensure_ascii=False).replace(account, "<account>")
+    text = scrubbed(json.dumps(stored, indent=2, ensure_ascii=False), account)
     out = SANDBOX / "traces" / f"{date.today().isoformat()}-{args.name}.json"
     out.parent.mkdir(exist_ok=True)
     out.write_text(text + "\n", encoding="utf-8")

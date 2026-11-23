@@ -2,7 +2,7 @@
   "trace": "1-6b03bc70-22469f6173b462ec0c57d302",
   "fetched": "2026-11-23T04:11:09+00:00",
   "source": "CloudWatch Logs group aws/spans (X-Ray Transaction Search), region us-east-1",
-  "account": "replaced with <account>; access key ids replaced with <redacted>",
+  "account": "replaced with <account>; the function URL's id with <url-id>; access key ids with <redacted>",
   "outline": [
     "invoice-ap-reader/LambdaService (SERVER, 2446.0 ms)",
     "  invoice-ap-reader/LambdaExecutionEnvironment (SERVER, 2492.8 ms)",

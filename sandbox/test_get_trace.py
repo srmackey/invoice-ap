@@ -57,6 +57,13 @@ class Spans(unittest.TestCase):
         self.assertEqual(out["attributes"]["aws.auth.account.access_key"], "<redacted>")
         self.assertEqual(out["attributes"]["rpc.method"], "AnalyzeExpense")
 
+    def test_the_account_and_the_url_id_are_scrubbed(self):
+        text = '{"arn": "arn:aws:lambda:us-east-1:123456789012:function:x", "host": "abcdefghij0123456789abcdefghij01.lambda-url.us-east-1.on.aws"}'
+        out = get_trace.scrubbed(text, "123456789012")
+        self.assertNotIn("123456789012", out)
+        self.assertNotIn("abcdefghij0123456789abcdefghij01", out)
+        self.assertIn("<url-id>.lambda-url.us-east-1.on.aws", out)
+
     def test_the_outline_nests_children_under_parents(self):
         spans = [
             span("a", "service", 0, 3_000_000),
