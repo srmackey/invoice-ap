@@ -37,6 +37,13 @@ Resources:
                   - logs:CreateLogStream
                   - logs:PutLogEvents
                 Resource: !GetAtt ReaderLogGroup.Arn
+              # Active tracing sends each sampled read to X-Ray. These two
+              # actions have no resource-level permissions either.
+              - Effect: Allow
+                Action:
+                  - xray:PutTraceSegments
+                  - xray:PutTelemetryRecords
+                Resource: "*"
       Tags:
         - Key: Project
           Value: invoice-ap
@@ -55,6 +62,20 @@ Resources:
       MemorySize: 256
       LoggingConfig:
         LogGroup: !Ref ReaderLogGroup
+      # One trace per sampled read: the function URL, the invocation, the
+      # runner span with Textract's AnalyzeExpense call inside it, and the
+      # mapping span. AWS's OpenTelemetry layer for Python makes the spans;
+      # the version is pinned (35 supports python3.14 on arm64). Application
+      # Signals is off, so the layer sends traces only.
+      TracingConfig:
+        Mode: Active
+      Layers:
+        - !Sub arn:aws:lambda:${AWS::Region}:615299751070:layer:AWSOpenTelemetryDistroPython:35
+      Environment:
+        Variables:
+          AWS_LAMBDA_EXEC_WRAPPER: /opt/otel-instrument
+          OTEL_AWS_APPLICATION_SIGNALS_ENABLED: "false"
+          OTEL_SERVICE_NAME: invoice-ap-reader
       Code: ../build/reader
       Tags:
         - Key: Project

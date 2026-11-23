@@ -19,6 +19,7 @@ The command appends one record to reads/reads.jsonl in this checkout.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import os
 import re
@@ -31,6 +32,14 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from dateutil import parser as date_parser
+
+try:
+    # The hosted function runs under AWS's OpenTelemetry Lambda layer, which
+    # supplies this package and sends the spans to X-Ray. Everywhere else it
+    # is absent and the reader runs untraced.
+    from opentelemetry import trace as otel_trace
+except ImportError:
+    otel_trace = None
 
 FIELDS = (
     "supplier",
@@ -807,12 +816,42 @@ def read_fields(
     raise ValueError(f"unknown runner {runner}")
 
 
+@contextlib.contextmanager
+def span(name: str):
+    """A trace span when OpenTelemetry is present, else nothing."""
+    if otel_trace is None:
+        yield None
+        return
+    with otel_trace.get_tracer("invoice-ap.reader").start_as_current_span(name) as current:
+        yield current
+
+
+def mark(current, **attributes) -> None:
+    """Attributes on a span: counts, names, and flags, never a field value,
+    the same rule as the host's log line."""
+    if current is not None:
+        for key, value in attributes.items():
+            current.set_attribute(f"invoice_ap.{key}", value)
+
+
 def read_invoice(
     pdf: Path, runner: str = DEFAULT_RUNNER, client=None, profile: str | None = None
 ) -> dict:
-    got_raw, used, error, pages = read_fields(pdf, runner, client, profile)
-    values = {name: None for name in FIELDS} if got_raw is None else parsed(got_raw)
-    reasons = exception_reasons(values)
+    # Two spans: the runner (for Textract, its AnalyzeExpense call is a child
+    # span made by the layer's botocore instrumentation) and the mapping to
+    # the seven fields with the exception rule.
+    with span("runner") as current:
+        got_raw, used, error, pages = read_fields(pdf, runner, client, profile)
+        mark(current, runner=runner, pages=pages, error=bool(error))
+    with span("mapping") as current:
+        values = {name: None for name in FIELDS} if got_raw is None else parsed(got_raw)
+        reasons = exception_reasons(values)
+        mark(
+            current,
+            fields_read=sum(not blank(values[name]) and values[name] != "unparsed" for name in FIELDS),
+            exception=bool(reasons),
+            exception_reasons=reasons,
+        )
     out = {name: show(values[name]) for name in FIELDS}
     out["exception"] = bool(reasons)
     out["exception_reasons"] = reasons

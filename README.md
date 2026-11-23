@@ -106,6 +106,8 @@ The caller role gets the seven fields. The other two get a 403 saying both permi
 
 To score the function that is deployed, run `sandbox/score.py --runner hosted --url <reader url> --profile <profile> --labels <set>`. How that run is recorded is in `sandbox/README.md`.
 
+Reads are traced to AWS X-Ray through AWS's OpenTelemetry Lambda layer, which the stack adds. X-Ray's default sampling keeps the first read each second and 5 percent of the rest, which at this traffic is nearly every read. The function's log line for a read carries its trace id. To keep a trace, run `python sandbox/get_trace.py <trace id> --profile <profile> --name <what was read>`. `sandbox/traces/2026-11-22-hard-scan-08-westwind.json` is one: the function URL's invocation, the handler, Textract's `AnalyzeExpense` call (2.4 seconds), and the mapping to the seven fields (under a millisecond). The trace carries no field values.
+
 An exception is still a 200: it is the answer. A body that is not a PDF is a 400. A Textract failure is a 502 with the reason. Textract reads a PDF of one page in a single call, so a longer PDF is refused with `UnsupportedDocumentException`. One page is a known limit, and the scored sets are one-page invoices.
 
 ## Sandbox

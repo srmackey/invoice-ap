@@ -1,0 +1,338 @@
+{
+  "trace": "1-6b03bc70-22469f6173b462ec0c57d302",
+  "fetched": "2026-11-23T04:11:09+00:00",
+  "source": "CloudWatch Logs group aws/spans (X-Ray Transaction Search), region us-east-1",
+  "account": "replaced with <account>; access key ids replaced with <redacted>",
+  "outline": [
+    "invoice-ap-reader/LambdaService (SERVER, 2446.0 ms)",
+    "  invoice-ap-reader/LambdaExecutionEnvironment (SERVER, 2492.8 ms)",
+    "    handler.handler (SERVER, 2429.5 ms)",
+    "      runner (INTERNAL, 2426.4 ms)",
+    "        Textract.AnalyzeExpense (CLIENT, 2425.0 ms)",
+    "      mapping (INTERNAL, 0.4 ms)",
+    "    Overhead/LambdaExecutionEnvironment (INTERNAL, 52.1 ms)"
+  ],
+  "spans": [
+    {
+      "resource": {
+        "attributes": {
+          "cloud.resource_id": "arn:aws:lambda:us-east-1:<account>:function:invoice-ap-reader",
+          "cloud.provider": "aws",
+          "service.name": "invoice-ap-reader",
+          "cloud.platform": "aws_lambda",
+          "faas.name": "invoice-ap-reader"
+        }
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "2529a5e1eed6e175",
+      "name": "invoice-ap-reader/LambdaService",
+      "kind": "SERVER",
+      "startTimeUnixNano": 1795406960691000064,
+      "endTimeUnixNano": 1795406963137000192,
+      "durationNano": 2446000128,
+      "attributes": {
+        "aws.local.service": "invoice-ap-reader",
+        "telemetry.extended": "true",
+        "aws.local.environment": "lambda:default",
+        "http.status_code": 200,
+        "aws.request_id": "29139bbe-3c0a-4f5b-8950-2b2d69fa0760",
+        "aws.local.operation": "invoice-ap-reader/LambdaService",
+        "aws.span.kind": "LOCAL_ROOT",
+        "faas.invocation_id": "29139bbe-3c0a-4f5b-8950-2b2d69fa0760",
+        "aws.xray.origin": "AWS::Lambda",
+        "cloud.resource_id": "arn:aws:lambda:us-east-1:<account>:function:invoice-ap-reader",
+        "aws.lambda.name": "invoice-ap-reader",
+        "PlatformType": "AWS::Lambda",
+        "http.response.status_code": 200,
+        "faas.trigger": "http"
+      },
+      "status": {
+        "code": "UNSET"
+      },
+      "_aws": {
+        "xray": {
+          "name": "invoice-ap-reader",
+          "type": "segment"
+        }
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "cloud.provider": "aws",
+          "service.name": "invoice-ap-reader",
+          "faas.name": "invoice-ap-reader",
+          "cloud.resource_id": "arn:aws:lambda:us-east-1:<account>:function:invoice-ap-reader",
+          "aws.log.group.names": [
+            "/aws/lambda/invoice-ap-reader"
+          ],
+          "cloud.platform": "aws_lambda"
+        }
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "e8b4ed900b04cc4e",
+      "parentSpanId": "2529a5e1eed6e175",
+      "name": "invoice-ap-reader/LambdaExecutionEnvironment",
+      "kind": "SERVER",
+      "startTimeUnixNano": 1795406960696555008,
+      "endTimeUnixNano": 1795406963189368064,
+      "durationNano": 2492813056,
+      "attributes": {
+        "runtimeOverhead": 52.126,
+        "responseDuration": 0.06,
+        "responseLatency": 2440.177,
+        "aws.xray.origin": "AWS::Lambda::Function",
+        "aws.function_arn": "arn:aws:lambda:us-east-1:<account>:function:invoice-ap-reader",
+        "aws.lambda.name": "invoice-ap-reader",
+        "aws.xray.annotation_keys": [
+          "runtimeOverhead",
+          "responseDuration",
+          "responseLatency"
+        ]
+      },
+      "status": {
+        "code": "UNSET"
+      },
+      "_aws": {
+        "xray": {
+          "name": "invoice-ap-reader",
+          "type": "segment"
+        }
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "aws.local.service": "invoice-ap-reader",
+          "cloud.region": "us-east-1",
+          "service.name": "invoice-ap-reader",
+          "faas.name": "invoice-ap-reader",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.language": "python",
+          "cloud.provider": "aws",
+          "service.instance.id": "a7297b44-b803-4ab1-bd16-a7a411651930",
+          "faas.instance": "2026/11/23/invoice-ap-reader[$LATEST]e013e2f1f3c14eae883bc408b7226bdb",
+          "aws.log.group.names": "/aws/lambda/invoice-ap-reader",
+          "telemetry.sdk.version": "1.45.2",
+          "faas.version": "$LATEST",
+          "cloud.platform": "aws_lambda",
+          "telemetry.auto.version": "0.24.0-aws"
+        }
+      },
+      "scope": {
+        "name": "opentelemetry.instrumentation.aws_lambda",
+        "version": "0.61b0"
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "bc2ec0be595ee188",
+      "parentSpanId": "e8b4ed900b04cc4e",
+      "flags": 768,
+      "name": "handler.handler",
+      "kind": "SERVER",
+      "startTimeUnixNano": 1795406960701573680,
+      "endTimeUnixNano": 1795406963131033885,
+      "durationNano": 2429460205,
+      "attributes": {
+        "net.host.name": "<url-id>.lambda-url.us-east-1.on.aws",
+        "aws.local.service": "invoice-ap-reader",
+        "telemetry.extended": "true",
+        "http.target": "/",
+        "aws.local.environment": "lambda:default",
+        "http.status_code": 200,
+        "aws.local.operation": "handler.handler",
+        "aws.span.kind": "SERVER",
+        "faas.invocation_id": "29139bbe-3c0a-4f5b-8950-2b2d69fa0760",
+        "cloud.account.id": "<account>",
+        "http.user_agent": "Python-urllib/3.14",
+        "http.route": "/",
+        "cloud.resource_id": "arn:aws:lambda:us-east-1:<account>:function:invoice-ap-reader",
+        "PlatformType": "AWS::Lambda",
+        "faas.trigger": "http",
+        "http.method": "POST",
+        "http.response.status_code": 200
+      },
+      "status": {
+        "code": "UNSET"
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "aws.local.service": "invoice-ap-reader",
+          "cloud.region": "us-east-1",
+          "service.name": "invoice-ap-reader",
+          "faas.name": "invoice-ap-reader",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.language": "python",
+          "cloud.provider": "aws",
+          "service.instance.id": "a7297b44-b803-4ab1-bd16-a7a411651930",
+          "faas.instance": "2026/11/23/invoice-ap-reader[$LATEST]e013e2f1f3c14eae883bc408b7226bdb",
+          "aws.log.group.names": "/aws/lambda/invoice-ap-reader",
+          "telemetry.sdk.version": "1.45.2",
+          "faas.version": "$LATEST",
+          "cloud.platform": "aws_lambda",
+          "telemetry.auto.version": "0.24.0-aws"
+        }
+      },
+      "scope": {
+        "name": "invoice-ap.reader",
+        "version": ""
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "96c91f5dba90bbc6",
+      "parentSpanId": "bc2ec0be595ee188",
+      "flags": 256,
+      "name": "runner",
+      "kind": "INTERNAL",
+      "startTimeUnixNano": 1795406960703512297,
+      "endTimeUnixNano": 1795406963129959818,
+      "durationNano": 2426447521,
+      "attributes": {
+        "aws.local.service": "invoice-ap-reader",
+        "invoice_ap.error": false,
+        "invoice_ap.pages": 1,
+        "PlatformType": "AWS::Lambda",
+        "invoice_ap.runner": "textract",
+        "aws.local.environment": "lambda:default"
+      },
+      "status": {
+        "code": "UNSET"
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "aws.local.service": "invoice-ap-reader",
+          "cloud.region": "us-east-1",
+          "service.name": "invoice-ap-reader",
+          "faas.name": "invoice-ap-reader",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.language": "python",
+          "cloud.provider": "aws",
+          "service.instance.id": "a7297b44-b803-4ab1-bd16-a7a411651930",
+          "faas.instance": "2026/11/23/invoice-ap-reader[$LATEST]e013e2f1f3c14eae883bc408b7226bdb",
+          "aws.log.group.names": "/aws/lambda/invoice-ap-reader",
+          "telemetry.sdk.version": "1.45.2",
+          "faas.version": "$LATEST",
+          "cloud.platform": "aws_lambda",
+          "telemetry.auto.version": "0.24.0-aws"
+        }
+      },
+      "scope": {
+        "name": "opentelemetry.instrumentation.botocore",
+        "version": "0.66b2"
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "cf833ce741e055ba",
+      "parentSpanId": "96c91f5dba90bbc6",
+      "flags": 256,
+      "name": "Textract.AnalyzeExpense",
+      "kind": "CLIENT",
+      "startTimeUnixNano": 1795406960703870271,
+      "endTimeUnixNano": 1795406963128832458,
+      "durationNano": 2424962187,
+      "attributes": {
+        "aws.local.service": "invoice-ap-reader",
+        "telemetry.extended": "true",
+        "rpc.service": "Textract",
+        "rpc.system": "aws-api",
+        "aws.remote.service": "AWS::Textract",
+        "aws.local.environment": "lambda:default",
+        "aws.remote.operation": "AnalyzeExpense",
+        "server.address": "textract.us-east-1.amazonaws.com",
+        "aws.request_id": "2da593f7-f79d-4a35-b9f9-18670df30f9e",
+        "http.status_code": 200,
+        "aws.local.operation": "invoice-ap-reader/LambdaService",
+        "aws.span.kind": "CLIENT",
+        "aws.region": "us-east-1",
+        "aws.auth.region": "us-east-1",
+        "rpc.method": "AnalyzeExpense",
+        "server.port": 443,
+        "retry_attempts": 0,
+        "PlatformType": "AWS::Lambda",
+        "http.response.status_code": 200,
+        "aws.auth.account.access_key": "<redacted>"
+      },
+      "status": {
+        "code": "UNSET"
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "aws.local.service": "invoice-ap-reader",
+          "cloud.region": "us-east-1",
+          "service.name": "invoice-ap-reader",
+          "faas.name": "invoice-ap-reader",
+          "telemetry.sdk.name": "opentelemetry",
+          "telemetry.sdk.language": "python",
+          "cloud.provider": "aws",
+          "service.instance.id": "a7297b44-b803-4ab1-bd16-a7a411651930",
+          "faas.instance": "2026/11/23/invoice-ap-reader[$LATEST]e013e2f1f3c14eae883bc408b7226bdb",
+          "aws.log.group.names": "/aws/lambda/invoice-ap-reader",
+          "telemetry.sdk.version": "1.45.2",
+          "faas.version": "$LATEST",
+          "cloud.platform": "aws_lambda",
+          "telemetry.auto.version": "0.24.0-aws"
+        }
+      },
+      "scope": {
+        "name": "invoice-ap.reader",
+        "version": ""
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "37a9b77fcffd4b79",
+      "parentSpanId": "bc2ec0be595ee188",
+      "flags": 256,
+      "name": "mapping",
+      "kind": "INTERNAL",
+      "startTimeUnixNano": 1795406963130156298,
+      "endTimeUnixNano": 1795406963130524683,
+      "durationNano": 368385,
+      "attributes": {
+        "invoice_ap.exception": true,
+        "aws.local.service": "invoice-ap-reader",
+        "invoice_ap.fields_read": 6,
+        "PlatformType": "AWS::Lambda",
+        "invoice_ap.exception_reasons": [
+          "missing_due_date"
+        ],
+        "aws.local.environment": "lambda:default"
+      },
+      "status": {
+        "code": "UNSET"
+      }
+    },
+    {
+      "resource": {
+        "attributes": {
+          "cloud.provider": "aws",
+          "service.name": "Overhead",
+          "cloud.platform": "aws_lambda",
+          "faas.name": "Overhead"
+        }
+      },
+      "traceId": "6b03bc7022469f6173b462ec0c57d302",
+      "spanId": "969887efa3bf3336",
+      "parentSpanId": "e8b4ed900b04cc4e",
+      "name": "Overhead/LambdaExecutionEnvironment",
+      "kind": "INTERNAL",
+      "startTimeUnixNano": 1795406963136000000,
+      "endTimeUnixNano": 1795406963188125952,
+      "durationNano": 52125952,
+      "attributes": {
+        "aws.xray.origin": "AWS::Lambda::Function",
+        "aws.lambda.name": "Overhead"
+      },
+      "status": {
+        "code": "UNSET"
+      },
+      "_aws": {
+        "xray": {
+          "name": "Overhead",
+          "type": "subsegment"
+        }
+      }
+    }
+  ]
+}

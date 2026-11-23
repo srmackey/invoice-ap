@@ -14,12 +14,17 @@ log line like the rest.
   400  the body is not a PDF
   405  not a POST
   502  Textract failed; error says why
+
+Tracing: the function runs under AWS's OpenTelemetry Lambda layer with X-Ray
+active tracing, so each sampled read is one trace from the function URL
+through Textract to the seven fields. The log line carries the trace id.
 """
 
 from __future__ import annotations
 
 import base64
 import json
+import os
 import tempfile
 import time
 from pathlib import Path
@@ -44,6 +49,16 @@ def body_bytes(event: dict) -> bytes:
     return body.encode("latin-1")
 
 
+def trace_id() -> str | None:
+    """The X-Ray trace id of this invocation, from the header Lambda sets when
+    tracing is on: "Root=1-...;Parent=...;Sampled=1"."""
+    for part in os.environ.get("_X_AMZN_TRACE_ID", "").split(";"):
+        key, _, value = part.partition("=")
+        if key == "Root" and value:
+            return value
+    return None
+
+
 def handler(event: dict, context) -> dict:
     method = ((event.get("requestContext") or {}).get("http") or {}).get("method")
     if method != "POST":
@@ -63,6 +78,7 @@ def handler(event: dict, context) -> dict:
         json.dumps(
             {
                 "read": request_id,
+                "trace": trace_id(),
                 "bytes": len(data),
                 "pages": result["pages"],
                 "seconds": result["seconds"],
