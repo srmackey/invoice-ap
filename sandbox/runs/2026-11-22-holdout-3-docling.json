@@ -1,0 +1,5577 @@
+{
+  "runner": "docling",
+  "date": "2026-11-22",
+  "invoices": 120,
+  "field_accuracy": "477/840",
+  "straight_through": "0/120",
+  "invoice_accuracy": "0/120",
+  "silent_errors": [],
+  "time_per_invoice_seconds": 4.0,
+  "elapsed_seconds": 475.8,
+  "time_includes": "the local Docling conversion for each invoice, one at a time",
+  "models": [
+    "docling"
+  ],
+  "results": [
+    {
+      "id": "001-lone-star-materials-co",
+      "model": "docling",
+      "seconds": 6.1,
+      "fields": {
+        "supplier": "Lone Star Materials Co",
+        "invoice_number": "INV-2026-885",
+        "invoice_date": "08/07/2026",
+        "due_date": null,
+        "subtotal": "4,325.58",
+        "tax": null,
+        "total": "$ 4,671.63",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Lone Star Materials Co",
+        "invoice_number": "INV-2026-885",
+        "invoice_date": "2026-08-07",
+        "due_date": null,
+        "subtotal": "4325.58",
+        "tax": null,
+        "total": "4671.63"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "002-highland-fabrication",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "SI-2026-674",
+        "invoice_date": "01/01/2026",
+        "due_date": "27/12/2025",
+        "subtotal": "9,513.15",
+        "tax": null,
+        "total": "$ 11,415.78",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "SI-2026-674",
+        "invoice_date": "2026-01-01",
+        "due_date": "2025-12-27",
+        "subtotal": "9513.15",
+        "tax": null,
+        "total": "11415.78"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax",
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "003-delta-logistics-bv",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "506865",
+        "invoice_date": "16/05/2025",
+        "due_date": null,
+        "subtotal": "511,47",
+        "tax": null,
+        "total": "$ 618,88",
+        "amount_due": null,
+        "terms": "binnen 30 dagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "506865",
+        "invoice_date": "2025-05-16",
+        "due_date": "2025-06-15",
+        "subtotal": "511.47",
+        "tax": null,
+        "total": "618.88"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "004-rhein-precision-parts",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "909695",
+        "invoice_date": "16/02/2026",
+        "due_date": null,
+        "subtotal": "2.321,22",
+        "tax": null,
+        "total": "\u20ac 2.762,25",
+        "amount_due": null,
+        "terms": "2 % Skonto innerhalb 14 Tagen, 30 Tage netto",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "909695",
+        "invoice_date": "2026-02-16",
+        "due_date": "2026-03-18",
+        "subtotal": "2321.22",
+        "tax": null,
+        "total": "2762.25"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "005-rhein-precision-parts",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "152278",
+        "invoice_date": "16/11/2025",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "\u20ac 14.311,49",
+        "amount_due": null,
+        "terms": "30 Tage zum Monatsende",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "152278",
+        "invoice_date": "2025-11-16",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "14311.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "006-highland-fabrication",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "INV-72338",
+        "invoice_date": "06/07/2025",
+        "due_date": "20/08/2025",
+        "subtotal": "17,864.86",
+        "tax": null,
+        "total": "\u00a3 21,437.83",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "INV-72338",
+        "invoice_date": "2025-07-06",
+        "due_date": "2025-08-20",
+        "subtotal": "17864.86",
+        "tax": null,
+        "total": "21437.83"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "GBP",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "007-iberia-materiales-sl",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "846961",
+        "invoice_date": "13/02/2025",
+        "due_date": null,
+        "subtotal": "9.090,93",
+        "tax": null,
+        "total": "$11.090,93",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "846961",
+        "invoice_date": "2025-02-13",
+        "due_date": null,
+        "subtotal": "9090.93",
+        "tax": null,
+        "total": "11090.93"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "008-emerald-data-services",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": "INV-2026-848",
+        "invoice_date": "16/07/2026",
+        "due_date": "11/07/2026",
+        "subtotal": "1,347.35",
+        "tax": null,
+        "total": "\u20ac 1,616.82",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": "INV-2026-848",
+        "invoice_date": "2026-07-16",
+        "due_date": "2026-07-11",
+        "subtotal": "1347.35",
+        "tax": null,
+        "total": "1616.82"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax",
+        "due_before_invoice"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "009-rhein-precision-parts",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "RE-75239",
+        "invoice_date": "06/05/2026",
+        "due_date": "21/05/2026",
+        "subtotal": "69,97",
+        "tax": null,
+        "total": "\u20ac 12.320,80",
+        "amount_due": null,
+        "terms": "zahlbar innerhalb 30 Tagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "RE-75239",
+        "invoice_date": "2026-05-06",
+        "due_date": "2026-05-21",
+        "subtotal": "69.97",
+        "tax": null,
+        "total": "12320.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "010-celtic-components-ltd",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "187727",
+        "invoice_date": "11/08/2025",
+        "due_date": "06/08/2025",
+        "subtotal": "15,583.25",
+        "tax": null,
+        "total": "$ 18,699.90",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "187727",
+        "invoice_date": "2025-11-08",
+        "due_date": "2025-06-08",
+        "subtotal": "15583.25",
+        "tax": null,
+        "total": "18699.90"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax",
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "011-celtic-components-ltd",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "INV-70084",
+        "invoice_date": "18/04/2025",
+        "due_date": null,
+        "subtotal": "5,791.54",
+        "tax": null,
+        "total": "$ 6,949.85",
+        "amount_due": null,
+        "terms": "30 days",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "INV-70084",
+        "invoice_date": "2025-04-18",
+        "due_date": "2025-05-18",
+        "subtotal": "5791.54",
+        "tax": null,
+        "total": "6949.85"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "012-celtic-components-ltd",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "INV-11272",
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$14,000.07",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Celtic Components Ltd",
+        "invoice_number": "INV-11272",
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "14000.07"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "013-maple-precision-engineering",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "INV-29506",
+        "invoice_date": "05/12/2025",
+        "due_date": null,
+        "subtotal": "27,783.45",
+        "tax": null,
+        "total": "$31,395.30",
+        "amount_due": null,
+        "terms": "Net 60",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "INV-29506",
+        "invoice_date": "2025-05-12",
+        "due_date": "2025-07-11",
+        "subtotal": "27783.45",
+        "tax": null,
+        "total": "31395.30"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "014-emerald-data-services",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": null,
+        "invoice_date": "21/01/2025",
+        "due_date": null,
+        "subtotal": "8,238.76",
+        "tax": null,
+        "total": "$ 9,886.51",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": null,
+        "invoice_date": "2025-01-21",
+        "due_date": null,
+        "subtotal": "8238.76",
+        "tax": null,
+        "total": "9886.51"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "015-delta-logistics-bv",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "F-56238",
+        "invoice_date": "25/03/2025",
+        "due_date": null,
+        "subtotal": "17.973,49",
+        "tax": null,
+        "total": "\u20ac 21.747,92",
+        "amount_due": null,
+        "terms": "binnen 30 dagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "F-56238",
+        "invoice_date": "2025-03-25",
+        "due_date": "2025-04-24",
+        "subtotal": "17973.49",
+        "tax": null,
+        "total": "21747.92"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "016-iberia-materiales-sl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "F-99460",
+        "invoice_date": "12/12/2025",
+        "due_date": null,
+        "subtotal": "24.351,42",
+        "tax": null,
+        "total": "\u20ac 29.726,73",
+        "amount_due": null,
+        "terms": "fin de mes",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "F-99460",
+        "invoice_date": "2025-12-12",
+        "due_date": null,
+        "subtotal": "24351.42",
+        "tax": null,
+        "total": "29726.73"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "017-thames-valley-systems-ltd",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "Sl-43473",
+        "invoice_date": "10/02/2025",
+        "due_date": null,
+        "subtotal": "6,962.83",
+        "tax": null,
+        "total": "$ 8,355.40",
+        "amount_due": null,
+        "terms": "30 days",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "Sl-43473",
+        "invoice_date": "2025-10-02",
+        "due_date": "2025-11-01",
+        "subtotal": "6962.83",
+        "tax": null,
+        "total": "8355.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "018-alpen-maschinenbau-gmbh",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Alpen Maschinenbau GmbH",
+        "invoice_number": "RE-68552",
+        "invoice_date": "09/06/2025",
+        "due_date": null,
+        "subtotal": "6.080,58",
+        "tax": null,
+        "total": "\u20ac 7.235,89",
+        "amount_due": null,
+        "terms": "zahlbar innerhalb 30 Tagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Alpen Maschinenbau GmbH",
+        "invoice_number": "RE-68552",
+        "invoice_date": "2025-06-09",
+        "due_date": "2025-07-09",
+        "subtotal": "6080.58",
+        "tax": null,
+        "total": "7235.89"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "019-rhein-precision-parts",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "RE-48438",
+        "invoice_date": "07/05/2025",
+        "due_date": null,
+        "subtotal": "4.188,80",
+        "tax": null,
+        "total": "\u20ac 4.984,67",
+        "amount_due": null,
+        "terms": "30 Tage netto",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rhein Precision Parts",
+        "invoice_number": "RE-48438",
+        "invoice_date": "2025-05-07",
+        "due_date": "2025-06-06",
+        "subtotal": "4188.80",
+        "tax": null,
+        "total": "4984.67"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "020-summit-components-inc",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "451286",
+        "invoice_date": "08/02/2025",
+        "due_date": null,
+        "subtotal": "11,671.48",
+        "tax": null,
+        "total": "$ 12,400.95",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "451286",
+        "invoice_date": "2025-08-02",
+        "due_date": "2025-08-02",
+        "subtotal": "11671.48",
+        "tax": null,
+        "total": "12400.95"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "021-summit-components-inc",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "490554",
+        "invoice_date": "07/08/2025",
+        "due_date": null,
+        "subtotal": "2,585.05",
+        "tax": null,
+        "total": "$ 2,585.05",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "490554",
+        "invoice_date": "2025-07-08",
+        "due_date": "2025-07-08",
+        "subtotal": "2585.05",
+        "tax": null,
+        "total": "2585.05"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "022-highland-fabrication",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "INV-42513",
+        "invoice_date": "30/12/2025",
+        "due_date": null,
+        "subtotal": "4,219.60",
+        "tax": null,
+        "total": "\u00a3 5,063.52",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Highland Fabrication",
+        "invoice_number": "INV-42513",
+        "invoice_date": "2025-12-30",
+        "due_date": "2026-01-29",
+        "subtotal": "4219.60",
+        "tax": null,
+        "total": "5063.52"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "GBP",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "023-maple-precision-engineering",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "294385",
+        "invoice_date": "02/04/2026",
+        "due_date": null,
+        "subtotal": "25,245.28",
+        "tax": null,
+        "total": "$ 26,507.54",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "294385",
+        "invoice_date": "2026-02-04",
+        "due_date": null,
+        "subtotal": "25245.28",
+        "tax": null,
+        "total": "26507.54"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "024-northwood-supply-ltd",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Northwood Supply Ltd",
+        "invoice_number": "INV-65601",
+        "invoice_date": "13/07/2026",
+        "due_date": "27/08/2026",
+        "subtotal": "13,811.83",
+        "tax": null,
+        "total": "$ 15,883.60",
+        "amount_due": null,
+        "terms": "Net 60",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Northwood Supply Ltd",
+        "invoice_number": "INV-65601",
+        "invoice_date": "2026-07-13",
+        "due_date": "2026-08-27",
+        "subtotal": "13811.83",
+        "tax": null,
+        "total": "15883.60"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "025-pacific-digital-solutions-llc",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "INV-2025-368",
+        "invoice_date": "07/20/2025",
+        "due_date": null,
+        "subtotal": "12,532.56",
+        "tax": null,
+        "total": "$ 13,535.16",
+        "amount_due": null,
+        "terms": "Payment due within 30 days",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "INV-2025-368",
+        "invoice_date": "2025-07-20",
+        "due_date": "2025-08-19",
+        "subtotal": "12532.56",
+        "tax": null,
+        "total": "13535.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "026-thames-valley-systems-ltd",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "Sl-67981",
+        "invoice_date": "13/10/2025",
+        "due_date": null,
+        "subtotal": "5,257.96",
+        "tax": null,
+        "total": "\u00a3 6,309.55",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "Sl-67981",
+        "invoice_date": "2025-10-13",
+        "due_date": "2025-10-13",
+        "subtotal": "5257.96",
+        "tax": null,
+        "total": "6309.55"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "GBP",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "027-iberia-materiales-sl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "2025-607",
+        "invoice_date": "03/03/2025",
+        "due_date": null,
+        "subtotal": "3.902,40",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "30 d\u00edas neto",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Iberia Materiales SL",
+        "invoice_number": "2025-607",
+        "invoice_date": "2025-03-03",
+        "due_date": "2025-04-02",
+        "subtotal": "3902.40",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "028-provence-agro-sarl",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Provence Agro SARL",
+        "invoice_number": "FA-2026-735",
+        "invoice_date": "09/02/2026",
+        "due_date": "10/04/2026",
+        "subtotal": "6 696,72",
+        "tax": null,
+        "total": "$ 8 036,06",
+        "amount_due": null,
+        "terms": "\u00e0 30 jours",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Provence Agro SARL",
+        "invoice_number": "FA-2026-735",
+        "invoice_date": "2026-02-09",
+        "due_date": "2026-04-10",
+        "subtotal": "6696.72",
+        "tax": null,
+        "total": "8036.06"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "029-atelier-lumiere-sas",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "542194",
+        "invoice_date": "22/06/2025",
+        "due_date": null,
+        "subtotal": "18 641,21",
+        "tax": null,
+        "total": "\u20ac 22 369,45",
+        "amount_due": null,
+        "terms": "\u00e0 30 jours",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "542194",
+        "invoice_date": "2025-06-22",
+        "due_date": "2025-07-22",
+        "subtotal": "18641.21",
+        "tax": null,
+        "total": "22369.45"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "030-heartland-logistics-corp",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "INV-2025-291",
+        "invoice_date": "02/04/2025",
+        "due_date": null,
+        "subtotal": "16,393.58",
+        "tax": null,
+        "total": "$ 16,393.58",
+        "amount_due": null,
+        "terms": "Payment due within 30 days",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "INV-2025-291",
+        "invoice_date": "2025-02-04",
+        "due_date": "2025-03-06",
+        "subtotal": "16393.58",
+        "tax": null,
+        "total": "16393.58"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "031-aurora-consulting-group",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Aurora Consulting Group",
+        "invoice_number": "367127",
+        "invoice_date": "11/04/2026",
+        "due_date": "06/04/2026",
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Aurora Consulting Group",
+        "invoice_number": "367127",
+        "invoice_date": "2026-11-04",
+        "due_date": "2026-06-04",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total",
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "032-atelier-lumiere-sas",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "FA-89476",
+        "invoice_date": "14/12/2025",
+        "due_date": "13/01/2026",
+        "subtotal": "7 699,00",
+        "tax": null,
+        "total": "\u20ac 9 238,80",
+        "amount_due": null,
+        "terms": "\u00e0 r\u00e9ception",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "FA-89476",
+        "invoice_date": "2025-12-14",
+        "due_date": "2026-01-13",
+        "subtotal": "7699.00",
+        "tax": null,
+        "total": "9238.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "033-summit-components-inc",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "367008",
+        "invoice_date": "06/14/2026",
+        "due_date": null,
+        "subtotal": "608.79",
+        "tax": null,
+        "total": "$626.79",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "367008",
+        "invoice_date": "2026-06-14",
+        "due_date": "2026-07-14",
+        "subtotal": "608.79",
+        "tax": null,
+        "total": "626.79"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "034-milano-design-srl",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "2025-537",
+        "invoice_date": "07/08/2025",
+        "due_date": null,
+        "subtotal": "10.114,12",
+        "tax": null,
+        "total": "\u20ac 12.339,23",
+        "amount_due": null,
+        "terms": "a 30 giorni",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "2025-537",
+        "invoice_date": "2025-08-07",
+        "due_date": "2025-09-06",
+        "subtotal": "10114.12",
+        "tax": null,
+        "total": "12339.23"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "035-delta-logistics-bv",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "F-90592",
+        "invoice_date": "17/01/2025",
+        "due_date": null,
+        "subtotal": "3.761,76",
+        "tax": null,
+        "total": "\u20ac 4.551,73",
+        "amount_due": null,
+        "terms": "netto 30 dagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "F-90592",
+        "invoice_date": "2025-01-17",
+        "due_date": "2025-02-16",
+        "subtotal": "3761.76",
+        "tax": null,
+        "total": "4551.73"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "036-barcelona-textiles-sa",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": "340713",
+        "invoice_date": "02/05/2025",
+        "due_date": "17/05/2025",
+        "subtotal": "9.018,26",
+        "tax": null,
+        "total": "$ 11.002,28",
+        "amount_due": null,
+        "terms": "a 30 d\u00edas",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": "340713",
+        "invoice_date": "2025-05-02",
+        "due_date": "2025-05-17",
+        "subtotal": "9018.26",
+        "tax": null,
+        "total": "11002.28"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "037-barcelona-textiles-sa",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": "262784",
+        "invoice_date": "13/05/2025",
+        "due_date": "12/06/2025",
+        "subtotal": null,
+        "tax": null,
+        "total": "\u20ac 3.988,24",
+        "amount_due": null,
+        "terms": "a 30 d\u00edas",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": "262784",
+        "invoice_date": "2025-05-13",
+        "due_date": "2025-06-12",
+        "subtotal": null,
+        "tax": null,
+        "total": "3988.24"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "038-thames-valley-systems-ltd",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "INV-79000",
+        "invoice_date": "21/04/2025",
+        "due_date": null,
+        "subtotal": "129.77",
+        "tax": null,
+        "total": "$ 27,450.35",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thames Valley Systems Ltd",
+        "invoice_number": "INV-79000",
+        "invoice_date": "2025-04-21",
+        "due_date": "2025-04-21",
+        "subtotal": "129.77",
+        "tax": null,
+        "total": "27450.35"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "039-pacific-digital-solutions-llc",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "562626",
+        "invoice_date": "09/13/2025",
+        "due_date": null,
+        "subtotal": "3,013.22",
+        "tax": null,
+        "total": "$ 3,013.22",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "562626",
+        "invoice_date": "2025-09-13",
+        "due_date": "2025-09-13",
+        "subtotal": "3013.22",
+        "tax": null,
+        "total": "3013.22"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "040-emerald-data-services",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": "INV-18179",
+        "invoice_date": "01/12/2025",
+        "due_date": null,
+        "subtotal": "15,787.72",
+        "tax": null,
+        "total": "\u20ac 18,945.26",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Emerald Data Services",
+        "invoice_number": "INV-18179",
+        "invoice_date": "2025-12-01",
+        "due_date": "2025-12-01",
+        "subtotal": "15787.72",
+        "tax": null,
+        "total": "18945.26"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "041-holland-tech-bv",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Holland Tech BV",
+        "invoice_number": "2025-612",
+        "invoice_date": "06/05/2025",
+        "due_date": "21/05/2025",
+        "subtotal": "15.217,35",
+        "tax": null,
+        "total": "\u20ac 18.412,99",
+        "amount_due": null,
+        "terms": "binnen 30 dagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Holland Tech BV",
+        "invoice_number": "2025-612",
+        "invoice_date": "2025-05-06",
+        "due_date": "2025-05-21",
+        "subtotal": "15217.35",
+        "tax": null,
+        "total": "18412.99"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "042-milano-design-srl",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "2025-743",
+        "invoice_date": "22/03/2025",
+        "due_date": "06/05/2025",
+        "subtotal": "7.309,13",
+        "tax": null,
+        "total": "$8.917,14",
+        "amount_due": null,
+        "terms": "fine mese",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "2025-743",
+        "invoice_date": "2025-03-22",
+        "due_date": "2025-05-06",
+        "subtotal": "7309.13",
+        "tax": null,
+        "total": "8917.14"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "043-roma-componenti-spa",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Roma Componenti SpA",
+        "invoice_number": "656103",
+        "invoice_date": "16/01/2025",
+        "due_date": null,
+        "subtotal": "17.605,89",
+        "tax": null,
+        "total": "$ 21.466,69",
+        "amount_due": null,
+        "terms": "al ricevimento",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Roma Componenti SpA",
+        "invoice_number": "656103",
+        "invoice_date": "2025-01-16",
+        "due_date": "2025-01-16",
+        "subtotal": "17605.89",
+        "tax": null,
+        "total": "21466.69"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "044-aurora-consulting-group",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Aurora Consulting Group",
+        "invoice_number": "504825",
+        "invoice_date": "01/08/2025",
+        "due_date": null,
+        "subtotal": "6,627.22",
+        "tax": null,
+        "total": "$ 7,488.76",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Aurora Consulting Group",
+        "invoice_number": "504825",
+        "invoice_date": "2025-01-08",
+        "due_date": null,
+        "subtotal": "6627.22",
+        "tax": null,
+        "total": "7488.76"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "045-milano-design-srl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "618897",
+        "invoice_date": "28/10/2025",
+        "due_date": null,
+        "subtotal": "15.524,15",
+        "tax": null,
+        "total": "\u20ac 18.957,46",
+        "amount_due": null,
+        "terms": "al ricevimento",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "618897",
+        "invoice_date": "2025-10-28",
+        "due_date": "2025-10-28",
+        "subtotal": "15524.15",
+        "tax": null,
+        "total": "18957.46"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "046-summit-components-inc",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "INV-76050",
+        "invoice_date": "06/11/2025",
+        "due_date": null,
+        "subtotal": "17,125.82",
+        "tax": null,
+        "total": "$17,125.82",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Components Inc",
+        "invoice_number": "INV-76050",
+        "invoice_date": "2025-06-11",
+        "due_date": "2025-07-11",
+        "subtotal": "17125.82",
+        "tax": null,
+        "total": "17125.82"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "047-heartland-logistics-corp",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "138135",
+        "invoice_date": "01/05/2026",
+        "due_date": "12/31/2025",
+        "subtotal": "18,370.05",
+        "tax": null,
+        "total": "$ 19,518.18",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "138135",
+        "invoice_date": "2026-01-05",
+        "due_date": "2025-12-31",
+        "subtotal": "18370.05",
+        "tax": null,
+        "total": "19518.18"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax",
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "048-heartland-logistics-corp",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": null,
+        "invoice_date": "04/13/2025",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$ 8,240.70",
+        "amount_due": null,
+        "terms": "Net 45",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": null,
+        "invoice_date": "2025-04-13",
+        "due_date": "2025-05-28",
+        "subtotal": null,
+        "tax": null,
+        "total": "8240.70"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "049-delta-logistics-bv",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "913114",
+        "invoice_date": "31/01/2026",
+        "due_date": "02/03/2026",
+        "subtotal": "23.558,60",
+        "tax": null,
+        "total": "$ 28.502,51",
+        "amount_due": null,
+        "terms": "bij ontvangst",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Delta Logistics BV",
+        "invoice_number": "913114",
+        "invoice_date": "2026-01-31",
+        "due_date": "2026-03-02",
+        "subtotal": "23558.60",
+        "tax": null,
+        "total": "28502.51"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "050-atelier-lumiere-sas",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "511721",
+        "invoice_date": "26/01/2025",
+        "due_date": null,
+        "subtotal": "17 956,78",
+        "tax": null,
+        "total": "\u20ac 21 548,14",
+        "amount_due": null,
+        "terms": "30 jours net",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "511721",
+        "invoice_date": "2025-01-26",
+        "due_date": "2025-02-25",
+        "subtotal": "17956.78",
+        "tax": null,
+        "total": "21548.14"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "051-alpen-maschinenbau-gmbh",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Alpen Maschinenbau GmbH",
+        "invoice_number": "939014",
+        "invoice_date": "04/07/2025",
+        "due_date": "18/08/2025",
+        "subtotal": "1.447,29",
+        "tax": null,
+        "total": "\u20ac 1.722,28",
+        "amount_due": null,
+        "terms": "sofort zahlbar",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Alpen Maschinenbau GmbH",
+        "invoice_number": "939014",
+        "invoice_date": "2025-07-04",
+        "due_date": "2025-08-18",
+        "subtotal": "1447.29",
+        "tax": null,
+        "total": "1722.28"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "052-provence-agro-sarl",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Provence Agro SARL",
+        "invoice_number": "FA-15059",
+        "invoice_date": "05/04/2026",
+        "due_date": null,
+        "subtotal": "1 262,92",
+        "tax": null,
+        "total": "$1 515,50",
+        "amount_due": null,
+        "terms": "escompte 2 % \u00e0 10 jours, net \u00e0 30 jours",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Provence Agro SARL",
+        "invoice_number": "FA-15059",
+        "invoice_date": "2026-04-05",
+        "due_date": "2026-05-05",
+        "subtotal": "1262.92",
+        "tax": null,
+        "total": "1515.50"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "053-atelier-lumiere-sas",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "102580",
+        "invoice_date": "26/03/2025",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "\u00e0 r\u00e9ception",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Atelier Lumiere SAS",
+        "invoice_number": "102580",
+        "invoice_date": "2025-03-26",
+        "due_date": "2025-03-26",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "054-milano-design-srl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "FT-2025-722",
+        "invoice_date": "24/01/2025",
+        "due_date": null,
+        "subtotal": "7.524,10",
+        "tax": null,
+        "total": "\u20ac 9.179,40",
+        "amount_due": null,
+        "terms": "a 30 giorni",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Design SRL",
+        "invoice_number": "FT-2025-722",
+        "invoice_date": "2025-01-24",
+        "due_date": "2025-02-23",
+        "subtotal": "7524.10",
+        "tax": null,
+        "total": "9179.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "055-pacific-digital-solutions-llc",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "690071",
+        "invoice_date": "09/19/2025",
+        "due_date": "11/18/2025",
+        "subtotal": "5,137.28",
+        "tax": null,
+        "total": "$ 5,137.28",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pacific Digital Solutions LLC",
+        "invoice_number": "690071",
+        "invoice_date": "2025-09-19",
+        "due_date": "2025-11-18",
+        "subtotal": "5137.28",
+        "tax": null,
+        "total": "5137.28"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "056-maple-precision-engineering",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "129146",
+        "invoice_date": "16/02/2026",
+        "due_date": null,
+        "subtotal": "880.71",
+        "tax": null,
+        "total": "C$ 995.20",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Maple Precision Engineering",
+        "invoice_number": "129146",
+        "invoice_date": "2026-02-16",
+        "due_date": "2026-02-16",
+        "subtotal": "880.71",
+        "tax": null,
+        "total": "995.20"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_tax"
+      ],
+      "currency": "CAD",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "057-holland-tech-bv",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Holland Tech BV",
+        "invoice_number": "F-2026-262",
+        "invoice_date": "16/07/2026",
+        "due_date": "15/08/2026",
+        "subtotal": null,
+        "tax": null,
+        "total": "\u20ac 22.790,05",
+        "amount_due": null,
+        "terms": "bij ontvangst",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Holland Tech BV",
+        "invoice_number": "F-2026-262",
+        "invoice_date": "2026-07-16",
+        "due_date": "2026-08-15",
+        "subtotal": null,
+        "tax": null,
+        "total": "22790.05"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "058-barcelona-textiles-sa",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": null,
+        "invoice_date": "31/01/2026",
+        "due_date": "17/03/2026",
+        "subtotal": "7.993,96",
+        "tax": null,
+        "total": "$ 9.752,63",
+        "amount_due": null,
+        "terms": "30 d\u00edas neto",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Barcelona Textiles SA",
+        "invoice_number": null,
+        "invoice_date": "2026-01-31",
+        "due_date": "2026-03-17",
+        "subtotal": "7993.96",
+        "tax": null,
+        "total": "9752.63"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "059-heartland-logistics-corp",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "INV-30073",
+        "invoice_date": "04/25/2025",
+        "due_date": "04/20/2025",
+        "subtotal": "10,347.82",
+        "tax": null,
+        "total": "$ 10,347.82",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Heartland Logistics Corp",
+        "invoice_number": "INV-30073",
+        "invoice_date": "2025-04-25",
+        "due_date": "2025-04-20",
+        "subtotal": "10347.82",
+        "tax": null,
+        "total": "10347.82"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_tax",
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "060-roma-componenti-spa",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Roma Componenti SpA",
+        "invoice_number": "FT-43078",
+        "invoice_date": "19/08/2026",
+        "due_date": null,
+        "subtotal": "13.222,64",
+        "tax": null,
+        "total": "\u20ac 16.131,62",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Roma Componenti SpA",
+        "invoice_number": "FT-43078",
+        "invoice_date": "2026-08-19",
+        "due_date": null,
+        "subtotal": "13222.64",
+        "tax": null,
+        "total": "16131.62"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "foreign_currency",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": "EUR",
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "001-m\u00fcnchen-pr\u00e4zisionste",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "M\u00fcnchen Pr\u00e4zisionsteile",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4.404,09",
+        "tax": null,
+        "total": " 5.240,87",
+        "amount_due": null,
+        "terms": "30 Tage netto Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "M\u00fcnchen Pr\u00e4zisionsteile",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4404.09",
+        "tax": null,
+        "total": "5240.87"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "002-manchester-industria",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Manchester Industrial Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Payment due within 45 days Currency: GBP",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Manchester Industrial Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "003-barcelona-herramient",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Barcelona Herramientas SL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "10/07/2026",
+        "subtotal": "4.546,02",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "neto 30 d\u00edas Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Barcelona Herramientas SL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-10",
+        "subtotal": "4546.02",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "004-denver-tech-parts-ll",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Denver Tech Parts LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Upon receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Denver Tech Parts LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "005-vancouver-coastal-su",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Vancouver Coastal Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4,212.93",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Upon receipt Currency: CAD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Vancouver Coastal Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4212.93",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "006-thames-valley-engine",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Thames Valley Engineering Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3,706.43",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "2/10 Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thames Valley Engineering Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3706.43",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "007-madrid-suministros-i",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Madrid Suministros Industriales",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "neto 30 d\u00edas Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Madrid Suministros Industriales",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "008-quebec-forest-produc",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Quebec Forest Products",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-28",
+        "subtotal": "3,637.72",
+        "tax": null,
+        "total": " 3,889.07",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quebec Forest Products",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-28",
+        "subtotal": "3637.72",
+        "tax": null,
+        "total": "3889.07"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "009-galway-tech-solution",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Galway Tech Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4,938.72",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Galway Tech Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4938.72",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "010-calgary-energy-servi",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Calgary Energy Services Corp.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": " 1,177.27",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15 Currency: CAD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Calgary Energy Services Corp.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1177.27",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "011-rocky-mountain-logis",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Rocky Mountain Logistics",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "07/02/2026",
+        "subtotal": "4,438.91",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rocky Mountain Logistics",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-02",
+        "subtotal": "4438.91",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "012-berlin-software-ag",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Berlin Software AG",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4.347,51",
+        "tax": null,
+        "total": " 5.173,54",
+        "amount_due": null,
+        "terms": "2 % Skonto innerhalb 14 Tagen, 30 Tage netto Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Berlin Software AG",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4347.51",
+        "tax": null,
+        "total": "5173.54"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "013-cork-manufacturing-s",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Cork Manufacturing Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "29/10/2026",
+        "subtotal": "4,857.92",
+        "tax": null,
+        "total": " 5,975.24",
+        "amount_due": null,
+        "terms": "Net 30 Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Cork Manufacturing Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-10-29",
+        "subtotal": "4857.92",
+        "tax": null,
+        "total": "5975.24"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "014-amsterdam-precision-",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Amsterdam Precision BV",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "netto 30 dagen Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Amsterdam Precision BV",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "015-cork-manufacturing-s",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Cork Manufacturing Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "07/08/2026",
+        "subtotal": "3,391.66",
+        "tax": null,
+        "total": " 4,171.74",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Cork Manufacturing Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-08",
+        "subtotal": "3391.66",
+        "tax": null,
+        "total": "4171.74"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "016-marseille-logistique",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Marseille Logistique SA",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3 805,46",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "30 jours net Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Marseille Logistique SA",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3805.46",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "017-pacific-rim-componen",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Pacific Rim Components Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "09/02/2026",
+        "subtotal": "3,349.08",
+        "tax": null,
+        "total": " 3,583.64",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pacific Rim Components Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-02",
+        "subtotal": "3349.08",
+        "tax": null,
+        "total": "3583.64"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "018-thames-valley-engine",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Thames Valley Engineering Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2,478.44",
+        "tax": null,
+        "total": " 2,974.13",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thames Valley Engineering Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2478.44",
+        "tax": null,
+        "total": "2974.13"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "019-milano-componenti-sr",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Milano Componenti Srl",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "508,30",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "a 30 giorni Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Componenti Srl",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "508.30",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "020-summit-software-solu",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Summit Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2,071.94",
+        "tax": null,
+        "total": " 2,071.94",
+        "amount_due": null,
+        "terms": "Due on receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2071.94",
+        "tax": null,
+        "total": "2071.94"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "021-dublin-precision-com",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Dublin Precision Components",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "24/07/2026",
+        "subtotal": "1,771.29",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Dublin Precision Components",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-24",
+        "subtotal": "1771.29",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "022-denver-tech-parts-ll",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Denver Tech Parts LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Denver Tech Parts LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "023-lyon-industries-sarl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Lyon Industries SARL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "\u00e0 30 jours Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Lyon Industries SARL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "024-manchester-industria",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Manchester Industrial Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3,043.88",
+        "tax": null,
+        "total": " 3,652.66",
+        "amount_due": null,
+        "terms": "2/10 Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Manchester Industrial Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3043.88",
+        "tax": null,
+        "total": "3652.66"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "025-paris-composants-\u00e9le",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Paris Composants \u00c9lectroniques",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2 679,81",
+        "tax": null,
+        "total": " 3 215,77",
+        "amount_due": null,
+        "terms": "\u00e0 r\u00e9ception Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Paris Composants \u00c9lectroniques",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2679.81",
+        "tax": null,
+        "total": "3215.77"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "026-edinburgh-software-l",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Edinburgh Software Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1,671.79",
+        "tax": null,
+        "total": " 2,006.15",
+        "amount_due": null,
+        "terms": "Upon receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Edinburgh Software Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1671.79",
+        "tax": null,
+        "total": "2006.15"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "027-maplewood-hardware-s",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Maplewood Hardware Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1,621.98",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Maplewood Hardware Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1621.98",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "028-marseille-logistique",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Marseille Logistique SA",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "513,65",
+        "tax": null,
+        "total": " 616,38",
+        "amount_due": null,
+        "terms": "escompte 2 % \u00e0 10 jours, net \u00e0 30 jours Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Marseille Logistique SA",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "513.65",
+        "tax": null,
+        "total": "616.38"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "029-edinburgh-software-l",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Edinburgh Software Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Payment due within 45 days Currency: GBP",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Edinburgh Software Ltd",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "030-roma-ingegneria-spa",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Roma Ingegneria SpA 123 Industrial Park",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "fine mese Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Roma Ingegneria SpA 123 Industrial Park",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "031-calgary-energy-servi",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Calgary Energy Services Corp.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-29",
+        "subtotal": "996.43",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15 Currency: CAD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Calgary Energy Services Corp.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-29",
+        "subtotal": "996.43",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "032-dublin-precision-com",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Dublin Precision Components",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "04/07/2026",
+        "subtotal": "3,436.63",
+        "tax": null,
+        "total": " 4,227.05",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Dublin Precision Components",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-04-07",
+        "subtotal": "3436.63",
+        "tax": null,
+        "total": "4227.05"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "033-glasgow-engineering-",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Glasgow Engineering Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3,529.63",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15 Currency: GBP",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Glasgow Engineering Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "3529.63",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "034-bristol-logistics-gr",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Bristol Logistics Group",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": " 460.18",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Payment due within 45 days Currency: GBP",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Bristol Logistics Group",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "460.18",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "035-rotterdam-haven-supp",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Rotterdam Haven Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "763,84",
+        "tax": null,
+        "total": " 924,25",
+        "amount_due": null,
+        "terms": "netto 30 dagen Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rotterdam Haven Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "763.84",
+        "tax": null,
+        "total": "924.25"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "036-northern-lights-manu",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Northern Lights Manufacturing Ltd.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Upon receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Northern Lights Manufacturing Ltd.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "037-rheinland-maschinenb",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Rheinland Maschinenbau GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "273,67",
+        "tax": null,
+        "total": " 325,67",
+        "amount_due": null,
+        "terms": "30 Tage zum Monatsende",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rheinland Maschinenbau GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "273.67",
+        "tax": null,
+        "total": "325.67"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "038-utrecht-software-sol",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Utrecht Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "672,53",
+        "tax": null,
+        "total": " 813,76",
+        "amount_due": null,
+        "terms": "netto 30 dagen",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Utrecht Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "672.53",
+        "tax": null,
+        "total": "813.76"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "039-m\u00fcnchen-pr\u00e4zisionste",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "M\u00fcnchen Pr\u00e4zisionsteile",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "24/09/2026",
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "zahlbar innerhalb 14 Tagen Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "M\u00fcnchen Pr\u00e4zisionsteile",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-24",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "040-galway-tech-solution",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Galway Tech Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2,392.81",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Galway Tech Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2392.81",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "041-barcelona-herramient",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Barcelona Herramientas SL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "21/07/2026",
+        "subtotal": null,
+        "tax": null,
+        "total": " 5.266,31",
+        "amount_due": null,
+        "terms": "a la recepci\u00f3n",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Barcelona Herramientas SL",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-21",
+        "subtotal": null,
+        "tax": null,
+        "total": "5266.31"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "042-northern-lights-manu",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Northern Lights Manufacturing Ltd.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "2,194.41",
+        "amount_due": null,
+        "terms": "Due on receipt Currency: CAD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Northern Lights Manufacturing Ltd.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "2194.41"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "043-utrecht-software-sol",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Utrecht Software Solutions 123 Industrial Park",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "bij ontvangst Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Utrecht Software Solutions 123 Industrial Park",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "044-austin-industrial-su",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Austin Industrial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1,650.51",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "2/10 Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Austin Industrial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1650.51",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "045-pacific-rim-componen",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Pacific Rim Components Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "08/28/2026",
+        "subtotal": "2,334.54",
+        "tax": null,
+        "total": " 2,461.79",
+        "amount_due": null,
+        "terms": "Due on receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pacific Rim Components Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-08-28",
+        "subtotal": "2334.54",
+        "tax": null,
+        "total": "2461.79"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "046-bristol-logistics-gr",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Bristol Logistics Group",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15 Currency: GBP",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Bristol Logistics Group",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "047-berlin-software-ag",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Berlin Software AG",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1.263,44",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "30 Tage netto Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Berlin Software AG",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1263.44",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "048-summit-software-solu",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Summit Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "912.00",
+        "tax": null,
+        "total": " 971.26",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Summit Software Solutions",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "912.00",
+        "tax": null,
+        "total": "971.26"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "049-rheinland-maschinenb",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Rheinland Maschinenbau GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": " 4.037,10",
+        "amount_due": null,
+        "terms": "sofort zahlbar Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rheinland Maschinenbau GmbH",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "4037.10"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "050-milano-componenti-sr",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Milano Componenti Srl",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4.393,32",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "30 giorni netto Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Milano Componenti Srl",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4393.32",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "051-paris-composants-\u00e9le",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Paris Composants \u00c9lectroniques",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4 128,45",
+        "tax": null,
+        "total": " 4 954,14",
+        "amount_due": null,
+        "terms": "30 jours fin de mois",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Paris Composants \u00c9lectroniques",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4128.45",
+        "tax": null,
+        "total": "4954.14"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "052-boulder-office-suppl",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Boulder Office Supplies Co.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4,718.76",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Upon receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Boulder Office Supplies Co.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4718.76",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "053-madrid-suministros-i",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Madrid Suministros Industriales",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "732,27",
+        "tax": null,
+        "total": " 886,05",
+        "amount_due": null,
+        "terms": "neto 30 d\u00edas",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Madrid Suministros Industriales",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "732.27",
+        "tax": null,
+        "total": "886.05"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "054-rocky-mountain-logis",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Rocky Mountain Logistics",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1,304.53",
+        "tax": null,
+        "total": " 1,304.53",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Rocky Mountain Logistics",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1304.53",
+        "tax": null,
+        "total": "1304.53"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "055-toronto-precision-to",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Toronto Precision Tools Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-15",
+        "subtotal": "1,758.89",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "2/10 Net 30 Currency: CAD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Toronto Precision Tools Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-07-15",
+        "subtotal": "1758.89",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "056-toronto-precision-to",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Toronto Precision Tools Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-04",
+        "subtotal": null,
+        "tax": null,
+        "total": " 4,160.83",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Toronto Precision Tools Inc.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-09-04",
+        "subtotal": null,
+        "tax": null,
+        "total": "4160.83"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "057-vancouver-coastal-su",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Vancouver Coastal Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2,310.86",
+        "tax": null,
+        "total": " 2,513.09",
+        "amount_due": null,
+        "terms": "Upon receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Vancouver Coastal Supplies",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "2310.86",
+        "tax": null,
+        "total": "2513.09"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "058-amsterdam-precision-",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Amsterdam Precision BV",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4.797,07",
+        "tax": null,
+        "total": " 5.804,45",
+        "amount_due": null,
+        "terms": "30 dagen einde maand Currency: EUR",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Amsterdam Precision BV",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "4797.07",
+        "tax": null,
+        "total": "5804.45"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "059-maplewood-hardware-s",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Maplewood Hardware Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Due on receipt Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Maplewood Hardware Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": true,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "060-boulder-office-suppl",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Boulder Office Supplies Co.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30 Currency: USD",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Boulder Office Supplies Co.",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ]
+}

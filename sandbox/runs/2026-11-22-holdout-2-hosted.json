@@ -1,0 +1,4589 @@
+{
+  "runner": "hosted",
+  "date": "2026-11-22",
+  "invoices": 100,
+  "field_accuracy": "659/700",
+  "straight_through": "74/100",
+  "invoice_accuracy": "59/100",
+  "silent_errors": [
+    "004-grindstone-disposal",
+    "005-corvane-malt",
+    "006-tallowmere-linen",
+    "008-grindstone-disposal",
+    "009-sweetgrass-provisions",
+    "011-tallowmere-linen",
+    "012-brightfield-pest",
+    "014-tallowmere-linen",
+    "018-brightfield-pest",
+    "021-tallowmere-linen",
+    "024-pellham-gas",
+    "027-corvane-malt",
+    "028-hearthstone-propane",
+    "029-grindstone-disposal",
+    "031-sentrel-alarm",
+    "033-grindstone-disposal",
+    "034-tinplate-signs",
+    "045-sentrel-alarm",
+    "047-brightfield-pest",
+    "049-corvane-malt",
+    "052-tallowmere-linen",
+    "056-hearthstone-propane",
+    "060-pellham-gas",
+    "062-juno-whitlock",
+    "064-pellham-gas",
+    "065-corvane-malt",
+    "066-grindstone-disposal",
+    "073-juno-whitlock",
+    "074-brightfield-pest",
+    "080-tinplate-signs",
+    "090-corvane-malt",
+    "091-tallowmere-linen",
+    "096-sentrel-alarm",
+    "098-brightfield-pest"
+  ],
+  "time_per_invoice_seconds": 3.0,
+  "elapsed_seconds": 301.8,
+  "time_includes": "a signed HTTPS call from this machine to the function URL for each invoice, one at a time: upload, the function's read through Textract, and the reply",
+  "models": [
+    "textract-analyze-expense"
+  ],
+  "results": [
+    {
+      "id": "001-coldwater-refrigeration",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2024-0328",
+        "invoice_date": "2024-12-14",
+        "due_date": "2024-12-29",
+        "subtotal": "903.00",
+        "tax": "22.49",
+        "total": "925.49",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2024-0328",
+        "invoice_date": "2024-12-14",
+        "due_date": "2024-12-29",
+        "subtotal": "903.00",
+        "tax": "22.49",
+        "total": "925.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.38,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "002-steelhead-pump",
+      "model": "textract-analyze-expense",
+      "seconds": 3.7,
+      "fields": {
+        "supplier": "Steelhead Pump & Valve Repair",
+        "invoice_number": "SPV-2208",
+        "invoice_date": "2024-12-28",
+        "due_date": "2025-01-27",
+        "subtotal": "884.00",
+        "tax": "30.14",
+        "total": "914.14",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Steelhead Pump & Valve Repair",
+        "invoice_number": "SPV-2208",
+        "invoice_date": "2024-12-28",
+        "due_date": "2025-01-27",
+        "subtotal": "884.00",
+        "tax": "30.14",
+        "total": "914.14"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.99,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "003-driftmoor-packaging",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12046",
+        "invoice_date": "2025-01-01",
+        "due_date": "2025-01-31",
+        "subtotal": "264.37",
+        "tax": "11.93",
+        "total": "276.30",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12046",
+        "invoice_date": "2025-01-01",
+        "due_date": "2025-01-31",
+        "subtotal": "264.37",
+        "tax": "11.93",
+        "total": "276.30"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.49,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "004-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184454",
+        "invoice_date": "2025-01-03",
+        "due_date": "2025-01-23",
+        "subtotal": "381.38",
+        "tax": "0.00",
+        "total": "381.38",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184454",
+        "invoice_date": "2025-01-03",
+        "due_date": "2025-01-23",
+        "subtotal": "381.38",
+        "tax": "0.00",
+        "total": "381.38"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.78,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "005-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0126",
+        "invoice_date": "2025-01-08",
+        "due_date": "2025-02-07",
+        "subtotal": "1529.50",
+        "tax": "0.00",
+        "total": "1529.50",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0126",
+        "invoice_date": "2025-01-08",
+        "due_date": "2025-02-07",
+        "subtotal": "1529.50",
+        "tax": "0.00",
+        "total": "1529.50"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.29,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "006-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "TLU",
+        "invoice_number": "40121128",
+        "invoice_date": "2025-01-14",
+        "due_date": "2025-01-29",
+        "subtotal": "67.86",
+        "tax": "5.19",
+        "total": "73.05",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TLU",
+        "invoice_number": "40121128",
+        "invoice_date": "2025-01-14",
+        "due_date": "2025-01-29",
+        "subtotal": "67.86",
+        "tax": "5.19",
+        "total": "73.05"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.68,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "007-pellham-gas",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "PGW",
+        "invoice_number": "31886",
+        "invoice_date": "2025-01-22",
+        "due_date": "2025-02-21",
+        "subtotal": "123.50",
+        "tax": "9.45",
+        "total": "123.95",
+        "currency": null
+      },
+      "read": {
+        "supplier": "PGW",
+        "invoice_number": "31886",
+        "invoice_date": "2025-01-22",
+        "due_date": "2025-02-21",
+        "subtotal": "123.50",
+        "tax": "9.45",
+        "total": "123.95"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.25,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "008-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184494",
+        "invoice_date": "2025-02-01",
+        "due_date": "2025-02-21",
+        "subtotal": "573.75",
+        "tax": "0.00",
+        "total": "573.75",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184494",
+        "invoice_date": "2025-02-01",
+        "due_date": "2025-02-21",
+        "subtotal": "573.75",
+        "tax": "0.00",
+        "total": "573.75"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.66,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "009-sweetgrass-provisions",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "SWEETGRASS PROVISIONS WHOLESALE",
+        "invoice_number": "S1204713",
+        "invoice_date": "2025-02-05",
+        "due_date": "2025-02-12",
+        "subtotal": "220.90",
+        "tax": "4.38",
+        "total": "225.28",
+        "currency": null
+      },
+      "read": {
+        "supplier": "SWEETGRASS PROVISIONS WHOLESALE",
+        "invoice_number": "S1204713",
+        "invoice_date": "2025-02-05",
+        "due_date": "2025-02-12",
+        "subtotal": "220.90",
+        "tax": "4.38",
+        "total": "225.28"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.55,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "010-kettlebrook-stainless",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Kettlebrook Stainless Fittings",
+        "invoice_number": "KSF-9315",
+        "invoice_date": "2025-02-07",
+        "due_date": null,
+        "subtotal": "250.50",
+        "tax": "19.16",
+        "total": "269.66",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Kettlebrook Stainless Fittings",
+        "invoice_number": "KSF-9315",
+        "invoice_date": "2025-02-07",
+        "due_date": null,
+        "subtotal": "250.50",
+        "tax": "19.16",
+        "total": "269.66"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.28,
+      "host_exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "011-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "TLU",
+        "invoice_number": "40121301",
+        "invoice_date": "2025-02-18",
+        "due_date": "2025-03-05",
+        "subtotal": "79.95",
+        "tax": "6.12",
+        "total": "86.07",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TLU",
+        "invoice_number": "40121301",
+        "invoice_date": "2025-02-18",
+        "due_date": "2025-03-05",
+        "subtotal": "79.95",
+        "tax": "6.12",
+        "total": "86.07"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.71,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "012-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77370",
+        "invoice_date": "2025-02-20",
+        "due_date": "2025-03-22",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77370",
+        "invoice_date": "2025-02-20",
+        "due_date": "2025-03-22",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.29,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "013-redtail-freight",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7732-890",
+        "invoice_date": "2025-03-01",
+        "due_date": "2025-03-16",
+        "subtotal": "834.34",
+        "tax": "0.00",
+        "total": "834.34",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7732-890",
+        "invoice_date": "2025-03-01",
+        "due_date": "2025-03-16",
+        "subtotal": "834.34",
+        "tax": "0.00",
+        "total": "834.34"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.44,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "014-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "TLU",
+        "invoice_number": "40121450",
+        "invoice_date": "2025-03-18",
+        "due_date": "2025-04-02",
+        "subtotal": "92.51",
+        "tax": "7.08",
+        "total": "99.59",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TLU",
+        "invoice_number": "40121450",
+        "invoice_date": "2025-03-18",
+        "due_date": "2025-04-02",
+        "subtotal": "92.51",
+        "tax": "7.08",
+        "total": "99.59"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.66,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "015-sweetgrass-provisions",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1204806",
+        "invoice_date": "2025-03-19",
+        "due_date": "2025-03-26",
+        "subtotal": "273.04",
+        "tax": "14.62",
+        "total": "287.66",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1204806",
+        "invoice_date": "2025-03-19",
+        "due_date": "2025-03-26",
+        "subtotal": "273.04",
+        "tax": "14.62",
+        "total": "287.66"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.54,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "016-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": "CM-2025-0130",
+        "invoice_date": "2025-03-30",
+        "due_date": "2025-04-29",
+        "subtotal": "1259.47",
+        "tax": "0.00",
+        "total": "1259.47",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": "CM-2025-0130",
+        "invoice_date": "2025-03-30",
+        "due_date": "2025-04-29",
+        "subtotal": "1259.47",
+        "tax": "0.00",
+        "total": "1259.47"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.48,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "017-driftmoor-packaging",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12077",
+        "invoice_date": "2025-04-19",
+        "due_date": "2025-05-19",
+        "subtotal": "1470.18",
+        "tax": "100.58",
+        "total": "1570.76",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12077",
+        "invoice_date": "2025-04-19",
+        "due_date": "2025-05-19",
+        "subtotal": "1470.18",
+        "tax": "100.58",
+        "total": "1570.76"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.28,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "018-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77421",
+        "invoice_date": "2025-04-21",
+        "due_date": "2025-05-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77421",
+        "invoice_date": "2025-04-21",
+        "due_date": "2025-05-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.25,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "019-quarrystone-tech",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4433",
+        "invoice_date": "2025-05-01",
+        "due_date": "2025-05-16",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4433",
+        "invoice_date": "2025-05-01",
+        "due_date": "2025-05-16",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.21,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "020-pruett-handyman",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "2025-05-19",
+        "due_date": "2025-05-19",
+        "subtotal": "507.50",
+        "tax": null,
+        "total": "507.50",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "2025-05-19",
+        "due_date": "2025-05-19",
+        "subtotal": "507.50",
+        "tax": null,
+        "total": "507.50"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.33,
+      "host_exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ]
+    },
+    {
+      "id": "021-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN SERVICES, INC.",
+        "invoice_number": "40121803",
+        "invoice_date": "2025-05-20",
+        "due_date": "2025-06-04",
+        "subtotal": "54.35",
+        "tax": "4.16",
+        "total": "58.51",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN SERVICES, INC.",
+        "invoice_number": "40121803",
+        "invoice_date": "2025-05-20",
+        "due_date": "2025-06-04",
+        "subtotal": "54.35",
+        "tax": "4.16",
+        "total": "58.51"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.6,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "022-fenwick-glass",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": "FG20774",
+        "invoice_date": "2025-05-22",
+        "due_date": "2025-06-06",
+        "subtotal": "1662.84",
+        "tax": "127.21",
+        "total": "1821.85",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": "FG20774",
+        "invoice_date": "2025-05-22",
+        "due_date": "2025-06-06",
+        "subtotal": "1662.84",
+        "tax": "127.21",
+        "total": "1821.85"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.34,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "023-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184647",
+        "invoice_date": "2025-06-02",
+        "due_date": "2025-06-22",
+        "subtotal": "421.93",
+        "tax": "0.00",
+        "total": "421.93",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184647",
+        "invoice_date": "2025-06-02",
+        "due_date": "2025-06-22",
+        "subtotal": "421.93",
+        "tax": "0.00",
+        "total": "421.93"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.69,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "024-pellham-gas",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "PGW",
+        "invoice_number": "31909",
+        "invoice_date": "2025-06-04",
+        "due_date": "2025-07-04",
+        "subtotal": "55.65",
+        "tax": "4.26",
+        "total": "59.91",
+        "currency": null
+      },
+      "read": {
+        "supplier": "PGW",
+        "invoice_number": "31909",
+        "invoice_date": "2025-06-04",
+        "due_date": "2025-07-04",
+        "subtotal": "55.65",
+        "tax": "4.26",
+        "total": "59.91"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.56,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "025-odell-brannock",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Odell Brannock, Attorney at Law",
+        "invoice_number": "2025-147",
+        "invoice_date": "2025-06-05",
+        "due_date": "2025-07-05",
+        "subtotal": null,
+        "tax": null,
+        "total": "1838.00",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Odell Brannock, Attorney at Law",
+        "invoice_number": "2025-147",
+        "invoice_date": "2025-06-05",
+        "due_date": "2025-07-05",
+        "subtotal": null,
+        "tax": null,
+        "total": "1838.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.26,
+      "host_exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ]
+    },
+    {
+      "id": "026-inkhorn-press",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008831",
+        "invoice_date": "2025-06-20",
+        "due_date": "2025-07-10",
+        "subtotal": "177.60",
+        "tax": "13.59",
+        "total": "191.19",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008831",
+        "invoice_date": "2025-06-20",
+        "due_date": "2025-07-10",
+        "subtotal": "177.60",
+        "tax": "13.59",
+        "total": "191.19"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.67,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "027-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0133",
+        "invoice_date": "2025-06-27",
+        "due_date": "2025-07-27",
+        "subtotal": "1022.61",
+        "tax": "0.00",
+        "total": "1022.61",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0133",
+        "invoice_date": "2025-06-27",
+        "due_date": "2025-07-27",
+        "subtotal": "1022.61",
+        "tax": "0.00",
+        "total": "1022.61"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.35,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "028-hearthstone-propane",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Hearthstone Propane.",
+        "invoice_number": "HP088211",
+        "invoice_date": "2025-06-27",
+        "due_date": "2025-07-07",
+        "subtotal": "190.00",
+        "tax": "5.51",
+        "total": "195.51",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Hearthstone Propane.",
+        "invoice_number": "HP088211",
+        "invoice_date": "2025-06-27",
+        "due_date": "2025-07-07",
+        "subtotal": "190.00",
+        "tax": "5.51",
+        "total": "195.51"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.43,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "029-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184698",
+        "invoice_date": "2025-07-02",
+        "due_date": "2025-07-22",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184698",
+        "invoice_date": "2025-07-02",
+        "due_date": "2025-07-22",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.61,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "030-haskett-plumbing",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18238",
+        "invoice_date": "2025-07-02",
+        "due_date": "2025-07-02",
+        "subtotal": "845.74",
+        "tax": "3.23",
+        "total": "848.97",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18238",
+        "invoice_date": "2025-07-02",
+        "due_date": "2025-07-02",
+        "subtotal": "845.74",
+        "tax": "3.23",
+        "total": "848.97"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.34,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "031-sentrel-alarm",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-310657",
+        "invoice_date": "2025-07-15",
+        "due_date": "2025-08-29",
+        "subtotal": "149.85",
+        "tax": "11.46",
+        "total": "161.31",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-310657",
+        "invoice_date": "2025-07-15",
+        "due_date": "2025-08-29",
+        "subtotal": "149.85",
+        "tax": "11.46",
+        "total": "161.31"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.4,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "032-sweetgrass-provisions",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1205080",
+        "invoice_date": "2025-07-22",
+        "due_date": "2025-07-29",
+        "subtotal": "394.74",
+        "tax": "9.56",
+        "total": "404.30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1205080",
+        "invoice_date": "2025-07-22",
+        "due_date": "2025-07-29",
+        "subtotal": "394.74",
+        "tax": "9.56",
+        "total": "404.30"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.43,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "033-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184749",
+        "invoice_date": "2025-08-02",
+        "due_date": "2025-08-22",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2184749",
+        "invoice_date": "2025-08-02",
+        "due_date": "2025-08-22",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.79,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "034-tinplate-signs",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "TSW",
+        "invoice_number": "003389",
+        "invoice_date": "2025-08-14",
+        "due_date": "2025-08-14",
+        "subtotal": "1875.00",
+        "tax": "143.44",
+        "total": "2018.44",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TSW",
+        "invoice_number": "003389",
+        "invoice_date": "2025-08-14",
+        "due_date": "2025-08-14",
+        "subtotal": "1875.00",
+        "tax": "143.44",
+        "total": "2018.44"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.45,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "035-mapleford-lumber",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": "12-89090",
+        "invoice_date": "2025-08-15",
+        "due_date": null,
+        "subtotal": "199.53",
+        "tax": "15.26",
+        "total": "214.79",
+        "currency": null
+      },
+      "read": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": "12-89090",
+        "invoice_date": "2025-08-15",
+        "due_date": null,
+        "subtotal": "199.53",
+        "tax": "15.26",
+        "total": "214.79"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.13,
+      "host_exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "036-basalt-rental",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": "BER-661357",
+        "invoice_date": "2025-08-16",
+        "due_date": "2025-08-16",
+        "subtotal": "734.29",
+        "tax": "46.99",
+        "total": "781.28",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": "BER-661357",
+        "invoice_date": "2025-08-16",
+        "due_date": "2025-08-16",
+        "subtotal": "734.29",
+        "tax": "46.99",
+        "total": "781.28"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.39,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "037-brassick-fab",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Brassick Metal Fabrication",
+        "invoice_number": "BMF405",
+        "invoice_date": "2025-08-19",
+        "due_date": null,
+        "subtotal": "896.10",
+        "tax": "14.97",
+        "total": "911.07",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brassick Metal Fabrication",
+        "invoice_number": "BMF405",
+        "invoice_date": "2025-08-19",
+        "due_date": null,
+        "subtotal": "896.10",
+        "tax": "14.97",
+        "total": "911.07"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.24,
+      "host_exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "038-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": null,
+        "invoice_date": "2025-08-22",
+        "due_date": "2025-09-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": null,
+        "invoice_date": "2025-08-22",
+        "due_date": "2025-09-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.42,
+      "host_exception_reasons": [
+        "missing_invoice_number"
+      ]
+    },
+    {
+      "id": "039-gullwing-grounds",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01909",
+        "invoice_date": "2025-08-28",
+        "due_date": "2025-09-12",
+        "subtotal": "595.00",
+        "tax": "0.00",
+        "total": "595.00",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01909",
+        "invoice_date": "2025-08-28",
+        "due_date": "2025-09-12",
+        "subtotal": "595.00",
+        "tax": "0.00",
+        "total": "595.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.41,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "040-mapleford-lumber",
+      "model": "textract-analyze-expense",
+      "seconds": 2.5,
+      "fields": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": "12-89145",
+        "invoice_date": "2025-09-03",
+        "due_date": null,
+        "subtotal": "87.93",
+        "tax": "6.73",
+        "total": "94.66",
+        "currency": null
+      },
+      "read": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": "12-89145",
+        "invoice_date": "2025-09-03",
+        "due_date": null,
+        "subtotal": "87.93",
+        "tax": "6.73",
+        "total": "94.66"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 1.94,
+      "host_exception_reasons": [
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "041-redtail-freight",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7735-840",
+        "invoice_date": "2025-09-09",
+        "due_date": "2025-09-24",
+        "subtotal": "733.36",
+        "tax": "0.00",
+        "total": "964.37",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7735-840",
+        "invoice_date": "2025-09-09",
+        "due_date": "2025-09-24",
+        "subtotal": "733.36",
+        "tax": "0.00",
+        "total": "964.37"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.65,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "042-wren-hollow-windows",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": "1048",
+        "invoice_date": "2025-09-16",
+        "due_date": "2025-09-16",
+        "subtotal": "205.00",
+        "tax": "0.00",
+        "total": "205.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": "1048",
+        "invoice_date": "2025-09-16",
+        "due_date": "2025-09-16",
+        "subtotal": "205.00",
+        "tax": "0.00",
+        "total": "205.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.28,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "043-quarrystone-tech",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4453",
+        "invoice_date": "2025-10-03",
+        "due_date": "2025-10-18",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4453",
+        "invoice_date": "2025-10-03",
+        "due_date": "2025-10-18",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.23,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "044-ambervolt-electric",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5569",
+        "invoice_date": "2025-10-04",
+        "due_date": "2025-10-19",
+        "subtotal": "1351.04",
+        "tax": "18.08",
+        "total": "1369.12",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5569",
+        "invoice_date": "2025-10-04",
+        "due_date": "2025-10-19",
+        "subtotal": "1351.04",
+        "tax": "18.08",
+        "total": "1369.12"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.48,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "045-sentrel-alarm",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-310846",
+        "invoice_date": "2025-10-15",
+        "due_date": "2025-11-14",
+        "subtotal": "149.85",
+        "tax": "11.46",
+        "total": "161.31",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-310846",
+        "invoice_date": "2025-10-15",
+        "due_date": "2025-11-14",
+        "subtotal": "149.85",
+        "tax": "11.46",
+        "total": "161.31"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.41,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "046-clearbrook-janitorial",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50221",
+        "invoice_date": "2025-10-18",
+        "due_date": "2025-11-02",
+        "subtotal": "553.12",
+        "tax": "42.31",
+        "total": "595.43",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50221",
+        "invoice_date": "2025-10-18",
+        "due_date": "2025-11-02",
+        "subtotal": "553.12",
+        "tax": "42.31",
+        "total": "595.43"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.66,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "047-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77564",
+        "invoice_date": "2025-10-22",
+        "due_date": "2025-11-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77564",
+        "invoice_date": "2025-10-22",
+        "due_date": "2025-11-21",
+        "subtotal": "125.00",
+        "tax": "9.56",
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.29,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "048-ninebark-hops",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250230",
+        "invoice_date": "2025-10-24",
+        "due_date": "2025-11-23",
+        "subtotal": "136.88",
+        "tax": "0.00",
+        "total": "136.88",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250230",
+        "invoice_date": "2025-10-24",
+        "due_date": "2025-11-23",
+        "subtotal": "136.88",
+        "tax": "0.00",
+        "total": "136.88"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.27,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "049-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0139",
+        "invoice_date": "2025-10-25",
+        "due_date": "2025-11-24",
+        "subtotal": "1492.30",
+        "tax": "0.00",
+        "total": "1492.30",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2025-0139",
+        "invoice_date": "2025-10-25",
+        "due_date": "2025-11-24",
+        "subtotal": "1492.30",
+        "tax": "0.00",
+        "total": "1492.30"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.44,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "050-ninebark-hops",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250231",
+        "invoice_date": "2025-10-30",
+        "due_date": "2025-11-29",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250231",
+        "invoice_date": "2025-10-30",
+        "due_date": "2025-11-29",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.2,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "051-fenwick-glass",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": "FG20812",
+        "invoice_date": "2025-11-19",
+        "due_date": "2025-12-04",
+        "subtotal": "1979.16",
+        "tax": "151.41",
+        "total": "2176.82",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": "FG20812",
+        "invoice_date": "2025-11-19",
+        "due_date": "2025-12-04",
+        "subtotal": "1979.16",
+        "tax": "151.41",
+        "total": "2176.82"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.31,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "052-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.4,
+      "fields": {
+        "supplier": "TLU",
+        "invoice_number": "40122857",
+        "invoice_date": "2025-11-25",
+        "due_date": "2025-12-10",
+        "subtotal": "31.15",
+        "tax": "2.38",
+        "total": "33.53",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TLU",
+        "invoice_number": "40122857",
+        "invoice_date": "2025-11-25",
+        "due_date": "2025-12-10",
+        "subtotal": "31.15",
+        "tax": "2.38",
+        "total": "33.53"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.76,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "053-ninebark-hops",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250232",
+        "invoice_date": "2025-11-26",
+        "due_date": "2025-10-26",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250232",
+        "invoice_date": "2025-11-26",
+        "due_date": "2025-10-26",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.54,
+      "host_exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "054-marrowby-quist",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Marrowby & Quist.",
+        "invoice_number": "24477",
+        "invoice_date": "2025-12-03",
+        "due_date": "2025-12-03",
+        "subtotal": null,
+        "tax": null,
+        "total": "990.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Marrowby & Quist.",
+        "invoice_number": "24477",
+        "invoice_date": "2025-12-03",
+        "due_date": "2025-12-03",
+        "subtotal": null,
+        "tax": null,
+        "total": "990.00"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.46,
+      "host_exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ]
+    },
+    {
+      "id": "055-quarrystone-tech",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4462",
+        "invoice_date": "2025-12-03",
+        "due_date": "2025-12-18",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4462",
+        "invoice_date": "2025-12-03",
+        "due_date": "2025-12-18",
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.45,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "056-hearthstone-propane",
+      "model": "textract-analyze-expense",
+      "seconds": 3.9,
+      "fields": {
+        "supplier": "Hearthstone Propane.",
+        "invoice_number": "HP088286",
+        "invoice_date": "2025-12-05",
+        "due_date": "2025-12-15",
+        "subtotal": "157.30",
+        "tax": "4.56",
+        "total": "161.86",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Hearthstone Propane.",
+        "invoice_number": "HP088286",
+        "invoice_date": "2025-12-05",
+        "due_date": "2025-12-15",
+        "subtotal": "157.30",
+        "tax": "4.56",
+        "total": "161.86"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 3.25,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "057-wren-hollow-windows",
+      "model": "textract-analyze-expense",
+      "seconds": 2.4,
+      "fields": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": "1049",
+        "invoice_date": "2025-12-10",
+        "due_date": "2025-12-10",
+        "subtotal": "230.00",
+        "tax": "0.00",
+        "total": "230.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": "1049",
+        "invoice_date": "2025-12-10",
+        "due_date": "2025-12-10",
+        "subtotal": "230.00",
+        "tax": "0.00",
+        "total": "230.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.07,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "058-basalt-rental",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": "BER-661503",
+        "invoice_date": "2026-01-07",
+        "due_date": "2026-01-07",
+        "subtotal": "412.42",
+        "tax": "22.37",
+        "total": "434.79",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": "BER-661503",
+        "invoice_date": "2026-01-07",
+        "due_date": "2026-01-07",
+        "subtotal": "412.42",
+        "tax": "22.37",
+        "total": "434.79"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.38,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "059-ridgeback-parts",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": "R604938",
+        "invoice_date": "2026-01-26",
+        "due_date": "2025-02-25",
+        "subtotal": "110.16",
+        "tax": "8.43",
+        "total": "118.59",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": "R604938",
+        "invoice_date": "2026-01-26",
+        "due_date": "2025-02-25",
+        "subtotal": "110.16",
+        "tax": "8.43",
+        "total": "118.59"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.3,
+      "host_exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "060-pellham-gas",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "PGW",
+        "invoice_number": "31957",
+        "invoice_date": "2026-01-30",
+        "due_date": "2026-03-01",
+        "subtotal": "232.56",
+        "tax": "17.79",
+        "total": "250.35",
+        "currency": null
+      },
+      "read": {
+        "supplier": "PGW",
+        "invoice_number": "31957",
+        "invoice_date": "2026-01-30",
+        "due_date": "2026-03-01",
+        "subtotal": "232.56",
+        "tax": "17.79",
+        "total": "250.35"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.33,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "061-inkhorn-press",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008863",
+        "invoice_date": "2026-02-07",
+        "due_date": "2025-03-09",
+        "subtotal": "1255.14",
+        "tax": "96.02",
+        "total": "1351.16",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008863",
+        "invoice_date": "2026-02-07",
+        "due_date": "2025-03-09",
+        "subtotal": "1255.14",
+        "tax": "96.02",
+        "total": "1351.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.48,
+      "host_exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "062-juno-whitlock",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Juno Whitlock Design Studio.",
+        "invoice_number": "JW-092",
+        "invoice_date": "2026-03-04",
+        "due_date": "2026-03-18",
+        "subtotal": "1615.00",
+        "tax": "0.00",
+        "total": "1615.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Juno Whitlock Design Studio.",
+        "invoice_number": "JW-092",
+        "invoice_date": "2026-03-04",
+        "due_date": "2026-03-18",
+        "subtotal": "1615.00",
+        "tax": "0.00",
+        "total": "1615.00"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.27,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "063-inkhorn-press",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008866",
+        "invoice_date": "2026-03-10",
+        "due_date": "2026-04-09",
+        "subtotal": "1462.32",
+        "tax": "111.87",
+        "total": "1574.19",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008866",
+        "invoice_date": "2026-03-10",
+        "due_date": "2026-04-09",
+        "subtotal": "1462.32",
+        "tax": "111.87",
+        "total": "1574.19"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.21,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "064-pellham-gas",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "PGW",
+        "invoice_number": "31962",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-04-11",
+        "subtotal": "133.15",
+        "tax": "10.19",
+        "total": "143.34",
+        "currency": null
+      },
+      "read": {
+        "supplier": "PGW",
+        "invoice_number": "31962",
+        "invoice_date": "2026-03-12",
+        "due_date": "2026-04-11",
+        "subtotal": "133.15",
+        "tax": "10.19",
+        "total": "143.34"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.32,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "065-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2026-0116",
+        "invoice_date": "2026-03-21",
+        "due_date": "2026-04-20",
+        "subtotal": "1064.38",
+        "tax": "0.00",
+        "total": "1064.38",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2026-0116",
+        "invoice_date": "2026-03-21",
+        "due_date": "2026-04-20",
+        "subtotal": "1064.38",
+        "tax": "0.00",
+        "total": "1064.38"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.42,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "066-grindstone-disposal",
+      "model": "textract-analyze-expense",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2185099",
+        "invoice_date": "2026-04-01",
+        "due_date": "2026-04-21",
+        "subtotal": "438.40",
+        "tax": "0.00",
+        "total": "438.40",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "GRINDSTONE VALLEY DISPOSAL, INC.",
+        "invoice_number": "2185099",
+        "invoice_date": "2026-04-01",
+        "due_date": "2026-04-21",
+        "subtotal": "438.40",
+        "tax": "0.00",
+        "total": "438.40"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 3.33,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "067-quarrystone-tech",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4478",
+        "invoice_date": "2026-04-01",
+        "due_date": "2026-03-25",
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4478",
+        "invoice_date": "2026-04-01",
+        "due_date": "2026-03-25",
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "due_before_invoice"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.23,
+      "host_exception_reasons": [
+        "due_before_invoice"
+      ]
+    },
+    {
+      "id": "068-driftmoor-packaging",
+      "model": "textract-analyze-expense",
+      "seconds": 3.6,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12153",
+        "invoice_date": "2026-04-03",
+        "due_date": "2026-05-03",
+        "subtotal": "1899.02",
+        "tax": "135.98",
+        "total": "2035.00",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12153",
+        "invoice_date": "2026-04-03",
+        "due_date": "2026-05-03",
+        "subtotal": "1899.02",
+        "tax": "135.98",
+        "total": "2035.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 3.15,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "069-gullwing-grounds",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01914",
+        "invoice_date": "2026-04-25",
+        "due_date": "2026-05-10",
+        "subtotal": "340.00",
+        "tax": "0.00",
+        "total": "340.00",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01914",
+        "invoice_date": "2026-04-25",
+        "due_date": "2026-05-10",
+        "subtotal": "340.00",
+        "tax": "0.00",
+        "total": "340.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.21,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "070-thimbleworth-print",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "Thimbleworth Screen Printing",
+        "invoice_number": "T1209",
+        "invoice_date": "2026-05-01",
+        "due_date": "2026-05-31",
+        "subtotal": "829.44",
+        "tax": "63.45",
+        "total": "446.89",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Thimbleworth Screen Printing",
+        "invoice_number": "T1209",
+        "invoice_date": "2026-05-01",
+        "due_date": "2026-05-31",
+        "subtotal": "829.44",
+        "tax": "63.45",
+        "total": "446.89"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": false
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.75,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "071-redtail-freight",
+      "model": "textract-analyze-expense",
+      "seconds": 3.3,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7740-503",
+        "invoice_date": "2026-05-06",
+        "due_date": "2026-05-21",
+        "subtotal": "542.65",
+        "tax": "0.00",
+        "total": "542.65",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": "7740-503",
+        "invoice_date": "2026-05-06",
+        "due_date": "2026-05-21",
+        "subtotal": "542.65",
+        "tax": "0.00",
+        "total": "542.65"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.62,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "072-clearbrook-janitorial",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50306",
+        "invoice_date": "2026-05-12",
+        "due_date": "2026-05-27",
+        "subtotal": "338.65",
+        "tax": "25.91",
+        "total": "338.65",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50306",
+        "invoice_date": "2026-05-12",
+        "due_date": "2026-05-27",
+        "subtotal": "338.65",
+        "tax": "25.91",
+        "total": "338.65"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.31,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "073-juno-whitlock",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Juno Whitlock Design Studio.",
+        "invoice_number": "JW-093",
+        "invoice_date": "2026-05-15",
+        "due_date": "2026-05-29",
+        "subtotal": "1912.50",
+        "tax": "0.00",
+        "total": "1912.50",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Juno Whitlock Design Studio.",
+        "invoice_number": "JW-093",
+        "invoice_date": "2026-05-15",
+        "due_date": "2026-05-29",
+        "subtotal": "1912.50",
+        "tax": "0.00",
+        "total": "1912.50"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.23,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "074-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77700",
+        "invoice_date": "2026-05-20",
+        "due_date": "2026-06-19",
+        "subtotal": "130.00",
+        "tax": "9.95",
+        "total": "139.95",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77700",
+        "invoice_date": "2026-05-20",
+        "due_date": "2026-06-19",
+        "subtotal": "130.00",
+        "tax": "9.95",
+        "total": "139.95"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.41,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "075-driftmoor-packaging",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12165",
+        "invoice_date": "2026-05-21",
+        "due_date": "2026-06-20",
+        "subtotal": "1628.05",
+        "tax": "116.53",
+        "total": "1744.58",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12165",
+        "invoice_date": "2026-05-21",
+        "due_date": "2026-06-20",
+        "subtotal": "1628.05",
+        "tax": "116.53",
+        "total": "1744.58"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.44,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "076-ambervolt-electric",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5587",
+        "invoice_date": "2026-06-09",
+        "due_date": "2026-06-24",
+        "subtotal": "704.56",
+        "tax": "10.48",
+        "total": "715.04",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5587",
+        "invoice_date": "2026-06-09",
+        "due_date": "2026-06-24",
+        "subtotal": "704.56",
+        "tax": "10.48",
+        "total": "715.04"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.56,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "077-sweetgrass-provisions",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1205763",
+        "invoice_date": "2026-06-25",
+        "due_date": "2026-07-02",
+        "subtotal": "717.82",
+        "tax": "15.06",
+        "total": "732.88",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": "S1205763",
+        "invoice_date": "2026-06-25",
+        "due_date": "2026-07-02",
+        "subtotal": "717.82",
+        "tax": "15.06",
+        "total": "732.88"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.42,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "078-coldwater-refrigeration",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0343",
+        "invoice_date": "2026-06-30",
+        "due_date": "2026-07-15",
+        "subtotal": "760.68",
+        "tax": "8.77",
+        "total": "760.68",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0343",
+        "invoice_date": "2026-06-30",
+        "due_date": "2026-07-15",
+        "subtotal": "760.68",
+        "tax": "8.77",
+        "total": "760.68"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "total_mismatch"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.25,
+      "host_exception_reasons": [
+        "total_mismatch"
+      ]
+    },
+    {
+      "id": "079-quarrystone-tech",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4487",
+        "invoice_date": "2026-07-02",
+        "due_date": "2026-07-17",
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": "QTP-4487",
+        "invoice_date": "2026-07-02",
+        "due_date": "2026-07-17",
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.22,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "080-tinplate-signs",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "TSW",
+        "invoice_number": "003401",
+        "invoice_date": "2026-07-02",
+        "due_date": "2026-07-02",
+        "subtotal": "375.00",
+        "tax": "17.21",
+        "total": "392.21",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TSW",
+        "invoice_number": "003401",
+        "invoice_date": "2026-07-02",
+        "due_date": "2026-07-02",
+        "subtotal": "375.00",
+        "tax": "17.21",
+        "total": "392.21"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.41,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "081-pinyon-lab",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Pinyon Analytical Laboratory,",
+        "invoice_number": "PAL-26-01400",
+        "invoice_date": "2026-07-07",
+        "due_date": "2026-08-06",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "182.48",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Pinyon Analytical Laboratory,",
+        "invoice_number": "PAL-26-01400",
+        "invoice_date": "2026-07-07",
+        "due_date": "2026-08-06",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "182.48"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.29,
+      "host_exception_reasons": [
+        "missing_subtotal"
+      ]
+    },
+    {
+      "id": "082-haskett-plumbing",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18304",
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "592.50",
+        "tax": "6.83",
+        "total": "599.33",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18304",
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "592.50",
+        "tax": "6.83",
+        "total": "599.33"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.43,
+      "host_exception_reasons": [
+        "missing_invoice_date",
+        "missing_due_date"
+      ]
+    },
+    {
+      "id": "083-ninebark-hops",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB260233",
+        "invoice_date": "2026-07-15",
+        "due_date": "2026-08-14",
+        "subtotal": "886.74",
+        "tax": "0.00",
+        "total": "886.74",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB260233",
+        "invoice_date": "2026-07-15",
+        "due_date": "2026-08-14",
+        "subtotal": "886.74",
+        "tax": "0.00",
+        "total": "886.74"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.21,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "084-clearbrook-janitorial",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50335",
+        "invoice_date": "2026-08-07",
+        "due_date": "2026-08-22",
+        "subtotal": "431.81",
+        "tax": "33.03",
+        "total": "464.84",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": "CJ50335",
+        "invoice_date": "2026-08-07",
+        "due_date": "2026-08-22",
+        "subtotal": "431.81",
+        "tax": "33.03",
+        "total": "464.84"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.42,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "085-marrowby-quist",
+      "model": "textract-analyze-expense",
+      "seconds": 2.6,
+      "fields": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": "24510",
+        "invoice_date": "2026-08-10",
+        "due_date": "2026-08-10",
+        "subtotal": null,
+        "tax": null,
+        "total": "866.25",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": "24510",
+        "invoice_date": "2026-08-10",
+        "due_date": "2026-08-10",
+        "subtotal": null,
+        "tax": null,
+        "total": "866.25"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.12,
+      "host_exception_reasons": [
+        "missing_subtotal",
+        "missing_tax"
+      ]
+    },
+    {
+      "id": "086-pinyon-lab",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Pinyon Analytical Laboratory,",
+        "invoice_number": "PAL-26-01412",
+        "invoice_date": "2026-08-27",
+        "due_date": "2026-09-26",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "123.07",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Pinyon Analytical Laboratory,",
+        "invoice_number": "PAL-26-01412",
+        "invoice_date": "2026-08-27",
+        "due_date": "2026-09-26",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "123.07"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_subtotal"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.57,
+      "host_exception_reasons": [
+        "missing_subtotal"
+      ]
+    },
+    {
+      "id": "087-inkhorn-press",
+      "model": "textract-analyze-expense",
+      "seconds": 2.9,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008890",
+        "invoice_date": "2026-08-28",
+        "due_date": "2026-09-27",
+        "subtotal": "265.25",
+        "tax": "20.29",
+        "total": "285.54",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": "008890",
+        "invoice_date": "2026-08-28",
+        "due_date": "2026-09-27",
+        "subtotal": "265.25",
+        "tax": "20.29",
+        "total": "285.54"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.24,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "088-driftmoor-packaging",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12186",
+        "invoice_date": "2026-09-02",
+        "due_date": "2026-10-02",
+        "subtotal": "1042.13",
+        "tax": "67.67",
+        "total": "1109.80",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": "12186",
+        "invoice_date": "2026-09-02",
+        "due_date": "2026-10-02",
+        "subtotal": "1042.13",
+        "tax": "67.67",
+        "total": "1109.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.35,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "089-coldwater-refrigeration",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0346",
+        "invoice_date": "2026-09-07",
+        "due_date": "2026-09-22",
+        "subtotal": "150.01",
+        "tax": "11.48",
+        "total": "161.49",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0346",
+        "invoice_date": "2026-09-07",
+        "due_date": "2026-09-22",
+        "subtotal": "150.01",
+        "tax": "11.48",
+        "total": "161.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.42,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "090-corvane-malt",
+      "model": "textract-analyze-expense",
+      "seconds": 3.1,
+      "fields": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2026-0123",
+        "invoice_date": "2026-09-16",
+        "due_date": "2026-10-16",
+        "subtotal": "1787.12",
+        "tax": "0.00",
+        "total": "1787.12",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain Co., LLC",
+        "invoice_number": "CM-2026-0123",
+        "invoice_date": "2026-09-16",
+        "due_date": "2026-10-16",
+        "subtotal": "1787.12",
+        "tax": "0.00",
+        "total": "1787.12"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.51,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "091-tallowmere-linen",
+      "model": "textract-analyze-expense",
+      "seconds": 3.8,
+      "fields": {
+        "supplier": "TLU",
+        "invoice_number": "40124531",
+        "invoice_date": "2026-09-22",
+        "due_date": "2026-10-07",
+        "subtotal": "80.11",
+        "tax": "6.13",
+        "total": "86.24",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TLU",
+        "invoice_number": "40124531",
+        "invoice_date": "2026-09-22",
+        "due_date": "2026-10-07",
+        "subtotal": "80.11",
+        "tax": "6.13",
+        "total": "86.24"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 3.21,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "092-gullwing-grounds",
+      "model": "textract-analyze-expense",
+      "seconds": 3.0,
+      "fields": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01917",
+        "invoice_date": "2026-09-24",
+        "due_date": "2026-10-09",
+        "subtotal": "495.00",
+        "tax": "0.00",
+        "total": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": "01917",
+        "invoice_date": "2026-09-24",
+        "due_date": "2026-10-09",
+        "subtotal": "495.00",
+        "tax": "0.00",
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.36,
+      "host_exception_reasons": [
+        "missing_total"
+      ]
+    },
+    {
+      "id": "093-haskett-plumbing",
+      "model": "textract-analyze-expense",
+      "seconds": 3.7,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18314",
+        "invoice_date": "2026-09-24",
+        "due_date": "2026-09-24",
+        "subtotal": "445.46",
+        "tax": "5.16",
+        "total": "450.62",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": "W-18314",
+        "invoice_date": "2026-09-24",
+        "due_date": "2026-09-24",
+        "subtotal": "445.46",
+        "tax": "5.16",
+        "total": "450.62"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 3.06,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "094-pruett-handyman",
+      "model": "textract-analyze-expense",
+      "seconds": 3.6,
+      "fields": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "2026-09-28",
+        "due_date": "2026-09-28",
+        "subtotal": "468.80",
+        "tax": null,
+        "total": "468.80",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "2026-09-28",
+        "due_date": "2026-09-28",
+        "subtotal": "468.80",
+        "tax": null,
+        "total": "468.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.87,
+      "host_exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ]
+    },
+    {
+      "id": "095-ridgeback-parts",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": "R605312",
+        "invoice_date": "2026-10-07",
+        "due_date": "2026-11-06",
+        "subtotal": "88.52",
+        "tax": "6.77",
+        "total": "95.29",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": "R605312",
+        "invoice_date": "2026-10-07",
+        "due_date": "2026-11-06",
+        "subtotal": "88.52",
+        "tax": "6.77",
+        "total": "95.29"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.05,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "096-sentrel-alarm",
+      "model": "textract-analyze-expense",
+      "seconds": 3.5,
+      "fields": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-311625",
+        "invoice_date": "2026-10-15",
+        "due_date": "2026-11-14",
+        "subtotal": "155.85",
+        "tax": "11.92",
+        "total": "167.77",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "SENTREL ALARM MONITORING",
+        "invoice_number": "SAM-311625",
+        "invoice_date": "2026-10-15",
+        "due_date": "2026-11-14",
+        "subtotal": "155.85",
+        "tax": "11.92",
+        "total": "167.77"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.95,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "097-steelhead-pump",
+      "model": "textract-analyze-expense",
+      "seconds": 3.2,
+      "fields": {
+        "supplier": "Steelhead Pump & Valve Repair",
+        "invoice_number": "SPV-2249",
+        "invoice_date": "unparsed",
+        "due_date": "2026-11-15",
+        "subtotal": "787.93",
+        "tax": "14.77",
+        "total": "802.70",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Steelhead Pump & Valve Repair",
+        "invoice_number": "SPV-2249",
+        "invoice_date": "unparsed",
+        "due_date": "2026-11-15",
+        "subtotal": "787.93",
+        "tax": "14.77",
+        "total": "802.70"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "unparsed_invoice_date"
+      ],
+      "currency": null,
+      "printed": {
+        "invoice_date": "DUE DATE"
+      },
+      "label_exception": true,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.52,
+      "host_exception_reasons": [
+        "unparsed_invoice_date"
+      ]
+    },
+    {
+      "id": "098-brightfield-pest",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77801",
+        "invoice_date": "2026-10-21",
+        "due_date": "2026-11-20",
+        "subtotal": "130.00",
+        "tax": "9.95",
+        "total": "139.95",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions,",
+        "invoice_number": "BPS77801",
+        "invoice_date": "2026-10-21",
+        "due_date": "2026-11-20",
+        "subtotal": "130.00",
+        "tax": "9.95",
+        "total": "139.95"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.22,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "099-ambervolt-electric",
+      "model": "textract-analyze-expense",
+      "seconds": 2.8,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5598",
+        "invoice_date": "2026-10-30",
+        "due_date": "2026-11-14",
+        "subtotal": "416.34",
+        "tax": "20.89",
+        "total": "437.23",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": "AE5598",
+        "invoice_date": "2026-10-30",
+        "due_date": "2026-11-14",
+        "subtotal": "416.34",
+        "tax": "20.89",
+        "total": "437.23"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.27,
+      "host_exception_reasons": []
+    },
+    {
+      "id": "100-coldwater-refrigeration",
+      "model": "textract-analyze-expense",
+      "seconds": 2.7,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0349",
+        "invoice_date": "2026-11-03",
+        "due_date": "2026-11-18",
+        "subtotal": "555.27",
+        "tax": "24.22",
+        "total": "579.49",
+        "currency": "USD"
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": "2026-0349",
+        "invoice_date": "2026-11-03",
+        "due_date": "2026-11-18",
+        "subtotal": "555.27",
+        "tax": "24.22",
+        "total": "579.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 7,
+      "exception": false,
+      "exception_reasons": [],
+      "currency": "USD",
+      "printed": {},
+      "label_exception": false,
+      "error": null,
+      "status": 200,
+      "pages": 1,
+      "host_seconds": 2.29,
+      "host_exception_reasons": []
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ],
+  "url_region": "us-east-1",
+  "host_seconds_per_invoice": 2.45,
+  "pages": 100,
+  "price_per_page_usd": 0.01,
+  "lambda_cost_ceiling_usd": 0.001042,
+  "cost_usd": 1.001,
+  "cost_per_invoice_usd": 0.01,
+  "cost_note": "Textract at list price per page, plus Lambda requests and compute at the x86 rate, an upper bound for this Arm function, using the function's read time for duration.",
+  "host_disagrees": [],
+  "http_errors": []
+}

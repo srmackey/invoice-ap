@@ -1,0 +1,4696 @@
+{
+  "runner": "docling",
+  "date": "2026-11-22",
+  "invoices": 100,
+  "field_accuracy": "343/700",
+  "straight_through": "0/100",
+  "invoice_accuracy": "0/100",
+  "silent_errors": [],
+  "time_per_invoice_seconds": 6.3,
+  "elapsed_seconds": 625.5,
+  "time_includes": "the local Docling conversion for each invoice, one at a time",
+  "models": [
+    "docling"
+  ],
+  "results": [
+    {
+      "id": "001-coldwater-refrigeration",
+      "model": "docling",
+      "seconds": 6.1,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$903.00",
+        "tax": null,
+        "total": "$925.49",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "903.00",
+        "tax": null,
+        "total": "925.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "002-steelhead-pump",
+      "model": "docling",
+      "seconds": 8.0,
+      "fields": {
+        "supplier": "Steelhead Pump & Valve Repair Steelhead Pump & Valve Repair",
+        "invoice_number": null,
+        "invoice_date": "12/28/2024",
+        "due_date": "01/27/2025",
+        "subtotal": "884.00",
+        "tax": null,
+        "total": "914.14",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Steelhead Pump & Valve Repair Steelhead Pump & Valve Repair",
+        "invoice_number": null,
+        "invoice_date": "2024-12-28",
+        "due_date": "2025-01-27",
+        "subtotal": "884.00",
+        "tax": null,
+        "total": "914.14"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "003-driftmoor-packaging",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$264.37",
+        "tax": null,
+        "total": "$276.30",
+        "amount_due": "$276.30",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "264.37",
+        "tax": null,
+        "total": "276.30"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "004-grindstone-disposal",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184454",
+        "invoice_date": null,
+        "due_date": "01/23/2025",
+        "subtotal": "$381.38",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$381.38",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184454",
+        "invoice_date": null,
+        "due_date": "2025-01-23",
+        "subtotal": "381.38",
+        "tax": "0.00",
+        "total": "381.38"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "005-corvane-malt",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Notes",
+        "invoice_number": null,
+        "invoice_date": "Jan 8, 2025",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$1,529.50",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Notes",
+        "invoice_number": null,
+        "invoice_date": "2025-01-08",
+        "due_date": "2025-02-07",
+        "subtotal": null,
+        "tax": null,
+        "total": "1529.50"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "006-tallowmere-linen",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "01/14/25",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "2025-01-14",
+        "due_date": "2025-01-29",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "007-pellham-gas",
+      "model": "docling",
+      "seconds": 54.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "123.50",
+        "tax": null,
+        "total": "123.95",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "123.50",
+        "tax": null,
+        "total": "123.95"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "008-grindstone-disposal",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "GrindstoneValley Disposal",
+        "invoice_number": "2184494",
+        "invoice_date": null,
+        "due_date": "02/21/2025",
+        "subtotal": "$573.75",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$573.75",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "GrindstoneValley Disposal",
+        "invoice_number": "2184494",
+        "invoice_date": null,
+        "due_date": "2025-02-21",
+        "subtotal": "573.75",
+        "tax": "0.00",
+        "total": "573.75"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "009-sweetgrass-provisions",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 7",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "010-kettlebrook-stainless",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$250.50",
+        "tax": null,
+        "total": "$269.66",
+        "amount_due": null,
+        "terms": "Net 30 EOM",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "250.50",
+        "tax": null,
+        "total": "269.66"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "011-tallowmere-linen",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": "02/18/25",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "86.07",
+        "amount_due": null,
+        "terms": "NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": "2025-02-18",
+        "due_date": "2025-03-05",
+        "subtotal": null,
+        "tax": null,
+        "total": "86.07"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "012-brightfield-pest",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "02/20/2025",
+        "due_date": null,
+        "subtotal": "$125.00",
+        "tax": null,
+        "total": "$134.56",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2025-02-20",
+        "due_date": "2025-03-22",
+        "subtotal": "125.00",
+        "tax": null,
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "013-redtail-freight",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "014-tallowmere-linen",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "03/18/25",
+        "due_date": null,
+        "subtotal": "92.51",
+        "tax": null,
+        "total": "99.59",
+        "amount_due": null,
+        "terms": "\u00b7NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "2025-03-18",
+        "due_date": "2025-04-02",
+        "subtotal": "92.51",
+        "tax": null,
+        "total": "99.59"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "015-sweetgrass-provisions",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "14.62",
+        "tax": "287.66",
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 7",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "14.62",
+        "tax": "287.66",
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "016-corvane-malt",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "Mar 30, 2025",
+        "due_date": null,
+        "subtotal": "$1,259.47",
+        "tax": null,
+        "total": "$1,259.47",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "2025-03-30",
+        "due_date": "2025-04-29",
+        "subtotal": "1259.47",
+        "tax": null,
+        "total": "1259.47"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "017-driftmoor-packaging",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,470.18",
+        "tax": null,
+        "total": "$1,570.76",
+        "amount_due": "$1,570.76",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1470.18",
+        "tax": null,
+        "total": "1570.76"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "018-brightfield-pest",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "04/21/2025",
+        "due_date": null,
+        "subtotal": "$125.00",
+        "tax": null,
+        "total": "$134.56",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2025-04-21",
+        "due_date": "2025-05-21",
+        "subtotal": "125.00",
+        "tax": null,
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "019-quarrystone-tech",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$348.00",
+        "tax": "$0.00",
+        "total": "$348.00",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "020-pruett-handyman",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$507.50",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "507.50"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "021-tallowmere-linen",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "05/20/25",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "54.35",
+        "amount_due": null,
+        "terms": "NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "2025-05-20",
+        "due_date": "2025-06-04",
+        "subtotal": null,
+        "tax": null,
+        "total": "54.35"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "022-fenwick-glass",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,662.84",
+        "tax": null,
+        "total": "$1,821.85",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1662.84",
+        "tax": null,
+        "total": "1821.85"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "023-grindstone-disposal",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184647",
+        "invoice_date": null,
+        "due_date": "06/22/2025",
+        "subtotal": "$421.93",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$421.93",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184647",
+        "invoice_date": null,
+        "due_date": "2025-06-22",
+        "subtotal": "421.93",
+        "tax": "0.00",
+        "total": "421.93"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "024-pellham-gas",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Pellham Gas & Welding Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "55.65",
+        "tax": null,
+        "total": "59.91",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pellham Gas & Welding Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "55.65",
+        "tax": null,
+        "total": "59.91"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "025-odell-brannock",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Odell Brannock, Attorney at Law",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "2025-147 June 5, 2025 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Odell Brannock, Attorney at Law",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "026-inkhorn-press",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$177.60",
+        "tax": null,
+        "total": "$191.19",
+        "amount_due": "$95.19",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "177.60",
+        "tax": null,
+        "total": "191.19"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "027-corvane-malt",
+      "model": "docling",
+      "seconds": 8.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "Jun 27, 2025",
+        "due_date": null,
+        "subtotal": "$1,022.61",
+        "tax": null,
+        "total": "$1,022.61",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "2025-06-27",
+        "due_date": "2025-07-27",
+        "subtotal": "1022.61",
+        "tax": null,
+        "total": "1022.61"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "028-hearthstone-propane",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Hearthstone Propane",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "$195.51",
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Hearthstone Propane",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "$195.51"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "029-grindstone-disposal",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184698",
+        "invoice_date": null,
+        "due_date": "07/22/2025",
+        "subtotal": "$460.17",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$460.17",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184698",
+        "invoice_date": null,
+        "due_date": "2025-07-22",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "030-haskett-plumbing",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Upon receipt",
+        "subtotal": "$845.74",
+        "tax": null,
+        "total": "$848.97",
+        "amount_due": null,
+        "terms": "Upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "845.74",
+        "tax": null,
+        "total": "848.97"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "031-sentrel-alarm",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Aug 29, 2025",
+        "subtotal": "$149.85",
+        "tax": null,
+        "total": null,
+        "amount_due": "$161.31",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2025-08-29",
+        "subtotal": "149.85",
+        "tax": null,
+        "total": "161.31"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "032-sweetgrass-provisions",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "394.74",
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 7",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "394.74",
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "033-grindstone-disposal",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184749",
+        "invoice_date": null,
+        "due_date": "40-118273 2184749 08/02/2025 08/22/2025",
+        "subtotal": "$460.17",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$460.17",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2184749",
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "460.17",
+        "tax": "0.00",
+        "total": "460.17"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "40-118273 2184749 08/02/2025 08/22/2025"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "034-tinplate-signs",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Tinplate Sign Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1,875.00",
+        "tax": null,
+        "total": "2,018.44",
+        "amount_due": "2,018.44",
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Tinplate Sign Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1875.00",
+        "tax": null,
+        "total": "2018.44"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "035-mapleford-lumber",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "199.53",
+        "tax": "15.26",
+        "total": "214.79",
+        "amount_due": null,
+        "terms": "10th Prox",
+        "currency": null
+      },
+      "read": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "199.53",
+        "tax": "15.26",
+        "total": "214.79"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "036-basalt-rental",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": null,
+        "invoice_date": "08/16/2025",
+        "due_date": null,
+        "subtotal": "$734.29",
+        "tax": null,
+        "total": "$781.28",
+        "amount_due": null,
+        "terms": "Due upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": null,
+        "invoice_date": "2025-08-16",
+        "due_date": "2025-08-16",
+        "subtotal": "734.29",
+        "tax": null,
+        "total": "781.28"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "037-brassick-fab",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Brassick Metal Fabrication",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$896.10",
+        "tax": null,
+        "total": "$911.07",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brassick Metal Fabrication",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "896.10",
+        "tax": null,
+        "total": "911.07"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "038-brightfield-pest",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "08/22/2025",
+        "due_date": null,
+        "subtotal": "$125.00",
+        "tax": null,
+        "total": "$134.56",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2025-08-22",
+        "due_date": "2025-09-21",
+        "subtotal": "125.00",
+        "tax": null,
+        "total": "134.56"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "039-gullwing-grounds",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Net 15",
+        "subtotal": "595.00",
+        "tax": null,
+        "total": "595.00",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "595.00",
+        "tax": null,
+        "total": "595.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "040-mapleford-lumber",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "10th Prox",
+        "currency": null
+      },
+      "read": {
+        "supplier": "MAPLEFORD LUMBER & HARDWARE",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "041-redtail-freight",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "042-wren-hollow-windows",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "$205.00",
+        "total": "$205.00",
+        "amount_due": null,
+        "terms": "Due upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "205.00",
+        "total": "205.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "043-quarrystone-tech",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$348.00",
+        "tax": "$0.00",
+        "total": "$348.00",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "348.00",
+        "tax": "0.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "044-ambervolt-electric",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "045-sentrel-alarm",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Nov 14, 2025",
+        "subtotal": "$149.85",
+        "tax": null,
+        "total": null,
+        "amount_due": "$161.31",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2025-11-14",
+        "subtotal": "149.85",
+        "tax": null,
+        "total": "161.31"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "046-clearbrook-janitorial",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "553.12",
+        "tax": null,
+        "total": "595.43",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "553.12",
+        "tax": null,
+        "total": "595.43"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "047-brightfield-pest",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "10/22/2025",
+        "due_date": null,
+        "subtotal": "7.65",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2025-10-22",
+        "due_date": "2025-11-21",
+        "subtotal": "7.65",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "048-ninebark-hops",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250230",
+        "invoice_date": null,
+        "due_date": "23 November 2025",
+        "subtotal": null,
+        "tax": "$136.88",
+        "total": null,
+        "amount_due": "$136.88",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250230",
+        "invoice_date": null,
+        "due_date": "2025-11-23",
+        "subtotal": null,
+        "tax": "136.88",
+        "total": "136.88"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "049-corvane-malt",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "Oct 25, 2025",
+        "due_date": null,
+        "subtotal": "$1,492.30",
+        "tax": null,
+        "total": "$1,492.30",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "2025-10-25",
+        "due_date": "2025-11-24",
+        "subtotal": "1492.30",
+        "tax": null,
+        "total": "1492.30"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "050-ninebark-hops",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250231",
+        "invoice_date": null,
+        "due_date": "29 November 2025",
+        "subtotal": "$282.11",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$282.11",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250231",
+        "invoice_date": null,
+        "due_date": "2025-11-29",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "051-fenwick-glass",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": null,
+        "invoice_date": "November 19, 2025",
+        "due_date": "December 4, 2025",
+        "subtotal": "$1,979.16",
+        "tax": null,
+        "total": "$2,176.82",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Fenwick Glass & Promo",
+        "invoice_number": null,
+        "invoice_date": "2025-11-19",
+        "due_date": "2025-12-04",
+        "subtotal": "1979.16",
+        "tax": null,
+        "total": "2176.82"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "052-tallowmere-linen",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "11/25/25",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "31.15",
+        "amount_due": null,
+        "terms": "NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "2025-11-25",
+        "due_date": "2025-12-10",
+        "subtotal": null,
+        "tax": null,
+        "total": "31.15"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "053-ninebark-hops",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250232",
+        "invoice_date": null,
+        "due_date": "26 October 2025",
+        "subtotal": "$282.11",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$282.11",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB250232",
+        "invoice_date": null,
+        "due_date": "2025-10-26",
+        "subtotal": "282.11",
+        "tax": "0.00",
+        "total": "282.11"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "054-marrowby-quist",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": "$990.00",
+        "terms": "Due upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "990.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "055-quarrystone-tech",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "$348.00",
+        "total": "$348.00",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "348.00",
+        "total": "348.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "056-hearthstone-propane",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "Hearthstone Propane",
+        "invoice_number": null,
+        "invoice_date": "12/05/2025",
+        "due_date": "12/15/2025",
+        "subtotal": "$157.30",
+        "tax": null,
+        "total": null,
+        "amount_due": "$161.86",
+        "terms": "Net 10",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Hearthstone Propane",
+        "invoice_number": null,
+        "invoice_date": "2025-12-05",
+        "due_date": "2025-12-15",
+        "subtotal": "157.30",
+        "tax": null,
+        "total": "161.86"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "057-wren-hollow-windows",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "$230.00",
+        "total": "$230.00",
+        "amount_due": null,
+        "terms": "Due upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Wren Hollow Window Cleaning",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "230.00",
+        "total": "230.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "058-basalt-rental",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": null,
+        "invoice_date": "01/07/2026",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$412.42",
+        "amount_due": null,
+        "terms": "Due upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Basalt Equipment Rental",
+        "invoice_number": null,
+        "invoice_date": "2026-01-07",
+        "due_date": "2026-01-07",
+        "subtotal": null,
+        "tax": null,
+        "total": "412.42"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "059-ridgeback-parts",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "060-pellham-gas",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "232.56",
+        "tax": null,
+        "total": "250.35",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "232.56",
+        "tax": null,
+        "total": "250.35"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "061-inkhorn-press",
+      "model": "docling",
+      "seconds": 8.0,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,255.14",
+        "tax": null,
+        "total": "$1,351.16",
+        "amount_due": "$1,351.16",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1255.14",
+        "tax": null,
+        "total": "1351.16"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "062-juno-whitlock",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Juno Whitlock Design Studio",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,615.00",
+        "tax": null,
+        "total": null,
+        "amount_due": "$1,615.00",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Juno Whitlock Design Studio",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1615.00",
+        "tax": null,
+        "total": "1615.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "063-inkhorn-press",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "I N V O I C E",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,462.32",
+        "tax": null,
+        "total": "$1,574.19",
+        "amount_due": "$1,574.19",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "I N V O I C E",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1462.32",
+        "tax": null,
+        "total": "1574.19"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "064-pellham-gas",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "10.19",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "10.19",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "065-corvane-malt",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "Mar 21, 2026",
+        "due_date": null,
+        "subtotal": "$1,064.38",
+        "tax": null,
+        "total": "$1,064.38",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "2026-03-21",
+        "due_date": "2026-04-20",
+        "subtotal": "1064.38",
+        "tax": null,
+        "total": "1064.38"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "066-grindstone-disposal",
+      "model": "docling",
+      "seconds": 10.0,
+      "fields": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2185099",
+        "invoice_date": null,
+        "due_date": "04/21/2026",
+        "subtotal": "$438.40",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$438.40",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Grindstone Valley Disposal",
+        "invoice_number": "2185099",
+        "invoice_date": null,
+        "due_date": "2026-04-21",
+        "subtotal": "438.40",
+        "tax": "0.00",
+        "total": "438.40"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "067-quarrystone-tech",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$361.92",
+        "tax": "$0.00",
+        "total": "$361.92",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "068-driftmoor-packaging",
+      "model": "docling",
+      "seconds": 8.0,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,899.02",
+        "tax": null,
+        "total": "$2,035.00",
+        "amount_due": "$2,035.00",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1899.02",
+        "tax": null,
+        "total": "2035.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "069-gullwing-grounds",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "STOMER ORDER NO.",
+        "subtotal": "0.00",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": null,
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "0.00",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 0,
+      "exception": true,
+      "exception_reasons": [
+        "missing_supplier",
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "missing_total",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "STOMER ORDER NO."
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "070-thimbleworth-print",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Thimbleworth Screen Printing",
+        "invoice_number": null,
+        "invoice_date": "May 1, 2026",
+        "due_date": null,
+        "subtotal": "$829.44",
+        "tax": null,
+        "total": "$892.89",
+        "amount_due": "$446.89",
+        "terms": "Payment due in 30 days",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Thimbleworth Screen Printing",
+        "invoice_number": null,
+        "invoice_date": "2026-05-01",
+        "due_date": "2026-05-31",
+        "subtotal": "829.44",
+        "tax": null,
+        "total": "892.89"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "071-redtail-freight",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "542.65",
+        "tax": "0.00",
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "REDTAIL FREIGHT LINES",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "542.65",
+        "tax": "0.00",
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": false
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "072-clearbrook-janitorial",
+      "model": "docling",
+      "seconds": 56.0,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "338.65",
+        "tax": null,
+        "total": "338.65",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "338.65",
+        "tax": null,
+        "total": "338.65"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "073-juno-whitlock",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Juno Whitlock Design Studio",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,912.50",
+        "tax": null,
+        "total": null,
+        "amount_due": "$1,912.50",
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Juno Whitlock Design Studio",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1912.50",
+        "tax": null,
+        "total": "1912.50"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "074-brightfield-pest",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "05/20/2026",
+        "due_date": null,
+        "subtotal": "$130.00",
+        "tax": null,
+        "total": "$139.95",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2026-05-20",
+        "due_date": "2026-06-19",
+        "subtotal": "130.00",
+        "tax": null,
+        "total": "139.95"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "075-driftmoor-packaging",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,628.05",
+        "tax": null,
+        "total": "$1,744.58",
+        "amount_due": "$1,744.58",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1628.05",
+        "tax": null,
+        "total": "1744.58"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "076-ambervolt-electric",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$704.56",
+        "tax": null,
+        "total": "$715.04",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "704.56",
+        "tax": null,
+        "total": "715.04"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "077-sweetgrass-provisions",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "60.68",
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 7",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Sweetgrass Provisions Wholesale",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": "60.68",
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "078-coldwater-refrigeration",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "06/30/2026",
+        "due_date": "07/15/2026",
+        "subtotal": "$760.68",
+        "tax": null,
+        "total": "$760.68",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "2026-06-30",
+        "due_date": "2026-07-15",
+        "subtotal": "760.68",
+        "tax": null,
+        "total": "760.68"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "079-quarrystone-tech",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$361.92",
+        "tax": "$0.00",
+        "total": "$361.92",
+        "amount_due": null,
+        "terms": null,
+        "currency": null
+      },
+      "read": {
+        "supplier": "Quarrystone Tech Partners",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "361.92",
+        "tax": "0.00",
+        "total": "361.92"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "080-tinplate-signs",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Tinplate Sign Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "17.21",
+        "tax": null,
+        "total": "0.00",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Tinplate Sign Works",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "17.21",
+        "tax": null,
+        "total": "0.00"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "081-pinyon-lab",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Pinyon Analytical Laboratory",
+        "invoice_number": null,
+        "invoice_date": "July 7, 2026",
+        "due_date": "August 6, 2026",
+        "subtotal": null,
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$182.48",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pinyon Analytical Laboratory",
+        "invoice_number": null,
+        "invoice_date": "2026-07-07",
+        "due_date": "2026-08-06",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "182.48"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "082-haskett-plumbing",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$592.50",
+        "tax": null,
+        "total": "$599.33",
+        "amount_due": null,
+        "terms": "Upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "592.50",
+        "tax": null,
+        "total": "599.33"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "083-ninebark-hops",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB260233",
+        "invoice_date": null,
+        "due_date": "14 August 2026",
+        "subtotal": "$886.74",
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$886.74",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ninebark Hop Merchants",
+        "invoice_number": "NB260233",
+        "invoice_date": null,
+        "due_date": "2026-08-14",
+        "subtotal": "886.74",
+        "tax": "0.00",
+        "total": "886.74"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_date"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "084-clearbrook-janitorial",
+      "model": "docling",
+      "seconds": 54.0,
+      "fields": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Invoice #",
+        "subtotal": "7.65",
+        "tax": null,
+        "total": "464.84",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Clearbrook Janitorial Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "unparsed",
+        "subtotal": "7.65",
+        "tax": null,
+        "total": "464.84"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax",
+        "unparsed_due_date"
+      ],
+      "currency": null,
+      "printed": {
+        "due_date": "Invoice #"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "085-marrowby-quist",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": "$866.25",
+        "terms": "Due upon receipt OWL100",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Marrowby & Quist, CPAs",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "866.25"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 4,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "086-pinyon-lab",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Pinyon Analytical Laboratory",
+        "invoice_number": null,
+        "invoice_date": "August 27, 2026",
+        "due_date": "September 26, 2026",
+        "subtotal": null,
+        "tax": "$0.00",
+        "total": null,
+        "amount_due": "$123.07",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Pinyon Analytical Laboratory",
+        "invoice_number": null,
+        "invoice_date": "2026-08-27",
+        "due_date": "2026-09-26",
+        "subtotal": null,
+        "tax": "0.00",
+        "total": "123.07"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "087-inkhorn-press",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "7.65",
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Inkhorn Press & Label",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "7.65",
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "088-driftmoor-packaging",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$1,042.13",
+        "tax": null,
+        "total": "$1,109.80",
+        "amount_due": "$1,109.80",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Driftmoor Packaging Supply",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "1042.13",
+        "tax": null,
+        "total": "1109.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "089-coldwater-refrigeration",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "09/07/2026 P.O.8 1752",
+        "due_date": "09/22/2026",
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "INVOICE# 2026-0346 TERMS Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "unparsed",
+        "due_date": "2026-09-22",
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total",
+        "unparsed_invoice_date"
+      ],
+      "currency": null,
+      "printed": {
+        "invoice_date": "09/07/2026 P.O.8 1752"
+      },
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "090-corvane-malt",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "Sep 16, 2026",
+        "due_date": null,
+        "subtotal": "$1,787.12",
+        "tax": null,
+        "total": "$1,787.12",
+        "amount_due": null,
+        "terms": "2/10 Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Corvane Malt & Grain",
+        "invoice_number": null,
+        "invoice_date": "2026-09-16",
+        "due_date": "2026-10-16",
+        "subtotal": "1787.12",
+        "tax": null,
+        "total": "1787.12"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "091-tallowmere-linen",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "09/22/26",
+        "due_date": null,
+        "subtotal": "80.11",
+        "tax": null,
+        "total": "86.24",
+        "amount_due": null,
+        "terms": "NET 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "TALLOWMERE LINEN & UNIFORM",
+        "invoice_number": null,
+        "invoice_date": "2026-09-22",
+        "due_date": "2026-10-07",
+        "subtotal": "80.11",
+        "tax": null,
+        "total": "86.24"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "092-gullwing-grounds",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Net 15",
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Gullwing Grounds & Snow",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "093-haskett-plumbing",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Haskett & Sons Plumbing 1022 Pelton Ave | Fenmore, CO 80947 (719) 555-0158",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Upon receipt",
+        "subtotal": "$445.46",
+        "tax": null,
+        "total": "$450.62",
+        "amount_due": null,
+        "terms": "Upon receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Haskett & Sons Plumbing 1022 Pelton Ave | Fenmore, CO 80947 (719) 555-0158",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "445.46",
+        "tax": null,
+        "total": "450.62"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 2,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "094-pruett-handyman",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "9/28/2026",
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": "$468.80",
+        "amount_due": null,
+        "terms": "Due on receipt",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Dale Pruett Handyman Services",
+        "invoice_number": null,
+        "invoice_date": "2026-09-28",
+        "due_date": "2026-09-28",
+        "subtotal": null,
+        "tax": null,
+        "total": "468.80"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": true,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": false,
+        "tax": true,
+        "total": true
+      },
+      "correct_fields": 6,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_subtotal",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "095-ridgeback-parts",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null,
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ridgeback Auto & Fleet Parts",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": null,
+        "tax": null,
+        "total": null
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": false,
+        "tax": false,
+        "total": false
+      },
+      "correct_fields": 1,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_subtotal",
+        "missing_tax",
+        "missing_total"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "096-sentrel-alarm",
+      "model": "docling",
+      "seconds": 4.0,
+      "fields": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "Nov 14, 2026",
+        "subtotal": "$155.85",
+        "tax": null,
+        "total": null,
+        "amount_due": "$167.77",
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "SAM Sentrel Alarm Monitoring",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": "2026-11-14",
+        "subtotal": "155.85",
+        "tax": null,
+        "total": "167.77"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "097-steelhead-pump",
+      "model": "docling",
+      "seconds": 8.0,
+      "fields": {
+        "supplier": "Steelhead Pump & Valve Repair Steelhead Pump & Valve Repair",
+        "invoice_number": null,
+        "invoice_date": "DUE DATE 11/15/2026",
+        "due_date": "11/15/2026",
+        "subtotal": "787.93",
+        "tax": null,
+        "total": "802.70",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Steelhead Pump & Valve Repair Steelhead Pump & Valve Repair",
+        "invoice_number": null,
+        "invoice_date": "2026-11-15",
+        "due_date": "2026-11-15",
+        "subtotal": "787.93",
+        "tax": null,
+        "total": "802.70"
+      },
+      "right": {
+        "supplier": false,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": true,
+      "error": null
+    },
+    {
+      "id": "098-brightfield-pest",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "10/21/2026",
+        "due_date": null,
+        "subtotal": "$130.00",
+        "tax": null,
+        "total": "$139.95",
+        "amount_due": null,
+        "terms": "Net 30",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Brightfield Pest Solutions",
+        "invoice_number": null,
+        "invoice_date": "2026-10-21",
+        "due_date": "2026-11-20",
+        "subtotal": "130.00",
+        "tax": null,
+        "total": "139.95"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "099-ambervolt-electric",
+      "model": "docling",
+      "seconds": 6.0,
+      "fields": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "$416.34",
+        "tax": null,
+        "total": "$437.23",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Ambervolt Electric LLC",
+        "invoice_number": null,
+        "invoice_date": null,
+        "due_date": null,
+        "subtotal": "416.34",
+        "tax": null,
+        "total": "437.23"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": false,
+        "due_date": false,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 3,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_invoice_date",
+        "missing_due_date",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    },
+    {
+      "id": "100-coldwater-refrigeration",
+      "model": "docling",
+      "seconds": 2.0,
+      "fields": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "11/03/2026",
+        "due_date": "11/18/2026",
+        "subtotal": "$555.27",
+        "tax": null,
+        "total": "$579.49",
+        "amount_due": null,
+        "terms": "Net 15",
+        "currency": null
+      },
+      "read": {
+        "supplier": "Coldwater Ridge Refrigeration",
+        "invoice_number": null,
+        "invoice_date": "2026-11-03",
+        "due_date": "2026-11-18",
+        "subtotal": "555.27",
+        "tax": null,
+        "total": "579.49"
+      },
+      "right": {
+        "supplier": true,
+        "invoice_number": false,
+        "invoice_date": true,
+        "due_date": true,
+        "subtotal": true,
+        "tax": false,
+        "total": true
+      },
+      "correct_fields": 5,
+      "exception": true,
+      "exception_reasons": [
+        "missing_invoice_number",
+        "missing_tax"
+      ],
+      "currency": null,
+      "printed": {},
+      "label_exception": false,
+      "error": null
+    }
+  ],
+  "labeled_fields": [
+    "supplier",
+    "invoice_number",
+    "invoice_date",
+    "due_date",
+    "subtotal",
+    "tax",
+    "total"
+  ]
+}
