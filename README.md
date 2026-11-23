@@ -50,9 +50,9 @@ A phone photo of an invoice whose printed total doesn't match its subtotal plus 
 | Second holdout: 100 invoices, 33 suppliers, 13 layouts, built blind | 659/700 (94%) | 59/100 | 74/100 | 34 |
 | Cross-border holdout: 120 invoices, nine countries, four currencies, built blind | 815/840 (97%) | 101/120 | 42/120 | 4 |
 
-- Each row is one run of the hosted reader on Textract, at about three seconds per invoice. The first two rows are the reader as it was on 2026-11-21. The last two were scored after it learned more date forms, payment terms in six languages, and foreign currency.
+- Each row is one run of the hosted reader on Textract, at about three seconds per invoice. The first two rows are the reader as it was on 2026-11-21. It then learned more date forms, payment terms in six languages, and foreign currency, all developed on a separate practice set. The last two rows are that one reader, scored once on each blind holdout on 2026-11-22. They are two tests of the same reader, not a before and after, so the gap between them comes from the sets, mostly from how their suppliers print their names.
 - Whole invoice right means every labeled field right, which is how many invoices would need no correction. INV-CDIP labels five of the seven fields, so it is judged on those five, and its straight-through rate is not comparable.
-- On the second holdout, every silent error is a supplier name that does not match the letterhead text exactly.
+- On the second holdout, all 34 silent errors are supplier names. In 23 the reader read the name correctly but not in the label's exact form: 13 differ only in case or punctuation, and 10 carry a legal suffix such as "Inc." that the label leaves off. The other 11 are real misreads, mostly a logo monogram such as "TLU" taken as the company name. A fix for those would be scored on a new holdout, not this one.
 - On the cross-border set, the 58 invoices in a currency other than the US dollar go to a person by design, which is why straight-through is lower there.
 - Docling, run locally, read between 37 and 57 percent of fields on the three holdouts and 15 percent on INV-CDIP.
 
@@ -73,7 +73,7 @@ Each set is written and labeled by its own script in `sandbox/`, and the PDFs an
 
 ## Scores
 
-Each score is the sandbox run named with it. The hosted runs read each invoice through the deployed function, which calls Textract. The generated holdout and INV-CDIP runs are the reader as it was on 2026-11-21; the two later holdouts were scored after the reader learned more date forms, payment terms in six languages, and foreign currency.
+Each score is the sandbox run named with it. The hosted runs read each invoice through the deployed function, which calls Textract. The generated holdout and INV-CDIP runs are the reader as it was on 2026-11-21. The two later holdouts were each scored once, on 2026-11-22, by the same reader after it learned more date forms, payment terms in six languages, and foreign currency.
 
 - Generated set (`sandbox/fixtures/`, ten invoices in one layout): the Claude run in `sandbox/runs/2026-10-22-claude.json`. Field accuracy 70/70, straight-through 7/10, invoice accuracy 10/10, 8.3 seconds per invoice. The Grok run is a second pass and is not this score.
 - Harder set (`sandbox/hard/`, ten scans, ten phone photos, and four invoices in a second layout): the hosted run in `sandbox/runs/2026-11-21-hard-hosted.json`. Field accuracy 168/168, straight-through 15/24, invoice accuracy 24/24, no silent errors, 2.9 seconds and about one cent per invoice.
