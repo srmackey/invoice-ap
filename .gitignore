@@ -6,8 +6,12 @@ reads/
 # Built Lambda packages and packaged templates. They carry the account id.
 build/
 
-# INV-CDIP documents and annotations. Fetched by sandbox/get_inv_cdip.py, never committed.
+# INV-CDIP's documents and annotations, and the labels and run files made from them.
+# sandbox/get_inv_cdip.py fetches and rebuilds them. None are committed.
 sandbox/inv-cdip/
+sandbox/inv-cdip.json
+sandbox/inv-cdip-dev.json
+sandbox/runs/*inv-cdip*
 
 # Raw Textract responses for development sets, kept by score.py --cache. Local only.
 sandbox/textract-cache/

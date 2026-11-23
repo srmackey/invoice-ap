@@ -20,8 +20,10 @@ Re-running skips files already present. The manifest records each file's
 sha256 and page count, so multi-page documents can be counted and left out.
 
 Then, once, it writes inv-cdip.json: labels in this project's format for the
-one-page invoices, pinned by sha256. That file is committed and frozen; the
-script refuses to write it again. The rules:
+one-page invoices, pinned by sha256. The set is frozen: the script refuses to
+write the file again, and FROZEN_SHA256 below is the hash of the file frozen on
+2026-11-21, so a rebuilt copy is checked against it. The file stays out of git
+because it carries INV-CDIP's annotations. The rules:
 
 - Five fields can be labeled: invoice_number, invoice_date, due_date, tax,
   total. Supplier and subtotal never are, so the exception rule is not
@@ -61,6 +63,8 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "inv-cdip"
 LABELS = ROOT / "inv-cdip.json"
 FROZEN = "2026-11-21"
+# sha256 of inv-cdip.json as frozen, with CRLF line endings read as LF.
+FROZEN_SHA256 = "8b7d46168761a84031dd0f811fd32de5188c0d0c05f109cbea19b1109abe8a31"
 LABELED = ("invoice_number", "invoice_date", "due_date", "tax", "total")
 SOURCE_LABELS = {
     "Invoice_number": "invoice_number",
@@ -223,9 +227,22 @@ def label_row(doc: dict, annotation: dict) -> tuple[dict, list[dict]]:
     return row, dropped
 
 
+def labels_sha256(path: Path = LABELS) -> str:
+    """The hash FROZEN_SHA256 pins: the file's bytes with CRLF read as LF."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def check_frozen() -> None:
+    if labels_sha256() != FROZEN_SHA256:
+        raise SystemExit(f"{LABELS.name} does not match the set frozen on {FROZEN}; "
+                         "a score on it is not comparable to the README's")
+    print(f"{LABELS.name} matches the set frozen on {FROZEN}.")
+
+
 def write_labels(manifest: dict) -> None:
     if LABELS.exists():
         print(f"{LABELS.name} exists and is frozen. Not rewritten.")
+        check_frozen()
         return
     rows, dropped, excluded, unlabeled = [], [], [], []
     for doc in manifest["documents"]:
@@ -258,6 +275,7 @@ def write_labels(manifest: dict) -> None:
     counts = {name: sum(name in row["labeled"] for row in rows) for name in LABELED}
     print(f"labels {len(rows)} invoices, excluded {len(excluded)} multi-page, "
           f"no usable labels {len(unlabeled)}, dropped values {len(dropped)}, per field {counts}")
+    check_frozen()
 
 
 def main() -> None:

@@ -1,8 +1,10 @@
 """INV-CDIP's labels are the ones get_inv_cdip.py wrote, unchanged.
 
-The label file is committed and frozen. Its shape is checked here: one-page
-invoices only, each judged on the fields it lists, values in this project's
-formats, attribution present. When the documents have been fetched into
+The label file is frozen and stays out of git, since it carries INV-CDIP's
+annotations; get_inv_cdip.py rebuilds it. When it is present, its hash must be
+the frozen one and its shape is checked here: one-page invoices only, each
+judged on the fields it lists, values in this project's formats, attribution
+present. Without it those checks skip. When the documents have been fetched into
 inv-cdip/, each one must match the sha256 in its label; without them those
 checks skip, since the documents are never committed. The date and money
 rules are checked on printed forms seen in the set, with no network call.
@@ -33,8 +35,14 @@ except ImportError:  # pymupdf missing outside sandbox/.venv
 class FrozenLabels(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        if not LABELS.is_file():
+            raise unittest.SkipTest("labels not built; run get_inv_cdip.py")
         cls.data = json.loads(LABELS.read_text(encoding="utf-8"))
         cls.rows = cls.data["invoices"]
+
+    @unittest.skipIf(get_inv_cdip is None, "needs sandbox/.venv (pymupdf)")
+    def test_the_file_is_the_frozen_one(self):
+        self.assertEqual(get_inv_cdip.labels_sha256(LABELS), get_inv_cdip.FROZEN_SHA256)
 
     def test_the_set_says_what_it_labels(self):
         self.assertEqual(self.data["fields"], list(FIVE))

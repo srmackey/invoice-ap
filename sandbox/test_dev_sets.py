@@ -86,6 +86,10 @@ class CurrencySets(unittest.TestCase):
 
 
 class InvCdipDev(unittest.TestCase):
+    def setUp(self):
+        if not (ROOT / "inv-cdip-dev.json").is_file() or not (ROOT / "inv-cdip.json").is_file():
+            self.skipTest("run get_inv_cdip.py, then make_inv_cdip_dev.py")
+
     def test_labels(self):
         payload = load(ROOT / "inv-cdip-dev.json")
         rows = payload["invoices"]
