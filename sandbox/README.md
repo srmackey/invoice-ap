@@ -2,7 +2,7 @@
 
 This is where invoice-ap runs for a test or an evaluation. It is not a customer environment.
 
-Textract AnalyzeExpense is the default runner for the live read. Docling is the local backup. Both live in `../read_invoice.py`, which the command, the page, and this scorer share. The fields and the exception rule are in `../DESIGN.md`. The four numbers and how a set may change are in `../AGENTS.md`. A number that run did not produce is not a result.
+Textract AnalyzeExpense is the default runner for the live read. Docling is the local backup. Both live in `../read_invoice.py`, which the command, the page, and this scorer share. The fields and the exception rule are in `../DESIGN.md`. The four numbers and how a set may change are in `../README.md`. A number that run did not produce is not a result.
 
 `make_fixtures.py` writes `fixtures/*.pdf` and `labels.json`. It needs `reportlab`.
 
