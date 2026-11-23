@@ -1,8 +1,62 @@
-# invoice-ap
+# Invoice reader for accounts payable
 
-Reads one supplier invoice and returns the seven fields an accounts-payable clerk would key, with an exception when the page needs a person. How it works is `DESIGN.md`.
+Reads a supplier invoice, whether it arrives as a clean PDF, a scan, or a phone photo, and returns the seven fields an accounts-payable clerk would key. When something on the page doesn't add up, it sends the invoice to a person with the reason instead of guessing. Measured on three frozen holdout sets and 276 real invoices, at about three seconds and one cent per invoice.
 
 The generated invoices are synthetic, and INV-CDIP is real invoices from a public archive. None of it is a customer's books, and nothing here runs a business.
+
+Built with Python, Amazon Textract (AnalyzeExpense), AWS Lambda, CloudFormation, and AWS X-Ray through OpenTelemetry, with Docling as a local backup.
+
+## The problem
+
+Someone types every supplier invoice into the books: who sent it, the invoice number, the dates, the amounts. Invoices come in whatever layout the supplier likes, scanned crooked, photographed on a desk, sometimes in another currency or language. Reading them automatically is the easy half. The costly mistake is the invoice that gets read wrong and goes through anyway, because nobody checks an invoice the system said was fine.
+
+## What it does
+
+- **Reads the fields a clerk keys.** Supplier, invoice number, invoice date, due date, subtotal, tax, and total. When only payment terms are printed, it works out the due date from them, in six languages.
+- **Raises an exception instead of guessing.** A missing field, a date or amount it can't parse, a due date before the invoice date, totals that don't add up, or a currency other than the US dollar sends the invoice to a person with the reason.
+- **Counts the dangerous misses on their own.** Every scored run lists its silent errors: invoices that raised no exception and still read a field wrong. That is the number that costs money, so it is reported, not averaged away.
+- **Is scored on sets it never saw.** Each holdout was frozen before any runner read it, scored once, and never used to tune the reader. Two were built blind by outside agents that never saw this project. A miss on a holdout is reported, not fixed against it.
+- **Runs as a locked-down service.** One AWS Lambda function behind a function URL that requires IAM credentials, deployed from CloudFormation and traced in X-Ray. A live test checks that callers without permission get a 403.
+- **Works without AWS too.** A local Docling container is a backup runner, scored on the same sets.
+
+How it works, field by field, is in [DESIGN.md](DESIGN.md).
+
+## What a read looks like
+
+A phone photo of an invoice whose printed total doesn't match its subtotal plus tax (`sandbox/hard/photos/photo-10-pinion.pdf`), as the hosted reader returned it, trimmed to the fields and the exception:
+
+```json
+{
+  "supplier": "Pinion Parts",
+  "invoice_number": "PP-4471",
+  "invoice_date": "2026-08-21",
+  "due_date": "2026-09-20",
+  "subtotal": "480.00",
+  "tax": "38.40",
+  "total": "500.00",
+  "exception": true,
+  "exception_reasons": ["total_mismatch"]
+}
+```
+
+480.00 plus 38.40 is 518.40, not 500.00, so a person looks at it before anything is paid.
+
+## Results at a glance
+
+| Set | Fields right | Whole invoice right | Straight through | Silent errors |
+|---|---|---|---|---|
+| First holdout: 100 generated invoices, 12 layouts, clean, scanned, and photographed | 627/700 (90%) | 60/100 | 62/100 | 18 |
+| INV-CDIP: 276 real invoices from a public archive, mostly scans | 761/896 (85%) | 178/276 | not compared | 3 |
+| Second holdout: 100 invoices, 33 suppliers, 13 layouts, built blind | 659/700 (94%) | 59/100 | 74/100 | 34 |
+| Cross-border holdout: 120 invoices, nine countries, four currencies, built blind | 815/840 (97%) | 101/120 | 42/120 | 4 |
+
+- Each row is one run of the hosted reader on Textract, at about three seconds per invoice. The first two rows are the reader as it was on 2026-11-21. The last two were scored after it learned more date forms, payment terms in six languages, and foreign currency.
+- Whole invoice right means every labeled field right, which is how many invoices would need no correction. INV-CDIP labels five of the seven fields, so it is judged on those five, and its straight-through rate is not comparable.
+- On the second holdout, every silent error is a supplier name that does not match the letterhead text exactly.
+- On the cross-border set, the 58 invoices in a currency other than the US dollar go to a person by design, which is why straight-through is lower there.
+- Docling, run locally, read between 37 and 57 percent of fields on the three holdouts and 15 percent on INV-CDIP.
+
+The full record, with the run file behind every number, is under [Scores](#scores). To read an invoice yourself, see [Install](#install). To deploy the reader to your own AWS account, see [Host](#host).
 
 ## Benchmark
 
