@@ -189,6 +189,6 @@ No release is cut. The install above is how another computer runs the page and o
 
 ## License
 
-Copyright 2026 Scott Mackey. [MIT License](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 One score uses INV-CDIP (Mingfei Gao, Zeyuan Chen, Nikhil Naik, Kazuma Hashimoto, Caiming Xiong, Ran Xu, "Field Extraction from Forms with Unlabeled Data", ACL Spa-NLP Workshop 2022, [salesforce/inv-cdip](https://github.com/salesforce/inv-cdip)), whose annotations are licensed [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). None of it is in this repository: the documents, the annotations, and the labels and run files made from them stay local. `sandbox/get_inv_cdip.py` fetches them.
